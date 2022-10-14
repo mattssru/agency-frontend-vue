@@ -14,8 +14,7 @@ export default {
       <div class="row">
         <div class="col-auto">
           <div v-if="icon" class="text-primary">
-            <i class="align-middle" :data-feather="icon"></i>
-            <img src="@assets/image/doc.svg" alt="" />
+            <img :src="'@assets/+image/doc.svg'" alt="" />
           </div>
         </div>
         <div class="col mt-0">

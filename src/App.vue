@@ -1,10 +1,9 @@
 <script setup>
 import Layouts from "@components/Layouts/index.vue";
-import AG from "./views/AG/index.vue";
 </script>
 
 <template>
-  <main>
+  <main class="main">
     <Layouts>
       <template #body>
         <router-view />
