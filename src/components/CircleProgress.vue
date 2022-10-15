@@ -48,15 +48,16 @@ export default {
       linecap="line"
       :fill-color="color"
       :empty-color="bgColor"
+      data-font="20px"
+      style="font-size: 30"
     />
   </div>
 </template>
 
 <style lang="scss" scoped>
-.custom-circle ::v-deep(.current-counter) {
-  font-size: 30px;
-}
-.custom-circle ::v-deep(.current-counter)::after {
-  content: "%";
+.custom-circle {
+  ::v-deep(.current-counter)::after {
+    content: "%";
+  }
 }
 </style>

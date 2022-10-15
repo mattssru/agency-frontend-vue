@@ -1,5 +1,5 @@
 <script>
-import { Button, Card } from "@components";
+import { Button, Card, CircleProgress } from "@components";
 import IconTabsFirst from "@components/icons/IconTabsFirst.vue";
 import IconTabsSecon from "@components/icons/IconTabsSecon.vue";
 
@@ -10,6 +10,7 @@ export default {
     Card,
     IconTabsFirst,
     IconTabsSecon,
+    CircleProgress,
   },
   data() {
     return {};
@@ -45,7 +46,7 @@ export default {
               <p class="text_small color_pink mb-0">เหลือเวลาอีก 64 วัน</p>
             </div>
             <div class="d-flex pt-3" style="padding: 0 15px">
-              <div class="graph me-3"></div>
+              <CircleProgress :size="72" :percent="80" :width="15" />
               <div>
                 <div class="mb-2">
                   <span class="text_medium font_semi">Pc สะสม</span>&nbsp;
