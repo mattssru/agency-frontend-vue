@@ -61,7 +61,12 @@ export default {
             ดูผลงานรายเดือนย้อนหลัง
           </router-link>
         </div>
-        <span @click="show = !show">click</span>
+      </div>
+      <div class="btnAbsolute">
+        <button
+          @click="show = !show"
+          class="btnExpend d-flex align-items-center justify-content-center"
+        ></button>
       </div>
     </div>
   </div>
@@ -69,6 +74,36 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+.show.box_item .btnExpend::after {
+  transform: rotate(-180deg);
+}
+.btnAbsolute {
+  position: absolute !important;
+  top: 10px;
+  right: 15px;
+  z-index: 100;
+}
+.btnExpend {
+  position: relative !important;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 3px;
+  background-color: #c3e7f4;
+  border: none;
+  opacity: 0.7;
+  position: relative;
+}
+.btnExpend::after {
+  content: "";
+  background-image: url(@assets/image/icon_down.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: auto;
+  width: 10px;
+  height: 10px;
+  transition: transform 0.2s ease-in-out;
+}
 .show {
   //position: relative;
   position: absolute;
@@ -81,6 +116,7 @@ export default {
 }
 .box_item {
   width: 100%;
+  position: relative;
 }
 .show .extend {
   z-index: 100;
