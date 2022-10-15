@@ -1,17 +1,17 @@
 import { h, resolveComponent } from "vue";
 import { createRouter, createWebHistory } from "vue-router";
-import AGPage from "@views/AG/index.vue";
-import UMPage from "@views/UM/index.vue";
+import StructurePage from "@views/Structure/index.vue";
+import SummaryReportPage from "@views/SummaryReport/index.vue";
 import Dashboard from "@views/Dashboard/index.vue";
 const routes = [
   { path: "/", component: Dashboard },
   {
-    path: "/um",
-    component: AGPage,
+    path: "/structure-agent",
+    component: StructurePage,
   },
   {
-    path: "/log-in",
-    component: UMPage,
+    path: "/summary-report",
+    component: SummaryReportPage,
   },
 ];
 

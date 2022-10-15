@@ -2,7 +2,7 @@
 import { Card, Button, Table } from "@components";
 
 export default {
-  name: "DefaultLayout",
+  name: "SummaryReport",
   components: {
     Card,
     Button,
@@ -12,7 +12,7 @@ export default {
 </script>
 
 <template>
-  <main class="content">UM</main>
+  <main class="content">Summary Report</main>
 </template>
 
 <style scoped></style>

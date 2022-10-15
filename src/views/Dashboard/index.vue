@@ -3,6 +3,7 @@ import { Button, Card, CircleProgress } from "@components";
 import IconTabsFirst from "@components/icons/IconTabsFirst.vue";
 import IconTabsSecon from "@components/icons/IconTabsSecon.vue";
 import CardExpend from "../../components/CardExpend.vue";
+import Modal from "../../components/Modal.vue";
 
 export default {
   name: "Dashboard",
@@ -13,24 +14,35 @@ export default {
     IconTabsSecon,
     CircleProgress,
     CardExpend,
+    Modal,
   },
   data() {
-    return {};
+    return {
+      showModal: false,
+    };
   },
 };
 </script>
 
 <template>
+  <modal button-name="Share ผลงาน" v-if="showModal" @close="showModal = false">
+    <template #header><h2>Share ผลงานของคุณ</h2></template>
+    <template #body>sss</template>
+  </modal>
   <div class="dashboard">
     <div class="container-fluid">
       <div
         class="mb-3 d-flex flex-column flex-lg-row align-items-start align-lg-item-center justify-content-between"
       >
         <h1 class="mb-2 mb-lg-0">AGENCY PERFORMANCE TRACKER</h1>
-        <a href="#" class="d-flex align-items-center font_semi text_small">
+        <div
+          id="show-modal"
+          @click="showModal = true"
+          class="d-flex align-items-center font_semi text_small"
+        >
           <img src="@assets/image/icon_share.svg" alt="" class="me-2" />
           Share ผลงานของคุณ
-        </a>
+        </div>
       </div>
       <div class="row mb-3">
         <div class="col-lg-7">
@@ -374,6 +386,9 @@ export default {
   width: 16px;
   height: 16px;
   border-radius: 100%;
+}
+div#show-modal {
+  color: white;
 }
 .condition .form-check-input:checked {
   background-color: #13a0d3;

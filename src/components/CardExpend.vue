@@ -1,3 +1,14 @@
+<script>
+export default {
+  name: "CardExpend",
+  data() {
+    return {
+      show: false,
+    };
+  },
+};
+</script>
+
 <template>
   <div class="card-expand">
     <div :class="show ? 'show box_item' : 'box_item'">
@@ -35,20 +46,20 @@
               <p>: 08642086</p>
             </div>
           </Transition>
-          <a
-            href="#"
+          <router-link
+            to="/structure-agent"
             class="font_medium color_primary text_small d-flex align-items-center mb-2 text-decoration-underline"
           >
             <img src="@assets/image/icon_profile_1.svg" alt="" class="me-2" />
             ดูโครงสร้างและหน่วยงานภายใต้ตัวแทน
-          </a>
-          <a
-            href="#"
+          </router-link>
+          <router-link
+            to="/summary-report"
             class="font_medium color_primary text_small d-flex align-items-center text-decoration-underline"
           >
             <img src="@assets/image/icon_profile_2.svg" alt="" class="me-2" />
             ดูผลงานรายเดือนย้อนหลัง
-          </a>
+          </router-link>
         </div>
         <span @click="show = !show">click</span>
       </div>
@@ -56,17 +67,7 @@
   </div>
   <div :class="show ? 'show bg-overlay' : ''"></div>
 </template>
-<script>
-export default {
-  name: "CardExpend",
-  data() {
-    return {
-      height: this.$refs.expend,
-      show: false,
-    };
-  },
-};
-</script>
+
 <style lang="scss" scoped>
 .show {
   //position: relative;
