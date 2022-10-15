@@ -8,6 +8,7 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
   },
   "dependencies": {
+    "@ivanv/vue-collapse-transition": "^1.0.2",
     "@popperjs/core": "^2.11.6",
     "bootstrap": "^5.2.2",
     "sass": "^1.55.0",
