@@ -116,7 +116,7 @@ export default {
 }
 .box_item {
   width: 100%;
-  position: relative;
+  //position: relative;
 }
 .show .extend {
   z-index: 100;

@@ -2,6 +2,7 @@
 import { Button, Card, CardExpend, CircleProgress, Modal } from "@components";
 import IconTabsFirst from "@components/icons/IconTabsFirst.vue";
 import IconTabsSecon from "@components/icons/IconTabsSecon.vue";
+import CardEliteExpend from "./CardEliteExpend.vue";
 
 export default {
   name: "Dashboard",
@@ -13,6 +14,7 @@ export default {
     CircleProgress,
     CardExpend,
     Modal,
+    CardEliteExpend,
   },
   data() {
     return {
@@ -373,7 +375,7 @@ export default {
           </div>
         </div>
       </div>
-      <div class="premier_dashboard">
+      <!-- <div class="premier_dashboard">
         <div class="row">
           <div class="col-lg-3 col-sm-12 nopaddingright">
             <div class="head_premier d-flex flex-column justify-content-center">
@@ -413,7 +415,7 @@ export default {
             <div class="bottom_right_premier"></div>
           </div>
         </div>
-        <!-- <div class="table_premier table-responsive mt-4">
+        <div class="table_premier table-responsive mt-4">
           <table class="table_custom">
             <thead>
               <tr>
@@ -457,8 +459,10 @@ export default {
               </tr>
             </tbody>
           </table>
-        </div> -->
-      </div>
+        </div>
+      </div> -->
+
+      <CardEliteExpend />
     </div>
   </div>
 </template>
@@ -467,6 +471,7 @@ export default {
 .dashboard {
   background: #003781;
   padding: 20px;
+  height: 100vh;
 }
 .head_box {
   border-bottom: 1px solid #e0e0e0;
