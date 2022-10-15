@@ -51,6 +51,9 @@ h1 {
 .color_green {
   color: #5fcd8a;
 }
+.color_yellow {
+  color: #fab600;
+}
 .grid_2 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -77,6 +80,16 @@ h1 {
   padding: 10px 15px 10px 15px;
 }
 @media (max-width: 991px) {
+  .nopaddingright {
+    padding-right: 12px !important;
+  }
+  .nopaddingleft {
+    padding-left: 12px !important;
+  }
+  .text_medium {
+    font-size: 16px;
+    line-height: 20px;
+  }
   .grid_2 {
     grid-template-columns: repeat(1, 1fr);
   }
@@ -88,6 +101,14 @@ h1 {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
   }
+}
+@media (max-width: 768px) {
+  /* .nopaddingright {
+    padding-right: 12px !important;
+  }
+  .nopaddingleft {
+    padding-left: 12px !important;
+  } */
 }
 
 /* css_kit */

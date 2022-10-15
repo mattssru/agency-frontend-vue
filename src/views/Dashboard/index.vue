@@ -32,7 +32,7 @@ export default {
       </div>
       <div class="row mb-3">
         <div class="col-lg-7">
-          <div class="box_item px-0">
+          <div class="box_item px-0 mb-3 mb-lg-0">
             <div
               class="head_box d-flex justify-content-between align-items-center"
               style="padding: 0 15px 10px 15px"
@@ -46,7 +46,13 @@ export default {
               <p class="text_small color_pink mb-0">เหลือเวลาอีก 64 วัน</p>
             </div>
             <div class="d-flex pt-3" style="padding: 0 15px">
-              <CircleProgress :size="72" :percent="80" :width="15" />
+              <CircleProgress
+                :size="72"
+                :percent="48"
+                :width="15"
+                color="#F62459"
+                class="me-3"
+              />
               <div>
                 <div class="mb-2">
                   <span class="text_medium font_semi">Pc สะสม</span>&nbsp;
@@ -124,9 +130,9 @@ export default {
           </div>
         </div>
       </div>
-      <div class="plan_dashboard">
+      <div class="plan_dashboard mb-3">
         <div class="row">
-          <div class="col-md-3 nopaddingright">
+          <div class="col-lg-3 col-sm-12 nopaddingright">
             <div
               class="head_plan text_medium color_primary font_semi d-flex align-items-center"
             >
@@ -180,7 +186,7 @@ export default {
               </div>
             </div>
           </div>
-          <div class="col-md-9 nopaddingleft">
+          <div class="col-lg-9 col-sm-12 nopaddingleft">
             <div class="tabs_dashboard">
               <ul class="nav nav-pills" id="pills-tab" role="tablist">
                 <li class="nav-item" role="presentation">
@@ -216,28 +222,154 @@ export default {
               </ul>
             </div>
             <div class="right_plan">
-              <div class="grid_2">
-                <div class="box_item d-flex">
-                  <img
-                    src="@assets/image/icon_congrat.svg"
-                    alt=""
-                    class="me-3"
-                  />
-                  <div class="assets_plan">
-                    <p class="font_medium d-inline-block me-1">
-                      PC สะสมของตนเอง
-                    </p>
-                    <span class="color_gray">(ม.ค. 65 - มิ.ย. 65)</span>
-                    <p class="text_large font_semi color_green">130,000</p>
-                    <p class="text_small">(เป้าหมายที่ต้องทำได้ 50,000 PC)</p>
+              <div class="tab-content" id="pills-tabContent">
+                <div
+                  class="tab-pane fade show active"
+                  id="pills-home"
+                  role="tabpanel"
+                  aria-labelledby="pills-home-tab"
+                >
+                  <div class="grid_2">
+                    <div class="box_item d-flex align-items-center">
+                      <img
+                        src="@assets/image/icon_congrat.svg"
+                        alt=""
+                        class="me-3"
+                        height="60"
+                      />
+                      <div class="assets_plan">
+                        <p class="font_medium d-inline-block me-1">
+                          PC สะสมของตนเอง
+                        </p>
+                        <span class="color_gray">(ม.ค. 65 - มิ.ย. 65)</span>
+                        <p class="text_large font_semi color_green">130,000</p>
+                        <p class="text_small">
+                          (เป้าหมายที่ต้องทำได้ 50,000 PC)
+                        </p>
+                      </div>
+                    </div>
+                    <div class="box_item d-flex align-items-center">
+                      <CircleProgress
+                        :size="72"
+                        :percent="80"
+                        :width="15"
+                        color="#FAB600"
+                        class="me-3"
+                      />
+                      <div class="assets_plan">
+                        <p class="font_medium d-inline-block me-1">
+                          PC สะสมของทีม
+                        </p>
+                        <span class="color_gray">(ม.ค. 65 - มิ.ย. 65)</span>
+                        <p class="text_large font_semi color_yellow">320,000</p>
+                        <p>(เป้าหมายที่ต้องทำได้ 400,000 PC)</p>
+                      </div>
+                    </div>
+                    <div class="box_item d-flex align-items-center">
+                      <div
+                        class="font_semi color_pink me-3"
+                        style="font-size: 24px; line-height: 36px"
+                      >
+                        30.56%
+                      </div>
+                      <div class="assets_plan">
+                        <p class="font_medium">ประมาณการอัตราความยั่งยืน</p>
+                        <p class="font_medium text_small">
+                          ล่วงหน้าสะสม 19 เดือน
+                        </p>
+                        <p class="font_medium text_small">ณ เดือน มิ.ย. 2565</p>
+                        <p>(เป้าหมายที่ต้องทำได้ 80%)</p>
+                      </div>
+                    </div>
+                    <div class="box_item d-flex align-items-center">
+                      <CircleProgress
+                        :size="72"
+                        :percent="75"
+                        :width="15"
+                        color="#F86200"
+                        class="me-3"
+                      />
+                      <div class="assets_plan">
+                        <p class="font_medium me-1">
+                          จำนวนตัวแทนที่แนะนำโดยตรง
+                        </p>
+                        <p
+                          class="text_large font_semi d-inline-flex align-items-center"
+                          style="color: #f86200"
+                        >
+                          3
+                          <img
+                            src="@assets/image/icon_user_orange.svg"
+                            alt=""
+                            class="ms-1 me-2"
+                          />
+                        </p>
+                        <span class="color_gray">(PC สะสมมากว่า 30,000)</span>
+                        <p>(เป้าหมายที่ต้องทำได้ 4 คน)</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <div class="box_item"></div>
-                <div class="box_item"></div>
-                <div class="box_item"></div>
+                <div
+                  class="tab-pane fade"
+                  id="pills-profile"
+                  role="tabpanel"
+                  aria-labelledby="pills-profile-tab"
+                >
+                  <div class="grid_2">
+                    <div
+                      class="box_item d-flex flex-column align-items-sm-center justify-content-center"
+                    >
+                      <CircleProgress
+                        :size="72"
+                        :percent="30"
+                        :width="15"
+                        color="#F62459"
+                        class="mb-3"
+                      />
+                      <div class="assets_plan text-center">
+                        <p class="font_medium">PC สะสมของตนเอง</p>
+                        <p class="font_medium text_small mb-1">
+                          ก.ค. 2565 - ธ.ค. 2565
+                        </p>
+                        <p class="font_semi text_large color_pink mb-1">
+                          180,000
+                        </p>
+                        <p>(เป้าหมายที่ต้องทำได้ 600,000 PC)</p>
+                      </div>
+                    </div>
+                    <div
+                      class="box_item d-flex flex-column align-items-center justify-content-center"
+                    >
+                      <div class="font_semi text_large color_pink mb-3">
+                        30.56%
+                      </div>
+                      <div class="assets_plan text-center">
+                        <p class="font_medium">ประมาณการอัตราความยั่งยืน</p>
+                        <p class="font_medium text_small mb-2">
+                          ล่วงหน้าสะสม 19 เดือน ณ เดือน มิ.ย. 2565
+                        </p>
+                        <p>(เป้าหมายที่ต้องทำได้ 80%)</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
+        </div>
+      </div>
+      <div class="premier_dashboard">
+        <div class="row">
+          <div class="col-lg-3">
+            <div
+              class="text_medium color_primary font_semi d-flex align-items-center"
+            >
+              <img src="@assets/image/icon_elite.svg" alt="" class="me-2" />
+              Elite / Premier AG
+            </div>
+          </div>
+          <div class="col-lg-9"></div>
         </div>
       </div>
     </div>
@@ -274,13 +406,8 @@ export default {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 }
-.graph {
-  width: 72px;
-  height: 72px;
-  background-color: red;
-  border-radius: 100%;
-}
-.plan_dashboard {
+.plan_dashboard,
+.premier_dashboard {
   border-radius: 8px;
   box-shadow: 0 0 16px rgba(0, 0, 0, 0.12);
   background-color: #fff;
@@ -292,7 +419,6 @@ export default {
 }
 .left_plan {
   padding: 25px 24px 24px 16px;
-  border-right: 1px solid #e0e0e0;
 }
 .um {
   font-size: 36px;
@@ -338,6 +464,10 @@ export default {
 }
 .right_plan {
   padding: 15px;
+  border-left: 1px solid #e0e0e0;
+}
+.right_plan .tab-pane:first-child .box_item {
+  height: 105px;
 }
 .assets_plan p:first-child {
   font-size: 16px;

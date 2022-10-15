@@ -11669,8 +11669,7 @@ html {
 
 body {
   opacity: 1 !important;
-  /* overflow-y: scroll; */
-  overflow: hidden;
+  overflow-y: scroll;
 }
 
 @media (-ms-high-contrast: none), screen and (-ms-high-contrast: active) {

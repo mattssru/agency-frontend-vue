@@ -1,6 +1,6 @@
 <script>
-import "vue3-circle-progress/dist/circle-progress.css";
 import CircleProgress from "vue3-circle-progress";
+import "vue3-circle-progress/dist/circle-progress.css";
 
 export default {
   name: "Progress",
@@ -26,7 +26,7 @@ export default {
     },
     bgColor: {
       type: String,
-      default: "white",
+      default: "#E0E0E0",
     },
   },
   data() {
