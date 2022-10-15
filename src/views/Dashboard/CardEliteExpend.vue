@@ -10,7 +10,10 @@ export default {
 </script>
 <template>
   <div class="card-extend">
-    <div class="premier_dashboard">
+    <div
+      :style="{ visibility: show ? 'hidden' : 'visible' }"
+      class="premier_dashboard"
+    >
       <div class="row">
         <div class="col-lg-3 col-sm-12 nopaddingright">
           <div class="head_premier d-flex flex-column justify-content-center">
@@ -154,6 +157,7 @@ export default {
       </div>
     </Transition>
   </div>
+  <div :class="show ? 'show bg-overlay' : ''"></div>
 </template>
 
 <style lang="scss" scoped>
@@ -163,8 +167,8 @@ export default {
   background-color: #fff;
   overflow: hidden;
 }
-.show.box_item .btnExpend::after {
-  transform: rotate(-180deg);
+.second .btnExpend::after {
+  transform: rotate(0deg);
 }
 .btnAbsolute {
   position: absolute !important;
@@ -191,6 +195,7 @@ export default {
   width: 10px;
   height: 10px;
   transition: transform 0.2s ease-in-out;
+  transform: rotate(-180deg);
 }
 .btn-container {
   display: inline-block;
@@ -224,6 +229,7 @@ button {
   position: absolute;
   bottom: 0;
   width: 100%;
+  z-index: 100;
 }
 .head_premier {
   height: 60px;
@@ -246,5 +252,14 @@ button {
 }
 .table_premier .table_custom {
   min-width: 900px;
+}
+.show.bg-overlay {
+  position: absolute;
+  background-color: #2e2e2e85;
+  z-index: 50;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
 }
 </style>

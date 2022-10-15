@@ -17,17 +17,9 @@ export default {
     CardEliteExpend,
   },
   data() {
-    return {
-      showModal: false,
-      picked: "One",
-    };
+    return {};
   },
-  methods: {
-    handleClickModal() {
-      this.showModal = false;
-      console.log("CloseModal");
-    },
-  },
+  methods: {},
 };
 </script>
 
@@ -158,216 +150,81 @@ export default {
             <div class="left_plan">
               <div class="um d-flex align-items-center mb-3">
                 <img src="@assets/image/um.svg" alt="" class="me-2" />
-                UM
-              </div>
-              <div class="condition mb-4">
-                <p class="text_small mb-2">เงื่อนไข</p>
-                <div class="d-flex justify-content-between">
-                  <div
-                    class="form-check d-inline-flex align-items-center mb-0 me-2"
-                  >
-                    <input
-                      class="form-check-input mt-0 me-2"
-                      type="checkbox"
-                      id="inlineCheckbox1"
-                      value="option1"
-                    />
-                    <label
-                      class="form-check-label text_small"
-                      for="inlineCheckbox1"
-                      >6 เดือน</label
-                    >
-                  </div>
-                  <div class="form-check d-inline-flex align-items-center mb-0">
-                    <input
-                      class="form-check-input mt-0 me-1"
-                      type="checkbox"
-                      id="inlineCheckbox2"
-                      value="option2"
-                    />
-                    <label
-                      class="form-check-label text_small"
-                      for="inlineCheckbox2"
-                      >12 เดือน</label
-                    >
-                  </div>
-                </div>
-              </div>
-              <div>
-                <label for="" class="mb-2 text_small">รอบ</label>
-                <select class="form-select" aria-label="Default select example">
-                  <option selected>รอบ 1 ก.ค. 2565</option>
-                  <option value="1">One</option>
-                </select>
+                DM
               </div>
             </div>
           </div>
           <div class="col-lg-9 col-sm-12 nopaddingleft">
-            <div class="tabs_dashboard">
-              <ul class="nav nav-pills" id="pills-tab" role="tablist">
-                <li class="nav-item" role="presentation">
-                  <button
-                    class="nav-link color_blue d-flex align-items-center justify-content-center active"
-                    id="pills-home-tab"
-                    data-bs-toggle="pill"
-                    data-bs-target="#pills-home"
-                    type="button"
-                    role="tab"
-                    aria-controls="pills-home"
-                    aria-selected="true"
-                  >
-                    <IconTabsFirst class="me-2" />
-                    Go For Team
-                  </button>
-                </li>
-                <li class="nav-item" role="presentation">
-                  <button
-                    class="nav-link color_blue d-flex align-items-center justify-content-center"
-                    id="pills-profile-tab"
-                    data-bs-toggle="pill"
-                    data-bs-target="#pills-profile"
-                    type="button"
-                    role="tab"
-                    aria-controls="pills-profile"
-                    aria-selected="false"
-                  >
-                    <IconTabsSecon class="me-2" />
-                    One Man Show
-                  </button>
-                </li>
-              </ul>
-            </div>
             <div class="right_plan">
-              <div class="tab-content" id="pills-tabContent">
-                <div
-                  class="tab-pane fade show active"
-                  id="pills-home"
-                  role="tabpanel"
-                  aria-labelledby="pills-home-tab"
-                >
-                  <div class="grid_2">
-                    <div class="box_item d-flex align-items-center">
-                      <img
-                        src="@assets/image/icon_congrat.svg"
-                        alt=""
-                        class="me-3"
-                        height="60"
-                      />
-                      <div class="assets_plan">
-                        <p class="font_medium d-inline-block me-1">
-                          PC สะสมของตนเอง
-                        </p>
-                        <span class="color_gray">(ม.ค. 65 - มิ.ย. 65)</span>
-                        <p class="text_large font_semi color_green">130,000</p>
-                        <p class="text_small">
-                          (เป้าหมายที่ต้องทำได้ 50,000 PC)
-                        </p>
-                      </div>
+              <div class="grid_2">
+                <div>
+                  <div class="box_item d-flex align-items-center mb-3">
+                    <CircleProgress
+                      :size="72"
+                      :percent="80"
+                      :width="12"
+                      color="#FAB600"
+                      class="me-3"
+                    />
+                    <div class="assets_plan">
+                      <p class="font_medium d-inline-block me-1">
+                        PC สะสมของหน่วย
+                      </p>
+                      <p class="color_gray">(ม.ค. 65 - มิ.ย. 65)</p>
+                      <p class="text_large font_semi color_yellow mt-2">
+                        320,000
+                      </p>
+                      <p>(เป้าหมายที่ต้องทำได้ 400,000 PC)</p>
                     </div>
-                    <div class="box_item d-flex align-items-center">
-                      <CircleProgress
-                        :size="72"
-                        :percent="80"
-                        :width="12"
-                        color="#FAB600"
-                        class="me-3"
-                      />
-                      <div class="assets_plan">
-                        <p class="font_medium d-inline-block me-1">
-                          PC สะสมของทีม
-                        </p>
-                        <span class="color_gray">(ม.ค. 65 - มิ.ย. 65)</span>
-                        <p class="text_large font_semi color_yellow">320,000</p>
-                        <p>(เป้าหมายที่ต้องทำได้ 400,000 PC)</p>
-                      </div>
-                    </div>
-                    <div class="box_item d-flex align-items-center">
-                      <div
-                        class="font_semi color_pink me-3"
-                        style="font-size: 24px; line-height: 36px"
+                  </div>
+                  <div class="box_item d-flex align-items-center">
+                    <CircleProgress
+                      :size="72"
+                      :percent="75"
+                      :width="12"
+                      color="#F86200"
+                      class="me-3"
+                    />
+                    <div class="assets_plan">
+                      <p class="font_medium me-1">จำนวนตัวแทนที่แนะนำโดยตรง</p>
+                      <p class="color_gray">
+                        ที่ PC >= 30,000 (ม.ค. 65 - ธ.ค. 65)
+                      </p>
+                      <p
+                        class="mt-2 text_large font_semi d-inline-flex align-items-center"
+                        style="color: #f86200"
                       >
-                        30.56%
-                      </div>
-                      <div class="assets_plan">
-                        <p class="font_medium">ประมาณการอัตราความยั่งยืน</p>
-                        <p class="font_medium text_small">
-                          ล่วงหน้าสะสม 19 เดือน
-                        </p>
-                        <p class="font_medium text_small">ณ เดือน มิ.ย. 2565</p>
-                        <p>(เป้าหมายที่ต้องทำได้ 80%)</p>
-                      </div>
-                    </div>
-                    <div class="box_item d-flex align-items-center">
-                      <CircleProgress
-                        :size="72"
-                        :percent="75"
-                        :width="12"
-                        color="#F86200"
-                        class="me-3"
-                      />
-                      <div class="assets_plan">
-                        <p class="font_medium me-1">
-                          จำนวนตัวแทนที่แนะนำโดยตรง
-                        </p>
-                        <p
-                          class="text_large font_semi d-inline-flex align-items-center"
-                          style="color: #f86200"
-                        >
-                          3
-                          <img
-                            src="@assets/image/icon_user_orange.svg"
-                            alt=""
-                            class="ms-1 me-2"
-                          />
-                        </p>
-                        <span class="color_gray">(PC สะสมมากว่า 30,000)</span>
-                        <p>(เป้าหมายที่ต้องทำได้ 4 คน)</p>
-                      </div>
+                        5
+                        <img
+                          src="@assets/image/icon_user_orange.svg"
+                          alt=""
+                          class="ms-1 me-2"
+                        />
+                      </p>
+                      <!-- <span class="color_gray">(PC สะสมมากว่า 30,000)</span> -->
+                      <p>(เป้าหมายที่ต้องทำได้ 6 คน)</p>
                     </div>
                   </div>
                 </div>
                 <div
-                  class="tab-pane fade"
-                  id="pills-profile"
-                  role="tabpanel"
-                  aria-labelledby="pills-profile-tab"
+                  class="box_item d-flex flex-column align-items-center justify-content-center"
                 >
-                  <div class="grid_2">
-                    <div
-                      class="box_item d-flex flex-column align-items-sm-center justify-content-center"
-                    >
-                      <CircleProgress
-                        :size="72"
-                        :percent="30"
-                        :width="15"
-                        color="#F62459"
-                        class="mb-3"
-                      />
-                      <div class="assets_plan text-center">
-                        <p class="font_medium">PC สะสมของตนเอง</p>
-                        <p class="font_medium text_small mb-1">
-                          ก.ค. 2565 - ธ.ค. 2565
-                        </p>
-                        <p class="font_semi text_large color_pink mb-1">
-                          180,000
-                        </p>
-                        <p>(เป้าหมายที่ต้องทำได้ 600,000 PC)</p>
-                      </div>
+                  <img
+                    src="@assets/image/icon_congrat.svg"
+                    alt=""
+                    class="me-3 mb-3"
+                    height="60"
+                  />
+                  <div class="assets_plan text-center">
+                    <p class="font_medium">ประมาณการอัตราความยั่งยืน</p>
+                    <p class="font_medium text_small mb-2">
+                      ล่วงหน้าสะสม 19 เดือน ของสายงาน
+                    </p>
+                    <p class="font_medium text_small mb-2">ณ เดือน ธ.ค. 2565</p>
+                    <div class="font_semi text_large color_green mt-3">
+                      88.88%
                     </div>
-                    <div
-                      class="box_item d-flex flex-column align-items-center justify-content-center"
-                    >
-                      <div class="font_semi text_large color_pink mb-3">
-                        30.56%
-                      </div>
-                      <div class="assets_plan text-center">
-                        <p class="font_medium">ประมาณการอัตราความยั่งยืน</p>
-                        <p class="font_medium text_small mb-2">
-                          ล่วงหน้าสะสม 19 เดือน ณ เดือน มิ.ย. 2565
-                        </p>
-                        <p>(เป้าหมายที่ต้องทำได้ 80%)</p>
-                      </div>
-                    </div>
+                    <p>(เป้าหมายที่ต้องทำได้ 80%)</p>
                   </div>
                 </div>
               </div>
@@ -375,94 +232,95 @@ export default {
           </div>
         </div>
       </div>
-      <!-- <div class="premier_dashboard">
+
+      <div class="premier_dashboard">
         <div class="row">
           <div class="col-lg-3 col-sm-12 nopaddingright">
-            <div class="head_premier d-flex flex-column justify-content-center">
-              <div
-                class="text_medium color_primary font_semi d-flex align-items-center"
-              >
-                <img src="@assets/image/icon_elite.svg" alt="" class="me-2" />
-                Elite / Premier AG
+            <div class="left_plan">
+              <div class="um d-flex align-items-center mb-3">
+                <img
+                  src="@assets/image/logo-elite.svg"
+                  alt=""
+                  class="mx-auto"
+                />
               </div>
-              <p class="text_small">ผลงาน Q3. ก.ค. 65 - ก.ย. 65</p>
-            </div>
-            <div class="bottom_premier">
-              <div class="d-flex justify-content-between align-items-center">
-                <p class="text_small">PC รวม :</p>
-                <p class="text_semibold font_semi text_semibold color_yellow">
-                  65,000
-                </p>
-              </div>
-              <div class="d-flex justify-content-between align-items-center">
-                <p class="text_small">จำนวนราย :</p>
-                <p
-                  class="text_semibold font_semi color_pink d-flex align-items-center"
-                >
-                  4
-                  <img
-                    src="@assets/image/icon_user_pink.svg"
-                    alt=""
-                    class="ms-2"
-                  />
-                </p>
+              <div>
+                <label for="" class="mb-2 text_small">รอบ</label>
+                <select class="form-select" aria-label="Default select example">
+                  <option selected>ไตรมาสที่ 2 ปี 2565</option>
+                  <option value="1">ไตรมาสที่ 3 ปี 2565</option>
+                </select>
               </div>
             </div>
           </div>
-
           <div class="col-lg-9 col-sm-12 nopaddingleft">
-            <div class="head_premier right_premier"></div>
-            <div class="bottom_right_premier"></div>
+            <div class="right_plan">
+              <div class="grid_3 h-100">
+                <div class="box_item d-flex align-items-center">
+                  <div class="assets_plan">
+                    <p class="font_medium">PC สะสมของหน่วย</p>
+                    <p class="mb-2 color_gray">(ก.ค. 2564 - มิ.ย. 2565)</p>
+                    <p class="text_large font_semi color_green d-flex">
+                      <img
+                        src="@assets/image/icon_congrat.svg"
+                        alt=""
+                        width="27"
+                        height="31"
+                        class="me-2 mb-2"
+                      />
+                      1,600,000
+                    </p>
+                    <p>(เป้าหมายที่ต้องทำได้ 1,500,000 PC)</p>
+                  </div>
+                </div>
+                <div class="box_item d-flex align-items-center">
+                  <div class="assets_plan">
+                    <p class="font_medium">จำนวนตัวแทน</p>
+                    <p class="mb-2 color_gray">
+                      ที่ PC >= 30,000 (เม.ย. - มิ.ย. 2565)
+                    </p>
+                    <p
+                      class="text_large font_semi color_green d-flex align-items-center"
+                    >
+                      <img
+                        src="@assets/image/icon_congrat.svg"
+                        alt=""
+                        width="27"
+                        height="31"
+                        class="me-2 mb-2"
+                      />
+                      9
+                      <img
+                        src="@assets/image/icon_user_green.svg"
+                        alt=""
+                        class="ms-2"
+                      />
+                    </p>
+                    <p>(เป้าหมายที่ต้องทำได้ 8 คน)</p>
+                  </div>
+                </div>
+                <div class="box_item d-flex align-items-center">
+                  <div class="assets_plan">
+                    <p class="font_medium">จำนวน UM ใหม่</p>
+                    <p class="mb-2 color_gray">(ก.ค. 2564 - มิ.ย. 2565)</p>
+                    <p
+                      class="text_large font_semi color_pink d-flex align-items-center"
+                    >
+                      1
+                      <img
+                        src="@assets/image/icon_user_pink.svg"
+                        alt=""
+                        class="ms-2"
+                      />
+                    </p>
+                    <p>(เป้าหมายที่ต้องทำได้ 2 คน)</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="table_premier table-responsive mt-4">
-          <table class="table_custom">
-            <thead>
-              <tr>
-                <th width="24.4%">
-                  <div class="text_medium font_semi color_primary text-start">
-                    ภาพรวมผลงานปี 2565
-                  </div>
-                </th>
-                <th>ม.ค. - มี.ค.</th>
-                <th>เม.ย. - มิ.ย.</th>
-                <th>ก.ค. - ก.ย.</th>
-                <th>ต.ค. - ธ.ค.</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="text-start text_small">PC รวม (จำนวนราย)</td>
-                <td>300,000 (14 ราย)</td>
-                <td>80,000 (4 ราย)</td>
-                <td>150,000 (9 ราย)</td>
-                <td>-</td>
-              </tr>
-              <tr>
-                <td class="text-start text_small">สถานะที่ได้รับ</td>
-                <td>
-                  <div>
-                    <img src="@assets/image/logo_elite.svg" alt="" />
-                  </div>
-                </td>
-                <td>
-                  <div>
-                    <img src="@assets/image/icon_x.svg" alt="" />
-                  </div>
-                </td>
-                <td>
-                  <div>
-                    <img src="@assets/image/logo_premier.svg" alt="" />
-                  </div>
-                </td>
-                <td>--</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div> -->
-
-      <CardEliteExpend />
+      </div>
     </div>
   </div>
 </template>
@@ -614,6 +472,7 @@ div#show-modal {
 .right_plan {
   padding: 15px;
   border-left: 1px solid #e0e0e0;
+  height: 100%;
 }
 .right_plan .tab-pane:first-child .box_item {
   height: 105px;
@@ -643,5 +502,8 @@ div#show-modal {
 }
 .table_premier .table_custom {
   min-width: 900px;
+}
+.border_right {
+  border-right: 1px solid #e0e0e0;
 }
 </style>

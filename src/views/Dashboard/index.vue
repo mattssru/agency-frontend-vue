@@ -339,7 +339,7 @@ export default {
                       <CircleProgress
                         :size="72"
                         :percent="30"
-                        :width="15"
+                        :width="12"
                         color="#F62459"
                         class="mb-3"
                       />

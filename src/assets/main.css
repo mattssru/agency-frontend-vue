@@ -66,6 +66,7 @@ h1 {
 .grid_3 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
 }
 .grid_4 {
   display: grid;

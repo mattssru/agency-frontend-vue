@@ -81,7 +81,7 @@ export default {
   position: absolute !important;
   top: 10px;
   right: 15px;
-  z-index: 100;
+  z-index: 50;
 }
 .btnExpend {
   position: relative !important;
