@@ -118,7 +118,7 @@ export default {
 .v-enter-active,
 .v-leave-active {
   overflow: hidden;
-  transition: all 0.5s ease;
+  transition: all 0.05s ease;
   position: absolute;
   opacity: 0;
 }

@@ -2,6 +2,7 @@
 import { Button, Card, CircleProgress } from "@components";
 import IconTabsFirst from "@components/icons/IconTabsFirst.vue";
 import IconTabsSecon from "@components/icons/IconTabsSecon.vue";
+import CardExpend from "../../components/CardExpend.vue";
 
 export default {
   name: "Dashboard",
@@ -11,6 +12,7 @@ export default {
     IconTabsFirst,
     IconTabsSecon,
     CircleProgress,
+    CardExpend,
   },
   data() {
     return {};
@@ -70,64 +72,7 @@ export default {
           </div>
         </div>
         <div class="col-lg-5">
-          <div class="box_item">
-            <div class="d-flex">
-              <div>
-                <div class="profile_user me-3 mb-2">
-                  <img src="@assets/image/img_user.svg" alt="" />
-                </div>
-                <img
-                  src="@assets/image/premier.svg"
-                  alt=""
-                  width="64"
-                  height="13"
-                />
-              </div>
-              <div>
-                <div class="name_user color_primary font_medium">
-                  คุณลักษมีแข เจริญประภาการธนพล
-                </div>
-                <div class="detail_user mb-2">
-                  <p>ชื่อหน่วยงาน</p>
-                  <p>: ภาคอาวุโส โภคทรัพย์</p>
-                  <p>ตำแหน่งปัจจุบัน</p>
-                  <p>: Agent (AG)</p>
-                  <!-- <p>รหัสตัวแทน</p>
-                <p>: 135791</p>
-                <p>รหัสหน่วย</p>
-                <p>: 34246802468</p>
-                <p>รหัสกลุ่ม</p>
-                <p>: 42086</p>
-                <p>เลขที่ใบอนุญาติ</p>
-                <p>: 246802468</p>
-                <p>เลขที่ IC License</p>
-                <p>: 08642086</p> -->
-                </div>
-                <a
-                  href="#"
-                  class="font_medium color_primary text_small d-flex align-items-center mb-2 text-decoration-underline"
-                >
-                  <img
-                    src="@assets/image/icon_profile_1.svg"
-                    alt=""
-                    class="me-2"
-                  />
-                  ดูโครงสร้างและหน่วยงานภายใต้ตัวแทน
-                </a>
-                <a
-                  href="#"
-                  class="font_medium color_primary text_small d-flex align-items-center text-decoration-underline"
-                >
-                  <img
-                    src="@assets/image/icon_profile_2.svg"
-                    alt=""
-                    class="me-2"
-                  />
-                  ดูผลงานรายเดือนย้อนหลัง
-                </a>
-              </div>
-            </div>
-          </div>
+          <CardExpend />
         </div>
       </div>
       <div class="plan_dashboard mb-3">
