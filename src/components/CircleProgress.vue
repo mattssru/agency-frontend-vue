@@ -1,6 +1,6 @@
 <script>
-import CircleProgress from "vue3-circle-progress";
 import "vue3-circle-progress/dist/circle-progress.css";
+import CircleProgress from "vue3-circle-progress";
 
 export default {
   name: "Progress",
@@ -14,7 +14,7 @@ export default {
     },
     width: {
       type: Number,
-      default: 30,
+      default: 12,
     },
     percent: {
       type: Number,
@@ -26,7 +26,6 @@ export default {
     },
     bgColor: {
       type: String,
-      default: "#E0E0E0",
     },
   },
   data() {
@@ -48,16 +47,21 @@ export default {
       linecap="line"
       :fill-color="color"
       :empty-color="bgColor"
-      data-font="20px"
-      style="font-size: 30"
+      :style="{ color: color }"
     />
   </div>
 </template>
 
 <style lang="scss" scoped>
 .custom-circle {
+  ::v-deep(.current-counter) {
+    font-size: 20px;
+    left: 52%;
+    font-family: "semi-bold";
+  }
   ::v-deep(.current-counter)::after {
     content: "%";
+    font-size: 15px;
   }
 }
 </style>

@@ -51,7 +51,7 @@ export default {
               <CircleProgress
                 :size="72"
                 :percent="48"
-                :width="15"
+                :width="12"
                 color="#F62459"
                 class="me-3"
               />
@@ -197,7 +197,7 @@ export default {
                       <CircleProgress
                         :size="72"
                         :percent="80"
-                        :width="15"
+                        :width="12"
                         color="#FAB600"
                         class="me-3"
                       />
@@ -230,7 +230,7 @@ export default {
                       <CircleProgress
                         :size="72"
                         :percent="75"
-                        :width="15"
+                        :width="12"
                         color="#F86200"
                         class="me-3"
                       />
