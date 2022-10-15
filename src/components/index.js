@@ -3,3 +3,7 @@ export { default as Card } from "./Card.vue";
 export { default as Table } from "./Table.vue";
 export { default as CircleProgress } from "./CircleProgress.vue";
 export { default as CardExpend } from "./CardExpend.vue";
+export { default as SelectImage } from "./SelectImage.vue";
+export { default as RadioImage } from "./RadioImage.vue";
+export { default as Modal } from "./Modal.vue";
+export { default as Chart } from "./Chart.vue";

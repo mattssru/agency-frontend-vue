@@ -1,9 +1,7 @@
 <script>
-import { Button, Card, CircleProgress } from "@components";
+import { Button, Card, CircleProgress, Modal, CardExpend } from "@components";
 import IconTabsFirst from "@components/icons/IconTabsFirst.vue";
 import IconTabsSecon from "@components/icons/IconTabsSecon.vue";
-import CardExpend from "../../components/CardExpend.vue";
-import Modal from "../../components/Modal.vue";
 
 export default {
   name: "Dashboard",
@@ -19,15 +17,46 @@ export default {
   data() {
     return {
       showModal: false,
+      picked: "One",
     };
+  },
+  methods: {
+    handleClickModal() {
+      this.showModal = false;
+      console.log("CloseModal");
+    },
   },
 };
 </script>
 
 <template>
-  <modal button-name="Share ผลงาน" v-if="showModal" @close="showModal = false">
-    <template #header><h2>Share ผลงานของคุณ</h2></template>
-    <template #body>sss</template>
+  <modal button-name="Share ผลงาน" v-if="showModal" @close="handleClickModal">
+    <template #header>Share ผลงานของคุณ</template>
+    <template #body>
+      กรุณาเลือกผลงานที่คุณต้องการแชร์
+      <div class="row">
+        <div>Picked: {{ picked }}</div>
+
+        <input type="radio" id="one" value="One" v-model="picked" />
+        <label for="one">One</label>
+
+        <input type="radio" id="two" value="Two" v-model="picked" />
+        <label for="two">Two</label>
+      </div>
+      <div class="result">Radio button selection: {{ selectedValue }}</div>
+      กรุณาเลือกประเภทของไฟล์
+      <div class="row">
+        <div class="col-lg-6">
+          <div
+            class="text_medium color_primary font_semi d-flex align-items-center"
+          >
+            <img src="@assets/image/icon_elite.svg" alt="" class="me-2" />
+            Elite / Premier AG
+          </div>
+        </div>
+        <div class="col-lg-6">ddd</div>
+      </div>
+    </template>
   </modal>
   <div class="dashboard">
     <div class="container-fluid">
@@ -350,6 +379,7 @@ export default {
               </div>
             </div>
           </div>
+
           <div class="col-lg-9 col-sm-12 nopaddingleft">
             <div class="head_premier right_premier"></div>
             <div class="bottom_right_premier"></div>

@@ -3,7 +3,7 @@ export default {
   name: "Modal",
   props: {
     buttonName: {
-      type: Number,
+      type: String,
       default: "close",
     },
   },
@@ -18,7 +18,7 @@ export default {
     <div class="modal-mask">
       <div class="modal-wrapper">
         <div class="modal-container">
-          <div class="modal-header">
+          <div class="modal-header text_medium font_semi align-items-center">
             <slot name="header"></slot>
           </div>
 
@@ -26,11 +26,11 @@ export default {
             <slot name="body"></slot>
           </div>
 
-          <div class="modal-footer">
+          <div class="modal-footer d-flex justify-content-center m-3">
             <slot name="footer"></slot>
             <button
               type="button"
-              class="btn btn-primary"
+              class="btn btn-lg bg_color_primary"
               @click="$emit('close')"
             >
               {{ buttonName }}
@@ -42,8 +42,9 @@ export default {
   </transition>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .modal-mask {
+  //color: v-bind(color); use color from data
   position: fixed;
   z-index: 9998;
   top: 0;
@@ -61,25 +62,39 @@ export default {
 }
 
 .modal-container {
-  width: 300px;
+  width: 600px;
   margin: 0px auto;
-  padding: 20px 30px;
   background-color: #fff;
-  border-radius: 2px;
+  border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
   transition: all 0.3s ease;
-  font-family: Helvetica, Arial, sans-serif;
+  overflow: hidden;
 }
 
-.modal-header h3 {
+.modal-header {
   margin-top: 0;
-  color: #42b983;
+  background: #003781;
+  padding: 20px;
+  text-align: center;
+  font-family: "medium";
+  color: white;
 }
 
 .modal-body {
+  padding: 20px 30px;
   margin: 20px 0;
 }
-
+.modal-footer {
+  color: white;
+  .btn {
+    width: 200px;
+    color: white;
+  }
+  .btn:hover {
+    color: white;
+    background-color: #003781;
+  }
+}
 .modal-default-button {
   float: right;
 }
