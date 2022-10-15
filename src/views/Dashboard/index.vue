@@ -1,5 +1,5 @@
 <script>
-import { Button, Card, CircleProgress, Modal, CardExpend } from "@components";
+import { Button, Card, CardExpend, CircleProgress, Modal } from "@components";
 import IconTabsFirst from "@components/icons/IconTabsFirst.vue";
 import IconTabsSecon from "@components/icons/IconTabsSecon.vue";
 
@@ -30,31 +30,59 @@ export default {
 </script>
 
 <template>
-  <modal button-name="Share ผลงาน" v-if="showModal" @close="handleClickModal">
+  <modal id="exampleModal">
     <template #header>Share ผลงานของคุณ</template>
     <template #body>
-      กรุณาเลือกผลงานที่คุณต้องการแชร์
-      <div class="row">
-        <div>Picked: {{ picked }}</div>
-
-        <input type="radio" id="one" value="One" v-model="picked" />
-        <label for="one">One</label>
-
-        <input type="radio" id="two" value="Two" v-model="picked" />
-        <label for="two">Two</label>
-      </div>
-      <div class="result">Radio button selection: {{ selectedValue }}</div>
-      กรุณาเลือกประเภทของไฟล์
-      <div class="row">
-        <div class="col-lg-6">
-          <div
-            class="text_medium color_primary font_semi d-flex align-items-center"
-          >
-            <img src="@assets/image/icon_elite.svg" alt="" class="me-2" />
-            Elite / Premier AG
+      <div class="title_modal">กรุณาเลือกผลงานที่คุณต้องการแชร์</div>
+      <div class="row mb-5">
+        <div class="col-md-4">
+          <div class="share_check mb-3 mb-md-0">
+            <div class="img_share_check">
+              <img
+                src="@assets/image/share1.svg"
+                alt=""
+                class="mb-3"
+                height="55.98"
+              />
+            </div>
+            <p class="title_modal mb-0">วางแผน<br />รักษาสัญญา</p>
           </div>
         </div>
-        <div class="col-lg-6">ddd</div>
+        <div class="col-md-4">
+          <div class="share_check mb-3 mb-md-0">
+            <div class="img_share_check">
+              <img
+                src="@assets/image/share2.svg"
+                alt=""
+                class="mb-3"
+                height="56.11"
+              />
+            </div>
+            <p class="title_modal mb-0">วางแผน<br />เลื่อนตำแหน่ง</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="share_check mb-3 mb-md-0">
+            <div class="img_share_check">
+              <img
+                src="@assets/image/share3.svg"
+                alt=""
+                class="mb-3"
+                height="53.46"
+              />
+            </div>
+            <p class="title_modal mb-0">Elite AG /<br />Premier AG</p>
+          </div>
+        </div>
+      </div>
+      <div class="title_modal">กรุณาเลือกประเภทของไฟล์</div>
+      <div class="d-flex">
+        <button type="button" class="btn btn_file me-3">
+          <img src="@assets/image/icon_excel.svg" alt="" class="me-2" /> Excel
+        </button>
+        <button type="button" class="btn btn_file">
+          <img src="@assets/image/icon_pdf.svg" alt="" class="me-2" />PDF
+        </button>
       </div>
     </template>
   </modal>
@@ -65,9 +93,9 @@ export default {
       >
         <h1 class="mb-2 mb-lg-0">AGENCY PERFORMANCE TRACKER</h1>
         <div
-          id="show-modal"
-          @click="showModal = true"
-          class="d-flex align-items-center font_semi text_small"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          class="share_modal d-flex align-items-center font_semi text_small text-white"
         >
           <img src="@assets/image/icon_share.svg" alt="" class="me-2" />
           Share ผลงานของคุณ
@@ -442,6 +470,60 @@ export default {
 }
 .head_box {
   border-bottom: 1px solid #e0e0e0;
+}
+.share_modal {
+  cursor: pointer;
+}
+.title_modal {
+  font-size: 16px;
+  line-height: 22px;
+  margin-bottom: 20px;
+}
+.share_check {
+  position: relative;
+  border: 1px solid #cbcbcb;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 142px;
+  text-align: center;
+  padding: 0 25px;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+}
+.share_check::after {
+  display: none;
+  content: "";
+  background-image: url(@assets/image/icon_check_blue.svg);
+  background-repeat: no-repeat;
+  background-size: 24px;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 24px;
+  height: 24px;
+  transition: all 0.4s ease-in;
+}
+.share_check:hover::after {
+  display: block;
+  transition: all 0.2s ease-in;
+}
+.share_check:hover,
+.btn_file:hover {
+  background-color: #e7f5fb;
+  border: 2px solid #007ab3;
+}
+.btn_file {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #cbcbcb;
+  border-radius: 8px;
+  height: 44px;
+  max-width: 142px;
+  width: 100%;
 }
 .profile_user {
   width: 64px;

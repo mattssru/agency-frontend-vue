@@ -14,91 +14,84 @@ export default {
 };
 </script>
 <template>
-  <transition name="modal">
-    <div class="modal-mask">
-      <div class="modal-wrapper">
-        <div class="modal-container">
-          <div class="modal-header text_medium font_semi align-items-center">
-            <slot name="header"></slot>
-          </div>
-
-          <div class="modal-body">
-            <slot name="body"></slot>
-          </div>
-
-          <div class="modal-footer d-flex justify-content-center m-3">
-            <slot name="footer"></slot>
-            <button
-              type="button"
-              class="btn btn-lg bg_color_primary"
-              @click="$emit('close')"
-            >
-              {{ buttonName }}
-            </button>
-          </div>
+  <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header" id="exampleModalLabel">
+          <slot name="header"></slot>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <slot name="body"></slot>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn_share">Share ผลงาน</button>
         </div>
       </div>
     </div>
-  </transition>
+  </div>
 </template>
 
 <style lang="scss" scoped>
-.modal-mask {
-  //color: v-bind(color); use color from data
-  position: fixed;
-  z-index: 9998;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: table;
-  transition: opacity 0.3s ease;
-}
-
-.modal-wrapper {
-  display: table-cell;
-  vertical-align: middle;
-}
-
-.modal-container {
-  width: 600px;
-  margin: 0px auto;
-  background-color: #fff;
+.modal-content {
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
-  transition: all 0.3s ease;
-  overflow: hidden;
 }
-
 .modal-header {
-  margin-top: 0;
-  background: #003781;
-  padding: 20px;
-  text-align: center;
+  background-color: #003781;
+  color: #fff;
   font-family: "medium";
-  color: white;
+  font-size: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 48px;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
 }
-
+.btn-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-image: url(@assets/image/icon_close_white.svg);
+  background-size: 15px;
+  padding: 0 !important;
+}
 .modal-body {
-  padding: 20px 30px;
-  margin: 20px 0;
+  padding: 30px 15px 50px 15px;
+}
+.modal-dialog {
+  max-width: 640px;
 }
 .modal-footer {
-  color: white;
-  .btn {
-    width: 200px;
-    color: white;
-  }
-  .btn:hover {
-    color: white;
-    background-color: #003781;
-  }
+  border: none;
+  padding-top: 0;
+  padding-bottom: 30px;
 }
-.modal-default-button {
-  float: right;
+.btn_share {
+  font-size: 18px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 225px;
+  width: 100%;
+  margin: 0 auto;
+  background-color: #cbcbcb;
+  border-radius: 5px;
+  color: #fff;
 }
-
 /*
  * The following styles are auto-applied to elements with
  * transition="modal" when their visibility is toggled
@@ -107,18 +100,4 @@ export default {
  * You can easily play with the modal transition by editing
  * these styles.
  */
-
-.modal-enter {
-  opacity: 0;
-}
-
-.modal-leave-active {
-  opacity: 0;
-}
-
-.modal-enter .modal-container,
-.modal-leave-active .modal-container {
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
-}
 </style>
