@@ -318,16 +318,88 @@ export default {
       </div>
       <div class="premier_dashboard">
         <div class="row">
-          <div class="col-lg-3">
-            <div
-              class="text_medium color_primary font_semi d-flex align-items-center"
-            >
-              <img src="@assets/image/icon_elite.svg" alt="" class="me-2" />
-              Elite / Premier AG
+          <div class="col-lg-3 col-sm-12 nopaddingright">
+            <div class="head_premier d-flex flex-column justify-content-center">
+              <div
+                class="text_medium color_primary font_semi d-flex align-items-center"
+              >
+                <img src="@assets/image/icon_elite.svg" alt="" class="me-2" />
+                Elite / Premier AG
+              </div>
+              <p class="text_small">ผลงาน Q3. ก.ค. 65 - ก.ย. 65</p>
+            </div>
+            <div class="bottom_premier">
+              <div class="d-flex justify-content-between align-items-center">
+                <p class="text_small">PC รวม :</p>
+                <p class="text_semibold font_semi text_semibold color_yellow">
+                  65,000
+                </p>
+              </div>
+              <div class="d-flex justify-content-between align-items-center">
+                <p class="text_small">จำนวนราย :</p>
+                <p
+                  class="text_semibold font_semi color_pink d-flex align-items-center"
+                >
+                  4
+                  <img
+                    src="@assets/image/icon_user_pink.svg"
+                    alt=""
+                    class="ms-2"
+                  />
+                </p>
+              </div>
             </div>
           </div>
-          <div class="col-lg-9"></div>
+          <div class="col-lg-9 col-sm-12 nopaddingleft">
+            <div class="head_premier right_premier"></div>
+            <div class="bottom_right_premier"></div>
+          </div>
         </div>
+        <!-- <div class="table_premier table-responsive mt-4">
+          <table class="table_custom">
+            <thead>
+              <tr>
+                <th width="24.4%">
+                  <div class="text_medium font_semi color_primary text-start">
+                    ภาพรวมผลงานปี 2565
+                  </div>
+                </th>
+                <th>ม.ค. - มี.ค.</th>
+                <th>เม.ย. - มิ.ย.</th>
+                <th>ก.ค. - ก.ย.</th>
+                <th>ต.ค. - ธ.ค.</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-start text_small">PC รวม (จำนวนราย)</td>
+                <td>300,000 (14 ราย)</td>
+                <td>80,000 (4 ราย)</td>
+                <td>150,000 (9 ราย)</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td class="text-start text_small">สถานะที่ได้รับ</td>
+                <td>
+                  <div>
+                    <img src="@assets/image/logo_elite.svg" alt="" />
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <img src="@assets/image/icon_x.svg" alt="" />
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <img src="@assets/image/logo_premier.svg" alt="" />
+                  </div>
+                </td>
+                <td>--</td>
+              </tr>
+            </tbody>
+          </table>
+        </div> -->
       </div>
     </div>
   </div>
@@ -432,5 +504,27 @@ div#show-modal {
 .assets_plan p:first-child {
   font-size: 16px;
   line-height: 24px;
+}
+.head_premier {
+  height: 60px;
+  padding: 15px;
+  border-bottom: 1px solid #e0e0e0;
+}
+.right_premier,
+.bottom_right_premier {
+  border-left: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+}
+.bottom_premier {
+  padding: 15px;
+  min-height: 120px;
+  border-bottom: 1px solid #e0e0e0;
+}
+.bottom_right_premier {
+  padding: 20px 23px 10px 23px;
+  min-height: 120px;
+}
+.table_premier .table_custom {
+  min-width: 900px;
 }
 </style>

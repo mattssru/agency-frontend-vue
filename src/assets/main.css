@@ -32,6 +32,10 @@ h1 {
   font-size: 20px;
   line-height: 24px;
 }
+.text_semibold {
+  font-size: 28px;
+  line-height: 43px;
+}
 .text_large {
   font-size: 32px;
   line-height: 38px;
@@ -79,6 +83,37 @@ h1 {
   background-color: #fff;
   padding: 10px 15px 10px 15px;
 }
+.table_custom {
+  width: 100%;
+  display: table;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+.table_custom thead tr,
+.table_custom tbody tr {
+  border-top: 1px solid #e0e0e0;
+}
+.table_custom thead tr th {
+  background-color: #f4f9fc;
+  text-align: center;
+  height: 40px;
+  padding: 0 20px;
+  font-size: 16px;
+  border-right: 1px solid #e0e0e0;
+}
+
+.table_custom tbody tr td {
+  text-align: center;
+  font-size: 16px;
+  height: 45px;
+  padding: 0 20px;
+  border-right: 1px solid #e0e0e0;
+}
+.table_custom thead tr th:last-child,
+.table_custom tbody tr td:last-child {
+  border-right: none;
+}
+
 @media (max-width: 991px) {
   .nopaddingright {
     padding-right: 12px !important;
