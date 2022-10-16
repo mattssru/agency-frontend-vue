@@ -126,13 +126,8 @@ h1 {
     font-size: 16px;
     line-height: 20px;
   }
-  .grid_2 {
-    grid-template-columns: repeat(1, 1fr);
-  }
-  .grid_3 {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  }
+
+  .grid_3,
   .grid_4 {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -145,6 +140,16 @@ h1 {
   .nopaddingleft {
     padding-left: 12px !important;
   } */
+}
+@media (max-width: 767px) {
+  .grid_2 {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .grid_3,
+  .grid_4 {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 /* css_kit */
