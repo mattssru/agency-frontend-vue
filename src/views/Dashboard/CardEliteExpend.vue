@@ -49,7 +49,15 @@ export default {
         </div>
 
         <div class="col-lg-9 col-sm-12 nopaddingleft">
-          <div class="head_premier right_premier">
+          <div class="head_premier right_premier padding_custom">
+            <div class="grid_2 items_flexend align-items-center">
+              <div class="active_logo">
+                <img src="@assets/image/premier_opacity.svg" alt="" />
+              </div>
+              <div class="active_logo">
+                <img src="@assets/image/elite_opacity.svg" alt="" class="" />
+              </div>
+            </div>
             <div class="btnAbsolute">
               <button
                 @click="show = !show"
@@ -172,7 +180,7 @@ export default {
 }
 .btnAbsolute {
   position: absolute !important;
-  top: 10px;
+  top: 20px;
   right: 15px;
 }
 .btnExpend {
@@ -236,6 +244,9 @@ button {
   padding: 15px;
   border-bottom: 1px solid #e0e0e0;
 }
+.head_premier .grid_2 {
+  grid-template-columns: repeat(2, 1fr) !important;
+}
 .right_premier,
 .bottom_right_premier {
   border-left: 1px solid #e0e0e0;
@@ -253,6 +264,9 @@ button {
 .table_premier .table_custom {
   min-width: 900px;
 }
+.items_flexend {
+  justify-items: flex-end;
+}
 .show.bg-overlay {
   position: absolute;
   background-color: #2e2e2e85;
@@ -261,5 +275,13 @@ button {
   height: 100%;
   top: 0;
   left: 0;
+}
+.padding_custom {
+  padding-right: 50px;
+}
+@media (max-width: 991px) {
+  .padding_custom {
+    padding-right: 15px;
+  }
 }
 </style>

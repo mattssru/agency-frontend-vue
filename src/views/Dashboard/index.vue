@@ -473,6 +473,11 @@ export default {
   padding: 20px;
   height: 100vh;
 }
+@media (max-width: 991px) {
+  .dashboard {
+    height: 100%;
+  }
+}
 .head_box {
   border-bottom: 1px solid #e0e0e0;
 }
@@ -621,27 +626,5 @@ div#show-modal {
 .assets_plan p:first-child {
   font-size: 16px;
   line-height: 24px;
-}
-.head_premier {
-  height: 60px;
-  padding: 15px;
-  border-bottom: 1px solid #e0e0e0;
-}
-.right_premier,
-.bottom_right_premier {
-  border-left: 1px solid #e0e0e0;
-  border-bottom: 1px solid #e0e0e0;
-}
-.bottom_premier {
-  padding: 15px;
-  min-height: 120px;
-  border-bottom: 1px solid #e0e0e0;
-}
-.bottom_right_premier {
-  padding: 20px 23px 10px 23px;
-  min-height: 120px;
-}
-.table_premier .table_custom {
-  min-width: 900px;
 }
 </style>
