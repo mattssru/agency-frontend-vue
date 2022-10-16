@@ -1,6 +1,11 @@
 <script>
 export default {
   name: "CardExpend",
+  props: {
+    data: {
+      type: Object,
+    },
+  },
   data() {
     return {
       show: false,
@@ -21,13 +26,13 @@ export default {
         </div>
         <div class="">
           <div class="name_user color_primary font_medium">
-            คุณลักษมีแข เจริญประภาการธนพล
+            คุณ{{ data.firstname }} {{ data.lastname }}
           </div>
           <div :class="show ? 'detail_user' : 'detail_user mb-2'">
             <p>ชื่อหน่วยงาน</p>
-            <p>: ภาคอาวุโส โภคทรัพย์</p>
+            <p>: {{ data.organizationName }}</p>
             <p>ตำแหน่งปัจจุบัน</p>
-            <p>: Agent (AG)</p>
+            <p>: {{ data.rank }}</p>
           </div>
           <Transition>
             <div
@@ -35,15 +40,15 @@ export default {
               v-show="show"
             >
               <p>รหัสตัวแทน</p>
-              <p>: 135791</p>
+              <p>: {{ data.code }}</p>
               <p>รหัสหน่วย</p>
-              <p>: 34246802468</p>
+              <p>: {{ data.codeOrganization }}</p>
               <p>รหัสกลุ่ม</p>
-              <p>: 42086</p>
+              <p>: {{ data.codeGroup }}</p>
               <p>เลขที่ใบอนุญาติ</p>
-              <p>: 246802468</p>
+              <p>: {{ data.no }}</p>
               <p>เลขที่ IC License</p>
-              <p>: 08642086</p>
+              <p>: {{ data.licenseNo }}</p>
             </div>
           </Transition>
           <router-link

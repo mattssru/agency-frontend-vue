@@ -2,6 +2,7 @@
 import { Button, Card, CardExpend, CircleProgress, Modal } from "@components";
 import IconTabsFirst from "@components/icons/IconTabsFirst.vue";
 import IconTabsSecon from "@components/icons/IconTabsSecon.vue";
+import { formatNumber } from "@utils/helper";
 import CardEliteExpend from "./CardEliteExpend.vue";
 
 export default {
@@ -19,14 +20,46 @@ export default {
   data() {
     return {
       showModal: false,
-      picked: "One",
+      agentData: {
+        dateLeave: "64",
+        pc: 11520,
+        pcLeave: "12480",
+        percent: 48,
+        firstname: "ลักษมีแข",
+        lastname: "เจริญประภาการธนพล",
+        organizationName: "ภาคอาวุโส โภคทรัพย์",
+        rank: "Agent (AG)",
+        code: "135791",
+        codeOrganization: "34246802468",
+        codeGroup: "42086",
+        licenseNo: "08642086",
+        no: "246802468",
+      },
+      eliteData: {
+        current_q: "Q3",
+        current_q_title: "ก.ค. 65 - ก.ย. 65",
+        pc: 65000,
+        people: 9,
+        premium_pc_min: 75000,
+        premium_people_min: 9,
+        elite_pc_min: 300000,
+        elite_people_min: 12,
+        percent_pc: 40,
+        percent_people: 30,
+        q1_pc: 300000,
+        q1_people: 14,
+        q2_pc: 80000,
+        q2_people: 4,
+        q3_pc: 150000,
+        q3_people: 9,
+        q4_pc: null,
+        q4_people: null,
+        current_year: 2565,
+      },
     };
   },
   methods: {
-    handleClickModal() {
-      this.showModal = false;
-      console.log("CloseModal");
-    },
+    formatNumber,
   },
 };
 </script>
@@ -116,12 +149,14 @@ export default {
                 <img src="@assets/image/doc.svg" alt="" class="me-2" />
                 วางแผนรักษาสัญญา
               </div>
-              <p class="text_small color_pink mb-0">เหลือเวลาอีก 64 วัน</p>
+              <p class="text_small color_pink mb-0">
+                เหลือเวลาอีก {{ agentData.dateLeave }} วัน
+              </p>
             </div>
             <div class="d-flex pt-3" style="padding: 0 15px">
               <CircleProgress
                 :size="72"
-                :percent="48"
+                :percent="agentData.percent"
                 :width="12"
                 color="#F62459"
                 class="me-3"
@@ -129,13 +164,17 @@ export default {
               <div>
                 <div class="mb-2">
                   <span class="text_medium font_semi">Pc สะสม</span>&nbsp;
-                  <span class="text_large font_semi color_primary">11,520</span
+                  <span class="text_large font_semi color_primary">{{
+                    formatNumber(agentData.pc)
+                  }}</span
                   >&nbsp;
                   <span class="color_gray">(ก.ค. 65 - ธ.ค. 65)</span>
                 </div>
                 <div class="color_pink font_semi">
                   <span class="text_medium">ยังขาดอีก</span>&nbsp;
-                  <span class="text_semi">12,480 PC</span>&nbsp;
+                  <span class="text_semi"
+                    >{{ formatNumber(agentData.pcLeave) }} PC</span
+                  >&nbsp;
                   <span>เพื่อรักษาสัญญาต่อ</span>
                 </div>
               </div>
@@ -143,7 +182,7 @@ export default {
           </div>
         </div>
         <div class="col-lg-5">
-          <CardExpend />
+          <CardExpend :data="agentData" />
         </div>
       </div>
       <div class="plan_dashboard mb-3">
@@ -375,94 +414,7 @@ export default {
           </div>
         </div>
       </div>
-      <!-- <div class="premier_dashboard">
-        <div class="row">
-          <div class="col-lg-3 col-sm-12 nopaddingright">
-            <div class="head_premier d-flex flex-column justify-content-center">
-              <div
-                class="text_medium color_primary font_semi d-flex align-items-center"
-              >
-                <img src="@assets/image/icon_elite.svg" alt="" class="me-2" />
-                Elite / Premier AG
-              </div>
-              <p class="text_small">ผลงาน Q3. ก.ค. 65 - ก.ย. 65</p>
-            </div>
-            <div class="bottom_premier">
-              <div class="d-flex justify-content-between align-items-center">
-                <p class="text_small">PC รวม :</p>
-                <p class="text_semibold font_semi text_semibold color_yellow">
-                  65,000
-                </p>
-              </div>
-              <div class="d-flex justify-content-between align-items-center">
-                <p class="text_small">จำนวนราย :</p>
-                <p
-                  class="text_semibold font_semi color_pink d-flex align-items-center"
-                >
-                  4
-                  <img
-                    src="@assets/image/icon_user_pink.svg"
-                    alt=""
-                    class="ms-2"
-                  />
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-9 col-sm-12 nopaddingleft">
-            <div class="head_premier right_premier"></div>
-            <div class="bottom_right_premier"></div>
-          </div>
-        </div>
-        <div class="table_premier table-responsive mt-4">
-          <table class="table_custom">
-            <thead>
-              <tr>
-                <th width="24.4%">
-                  <div class="text_medium font_semi color_primary text-start">
-                    ภาพรวมผลงานปี 2565
-                  </div>
-                </th>
-                <th>ม.ค. - มี.ค.</th>
-                <th>เม.ย. - มิ.ย.</th>
-                <th>ก.ค. - ก.ย.</th>
-                <th>ต.ค. - ธ.ค.</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="text-start text_small">PC รวม (จำนวนราย)</td>
-                <td>300,000 (14 ราย)</td>
-                <td>80,000 (4 ราย)</td>
-                <td>150,000 (9 ราย)</td>
-                <td>-</td>
-              </tr>
-              <tr>
-                <td class="text-start text_small">สถานะที่ได้รับ</td>
-                <td>
-                  <div>
-                    <img src="@assets/image/logo_elite.svg" alt="" />
-                  </div>
-                </td>
-                <td>
-                  <div>
-                    <img src="@assets/image/icon_x.svg" alt="" />
-                  </div>
-                </td>
-                <td>
-                  <div>
-                    <img src="@assets/image/logo_premier.svg" alt="" />
-                  </div>
-                </td>
-                <td>--</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div> -->
-
-      <CardEliteExpend />
+      <CardEliteExpend :data="eliteData" />
     </div>
   </div>
 </template>

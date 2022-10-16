@@ -1,9 +1,22 @@
 <script>
+import { formatNumber } from "@utils/helper";
 export default {
-  name: "CardExpend",
+  name: "CardEliteExpand",
+  props: {
+    data: {
+      type: Object,
+    },
+  },
+  methods: {
+    formatNumber,
+  },
   data() {
     return {
       show: false,
+      premium_pc_min: 75000,
+      premium_people_min: 9,
+      elite_people_min: 12,
+      elite_pc_min: 300000,
     };
   },
 };
@@ -23,13 +36,15 @@ export default {
               <img src="@assets/image/icon_elite.svg" alt="" class="me-2" />
               Elite / Premier AG
             </div>
-            <p class="text_small">ผลงาน Q3. ก.ค. 65 - ก.ย. 65</p>
+            <p class="text_small">
+              ผลงาน {{ data.current_q }}. {{ data.current_q_title }}
+            </p>
           </div>
           <div class="bottom_premier">
             <div class="d-flex justify-content-between align-items-center">
               <p class="text_small">PC รวม :</p>
               <p class="text_semibold font_semi text_semibold color_yellow">
-                65,000
+                {{ formatNumber(data.pc) }}
               </p>
             </div>
             <div class="d-flex justify-content-between align-items-center">
@@ -37,7 +52,7 @@ export default {
               <p
                 class="text_semibold font_semi color_pink d-flex align-items-center"
               >
-                4
+                {{ formatNumber(data.people) }}
                 <img
                   src="@assets/image/icon_user_pink.svg"
                   alt=""
@@ -51,11 +66,24 @@ export default {
         <div class="col-lg-9 col-sm-12 nopaddingleft">
           <div class="head_premier right_premier padding_custom">
             <div class="grid_2 items_flexend align-items-center">
-              <div class="active_logo">
-                <img src="@assets/image/premier_opacity.svg" alt="" />
+              <div
+                class="logo-premium"
+                :class="{
+                  active:
+                    premium_pc_min < data.pc &&
+                    premium_people_min < data.people,
+                }"
+              >
+                <img src="@assets/image/premier_active.svg" alt="" />
               </div>
-              <div class="active_logo">
-                <img src="@assets/image/elite_opacity.svg" alt="" class="" />
+              <div
+                class="logo-elite"
+                :class="{
+                  active:
+                    elite_pc_min < data.pc && elite_people_min < data.people,
+                }"
+              >
+                <img src="@assets/image/elite_active.svg" alt="" class="" />
               </div>
             </div>
             <div class="btnAbsolute">
@@ -65,7 +93,70 @@ export default {
               ></button>
             </div>
           </div>
-          <div class="bottom_right_premier"></div>
+          <div class="bottom_right_premier">
+            <div class="row custom-progress">
+              <div class="flex-1">
+                <div class="progress" style="height: 10px">
+                  <div
+                    class="progress-bar bg-warning"
+                    role="progressbar"
+                    aria-label="Success example"
+                    :style="{ width: data.percent_pc + '%' }"
+                    aria-valuenow="25"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  ></div>
+                </div>
+                <div
+                  class="grid_2 items_flexend align-items-center custom-step"
+                >
+                  <div class="step-first">
+                    <img src="@assets/image/icon_polygon.svg" alt="" class="" />
+                    <div class="text-step-second">
+                      {{ formatNumber(premium_pc_min) }}
+                    </div>
+                  </div>
+                  <div class="step-second">
+                    <img src="@assets/image/icon_polygon.svg" alt="" class="" />
+                    <div class="text-step-second">
+                      {{ formatNumber(elite_pc_min) }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="flex-1">
+                <div class="progress" style="height: 10px">
+                  <div
+                    class="progress-bar bg-danger"
+                    role="progressbar"
+                    aria-label="Success example"
+                    :style="{ width: data.percent_people + '%' }"
+                    aria-valuenow="25"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  ></div>
+                </div>
+                <div
+                  class="grid_2 items_flexend align-items-center custom-step"
+                >
+                  <div class="step-first">
+                    <img src="@assets/image/icon_polygon.svg" alt="" class="" />
+                    <div class="text-step-second">
+                      {{ premium_people_min }} ราย
+                    </div>
+                  </div>
+                  <div class="step-second">
+                    <img src="@assets/image/icon_polygon.svg" alt="" class="" />
+                    <div class="text-step-second">
+                      {{ elite_people_min }} ราย
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -80,13 +171,15 @@ export default {
                 <img src="@assets/image/icon_elite.svg" alt="" class="me-2" />
                 Elite / Premier AG
               </div>
-              <p class="text_small">ผลงาน Q3. ก.ค. 65 - ก.ย. 65</p>
+              <p class="text_small">
+                ผลงาน {{ data.current_q }}. {{ data.current_q_title }}
+              </p>
             </div>
             <div class="bottom_premier">
               <div class="d-flex justify-content-between align-items-center">
                 <p class="text_small">PC รวม :</p>
                 <p class="text_semibold font_semi text_semibold color_yellow">
-                  65,000
+                  {{ formatNumber(data.pc) }}
                 </p>
               </div>
               <div class="d-flex justify-content-between align-items-center">
@@ -94,7 +187,7 @@ export default {
                 <p
                   class="text_semibold font_semi color_pink d-flex align-items-center"
                 >
-                  4
+                  {{ formatNumber(data.people) }}
                   <img
                     src="@assets/image/icon_user_pink.svg"
                     alt=""
@@ -106,7 +199,28 @@ export default {
           </div>
 
           <div class="col-lg-9 col-sm-12 nopaddingleft">
-            <div class="head_premier right_premier">
+            <div class="head_premier right_premier padding_custom">
+              <div class="grid_2 items_flexend align-items-center">
+                <div
+                  class="logo-premium"
+                  :class="{
+                    active:
+                      premium_pc_min < data.pc &&
+                      premium_people_min < data.people,
+                  }"
+                >
+                  <img src="@assets/image/premier_active.svg" alt="" />
+                </div>
+                <div
+                  class="logo-elite"
+                  :class="{
+                    active:
+                      elite_pc_min < data.pc && elite_people_min < data.people,
+                  }"
+                >
+                  <img src="@assets/image/elite_active.svg" alt="" class="" />
+                </div>
+              </div>
               <div class="btnAbsolute">
                 <button
                   @click="show = !show"
@@ -114,7 +228,86 @@ export default {
                 ></button>
               </div>
             </div>
-            <div class="bottom_right_premier"></div>
+            <div class="bottom_right_premier">
+              <div class="row custom-progress">
+                <div class="flex-1">
+                  <div class="progress" style="height: 10px">
+                    <div
+                      class="progress-bar bg-warning"
+                      role="progressbar"
+                      aria-label="Success example"
+                      :style="{ width: data.percent_pc + '%' }"
+                      aria-valuenow="25"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                    ></div>
+                  </div>
+                  <div
+                    class="grid_2 items_flexend align-items-center custom-step"
+                  >
+                    <div class="step-first">
+                      <img
+                        src="@assets/image/icon_polygon.svg"
+                        alt=""
+                        class=""
+                      />
+                      <div class="text-step-second">
+                        {{ formatNumber(premium_pc_min) }}
+                      </div>
+                    </div>
+                    <div class="step-second">
+                      <img
+                        src="@assets/image/icon_polygon.svg"
+                        alt=""
+                        class=""
+                      />
+                      <div class="text-step-second">
+                        {{ formatNumber(elite_pc_min) }}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="flex-1">
+                  <div class="progress" style="height: 10px">
+                    <div
+                      class="progress-bar bg-danger"
+                      role="progressbar"
+                      aria-label="Success example"
+                      :style="{ width: data.percent_people + '%' }"
+                      aria-valuenow="25"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                    ></div>
+                  </div>
+                  <div
+                    class="grid_2 items_flexend align-items-center custom-step"
+                  >
+                    <div class="step-first">
+                      <img
+                        src="@assets/image/icon_polygon.svg"
+                        alt=""
+                        class=""
+                      />
+                      <div class="text-step-second">
+                        {{ premium_people_min }} ราย
+                      </div>
+                    </div>
+                    <div class="step-second">
+                      <img
+                        src="@assets/image/icon_polygon.svg"
+                        alt=""
+                        class=""
+                      />
+                      <div class="text-step-second">
+                        {{ elite_people_min }} ราย
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div class="table_premier table-responsive mt-4">
@@ -123,7 +316,7 @@ export default {
               <tr>
                 <th width="24.4%">
                   <div class="text_medium font_semi color_primary text-start">
-                    ภาพรวมผลงานปี 2565
+                    ภาพรวมผลงานปี {{ data.current_year }}
                   </div>
                 </th>
                 <th>ม.ค. - มี.ค.</th>
@@ -135,9 +328,15 @@ export default {
             <tbody>
               <tr>
                 <td class="text-start text_small">PC รวม (จำนวนราย)</td>
-                <td>300,000 (14 ราย)</td>
-                <td>80,000 (4 ราย)</td>
-                <td>150,000 (9 ราย)</td>
+                <td>
+                  {{ formatNumber(data.q1_pc) }} ({{ data.q1_people }} ราย)
+                </td>
+                <td>
+                  {{ formatNumber(data.q2_pc) }} ({{ data.q2_people }} ราย)
+                </td>
+                <td>
+                  {{ formatNumber(data.q3_pc) }} ({{ data.q3_people }} ราย)
+                </td>
                 <td>-</td>
               </tr>
               <tr>
@@ -233,6 +432,14 @@ button {
 .card-extend {
   position: relative;
 }
+.logo-premium,
+.logo-elite {
+  opacity: 0.3;
+}
+.logo-premium.active,
+.logo-elite.active {
+  opacity: 1;
+}
 .second {
   position: absolute;
   bottom: 0;
@@ -252,13 +459,40 @@ button {
   border-left: 1px solid #e0e0e0;
   border-bottom: 1px solid #e0e0e0;
 }
+.custom-step {
+  position: relative;
+}
+.custom-progress {
+  min-height: 55px;
+  display: flex;
+  align-items: center;
+}
+.text-step-second {
+  position: absolute;
+  width: max-content;
+  top: 6px;
+}
+.step-first {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.step-second {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: -3px;
+  top: 0;
+}
 .bottom_premier {
   padding: 15px;
   min-height: 120px;
   border-bottom: 1px solid #e0e0e0;
 }
 .bottom_right_premier {
-  padding: 20px 23px 10px 23px;
+  padding: 15px 50px 0px 23px;
   min-height: 120px;
 }
 .table_premier .table_custom {
