@@ -17,7 +17,23 @@ export default {
     CardEliteExpend,
   },
   data() {
-    return {};
+    return {
+      agentData: {
+        dateLeave: "64",
+        pc: 11520,
+        pcLeave: "12480",
+        percent: 48,
+        firstname: "ลักษมีแข",
+        lastname: "เจริญประภาการธนพล",
+        organizationName: "ภาคอาวุโส โภคทรัพย์",
+        rank: "Agent (AG)",
+        code: "135791",
+        codeOrganization: "34246802468",
+        codeGroup: "42086",
+        licenseNo: "08642086",
+        no: "246802468",
+      },
+    };
   },
   methods: {},
 };
@@ -119,7 +135,8 @@ export default {
             />
             <div>
               <div class="mb-2">
-                <span class="text_medium font_semi">Pc สะสม</span>&nbsp;
+                <span class="text_medium font_semi color_title">Pc สะสม</span
+                >&nbsp;
                 <span class="text_large font_semi color_primary">11,520</span
                 >&nbsp;
                 <span class="color_gray">(ก.ค. 65 - ธ.ค. 65)</span>
@@ -134,7 +151,7 @@ export default {
         </div>
       </div>
       <div class="col-lg-5">
-        <CardExpend />
+        <CardExpend :data="agentData" />
       </div>
     </div>
     <div class="plan_dashboard mb-3">
@@ -197,7 +214,9 @@ export default {
                   <div class="grid_3" style="margin-bottom: 15px">
                     <div class="box_item d-flex align-items-center py-3">
                       <div class="assets_plan">
-                        <p class="font_medium mb-2">PC สะสมของหน่วย</p>
+                        <p class="font_medium color_title mb-2">
+                          PC สะสมของหน่วย
+                        </p>
                         <p
                           class="text_large font_semi color_yellow d-flex mb-1"
                         >
@@ -208,7 +227,9 @@ export default {
                     </div>
                     <div class="box_item d-flex align-items-center py-3">
                       <div class="assets_plan">
-                        <p class="font_medium mb-2">PC สะสมของสายงาน</p>
+                        <p class="font_medium mb-2 color_title">
+                          PC สะสมของสายงาน
+                        </p>
                         <p
                           class="text_large font_semi d-flex mb-1"
                           style="color: #f86200"
@@ -220,7 +241,9 @@ export default {
                     </div>
                     <div class="box_item d-flex align-items-center py-3">
                       <div class="assets_plan">
-                        <p class="font_medium mb-2">อายุงานในระดับ AL</p>
+                        <p class="font_medium mb-2 color_title">
+                          อายุงานในระดับ AL
+                        </p>
                         <p class="text_large font_semi color_green d-flex mb-1">
                           <img
                             src="@assets/image/icon_congrat.svg"
@@ -238,8 +261,10 @@ export default {
                   <div class="grid_2">
                     <div class="box_item d-flex align-items-center py-3">
                       <div class="assets_plan">
-                        <p class="font_medium">ประมาณการอัตราความยั่งยืน</p>
-                        <p class="text_small font_medium mb-2">
+                        <p class="font_medium color_title">
+                          ประมาณการอัตราความยั่งยืน
+                        </p>
+                        <p class="text_small color_title font_medium mb-2">
                           ล่วงหน้าสะสม 19 เดือน ของสายงาน ณ เดือน ธ.ค. 2565
                         </p>
                         <p
@@ -256,8 +281,8 @@ export default {
                         <div
                           class="assets_plan custom_grid_1 d-flex flex-column justify-content-center"
                         >
-                          <p class="font_medium">จำนวนหน่วย</p>
-                          <p class="text_small font_medium mb-2">
+                          <p class="font_medium color_title">จำนวนหน่วย</p>
+                          <p class="text_small color_title font_medium mb-2">
                             (รวมหน่วยตนเอง)
                           </p>
                           <p class="text_large font_semi color_pink">รวม 2</p>
@@ -298,7 +323,9 @@ export default {
                           class="me-3"
                         />
                         <div class="assets_plan">
-                          <p class="font_medium d-inline-block me-1">
+                          <p
+                            class="color_title font_medium d-inline-block me-1"
+                          >
                             PC สะสมของหน่วย
                           </p>
                           <p class="color_gray">(ม.ค. 65 - มิ.ย. 65)</p>
@@ -317,8 +344,8 @@ export default {
                           class="me-3"
                         />
                         <div class="assets_plan">
-                          <p class="font_medium me-1">
-                            จำนวนตัวแทนที่แนะนำโดยตรง
+                          <p class="font_medium color_title me-1">
+                            จำนวนตัวแทน (รวมตนเอง)
                           </p>
                           <p class="color_gray">
                             ที่ PC >= 30,000 (ม.ค. 65 - ธ.ค. 65)
@@ -349,11 +376,13 @@ export default {
                         height="60"
                       />
                       <div class="assets_plan text-center">
-                        <p class="font_medium">ประมาณการอัตราความยั่งยืน</p>
-                        <p class="font_medium text_small mb-2">
+                        <p class="font_medium color_title">
+                          ประมาณการอัตราความยั่งยืน
+                        </p>
+                        <p class="font_medium color_title text_small mb-2">
                           ล่วงหน้าสะสม 19 เดือน ของสายงาน
                         </p>
-                        <p class="font_medium text_small mb-2">
+                        <p class="font_medium color_title text_small mb-2">
                           ณ เดือน ธ.ค. 2565
                         </p>
                         <div class="font_semi text_large color_green mt-3">
@@ -392,7 +421,7 @@ export default {
             <div class="grid_3 h-100">
               <div class="box_item d-flex align-items-center">
                 <div class="assets_plan">
-                  <p class="font_medium">PC สะสมของหน่วย</p>
+                  <p class="font_medium color_title">PC สะสมของหน่วย</p>
                   <p class="mb-2 color_gray">(ต.ค. 2564 - ก.ย. 2565)</p>
                   <p class="text_large font_semi color_yellow d-flex">
                     1,350,000
@@ -402,7 +431,7 @@ export default {
               </div>
               <div class="box_item d-flex align-items-center">
                 <div class="assets_plan">
-                  <p class="font_medium">จำนวนตัวแทน</p>
+                  <p class="font_medium color_title">จำนวนตัวแทน</p>
                   <p class="mb-2 color_gray">
                     ที่ PC >= 30,000 (เม.ย. - มิ.ย. 2565)
                   </p>
@@ -428,7 +457,7 @@ export default {
               </div>
               <div class="box_item d-flex align-items-center">
                 <div class="assets_plan">
-                  <p class="font_medium">จำนวน UM ใหม่</p>
+                  <p class="font_medium color_title">จำนวน UM ใหม่</p>
                   <p class="mb-2 color_gray">(ก.ค. 2564 - มิ.ย. 2565)</p>
                   <p
                     class="text_large font_semi color_pink d-flex align-items-center"
@@ -448,6 +477,16 @@ export default {
         </div>
       </div>
     </div>
+
+    <div class="footer d-flex justify-content-between">
+      <p class="color_white">ข้อมูล ณ วันที่ 13 กันยายน 2565</p>
+      <p class="color_white">
+        *ข้อมูลนี้
+        เป็นเพียงข้อมูลผลงานประมาณการเพื่อใช้สำหรับการวางแผนการทำงานเบื้องต้น
+        ยังไม่สามารถใช้สรุปผลการเลื่อนตำแหน่ง การจ่ายผลประโยชน์
+        หรือการแข่งขันภายในบริษัทได้
+      </p>
+    </div>
   </div>
 </template>
 
@@ -462,6 +501,10 @@ export default {
 }
 .share_modal {
   cursor: pointer;
+  text-decoration: underline;
+}
+.footer {
+  margin-top: 7px;
 }
 .title_modal {
   font-size: 16px;

@@ -17,7 +17,23 @@ export default {
     CardEliteExpend,
   },
   data() {
-    return {};
+    return {
+      agentData: {
+        dateLeave: "64",
+        pc: 11520,
+        pcLeave: "12480",
+        percent: 48,
+        firstname: "ลักษมีแข",
+        lastname: "เจริญประภาการธนพล",
+        organizationName: "ภาคอาวุโส โภคทรัพย์",
+        rank: "Agent (AG)",
+        code: "135791",
+        codeOrganization: "34246802468",
+        codeGroup: "42086",
+        licenseNo: "08642086",
+        no: "246802468",
+      },
+    };
   },
   methods: {},
 };
@@ -135,7 +151,7 @@ export default {
           </div>
         </div>
         <div class="col-lg-5">
-          <CardExpend />
+          <CardExpend :data="agentData" />
         </div>
       </div>
       <div class="plan_dashboard mb-3">
@@ -167,7 +183,7 @@ export default {
                       class="me-3"
                     />
                     <div class="assets_plan">
-                      <p class="font_medium d-inline-block me-1">
+                      <p class="color_title font_medium d-inline-block me-1">
                         PC สะสมของหน่วย
                       </p>
                       <p class="color_gray">(ม.ค. 65 - มิ.ย. 65)</p>
@@ -186,7 +202,9 @@ export default {
                       class="me-3"
                     />
                     <div class="assets_plan">
-                      <p class="font_medium me-1">จำนวนตัวแทนที่แนะนำโดยตรง</p>
+                      <p class="color_title font_medium me-1">
+                        จำนวนตัวแทน (รวมตนเอง)
+                      </p>
                       <p class="color_gray">
                         ที่ PC >= 30,000 (ม.ค. 65 - ธ.ค. 65)
                       </p>
@@ -216,11 +234,15 @@ export default {
                     height="60"
                   />
                   <div class="assets_plan text-center">
-                    <p class="font_medium">ประมาณการอัตราความยั่งยืน</p>
-                    <p class="font_medium text_small mb-2">
+                    <p class="font_medium color_title">
+                      ประมาณการอัตราความยั่งยืน
+                    </p>
+                    <p class="font_medium color_title text_small mb-2">
                       ล่วงหน้าสะสม 19 เดือน ของสายงาน
                     </p>
-                    <p class="font_medium text_small mb-2">ณ เดือน ธ.ค. 2565</p>
+                    <p class="font_medium text_small mb-2 color_title">
+                      ณ เดือน ธ.ค. 2565
+                    </p>
                     <div class="font_semi text_large color_green mt-3">
                       88.88%
                     </div>
@@ -258,7 +280,7 @@ export default {
               <div class="grid_3 h-100">
                 <div class="box_item d-flex align-items-center">
                   <div class="assets_plan">
-                    <p class="font_medium">PC สะสมของหน่วย</p>
+                    <p class="font_medium color_title">PC สะสมของหน่วย</p>
                     <p class="mb-2 color_gray">(ก.ค. 2564 - มิ.ย. 2565)</p>
                     <p class="text_large font_semi color_green d-flex">
                       <img
@@ -275,7 +297,7 @@ export default {
                 </div>
                 <div class="box_item d-flex align-items-center">
                   <div class="assets_plan">
-                    <p class="font_medium">จำนวนตัวแทน</p>
+                    <p class="font_medium color_title">จำนวนตัวแทน</p>
                     <p class="mb-2 color_gray">
                       ที่ PC >= 30,000 (เม.ย. - มิ.ย. 2565)
                     </p>
@@ -301,7 +323,7 @@ export default {
                 </div>
                 <div class="box_item d-flex align-items-center">
                   <div class="assets_plan">
-                    <p class="font_medium">จำนวน UM ใหม่</p>
+                    <p class="font_medium color_title">จำนวน UM ใหม่</p>
                     <p class="mb-2 color_gray">(ก.ค. 2564 - มิ.ย. 2565)</p>
                     <p
                       class="text_large font_semi color_pink d-flex align-items-center"
@@ -321,6 +343,15 @@ export default {
           </div>
         </div>
       </div>
+      <div class="footer d-flex justify-content-between">
+        <p class="color_white">ข้อมูล ณ วันที่ 13 กันยายน 2565</p>
+        <p class="color_white">
+          *ข้อมูลนี้
+          เป็นเพียงข้อมูลผลงานประมาณการเพื่อใช้สำหรับการวางแผนการทำงานเบื้องต้น
+          ยังไม่สามารถใช้สรุปผลการเลื่อนตำแหน่ง การจ่ายผลประโยชน์
+          หรือการแข่งขันภายในบริษัทได้
+        </p>
+      </div>
     </div>
   </div>
 </template>
@@ -336,11 +367,15 @@ export default {
 }
 .share_modal {
   cursor: pointer;
+  text-decoration: underline;
 }
 .title_modal {
   font-size: 16px;
   line-height: 22px;
   margin-bottom: 20px;
+}
+.footer {
+  margin-top: 7px;
 }
 .share_check {
   position: relative;

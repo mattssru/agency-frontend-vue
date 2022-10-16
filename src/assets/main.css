@@ -43,6 +43,15 @@ h1 {
 .color_primary {
   color: #003781;
 }
+.color_title {
+  color: #122b54;
+}
+.color_secondary {
+  color: #414141;
+}
+.color_white {
+  color: #ffffff;
+}
 .color_pink {
   color: #f62459;
 }
@@ -55,8 +64,23 @@ h1 {
 .color_green {
   color: #5fcd8a;
 }
+.color_green_secondary {
+  color: #00908d;
+}
 .color_yellow {
   color: #fab600;
+}
+.bg_green {
+  background-color: #5fcd8a;
+}
+.bg_green_secondary {
+  background-color: #00908d;
+}
+.bg_pink {
+  background-color: #f62459;
+}
+.bg_yellow {
+  background-color: #fab600;
 }
 .grid_2 {
   display: grid;

@@ -55,6 +55,7 @@
   --bs-body-font-weight: 400;
   --bs-body-line-height: 20px;
   --bs-body-color: #122b54;
+  --bs-body-secondary-color: #414141;
   --bs-body-bg: #f5f7fb;
   --bs-border-width: 1px;
   --bs-border-style: solid;
@@ -70,6 +71,8 @@
   /* --bs-link-hover-color: #2f64b1; */
   --bs-code-color: #e83e8c;
   --bs-highlight-bg: #fef1d5;
+  --azay-text-green-primary: #00908d;
+  --azay-text-green-secondary: ##5fcd8a;
 }
 
 *,
@@ -149,6 +152,7 @@ h6 {
 p {
   margin-bottom: 0;
   margin-top: 0;
+  color: var(--bs-body-secondary-color);
 }
 
 abbr[title] {
@@ -325,6 +329,7 @@ thead,
 tr {
   border: 0 solid;
   border-color: inherit;
+  color: var(--bs-body-secondary-color);
 }
 
 label {

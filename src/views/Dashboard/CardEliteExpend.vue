@@ -98,7 +98,7 @@ export default {
               <div class="flex-1">
                 <div class="progress" style="height: 10px">
                   <div
-                    class="progress-bar bg-warning"
+                    class="progress-bar bg_yellow"
                     role="progressbar"
                     aria-label="Success example"
                     :style="{ width: data.percent_pc + '%' }"
@@ -129,7 +129,7 @@ export default {
               <div class="flex-1">
                 <div class="progress" style="height: 10px">
                   <div
-                    class="progress-bar bg-danger"
+                    class="progress-bar bg_pink"
                     role="progressbar"
                     aria-label="Success example"
                     :style="{ width: data.percent_people + '%' }"
@@ -233,7 +233,7 @@ export default {
                 <div class="flex-1">
                   <div class="progress" style="height: 10px">
                     <div
-                      class="progress-bar bg-warning"
+                      class="progress-bar bg_yellow"
                       role="progressbar"
                       aria-label="Success example"
                       :style="{ width: data.percent_pc + '%' }"
@@ -272,7 +272,7 @@ export default {
                 <div class="flex-1">
                   <div class="progress" style="height: 10px">
                     <div
-                      class="progress-bar bg-danger"
+                      class="progress-bar bg_pink"
                       role="progressbar"
                       aria-label="Success example"
                       :style="{ width: data.percent_people + '%' }"
@@ -328,13 +328,13 @@ export default {
             <tbody>
               <tr>
                 <td class="text-start text_small">PC รวม (จำนวนราย)</td>
-                <td>
+                <td class="color_green">
                   {{ formatNumber(data.q1_pc) }} ({{ data.q1_people }} ราย)
                 </td>
-                <td>
+                <td class="color_green_secondary">
                   {{ formatNumber(data.q2_pc) }} ({{ data.q2_people }} ราย)
                 </td>
-                <td>
+                <td class="color_green">
                   {{ formatNumber(data.q3_pc) }} ({{ data.q3_people }} ราย)
                 </td>
                 <td>-</td>
@@ -356,7 +356,7 @@ export default {
                     <img src="@assets/image/logo_premier.svg" alt="" />
                   </div>
                 </td>
-                <td>--</td>
+                <td>-</td>
               </tr>
             </tbody>
           </table>
@@ -440,6 +440,10 @@ button {
 .logo-elite.active {
   opacity: 1;
 }
+.text_small {
+  font-size: 14px;
+  line-height: 17px;
+}
 .second {
   position: absolute;
   bottom: 0;
@@ -471,6 +475,7 @@ button {
   position: absolute;
   width: max-content;
   top: 6px;
+  color: #414141;
 }
 .step-first {
   display: flex;

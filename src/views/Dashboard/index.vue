@@ -68,7 +68,9 @@ export default {
   <modal id="exampleModal">
     <template #header>Share ผลงานของคุณ</template>
     <template #body>
-      <div class="title_modal">กรุณาเลือกผลงานที่คุณต้องการแชร์</div>
+      <div class="title_modal color_secondary">
+        กรุณาเลือกผลงานที่คุณต้องการแชร์
+      </div>
       <div class="row mb-5">
         <div class="col-md-4">
           <div class="share_check mb-3 mb-md-0">
@@ -110,7 +112,7 @@ export default {
           </div>
         </div>
       </div>
-      <div class="title_modal">กรุณาเลือกประเภทของไฟล์</div>
+      <div class="title_modal color_secondary">กรุณาเลือกประเภทของไฟล์</div>
       <div class="d-flex">
         <button type="button" class="btn btn_file me-3">
           <img src="@assets/image/icon_excel.svg" alt="" class="me-2" /> Excel
@@ -163,7 +165,8 @@ export default {
               />
               <div>
                 <div class="mb-2">
-                  <span class="text_medium font_semi">Pc สะสม</span>&nbsp;
+                  <span class="text_medium font_semi color_title">Pc สะสม</span
+                  >&nbsp;
                   <span class="text_large font_semi color_primary">{{
                     formatNumber(agentData.pc)
                   }}</span
@@ -210,6 +213,7 @@ export default {
                       type="checkbox"
                       id="inlineCheckbox1"
                       value="option1"
+                      checked
                     />
                     <label
                       class="form-check-label text_small"
@@ -293,14 +297,12 @@ export default {
                         height="60"
                       />
                       <div class="assets_plan">
-                        <p class="font_medium d-inline-block me-1">
+                        <p class="font_medium color_title d-inline-block me-1">
                           PC สะสมของตนเอง
                         </p>
                         <span class="color_gray">(ม.ค. 65 - มิ.ย. 65)</span>
                         <p class="text_large font_semi color_green">130,000</p>
-                        <p class="text_small">
-                          (เป้าหมายที่ต้องทำได้ 50,000 PC)
-                        </p>
+                        <p>(เป้าหมายที่ต้องทำได้ 50,000 PC)</p>
                       </div>
                     </div>
                     <div class="box_item d-flex align-items-center">
@@ -312,7 +314,7 @@ export default {
                         class="me-3"
                       />
                       <div class="assets_plan">
-                        <p class="font_medium d-inline-block me-1">
+                        <p class="font_medium color_title d-inline-block me-1">
                           PC สะสมของทีม
                         </p>
                         <span class="color_gray">(ม.ค. 65 - มิ.ย. 65)</span>
@@ -328,11 +330,15 @@ export default {
                         30.56%
                       </div>
                       <div class="assets_plan">
-                        <p class="font_medium">ประมาณการอัตราความยั่งยืน</p>
-                        <p class="font_medium text_small">
+                        <p class="font_medium color_title">
+                          ประมาณการอัตราความยั่งยืน
+                        </p>
+                        <p class="font_medium color_title text_small">
                           ล่วงหน้าสะสม 19 เดือน
                         </p>
-                        <p class="font_medium text_small">ณ เดือน มิ.ย. 2565</p>
+                        <p class="font_medium text_small color_title">
+                          ณ เดือน มิ.ย. 2565
+                        </p>
                         <p>(เป้าหมายที่ต้องทำได้ 80%)</p>
                       </div>
                     </div>
@@ -345,7 +351,7 @@ export default {
                         class="me-3"
                       />
                       <div class="assets_plan">
-                        <p class="font_medium me-1">
+                        <p class="font_medium me-1 color_title">
                           จำนวนตัวแทนที่แนะนำโดยตรง
                         </p>
                         <p
@@ -383,8 +389,8 @@ export default {
                         class="mb-3"
                       />
                       <div class="assets_plan text-center">
-                        <p class="font_medium">PC สะสมของตนเอง</p>
-                        <p class="font_medium text_small mb-1">
+                        <p class="font_medium color_title">PC สะสมของตนเอง</p>
+                        <p class="font_medium text_small mb-1 color_title">
                           ก.ค. 2565 - ธ.ค. 2565
                         </p>
                         <p class="font_semi text_large color_pink mb-1">
@@ -400,8 +406,10 @@ export default {
                         30.56%
                       </div>
                       <div class="assets_plan text-center">
-                        <p class="font_medium">ประมาณการอัตราความยั่งยืน</p>
-                        <p class="font_medium text_small mb-2">
+                        <p class="font_medium color_title">
+                          ประมาณการอัตราความยั่งยืน
+                        </p>
+                        <p class="font_medium color_title text_small mb-2">
                           ล่วงหน้าสะสม 19 เดือน ณ เดือน มิ.ย. 2565
                         </p>
                         <p>(เป้าหมายที่ต้องทำได้ 80%)</p>
@@ -415,6 +423,15 @@ export default {
         </div>
       </div>
       <CardEliteExpend :data="eliteData" />
+      <div class="footer d-flex justify-content-between">
+        <p class="color_white">ข้อมูล ณ วันที่ 13 กันยายน 2565</p>
+        <p class="color_white">
+          *ข้อมูลนี้
+          เป็นเพียงข้อมูลผลงานประมาณการเพื่อใช้สำหรับการวางแผนการทำงานเบื้องต้น
+          ยังไม่สามารถใช้สรุปผลการเลื่อนตำแหน่ง การจ่ายผลประโยชน์
+          หรือการแข่งขันภายในบริษัทได้
+        </p>
+      </div>
     </div>
   </div>
 </template>
@@ -435,6 +452,10 @@ export default {
 }
 .share_modal {
   cursor: pointer;
+  text-decoration: underline;
+}
+.footer {
+  margin-top: 7px;
 }
 .title_modal {
   font-size: 16px;
