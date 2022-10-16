@@ -6,6 +6,10 @@ export default {
       type: String,
       default: "close",
     },
+    active: {
+      type: Boolean,
+      default: false,
+    },
   },
   // created() {
   //   // props are exposed on `this`
@@ -36,7 +40,13 @@ export default {
           <slot name="body"></slot>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn_share">Share ผลงาน</button>
+          <button
+            type="button"
+            class="btn btn_share"
+            :class="{ active: active }"
+          >
+            Share ผลงาน
+          </button>
         </div>
       </div>
     </div>
@@ -69,7 +79,7 @@ export default {
   padding: 0 !important;
 }
 .modal-body {
-  padding: 30px 15px 50px 15px;
+  padding: 32px 83px 50px 83px;
 }
 .modal-dialog {
   max-width: 640px;
@@ -79,7 +89,8 @@ export default {
   padding-top: 0;
   padding-bottom: 30px;
 }
-.btn_share {
+.btn_share,
+.btn_share:hover {
   font-size: 18px;
   height: 40px;
   display: flex;
@@ -91,7 +102,15 @@ export default {
   background-color: #cbcbcb;
   border-radius: 5px;
   color: #fff;
+  cursor: unset;
 }
+.btn_share.active,
+.btn_share.active:hover {
+  background-color: #003781;
+  color: #fff;
+  cursor: pointer;
+}
+
 /*
  * The following styles are auto-applied to elements with
  * transition="modal" when their visibility is toggled
