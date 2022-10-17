@@ -7,3 +7,4 @@ export { default as SelectImage } from "./SelectImage.vue";
 export { default as RadioImage } from "./RadioImage.vue";
 export { default as Modal } from "./Modal.vue";
 export { default as Chart } from "./Chart.vue";
+export { default as PercentSuccess } from "./PercentSuccess.vue";

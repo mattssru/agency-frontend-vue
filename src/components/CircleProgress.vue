@@ -11,7 +11,7 @@ export default {
   props: {
     size: {
       type: Number,
-      default: 180,
+      default: 72,
     },
     width: {
       type: Number,

@@ -7,10 +7,12 @@ import {
   Modal,
   RadioImage,
   SelectImage,
+  PercentSuccess,
 } from "@components";
 import IconTabsFirst from "@components/icons/IconTabsFirst.vue";
 import IconTabsSecon from "@components/icons/IconTabsSecon.vue";
-import { formatNumber } from "@utils/helper";
+import IconPerson from "@components/icons/IconPerson.vue";
+import { formatNumber, getColorRank } from "@utils/helper";
 import CardEliteExpend from "@components/CardEliteProgress/index.vue";
 export default {
   name: "Dashboard",
@@ -25,6 +27,8 @@ export default {
     CardEliteExpend,
     SelectImage,
     RadioImage,
+    IconPerson,
+    PercentSuccess,
   },
   data() {
     return {
@@ -35,7 +39,7 @@ export default {
         dateLeave: "64",
         pc: 11520,
         pcLeave: "12480",
-        percent: 48,
+        percent: 99,
         firstname: "ลักษมีแข",
         lastname: "เจริญประภาการธนพล",
         organizationName: "ภาคอาวุโส โภคทรัพย์",
@@ -49,14 +53,17 @@ export default {
       eliteData: {
         current_q: "Q3",
         current_q_title: "ก.ค. 65 - ก.ย. 65",
-        pc: 65000,
-        people: 9,
+        period: 130000,
+        period_percent: 100,
+        pc: 300001,
+        people: 4,
+        percent_pc: 45,
+        percent_people: 50,
+
         premium_pc_min: 75000,
         premium_people_min: 9,
         elite_pc_min: 300000,
         elite_people_min: 12,
-        percent_pc: 40,
-        percent_people: 30,
         q1_pc: 300000,
         q1_people: 14,
         q2_pc: 80000,
@@ -71,8 +78,8 @@ export default {
   },
   methods: {
     formatNumber,
+    getColorRank,
     handleClick(e) {
-      console.log("e.target.value", e.target.value);
       this.selectFile = e.target.value;
     },
   },
@@ -180,13 +187,7 @@ export default {
               </p>
             </div>
             <div class="d-flex pt-3" style="padding: 0 15px">
-              <CircleProgress
-                :size="72"
-                :percent="agentData.percent"
-                :width="12"
-                color="#F62459"
-                class="me-3"
-              />
+              <CircleProgress :percent="agentData.percent" class="me-3" />
               <div>
                 <div class="mb-2">
                   <span class="text_medium font_semi color_title">Pc สะสม</span
@@ -197,7 +198,10 @@ export default {
                   >&nbsp;
                   <span class="color_gray">(ก.ค. 65 - ธ.ค. 65)</span>
                 </div>
-                <div class="color_pink font_semi">
+                <div
+                  class="color_pink font_semi"
+                  :style="{ color: getColorRank(agentData.percent) }"
+                >
                   <span class="text_medium">ยังขาดอีก</span>&nbsp;
                   <span class="text_semi"
                     >{{ formatNumber(agentData.pcLeave) }} PC</span
@@ -314,45 +318,39 @@ export default {
                 >
                   <div class="grid_2">
                     <div class="box_item d-flex align-items-center">
-                      <img
-                        src="@assets/image/icon_congrat.svg"
-                        alt=""
-                        class="me-3"
-                        height="60"
-                      />
+                      <CircleProgress :percent="100" class="me-3" />
                       <div class="assets_plan">
                         <p class="font_medium color_title d-inline-block me-1">
                           PC สะสมของตนเอง
                         </p>
                         <span class="color_gray">(ม.ค. 65 - มิ.ย. 65)</span>
-                        <p class="text_large font_semi color_green">130,000</p>
+                        <p
+                          class="text_large font_semi"
+                          :style="{ color: getColorRank(100) }"
+                        >
+                          130,000
+                        </p>
                         <p>(เป้าหมายที่ต้องทำได้ 50,000 PC)</p>
                       </div>
                     </div>
                     <div class="box_item d-flex align-items-center">
-                      <CircleProgress
-                        :size="72"
-                        :percent="80"
-                        :width="12"
-                        color="#FAB600"
-                        class="me-3"
-                      />
+                      <CircleProgress :percent="80" class="me-3" />
                       <div class="assets_plan">
                         <p class="font_medium color_title d-inline-block me-1">
                           PC สะสมของทีม
                         </p>
                         <span class="color_gray">(ม.ค. 65 - มิ.ย. 65)</span>
-                        <p class="text_large font_semi color_yellow">320,000</p>
+                        <p
+                          class="text_large font_semi"
+                          :style="{ color: getColorRank(80) }"
+                        >
+                          320,000
+                        </p>
                         <p>(เป้าหมายที่ต้องทำได้ 400,000 PC)</p>
                       </div>
                     </div>
                     <div class="box_item d-flex align-items-center">
-                      <div
-                        class="font_semi color_pink me-3"
-                        style="font-size: 24px; line-height: 36px"
-                      >
-                        30.56%
-                      </div>
+                      <PercentSuccess :percent="33.65" class="me-3" />
                       <div class="assets_plan">
                         <p class="font_medium color_title">
                           ประมาณการอัตราความยั่งยืน
@@ -367,26 +365,19 @@ export default {
                       </div>
                     </div>
                     <div class="box_item d-flex align-items-center">
-                      <CircleProgress
-                        :size="72"
-                        :percent="75"
-                        :width="12"
-                        color="#F86200"
-                        class="me-3"
-                      />
+                      <CircleProgress :percent="75" class="me-3" />
                       <div class="assets_plan">
                         <p class="font_medium me-1 color_title">
                           จำนวนตัวแทนที่แนะนำโดยตรง
                         </p>
                         <p
                           class="text_large font_semi d-inline-flex align-items-center"
-                          style="color: #f86200"
+                          :style="{ color: getColorRank(75) }"
                         >
                           3
-                          <img
-                            src="@assets/image/icon_user_orange.svg"
-                            alt=""
+                          <IconPerson
                             class="ms-1 me-2"
+                            :color="getColorRank(75)"
                           />
                         </p>
                         <span class="color_gray">(PC สะสมมากว่า 30,000)</span>
@@ -405,19 +396,16 @@ export default {
                     <div
                       class="box_item d-flex flex-column align-items-sm-center justify-content-center"
                     >
-                      <CircleProgress
-                        :size="72"
-                        :percent="30"
-                        :width="12"
-                        color="#F62459"
-                        class="mb-3"
-                      />
+                      <CircleProgress :percent="40" class="mb-3" />
                       <div class="assets_plan text-center">
                         <p class="font_medium color_title">PC สะสมของตนเอง</p>
                         <p class="font_medium text_small mb-1 color_title">
                           ก.ค. 2565 - ธ.ค. 2565
                         </p>
-                        <p class="font_semi text_large color_pink mb-1">
+                        <p
+                          class="font_semi text_large mb-1"
+                          :style="{ color: getColorRank(40) }"
+                        >
                           180,000
                         </p>
                         <p>(เป้าหมายที่ต้องทำได้ 600,000 PC)</p>
@@ -426,9 +414,7 @@ export default {
                     <div
                       class="box_item d-flex flex-column align-items-center justify-content-center"
                     >
-                      <div class="font_semi text_large color_pink mb-3">
-                        30.56%
-                      </div>
+                      <PercentSuccess :percent="30.56" class="text_large" />
                       <div class="assets_plan text-center">
                         <p class="font_medium color_title">
                           ประมาณการอัตราความยั่งยืน

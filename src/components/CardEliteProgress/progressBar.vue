@@ -1,5 +1,5 @@
 <script>
-import { formatNumber } from "@utils/helper";
+import { formatNumber, getColorProgressBar } from "@utils/helper";
 export default {
   name: "ProgressBar",
   props: {
@@ -9,6 +9,7 @@ export default {
   },
   methods: {
     formatNumber,
+    getColorProgressBar,
   },
   data() {
     return {
@@ -17,7 +18,19 @@ export default {
       premium_people_min: 9,
       elite_people_min: 12,
       elite_pc_min: 300000,
+      colorPc: "",
+      colorPeople: "",
     };
+  },
+  computed: {
+    colorPc() {
+      this.colorPc = this.getColorProgressBar(this.data.percent_pc);
+      return this.colorPc;
+    },
+    colorPeople() {
+      this.colorPeople = this.getColorProgressBar(this.data.percent_people);
+      return this.colorPeople;
+    },
   },
 };
 </script>
@@ -26,20 +39,22 @@ export default {
     <div class="flex-1">
       <div class="progress" style="height: 10px">
         <div
-          class="progress-bar bg-warning"
+          class="progress-bar"
           role="progressbar"
           aria-label="Success example"
-          :style="{ width: data.percent_pc + '%' }"
+          :style="{ width: data.percent_pc + '%', 'background-color': colorPc }"
           aria-valuenow="25"
           aria-valuemin="0"
           aria-valuemax="100"
         ></div>
       </div>
       <div class="grid_2 items_flexend align-items-center custom-step">
-        <div class="step-first">
-          <img src="@assets/image/icon_polygon.svg" alt="" class="" />
-          <div class="text-step-second">
-            {{ formatNumber(premium_pc_min) }}
+        <div class="ab-first">
+          <div class="step-first">
+            <img src="@assets/image/icon_polygon.svg" alt="" class="" />
+            <div class="text-step-second">
+              {{ formatNumber(premium_pc_min) }}
+            </div>
           </div>
         </div>
         <div class="step-second">
@@ -55,19 +70,24 @@ export default {
     <div class="flex-1">
       <div class="progress" style="height: 10px">
         <div
-          class="progress-bar bg-danger"
+          class="progress-bar"
           role="progressbar"
           aria-label="Success example"
-          :style="{ width: data.percent_people + '%' }"
+          :style="{
+            width: data.percent_people + '%',
+            'background-color': colorPeople,
+          }"
           aria-valuenow="25"
           aria-valuemin="0"
           aria-valuemax="100"
         ></div>
       </div>
       <div class="grid_2 items_flexend align-items-center custom-step">
-        <div class="step-first">
-          <img src="@assets/image/icon_polygon.svg" alt="" class="" />
-          <div class="text-step-second">{{ premium_people_min }} ราย</div>
+        <div class="ab-first">
+          <div class="step-first">
+            <img src="@assets/image/icon_polygon.svg" alt="" class="" />
+            <div class="text-step-second">{{ premium_people_min }} ราย</div>
+          </div>
         </div>
         <div class="step-second">
           <img src="@assets/image/icon_polygon.svg" alt="" class="" />
@@ -97,14 +117,19 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: absolute;
+  right: -11px;
+}
+.ab-first {
+  position: relative;
 }
 .step-second {
   align-items: center;
   display: flex;
   flex-direction: column;
   position: absolute;
-  right: -3px;
   top: 0;
+  right: -3px;
 }
 .bottom_premier {
   padding: 15px;
@@ -113,5 +138,10 @@ export default {
 }
 .items_flexend {
   justify-items: flex-end;
+}
+@media (max-width: 991px) {
+  .custom-step.grid_2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 </style>

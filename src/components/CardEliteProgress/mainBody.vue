@@ -1,6 +1,7 @@
 <script>
-import { formatNumber } from "@utils/helper";
 import ProgressBar from "./progressBar.vue";
+import { formatNumber, getColorProgressBar } from "@utils/helper";
+import IconPerson from "@components/icons/IconPerson.vue";
 export default {
   name: "MainBody",
   props: {
@@ -10,6 +11,7 @@ export default {
   },
   methods: {
     formatNumber,
+    getColorProgressBar,
   },
   data() {
     return {
@@ -18,9 +20,21 @@ export default {
       premium_people_min: 9,
       elite_people_min: 12,
       elite_pc_min: 300000,
+      colorPc: "",
+      colorPeople: "",
     };
   },
-  components: { ProgressBar },
+  components: { ProgressBar, IconPerson },
+  computed: {
+    colorPc() {
+      this.colorPc = this.getColorProgressBar(this.data.percent_pc);
+      return this.colorPc;
+    },
+    colorPeople() {
+      this.colorPeople = this.getColorProgressBar(this.data.percent_people);
+      return this.colorPeople;
+    },
+  },
 };
 </script>
 <template>
@@ -40,17 +54,21 @@ export default {
       <div class="bottom_premier">
         <div class="d-flex justify-content-between align-items-center">
           <p class="text_small">PC รวม :</p>
-          <p class="text_semibold font_semi text_semibold color_yellow">
+          <p
+            class="text_semibold font_semi text_semibold"
+            :style="{ color: colorPc }"
+          >
             {{ formatNumber(data.pc) }}
           </p>
         </div>
         <div class="d-flex justify-content-between align-items-center">
           <p class="text_small">จำนวนราย :</p>
           <p
-            class="text_semibold font_semi color_pink d-flex align-items-center"
+            class="text_semibold font_semi d-flex align-items-center"
+            :style="{ color: colorPeople }"
           >
             {{ formatNumber(data.people) }}
-            <img src="@assets/image/icon_user_pink.svg" alt="" class="ms-2" />
+            <IconPerson class="ms-2" :color="colorPeople" />
           </p>
         </div>
       </div>
@@ -71,7 +89,8 @@ export default {
           <div
             class="logo-elite"
             :class="{
-              active: elite_pc_min < data.pc && elite_people_min < data.people,
+              active:
+                elite_pc_min <= data.pc && elite_people_min <= data.people,
             }"
           >
             <img src="@assets/image/elite_active.svg" alt="" class="" />
@@ -181,7 +200,7 @@ button {
   border-bottom: 1px solid #e0e0e0;
 }
 .bottom_right_premier {
-  padding: 15px 50px 0px 23px;
+  padding: 15px 50px 0px 15px;
   min-height: 120px;
 }
 
@@ -191,9 +210,16 @@ button {
 .padding_custom {
   padding-right: 50px;
 }
+.padding_custom .grid_2 {
+  gap: 0;
+}
 @media (max-width: 991px) {
   .padding_custom {
     padding-right: 15px;
+    gap: 0;
+  }
+  .bottom_right_premier {
+    padding: 15px;
   }
 }
 </style>
