@@ -2,7 +2,6 @@
 import { Button, Card, CardExpend, CircleProgress, Modal } from "@components";
 import IconTabsFirst from "@components/icons/IconTabsFirst.vue";
 import IconTabsSecon from "@components/icons/IconTabsSecon.vue";
-import CardEliteExpend from "./CardEliteExpend.vue";
 
 export default {
   name: "Dashboard-SUM",
@@ -14,7 +13,6 @@ export default {
     CircleProgress,
     CardExpend,
     Modal,
-    CardEliteExpend,
   },
   data() {
     return {

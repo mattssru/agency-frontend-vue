@@ -1,5 +1,6 @@
 /* @import "./base.css"; */
 @import "./global.css";
+@import "./style-guide.css";
 
 /* css_kit */
 h1 {
@@ -19,6 +20,10 @@ h1 {
 }
 .font_bold {
   font-family: "bold";
+}
+.text_xs {
+  font-size: 12px;
+  line-height: 17px;
 }
 .text_small {
   font-size: 14px;
@@ -41,7 +46,7 @@ h1 {
   line-height: 38px;
 }
 .color_primary {
-  color: #003781;
+  color: var(--azy-bluedark-color);
 }
 .color_title {
   color: #122b54;
@@ -53,22 +58,22 @@ h1 {
   color: #ffffff;
 }
 .color_pink {
-  color: #f62459;
+  color: var(--azy-pink-color);
 }
 .color_blue {
-  color: #007ab3;
+  color: var(--azy-blue-color);
 }
 .color_gray {
-  color: #6a6a6a;
+  color: var(--azy-graylight-color);
 }
 .color_green {
-  color: #5fcd8a;
+  color: var(--azy-green-color);
 }
 .color_green_secondary {
   color: #00908d;
 }
 .color_yellow {
-  color: #fab600;
+  color: var(--azy-yellow-color);
 }
 .bg_green {
   background-color: #5fcd8a;

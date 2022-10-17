@@ -1,6 +1,7 @@
 <script>
 import "vue3-circle-progress/dist/circle-progress.css";
 import CircleProgress from "vue3-circle-progress";
+import { getColorRank } from "@utils/helper";
 
 export default {
   name: "Progress",
@@ -20,16 +21,23 @@ export default {
       type: Number,
       require: true,
     },
-    color: {
-      type: String,
-      default: "red",
-    },
     bgColor: {
       type: String,
     },
   },
   data() {
-    return {};
+    return {
+      color: "",
+    };
+  },
+  methods: {
+    getColorRank,
+  },
+  computed: {
+    color() {
+      this.color = this.getColorRank(this.percent);
+      return this.color;
+    },
   },
 };
 </script>
@@ -37,6 +45,7 @@ export default {
 <template>
   <div class="custom-circle">
     <circle-progress
+      v-if="percent !== 100"
       :size="size"
       :border-width="width"
       :border-bg-width="width"
@@ -48,6 +57,13 @@ export default {
       :fill-color="color"
       :empty-color="bgColor"
       :style="{ color: color }"
+    />
+    <img
+      v-else
+      src="@assets/image/icon_congrat.svg"
+      alt=""
+      class="me-3"
+      height="60"
     />
   </div>
 </template>

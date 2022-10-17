@@ -11,8 +11,7 @@ import {
 import IconTabsFirst from "@components/icons/IconTabsFirst.vue";
 import IconTabsSecon from "@components/icons/IconTabsSecon.vue";
 import { formatNumber } from "@utils/helper";
-import CardEliteExpend from "./CardEliteExpend.vue";
-
+import CardEliteExpend from "@components/CardEliteProgress/index.vue";
 export default {
   name: "Dashboard",
   components: {
