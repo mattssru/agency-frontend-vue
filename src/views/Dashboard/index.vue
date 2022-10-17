@@ -350,7 +350,29 @@ export default {
                       </div>
                     </div>
                     <div class="box_item d-flex align-items-center">
-                      <PercentSuccess :percent="33.65" class="me-3" />
+                      <!-- <div
+                        class="font_semi color_pink me-3"
+                        style="font-size: 24px; line-height: 36px"
+                      >
+                        30.56%
+                      </div> -->
+                      <div v-if="30.56 > 80" class="custom-success me-4">
+                        <img
+                          src="@assets/image/icon_congrat.svg"
+                          alt=""
+                          class=""
+                          height="60"
+                        />
+                        <span :style="{ color: '#5fcd8a' }">{{ 30.56 }}%</span>
+                      </div>
+                      <div
+                        v-else
+                        class="font_semi color_pink me-3"
+                        style="font-size: 24px; line-height: 36px"
+                      >
+                        {{ 30.56 }}%
+                      </div>
+
                       <div class="assets_plan">
                         <p class="font_medium color_title">
                           ประมาณการอัตราความยั่งยืน
@@ -414,7 +436,19 @@ export default {
                     <div
                       class="box_item d-flex flex-column align-items-center justify-content-center"
                     >
-                      <PercentSuccess :percent="30.56" class="text_large" />
+                      <div v-if="40.99 > 80" class="custom-success">
+                        <img
+                          src="@assets/image/icon_congrat.svg"
+                          alt=""
+                          class=""
+                          height="60"
+                        />
+                        <span :style="{ color: '#5fcd8a' }">{{ 40.99 }}%</span>
+                      </div>
+                      <div v-else class="font_semi color_pink text_large me-3">
+                        {{ 40.99 }}%
+                      </div>
+
                       <div class="assets_plan text-center">
                         <p class="font_medium color_title">
                           ประมาณการอัตราความยั่งยืน
@@ -527,6 +561,11 @@ export default {
 .share_modal {
   cursor: pointer;
   text-decoration: underline;
+}
+.custom-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .footer {
   margin-top: 7px;
