@@ -1,7 +1,8 @@
 <script>
-import { Button, Card, CardExpend, CircleProgress, Modal } from "@components";
+import { Button, Card, CircleProgress, Modal } from "@components";
 import IconTabsFirst from "@components/icons/IconTabsFirst.vue";
 import IconTabsSecon from "@components/icons/IconTabsSecon.vue";
+import { CardExpend } from "@components/Dashboard";
 
 export default {
   name: "Dashboard-UM",

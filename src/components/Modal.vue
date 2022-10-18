@@ -2,19 +2,11 @@
 export default {
   name: "Modal",
   props: {
-    buttonName: {
-      type: String,
-      default: "close",
-    },
     active: {
       type: Boolean,
       default: false,
     },
   },
-  // created() {
-  //   // props are exposed on `this`
-  //   console.log(this.title)
-  // }
 };
 </script>
 <template>
@@ -44,6 +36,7 @@ export default {
             type="button"
             class="btn btn_share"
             :class="{ active: active }"
+            data-bs-dismiss="modal"
           >
             Share ผลงาน
           </button>

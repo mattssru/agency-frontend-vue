@@ -1,19 +1,18 @@
 <script>
-import {
-  Button,
-  Card,
-  CardExpend,
-  CircleProgress,
-  Modal,
-  RadioImage,
-  SelectImage,
-  PercentSuccess,
-} from "@components";
+import { Button, Card, CircleProgress } from "@components";
 import IconTabsFirst from "@components/icons/IconTabsFirst.vue";
 import IconTabsSecon from "@components/icons/IconTabsSecon.vue";
 import IconPerson from "@components/icons/IconPerson.vue";
 import { formatNumber, getColorRank } from "@utils/helper";
 import CardEliteExpend from "@components/CardEliteProgress/index.vue";
+import {
+  SelectImage,
+  RadioImage,
+  PercentSuccess,
+  ModalShare,
+  CardExpend,
+} from "@components/Dashboard";
+
 export default {
   name: "Dashboard",
   components: {
@@ -23,7 +22,7 @@ export default {
     IconTabsSecon,
     CircleProgress,
     CardExpend,
-    Modal,
+    ModalShare,
     CardEliteExpend,
     SelectImage,
     RadioImage,
@@ -92,73 +91,7 @@ export default {
 </script>
 
 <template>
-  <modal id="exampleModal" :active="checkedNames.length !== 0 && !!selectFile">
-    <template #header>Share ผลงานของคุณ</template>
-    <template #body>
-      <div class="title_modal color_secondary">
-        กรุณาเลือกผลงานที่คุณต้องการแชร์
-      </div>
-      <div class="row mb-5 custom-checkbox">
-        <div class="col-md-4">
-          <label
-            for="1"
-            class="share_check mb-3 mb-md-0"
-            :class="{ checked: checkedNames.find((i) => i === '1') }"
-          >
-            <div class="img_share_check">
-              <img
-                src="@assets/image/share1.svg"
-                alt=""
-                class="mb-3"
-                height="55.98"
-              />
-            </div>
-
-            <input type="checkbox" id="1" value="1" v-model="checkedNames" />
-            <p class="title_modal mb-0">วางแผน<br />รักษาสัญญา</p>
-          </label>
-        </div>
-        <div class="col-md-4">
-          <label
-            for="2"
-            class="share_check mb-3 mb-md-0"
-            :class="{ checked: checkedNames.find((i) => i === '2') }"
-          >
-            <div class="img_share_check">
-              <img
-                src="@assets/image/share2.svg"
-                alt=""
-                class="mb-3"
-                height="56.11"
-              />
-            </div>
-            <input type="checkbox" id="2" value="2" v-model="checkedNames" />
-            <p class="title_modal mb-0">วางแผน<br />เลื่อนตำแหน่ง</p>
-          </label>
-        </div>
-        <div class="col-md-4">
-          <label
-            for="3"
-            class="share_check mb-3 mb-md-0"
-            :class="{ checked: checkedNames.find((i) => i === '3') }"
-          >
-            <div class="img_share_check">
-              <img
-                src="@assets/image/share3.svg"
-                alt=""
-                class="mb-3"
-                height="53.46"
-              />
-            </div>
-            <input type="checkbox" id="3" value="3" v-model="checkedNames" />
-            <p class="title_modal mb-0">Elite AG /<br />Premier AG</p>
-          </label>
-        </div>
-      </div>
-      <div class="title_modal color_secondary">กรุณาเลือกประเภทของไฟล์</div>
-      <RadioImage :onchange="handleClick" />
-    </template>
-  </modal>
+  <ModalShare id="exampleModal"></ModalShare>
   <div class="dashboard">
     <div class="container-fluid">
       <div
