@@ -35,11 +35,12 @@ export default {
       selectFile: "",
       checkedNames: [],
       showModal: false,
+      checked: false,
       agentData: {
         dateLeave: "64",
         pc: 11520,
         pcLeave: "12480",
-        percent: 99,
+        percent: 48,
         firstname: "ลักษมีแข",
         lastname: "เจริญประภาการธนพล",
         organizationName: "ภาคอาวุโส โภคทรัพย์",
@@ -55,10 +56,10 @@ export default {
         current_q_title: "ก.ค. 65 - ก.ย. 65",
         period: 130000,
         period_percent: 100,
-        pc: 300001,
+        pc: 65001,
         people: 4,
         percent_pc: 45,
-        percent_people: 50,
+        percent_people: 20,
 
         premium_pc_min: 75000,
         premium_people_min: 9,
@@ -81,6 +82,10 @@ export default {
     getColorRank,
     handleClick(e) {
       this.selectFile = e.target.value;
+    },
+    onChange(e) {
+      this.$emit("input", e.target.value);
+      this.checked = e.target.value;
     },
   },
 };
@@ -239,13 +244,14 @@ export default {
                     <input
                       class="form-check-input mt-0 me-2"
                       type="checkbox"
-                      id="inlineCheckbox1"
-                      value="option1"
-                      checked
+                      id="6"
+                      value="6"
+                      v-model="checked"
+                      @change="onChange"
+                      :checked="checked === '6'"
                     />
-                    <label
-                      class="form-check-label text_small"
-                      for="inlineCheckbox1"
+
+                    <label class="form-check-label text_small" for="6"
                       >6 เดือน</label
                     >
                   </div>
@@ -253,12 +259,13 @@ export default {
                     <input
                       class="form-check-input mt-0 me-1"
                       type="checkbox"
-                      id="inlineCheckbox2"
-                      value="option2"
+                      id="12"
+                      value="12"
+                      v-model="checked"
+                      @change="onChange"
+                      :checked="checked === '12'"
                     />
-                    <label
-                      class="form-check-label text_small"
-                      for="inlineCheckbox2"
+                    <label class="form-check-label text_small" for="12"
                       >12 เดือน</label
                     >
                   </div>
@@ -445,10 +452,9 @@ export default {
                         />
                         <span :style="{ color: '#5fcd8a' }">{{ 40.99 }}%</span>
                       </div>
-                      <div v-else class="font_semi color_pink text_large me-3">
+                      <div v-else class="font_semi color_pink text_large mb-3">
                         {{ 40.99 }}%
                       </div>
-
                       <div class="assets_plan text-center">
                         <p class="font_medium color_title">
                           ประมาณการอัตราความยั่งยืน
@@ -625,7 +631,8 @@ export default {
 div#show-modal {
   color: white;
 }
-.condition .form-check-input:checked {
+.condition .form-check-input:checked,
+.condition .form-check-input[type="checkbox"].checked {
   background-color: #13a0d3;
   border-color: #13a0d3;
 }
