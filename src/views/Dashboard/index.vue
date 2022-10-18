@@ -34,7 +34,7 @@ export default {
       selectFile: "",
       checkedNames: [],
       showModal: false,
-      checked: false,
+      checked: "6",
       agentData: {
         dateLeave: "64",
         pc: 11520,
@@ -91,6 +91,7 @@ export default {
 </script>
 
 <template>
+  <!-- <Circle /> -->
   <ModalShare id="exampleModal"></ModalShare>
   <div class="dashboard">
     <div class="container-fluid">
@@ -179,7 +180,6 @@ export default {
                       type="checkbox"
                       id="6"
                       value="6"
-                      v-model="checked"
                       @change="onChange"
                       :checked="checked === '6'"
                     />
@@ -194,7 +194,6 @@ export default {
                       type="checkbox"
                       id="12"
                       value="12"
-                      v-model="checked"
                       @change="onChange"
                       :checked="checked === '12'"
                     />

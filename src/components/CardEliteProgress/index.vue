@@ -103,7 +103,15 @@ export default {
 .second .btnExpend::after {
   transform: rotate(0deg);
 }
-
+.show.bg-overlay {
+  position: absolute;
+  background-color: #2e2e2e85;
+  z-index: 50;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
 button {
   position: absolute;
 }
