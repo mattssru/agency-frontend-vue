@@ -1,13 +1,7 @@
 <script>
 import { Button, Card, CircleProgress } from "@components";
 import CardEliteExpend from "@components/CardEliteProgress/index.vue";
-import {
-  CardExpend,
-  ModalShare,
-  PercentSuccess,
-  RadioImage,
-  SelectImage,
-} from "@components/Dashboard";
+import { CardExpend, ModalShare } from "@components/Dashboard";
 import IconPerson from "@components/icons/IconPerson.vue";
 import IconTabsFirst from "@components/icons/IconTabsFirst.vue";
 import IconTabsSecon from "@components/icons/IconTabsSecon.vue";
@@ -24,10 +18,7 @@ export default {
     CardExpend,
     ModalShare,
     CardEliteExpend,
-    SelectImage,
-    RadioImage,
     IconPerson,
-    PercentSuccess,
   },
   data() {
     return {
@@ -91,7 +82,6 @@ export default {
 </script>
 
 <template>
-  <!-- <Circle /> -->
   <ModalShare id="exampleModal"></ModalShare>
   <div class="dashboard">
     <div class="container-fluid">
