@@ -25,6 +25,10 @@ h1 {
   font-size: 12px;
   line-height: 17px;
 }
+.text_md {
+  font-size: 18px;
+  line-height: 24px;
+}
 .text_small {
   font-size: 14px;
   line-height: 17px;
@@ -44,6 +48,10 @@ h1 {
 .text_large {
   font-size: 32px;
   line-height: 38px;
+}
+.text_xl {
+  font-size: 48px;
+  line-height: 52px;
 }
 .color_primary {
   color: var(--azy-bluedark-color);
@@ -71,6 +79,9 @@ h1 {
 }
 .color_green_secondary {
   color: #00908d;
+}
+.color_orange {
+  color: #f86200;
 }
 .color_yellow {
   color: var(--azy-yellow-color);
@@ -106,6 +117,12 @@ h1 {
 }
 .nopaddingleft {
   padding-left: 0 !important;
+}
+.borderleft {
+  border-left: 1px solid #e0e0e0;
+}
+.borderright {
+  border-right: 1px solid #e0e0e0;
 }
 .box_item {
   border-radius: 8px;

@@ -1,4 +1,6 @@
+import DashboardDM from "@views/Dashboard/dm.vue";
 import Dashboard from "@views/Dashboard/index.vue";
+import DashboardSDM from "@views/Dashboard/sdm.vue";
 import DashboardSum from "@views/Dashboard/sum.vue";
 import DashboardUM from "@views/Dashboard/um.vue";
 import StructurePage from "@views/Structure/index.vue";
@@ -8,6 +10,8 @@ const routes = [
   { path: "/", component: Dashboard },
   { path: "/dashboard-um", component: DashboardUM },
   { path: "/dashboard-sum", component: DashboardSum },
+  { path: "/dashboard-dm", component: DashboardDM },
+  { path: "/dashboard-sdm", component: DashboardSDM },
   {
     path: "/structure-agent",
     component: StructurePage,

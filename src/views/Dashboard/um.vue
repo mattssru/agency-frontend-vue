@@ -1,8 +1,8 @@
 <script>
 import { Button, Card, CircleProgress, Modal } from "@components";
+import { CardExpend } from "@components/Dashboard";
 import IconTabsFirst from "@components/icons/IconTabsFirst.vue";
 import IconTabsSecon from "@components/icons/IconTabsSecon.vue";
-import { CardExpend } from "@components/Dashboard";
 
 export default {
   name: "Dashboard-UM",
@@ -359,7 +359,8 @@ export default {
 .dashboard {
   background: #003781;
   padding: 20px;
-  height: 100vh;
+  min-height: 93.6vh;
+  height: 100%;
 }
 .head_box {
   border-bottom: 1px solid #e0e0e0;

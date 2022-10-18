@@ -1,17 +1,17 @@
 <script>
 import { Button, Card, CircleProgress } from "@components";
-import IconTabsFirst from "@components/icons/IconTabsFirst.vue";
-import IconTabsSecon from "@components/icons/IconTabsSecon.vue";
-import IconPerson from "@components/icons/IconPerson.vue";
-import { formatNumber, getColorRank } from "@utils/helper";
 import CardEliteExpend from "@components/CardEliteProgress/index.vue";
 import {
-  SelectImage,
-  RadioImage,
-  PercentSuccess,
-  ModalShare,
   CardExpend,
+  ModalShare,
+  PercentSuccess,
+  RadioImage,
+  SelectImage,
 } from "@components/Dashboard";
+import IconPerson from "@components/icons/IconPerson.vue";
+import IconTabsFirst from "@components/icons/IconTabsFirst.vue";
+import IconTabsSecon from "@components/icons/IconTabsSecon.vue";
+import { formatNumber, getColorRank } from "@utils/helper";
 
 export default {
   name: "Dashboard",
@@ -422,7 +422,8 @@ export default {
 .dashboard {
   background: #003781;
   padding: 20px;
-  height: 100vh;
+  min-height: 93.6vh;
+  height: 100%;
 }
 .custom-checkbox input {
   position: absolute;
@@ -488,11 +489,7 @@ export default {
   background-color: #e7f5fb;
   border: 2px solid #007ab3;
 }
-@media (max-width: 991px) {
-  .dashboard {
-    height: 100%;
-  }
-}
+
 .head_box {
   border-bottom: 1px solid #e0e0e0;
 }
