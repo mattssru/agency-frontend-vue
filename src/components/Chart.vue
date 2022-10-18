@@ -1,44 +1,39 @@
 <template>
-  <Bar :chart-data="chartData" />
+  <div :class="chartType">
+    <canvas></canvas>
+  </div>
 </template>
 
 <script>
-import { Bar } from "vue-chartjs";
-import {
-  Chart as ChartJS,
-  Title,
-  Tooltip,
-  Legend,
-  BarElement,
-  CategoryScale,
-  LinearScale,
-} from "chart.js";
-
-ChartJS.register(
-  Title,
-  Tooltip,
-  Legend,
-  BarElement,
-  CategoryScale,
-  LinearScale
-);
+import Chart from "chart.js";
 
 export default {
-  name: "BarChart",
-  components: { Bar },
-  data() {
-    return {
-      chartData: {
-        labels: ["January", "February", "March"],
-        datasets: [
-          {
-            label: "Data One",
-            backgroundColor: "#f87979",
-            data: [40, 20, 12],
-          },
-        ],
-      },
-    };
+  props: {
+    chartType: String,
+    chartData: Object,
+    chartOptions: Object,
+  },
+
+  methods: {
+    chartConstructor(chartType, chartData, chartOptions) {
+      const chartElement = document.querySelector(`.${this.chartType} canvas`);
+      const chart = new Chart(chartElement, {
+        type: chartType,
+        data: chartData,
+        options: chartOptions,
+      });
+    },
+  },
+
+  mounted() {
+    let { chartType, chartData, chartOptions } = this;
+    this.chartConstructor(chartType, chartData, chartOptions);
   },
 };
 </script>
+
+<style>
+canvas {
+  height: 250px;
+}
+</style>
