@@ -412,7 +412,7 @@ export default {
 .dashboard {
   background: #003781;
   padding: 20px;
-  min-height: 93.6vh;
+  min-height: 100vh;
   height: 100%;
 }
 .custom-checkbox input {
