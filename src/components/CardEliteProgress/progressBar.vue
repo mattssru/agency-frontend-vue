@@ -25,6 +25,7 @@ export default {
   computed: {
     colorPc() {
       this.colorPc = this.getColorProgressBar(this.data.percent_pc);
+      console.log("percent_pc", this.data.percent_pc, this.colorPc);
       return this.colorPc;
     },
     colorPeople() {

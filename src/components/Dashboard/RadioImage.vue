@@ -11,6 +11,9 @@ export default {
       this.$emit("input", e.target.value);
       this.checked = e.target.value;
     },
+    reset() {
+      this.checked = null;
+    },
   },
 };
 </script>

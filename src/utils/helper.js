@@ -39,7 +39,7 @@ export const getColorProgressBar = (value = 0) => {
     color = "#fab600";
   } else if (value > 49 && value < 100) {
     color = "#5fcd8a";
-  } else {
+  } else if (value >= 100) {
     color = "#00908d";
   }
   return color;

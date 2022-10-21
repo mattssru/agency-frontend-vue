@@ -6,6 +6,9 @@ export default {
       type: Boolean,
       default: false,
     },
+    handleClose: {
+      type: Function,
+    },
   },
 };
 </script>
@@ -37,6 +40,7 @@ export default {
             class="btn btn_share"
             :class="{ active: active }"
             data-bs-dismiss="modal"
+            @click="handleClose"
           >
             Share ผลงาน
           </button>

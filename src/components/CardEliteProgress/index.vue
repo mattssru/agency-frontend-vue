@@ -1,10 +1,12 @@
 <script>
+import IconElite from "@components/icons/iconElite.vue";
+import { formatNumber, getColorProgressBar } from "@utils/helper";
 import MainBody from "./mainBody.vue";
-import { formatNumber } from "@utils/helper";
 export default {
   name: "CardEliteExpand",
   components: {
     MainBody,
+    IconElite,
   },
   props: {
     data: {
@@ -13,6 +15,19 @@ export default {
   },
   methods: {
     formatNumber,
+    getColorProgressBar,
+    getRank(value) {
+      console.log(value);
+      let image = "icon_x.svg";
+      if (value > 0 && value < 50) {
+        image = "icon_x.svg";
+      } else if (value > 49 && value < 100) {
+        image = "logo_premier.svg";
+      } else if (value >= 100) {
+        image = " logo_elite.svg";
+      }
+      return image;
+    },
   },
   data() {
     return {
@@ -21,6 +36,9 @@ export default {
       premium_people_min: 9,
       elite_people_min: 12,
       elite_pc_min: 300000,
+      value1: 100,
+      value2: 20,
+      value3: 90,
     };
   },
 };
@@ -54,13 +72,13 @@ export default {
             <tbody>
               <tr>
                 <td class="text-start text_small">PC รวม (จำนวนราย)</td>
-                <td>
+                <td :style="{ color: getColorProgressBar(100) }">
                   {{ formatNumber(data.q1_pc) }} ({{ data.q1_people }} ราย)
                 </td>
-                <td>
+                <td :style="{ color: getColorProgressBar(20) }">
                   {{ formatNumber(data.q2_pc) }} ({{ data.q2_people }} ราย)
                 </td>
-                <td>
+                <td :style="{ color: getColorProgressBar(80) }">
                   {{ formatNumber(data.q3_pc) }} ({{ data.q3_people }} ราย)
                 </td>
                 <td>-</td>
@@ -69,20 +87,65 @@ export default {
                 <td class="text-start text_small">สถานะที่ได้รับ</td>
                 <td>
                   <div>
-                    <img src="@assets/image/logo_elite.svg" alt="" />
+                    <img
+                      v-if="value1 > 0 && value1 < 50"
+                      src="@assets/image/icon_x.svg"
+                      alt=""
+                    />
+
+                    <img
+                      v-else-if="value1 > 49 && value1 < 100"
+                      src="@assets/image/logo_premier.svg"
+                      alt=""
+                    />
+                    <img
+                      v-else-if="value1 >= 100"
+                      src="@assets/image/logo_elite.svg"
+                      alt=""
+                    />
                   </div>
                 </td>
                 <td>
                   <div>
-                    <img src="@assets/image/icon_x.svg" alt="" />
+                    <img
+                      v-if="value2 > 0 && value2 < 50"
+                      src="@assets/image/icon_x.svg"
+                      alt=""
+                    />
+
+                    <img
+                      v-else-if="value2 > 49 && value2 < 100"
+                      src="@assets/image/logo_premier.svg"
+                      alt=""
+                    />
+                    <img
+                      v-else-if="value2 >= 100"
+                      src="@assets/image/logo_elite.svg"
+                      alt=""
+                    />
                   </div>
                 </td>
                 <td>
                   <div>
-                    <img src="@assets/image/logo_premier.svg" alt="" />
+                    <img
+                      v-if="value3 > 0 && value3 < 50"
+                      src="@assets/image/icon_x.svg"
+                      alt=""
+                    />
+
+                    <img
+                      v-else-if="value3 > 49 && value3 < 100"
+                      src="@assets/image/logo_premier.svg"
+                      alt=""
+                    />
+                    <img
+                      v-else-if="value3 >= 100"
+                      src="@assets/image/logo_elite.svg"
+                      alt=""
+                    />
                   </div>
                 </td>
-                <td>--</td>
+                <td>-</td>
               </tr>
             </tbody>
           </table>

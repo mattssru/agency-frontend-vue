@@ -20,12 +20,22 @@ export default {
     handleClick(e) {
       this.selectFile = e.target.value;
     },
+    handleClose(e) {
+      console.log("handleC");
+      this.checkedNames = [];
+      this.$refs.selectFile.reset();
+      this.$emit("input", null);
+    },
   },
 };
 </script>
 
 <template>
-  <modal id="exampleModal" :active="checkedNames.length !== 0 && !!selectFile">
+  <modal
+    id="exampleModal"
+    :handleClose="handleClose"
+    :active="checkedNames.length !== 0 && !!selectFile"
+  >
     <template #header>Share ผลงานของคุณ</template>
     <template #body>
       <div class="title_modal color_secondary">
@@ -89,7 +99,7 @@ export default {
         </div>
       </div>
       <div class="title_modal color_secondary">กรุณาเลือกประเภทของไฟล์</div>
-      <RadioImage :onchange="handleClick" />
+      <RadioImage :onchange="handleClick" ref="selectFile" />
     </template>
   </modal>
 </template>

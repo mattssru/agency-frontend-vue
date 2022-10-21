@@ -46,10 +46,10 @@ export default {
         current_q_title: "ก.ค. 65 - ก.ย. 65",
         period: 130000,
         period_percent: 100,
-        pc: 65001,
+        pc: 40000,
         people: 4,
         percent_pc: 45,
-        percent_people: 20,
+        percent_people: 30,
 
         premium_pc_min: 75000,
         premium_people_min: 9,
@@ -286,24 +286,28 @@ export default {
                       >
                         30.56%
                       </div> -->
-                      <div v-if="60 > 79.99" class="custom-success me-4">
+                      <div v-if="30.56 > 79.99" class="custom-success me-4">
                         <img
                           src="@assets/image/icon_congrat.svg"
                           alt=""
                           class=""
                           height="60"
                         />
-                        <span :style="{ color: getColorTextPercent(60) }"
-                          >{{ 60 }}%</span
+                        <span
+                          class="font_semi text_small"
+                          :style="{ color: getColorTextPercent(30.56) }"
                         >
+                          {{ 30.56
+                          }}<span :style="{ 'font-size': '10px' }">%</span>
+                        </span>
                       </div>
                       <div
                         v-else
                         class="font_semi color_pink me-3"
                         style="font-size: 24px; line-height: 36px"
-                        :style="{ color: getColorTextPercent(60) }"
+                        :style="{ color: getColorTextPercent(30.56) }"
                       >
-                        {{ 60 }}%
+                        {{ 30.56 }}%
                       </div>
                       <div class="assets_plan">
                         <p class="font_medium color_title">
@@ -368,23 +372,27 @@ export default {
                     <div
                       class="box_item d-flex flex-column align-items-center justify-content-center"
                     >
-                      <div class="custom-success" v-if="40.99 > 79.99">
+                      <div class="custom-success" v-if="30.77 > 79.99">
                         <img
                           src="@assets/image/icon_congrat.svg"
                           alt=""
                           class=""
                           height="60"
                         />
-                        <span :style="{ color: getColorTextPercent(40.99) }">
-                          {{ 40.99 }}%
+                        <span
+                          class="font_semi text_small"
+                          :style="{ color: getColorTextPercent(30.77) }"
+                        >
+                          {{ 30.77
+                          }}<span :style="{ 'font-size': '10px' }">%</span>
                         </span>
                       </div>
                       <div
                         v-else
                         class="font_semi text_large mb-3"
-                        :style="{ color: getColorTextPercent(40.99) }"
+                        :style="{ color: getColorTextPercent(30.77) }"
                       >
-                        {{ 40.99 }}%
+                        {{ 30.77 }}%
                       </div>
                       <div class="assets_plan text-center">
                         <p class="font_medium color_title">
@@ -423,6 +431,7 @@ export default {
   padding: 20px;
   min-height: 100vh;
   height: 100%;
+  position: relative;
 }
 .custom-checkbox input {
   position: absolute;
