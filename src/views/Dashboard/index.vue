@@ -5,7 +5,7 @@ import { CardExpend, ModalShare } from "@components/Dashboard";
 import IconPerson from "@components/icons/IconPerson.vue";
 import IconTabsFirst from "@components/icons/IconTabsFirst.vue";
 import IconTabsSecon from "@components/icons/IconTabsSecon.vue";
-import { formatNumber, getColorRank } from "@utils/helper";
+import { formatNumber, getColorRank, getColorTextPercent } from "@utils/helper";
 
 export default {
   name: "Dashboard",
@@ -69,6 +69,7 @@ export default {
   },
   methods: {
     formatNumber,
+    getColorTextPercent,
     getColorRank,
     handleClick(e) {
       this.selectFile = e.target.value;
@@ -116,7 +117,7 @@ export default {
               </p>
             </div>
             <div class="d-flex pt-3" style="padding: 0 15px">
-              <CircleProgress :percent="agentData.percent" class="me-3" />
+              <CircleProgress :percent="21" class="me-3" />
               <div>
                 <div class="mb-2">
                   <span class="text_medium font_semi color_title">Pc สะสม</span
@@ -129,7 +130,7 @@ export default {
                 </div>
                 <div
                   class="color_pink font_semi"
-                  :style="{ color: getColorRank(agentData.percent) }"
+                  :style="{ color: getColorRank(21) }"
                 >
                   <span class="text_medium">ยังขาดอีก</span>&nbsp;
                   <span class="text_semi"
@@ -285,23 +286,25 @@ export default {
                       >
                         30.56%
                       </div> -->
-                      <div v-if="30.56 > 80" class="custom-success me-4">
+                      <div v-if="60 > 79.99" class="custom-success me-4">
                         <img
                           src="@assets/image/icon_congrat.svg"
                           alt=""
                           class=""
                           height="60"
                         />
-                        <span :style="{ color: '#5fcd8a' }">{{ 30.56 }}%</span>
+                        <span :style="{ color: getColorTextPercent(60) }"
+                          >{{ 60 }}%</span
+                        >
                       </div>
                       <div
                         v-else
                         class="font_semi color_pink me-3"
                         style="font-size: 24px; line-height: 36px"
+                        :style="{ color: getColorTextPercent(60) }"
                       >
-                        {{ 30.56 }}%
+                        {{ 60 }}%
                       </div>
-
                       <div class="assets_plan">
                         <p class="font_medium color_title">
                           ประมาณการอัตราความยั่งยืน
@@ -365,16 +368,22 @@ export default {
                     <div
                       class="box_item d-flex flex-column align-items-center justify-content-center"
                     >
-                      <div v-if="40.99 > 80" class="custom-success">
+                      <div class="custom-success" v-if="40.99 > 79.99">
                         <img
                           src="@assets/image/icon_congrat.svg"
                           alt=""
                           class=""
                           height="60"
                         />
-                        <span :style="{ color: '#5fcd8a' }">{{ 40.99 }}%</span>
+                        <span :style="{ color: getColorTextPercent(40.99) }">
+                          {{ 40.99 }}%
+                        </span>
                       </div>
-                      <div v-else class="font_semi color_pink text_large mb-3">
+                      <div
+                        v-else
+                        class="font_semi text_large mb-3"
+                        :style="{ color: getColorTextPercent(40.99) }"
+                      >
                         {{ 40.99 }}%
                       </div>
                       <div class="assets_plan text-center">

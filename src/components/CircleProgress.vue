@@ -42,12 +42,17 @@ export default {
       this.color = this.getColorRank(this.percent);
       return this.color;
     },
+    isSuccess() {
+      return this.percent === 100;
+    },
   },
+  watch: {},
 };
 </script>
 
 <template>
-  <div class="circle-wrap" v-if="percent !== 100">
+  <!-- ddd {{ degree }} -->
+  <div class="circle-wrap" v-if="!isSuccess">
     <div class="circle">
       <div class="mask full">
         <div class="fill" :style="{ 'background-color': color }"></div>
@@ -67,6 +72,7 @@ export default {
     class="me-3"
     height="60"
   />
+
   <!-- <div class="custom-circle">
     <circle-progress
       v-if="percent !== 100"

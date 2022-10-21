@@ -16,6 +16,19 @@ export const getColorRank = (value = 0) => {
   return color;
 };
 
+export const getColorTextPercent = (value = 0) => {
+  let color = "#e0e0e0";
+  if (value > 0 && value < 40.2) {
+    color = "#f62459";
+  } else if (value > 40.19 && value < 60.8) {
+    color = "#f86200";
+  } else if (value > 60.79 && value < 80) {
+    color = "#fab600";
+  } else if (value > 79.99 && value < 101) {
+    color = "#5fcd8a";
+  }
+  return color;
+};
 export const getColorProgressBar = (value = 0) => {
   let color = "#e0e0e0";
   if (value > 0 && value < 26) {
