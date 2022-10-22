@@ -1,25 +1,26 @@
 <template>
-  <div class="custon-radio-input">
-    <label for="6">
+  <div class="custom-radio-input">
+    <div class="form-check d-inline-flex align-items-center">
       <input
+        class="form-check-input me-2"
         type="radio"
-        name="radio"
-        value="6"
-        id="6"
+        name="selectMonth"
         @change="$emit('input', '6')"
+        id="6"
       />
-      6
-    </label>
-    <label for="12">
+      <label class="form-check-label" for="6">6</label>
+    </div>
+    <div class="form-check d-inline-flex align-items-center">
       <input
+        class="form-check-input me-2"
         type="radio"
-        name="radio"
-        value="12"
+        name="selectMonth"
         id="12"
         @change="$emit('input', '12')"
+        checked
       />
-      12
-    </label>
+      <label class="form-check-label" for="12">12</label>
+    </div>
   </div>
 </template>
 
@@ -28,12 +29,29 @@ export default {};
 </script>
 
 <style>
-.custon-radio-input {
-  width: 60%;
-  margin: 20px auto;
-  padding: 15px 20px;
-
+.custom-radio-input {
+  width: 55%;
+  margin-right: auto;
   display: flex;
   justify-content: space-between;
+}
+.custom-radio-input .form-check {
+  margin: 0;
+  min-height: inherit;
+}
+.custom-radio-input input {
+  width: 16px;
+  height: 16px;
+  border: 1px solid #cbcbcb;
+  margin-top: 0;
+}
+.custom-radio-input .form-check-input:checked[type="radio"] {
+  background-image: url(@assets/image/radio.svg);
+  border: none;
+}
+label {
+  font-size: 14px;
+  color: #414141;
+  line-height: 21px;
 }
 </style>

@@ -188,6 +188,9 @@ h1 {
   } */
 }
 @media (max-width: 767px) {
+  .box_item {
+    height: auto !important;
+  }
   .grid_2 {
     grid-template-columns: repeat(1, 1fr);
   }
