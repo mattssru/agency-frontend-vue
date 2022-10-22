@@ -345,7 +345,6 @@ export default {
                     <div>
                       <div class="box_item d-flex align-items-center mb-3">
                         <CircleProgress
-                          :size="72"
                           :percent="80"
                           :width="12"
                           color="#FAB600"
@@ -366,7 +365,6 @@ export default {
                       </div>
                       <div class="box_item d-flex align-items-center">
                         <CircleProgress
-                          :size="72"
                           :percent="75"
                           :width="12"
                           color="#F86200"

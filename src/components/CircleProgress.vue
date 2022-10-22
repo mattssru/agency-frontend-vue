@@ -9,14 +9,6 @@ export default {
     //CircleProgress,
   },
   props: {
-    size: {
-      type: Number,
-      default: 72,
-    },
-    width: {
-      type: Number,
-      default: 12,
-    },
     percent: {
       type: Number,
       require: true,
@@ -27,31 +19,36 @@ export default {
     },
   },
   data() {
-    const degree = ((360 / 100) * this.percent) / 2;
     return {
-      color: "",
       size: "72px",
-      degree: degree + "deg",
     };
   },
   methods: {
     getColorRank,
+    calDegree(value) {
+      const degree = ((360 / 100) * value) / 2;
+      return degree + "deg";
+    },
   },
   computed: {
     color() {
-      this.color = this.getColorRank(this.percent);
-      return this.color;
+      const color = this.getColorRank(this.percent);
+      return color;
     },
     isSuccess() {
       return this.percent === 100;
     },
+    degree() {
+      return this.calDegree(this.percent);
+    },
   },
-  watch: {},
+  // mounted() {
+  //   this.degree = this.calDegree(this.percent);
+  // },
 };
 </script>
 
 <template>
-  <!-- ddd {{ degree }} -->
   <div class="circle-wrap" v-if="!isSuccess">
     <div class="circle">
       <div class="mask full">

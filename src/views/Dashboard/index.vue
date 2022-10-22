@@ -1,5 +1,5 @@
 <script>
-import { Button, Card, CircleProgress } from "@components";
+import { Button, Card, CircleProgress, Radio } from "@components";
 import CardEliteExpend from "@components/CardEliteProgress/index.vue";
 import { CardExpend, ModalShare } from "@components/Dashboard";
 import IconPerson from "@components/icons/IconPerson.vue";
@@ -19,6 +19,7 @@ export default {
     ModalShare,
     CardEliteExpend,
     IconPerson,
+    Radio,
   },
   data() {
     return {
@@ -50,7 +51,6 @@ export default {
         people: 4,
         percent_pc: 45,
         percent_people: 30,
-
         premium_pc_min: 75000,
         premium_people_min: 9,
         elite_pc_min: 300000,
@@ -117,7 +117,7 @@ export default {
               </p>
             </div>
             <div class="d-flex pt-3" style="padding: 0 15px">
-              <CircleProgress :percent="21" class="me-3" />
+              <CircleProgress :percent="45" class="me-3" />
               <div>
                 <div class="mb-2">
                   <span class="text_medium font_semi color_title">Pc สะสม</span
@@ -130,7 +130,7 @@ export default {
                 </div>
                 <div
                   class="color_pink font_semi"
-                  :style="{ color: getColorRank(21) }"
+                  :style="{ color: getColorRank(45) }"
                 >
                   <span class="text_medium">ยังขาดอีก</span>&nbsp;
                   <span class="text_semi"
@@ -162,37 +162,7 @@ export default {
               </div>
               <div class="condition mb-4">
                 <p class="text_small mb-2">เงื่อนไข</p>
-                <div class="d-flex justify-content-between">
-                  <div
-                    class="form-check d-inline-flex align-items-center mb-0 me-2"
-                  >
-                    <input
-                      class="form-check-input mt-0 me-2"
-                      type="checkbox"
-                      id="6"
-                      value="6"
-                      @change="onChange"
-                      :checked="checked === '6'"
-                    />
-
-                    <label class="form-check-label text_small" for="6"
-                      >6 เดือน</label
-                    >
-                  </div>
-                  <div class="form-check d-inline-flex align-items-center mb-0">
-                    <input
-                      class="form-check-input mt-0 me-1"
-                      type="checkbox"
-                      id="12"
-                      value="12"
-                      @change="onChange"
-                      :checked="checked === '12'"
-                    />
-                    <label class="form-check-label text_small" for="12"
-                      >12 เดือน</label
-                    >
-                  </div>
-                </div>
+                <Radio />
               </div>
               <div>
                 <label for="" class="mb-2 text_small">รอบ</label>

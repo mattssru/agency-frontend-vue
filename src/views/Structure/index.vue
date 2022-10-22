@@ -1,10 +1,10 @@
 <script>
-import { Button } from "@components";
+import { Tree } from "@components";
 
 export default {
   name: "StructureAgent",
   components: {
-    Button,
+    Tree,
   },
 };
 </script>
@@ -12,8 +12,8 @@ export default {
 <template>
   <main class="content">
     <div class="container-fluid p-0">
-      <h1 class="h3 mb-3">Structure Agent</h1>
-      <Button title="button primary" />
+      <h1 class="h3 mb-3">โครงสร้างตัวแทนใต้สังกัด</h1>
+      <Tree />
     </div>
   </main>
 </template>

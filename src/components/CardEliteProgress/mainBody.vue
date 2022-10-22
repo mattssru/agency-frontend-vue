@@ -20,19 +20,17 @@ export default {
       premium_people_min: 9,
       elite_people_min: 12,
       elite_pc_min: 300000,
-      colorPc: "",
-      colorPeople: "",
     };
   },
   components: { ProgressBar, IconPerson },
   computed: {
     colorPc() {
-      this.colorPc = this.getColorProgressBar(this.data.percent_pc);
-      return this.colorPc;
+      const colorPc = this.getColorProgressBar(this.data.percent_pc);
+      return colorPc;
     },
     colorPeople() {
-      this.colorPeople = this.getColorProgressBar(this.data.percent_people);
-      return this.colorPeople;
+      const colorPeople = this.getColorProgressBar(this.data.percent_people);
+      return colorPeople;
     },
   },
 };
