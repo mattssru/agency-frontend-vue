@@ -1,5 +1,6 @@
-export const formatNumber = (value = 0) => {
-  return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+export const formatNumber = (value = 0, currency = 0) => {
+  const number = Number(value).toFixed(currency);
+  return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 };
 
 export const getColorRank = (value = 0) => {
@@ -29,6 +30,7 @@ export const getColorTextPercent = (value = 0) => {
   }
   return color;
 };
+
 export const getColorProgressBar = (value = 0) => {
   let color = "#e0e0e0";
   if (value > 0 && value < 26) {

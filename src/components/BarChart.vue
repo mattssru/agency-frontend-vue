@@ -1,101 +1,75 @@
 <template>
-  <div class="chart">
-    <Chart
-      :chartData="chartData"
-      :chartOptions="chartOptions"
-      :chartType="chartType"
-    />
+  <div>
+    <canvas id="bar-chart"></canvas>
   </div>
 </template>
 
 <script>
-import Chart from "./Chart.vue";
+import Chart from "chart.js/auto";
 export default {
-  components: {
-    Chart,
+  name: "BarChart",
+  props: {
+    data: {
+      type: Object,
+      require: true,
+    },
   },
-  data() {
-    return {
-      chartType: "bar",
-
-      chartData: {
-        labels: ["Jan1", "Jan2", "Jan3", "Jan4", "Jan5", "Jan6", "Jan7"],
-        datasets: [
-          {
-            label: "This week",
-            data: [0, 100, 10, 40, 39, 80, 40],
-            backgroundColor: "#5cddff",
-            hoverBackgroundColor: " #5cddff",
-          },
-          {
-            label: "Last week",
-            data: [20, 10, 12, 33, 22, 4, 0],
-            backgroundColor: "#dddddd",
-            hoverBackgroundColor: "#dddddd",
-          },
-        ],
-      },
-
-      chartOptions: {
-        tooltips: {
-          mode: "label",
-          callbacks: {
-            label: function (tooltipItem, data) {
-              return (
-                data.datasets[tooltipItem.datasetIndex].label +
-                ": " +
-                tooltipItem.xLabel
-              );
-            },
-          },
-        },
-        scales: {
-          xAxes: [
-            {
-              stacked: true,
-              categoryPercentage: 0.5,
-              barPercentage: 0.5,
-              gridLines: { display: false },
-              fontSize: 5,
-            },
-          ],
-          yAxes: [
-            {
-              gridLines: {
-                color: "#ffffff",
-              },
-              ticks: {
-                stepSize: 1,
-                callback: function (value, index, values) {
-                  if (value % Math.round(values[0] / 6) == 0) {
-                    return value;
-                  } else if (value === 0) {
-                    return value;
-                  }
-                },
-              },
-              stacked: true,
-              categoryPercentage: 0,
-              barPercentage: 0,
-              fontSize: 5,
-            },
-          ],
-        },
-        maintainAspectRatio: false,
-        legend: {
-          labels: {
-            boxWidth: 10,
-          },
-          position: "top",
-        },
-        animation: {
-          duration: 2000,
-          easing: "easeInOutQuart",
-        },
-      },
-    };
+  // data() {
+  //   return {
+  //     data: {
+  //       type: "bar",
+  //       data: {
+  //         labels: [
+  //           "Mercury",
+  //           "Venus",
+  //           "Earth",
+  //           "Mars",
+  //           "Jupiter",
+  //           "Saturn",
+  //           "Uranus",
+  //           "Neptune",
+  //         ],
+  //         datasets: [
+  //           {
+  //             label: "Number of Moons",
+  //             type: "line",
+  //             data: [0, 0, 1, 2, 79, 82, 27, 14],
+  //             backgroundColor: "rgba(54,73,93,.5)",
+  //             borderColor: "#36495d",
+  //             borderWidth: 3,
+  //           },
+  //           {
+  //             label: "Planetary Mass (relative to the Sun x 10^-6)",
+  //             type: "bar",
+  //             data: [
+  //               0.166, 2.081, 3.003, 0.323, 954.792, 285.886, 43.662, 51.514,
+  //             ],
+  //             backgroundColor: "rgba(71, 183,132,.5)",
+  //             borderColor: "#47b784",
+  //             borderWidth: 3,
+  //           },
+  //         ],
+  //       },
+  //       options: {
+  //         responsive: true,
+  //         lineTension: 1,
+  //         scales: {
+  //           yAxes: [
+  //             {
+  //               ticks: {
+  //                 beginAtZero: true,
+  //                 padding: 25,
+  //               },
+  //             },
+  //           ],
+  //         },
+  //       },
+  //     },
+  //   };
+  // },
+  mounted() {
+    const ctx = document.getElementById("bar-chart");
+    new Chart(ctx, this.data);
   },
 };
 </script>
-
-<style></style>

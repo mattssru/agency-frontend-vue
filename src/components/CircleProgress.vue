@@ -32,7 +32,7 @@ export default {
   },
   computed: {
     color() {
-      const color = this.getColorRank(this.percent);
+      const color = this.bgColor || this.getColorRank(this.percent);
       return color;
     },
     isSuccess() {

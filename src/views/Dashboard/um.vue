@@ -5,7 +5,7 @@ import IconTabsFirst from "@components/icons/IconTabsFirst.vue";
 import IconTabsSecon from "@components/icons/IconTabsSecon.vue";
 
 import IconPerson from "@components/icons/IconPerson.vue";
-import { formatNumber, getColorRank } from "@utils/helper";
+import { formatNumber, getColorRank, getColorTextPercent } from "@utils/helper";
 export default {
   name: "Dashboard-UM",
   components: {
@@ -40,6 +40,7 @@ export default {
   methods: {
     formatNumber,
     getColorRank,
+    getColorTextPercent,
   },
 };
 </script>
@@ -177,9 +178,14 @@ export default {
                     alt=""
                     class="me-3 mb-3"
                     height="60"
-                    v-if="88.88 > 80"
+                    v-if="88.88 >= 80"
                   />
-                  <CircleProgress v-else :percent="88.88" class="mb-3" />
+                  <CircleProgress
+                    v-else
+                    :percent="88.88"
+                    :bg-color="getColorTextPercent(88.88)"
+                    class="mb-3"
+                  />
 
                   <div class="assets_plan text-center">
                     <p class="font_medium color_title">
@@ -193,7 +199,7 @@ export default {
                     </p>
                     <div
                       :style="{
-                        color: 88.88 > 80 ? '#5fcd8a' : getColorRank(88.88),
+                        color: getColorTextPercent(88.88),
                       }"
                       class="font_semi text_large color_green mt-3"
                     >
@@ -240,7 +246,7 @@ export default {
                       class="text_large font_semi color_green d-flex"
                     >
                       <img
-                        v-if="1600000 >= 1500000"
+                        v-if="80 >= 80"
                         src="@assets/image/icon_congrat.svg"
                         alt=""
                         width="27"
@@ -268,7 +274,7 @@ export default {
                         width="27"
                         height="31"
                         class="me-2 mb-2"
-                        v-if="9 >= 8"
+                        v-if="100 >= 80"
                       />
                       9
                       <IconPerson
@@ -293,7 +299,7 @@ export default {
                         width="27"
                         height="31"
                         class="me-2 mb-2"
-                        v-if="1 >= 2"
+                        v-if="50 >= 80"
                       />
                       1
                       <IconPerson class="ms-1 me-2" :color="getColorRank(50)" />

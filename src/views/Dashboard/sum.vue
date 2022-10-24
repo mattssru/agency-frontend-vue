@@ -4,7 +4,7 @@ import { CardExpend, ModalShare } from "@components/Dashboard";
 import IconPerson from "@components/icons/IconPerson.vue";
 import IconTabsFirst from "@components/icons/IconTabsFirst.vue";
 import IconTabsSecon from "@components/icons/IconTabsSecon.vue";
-import { formatNumber, getColorRank } from "@utils/helper";
+import { formatNumber, getColorRank, getColorTextPercent } from "@utils/helper";
 export default {
   name: "Dashboard-SUM",
   components: {
@@ -39,6 +39,20 @@ export default {
   methods: {
     formatNumber,
     getColorRank,
+    getColorTextPercent,
+    getAvpRankColor(value = 0) {
+      let color = "#e0e0e0";
+      if (value > 0 && value <= 38.24) {
+        color = "#f62459";
+      } else if (value >= 38.25 && value <= 56.99) {
+        color = "#f86200";
+      } else if (value >= 57 && value <= 74.99) {
+        color = "#fab600";
+      } else if (value >= 75) {
+        color = "#5fcd8a";
+      }
+      return color;
+    },
   },
 };
 </script>
@@ -139,6 +153,19 @@ export default {
                 </button>
                 <button
                   class="nav-link"
+                  id="v-pills-sdm-tab"
+                  data-bs-toggle="pill"
+                  data-bs-target="#v-pills-sdm"
+                  type="button"
+                  role="tab"
+                  aria-controls="v-pills-sdm"
+                  aria-selected="false"
+                >
+                  <img src="@assets/image/um.svg" alt="" class="me-2" />
+                  SDM
+                </button>
+                <button
+                  class="nav-link"
                   id="v-pills-profile-tab"
                   data-bs-toggle="pill"
                   data-bs-target="#v-pills-profile"
@@ -174,7 +201,7 @@ export default {
                           :style="{ color: getColorRank(88) }"
                           class="text_large font_semi color_yellow d-flex mb-1"
                         >
-                          1,400,000
+                          {{ formatNumber(1400000) }}
                         </p>
                         <p>(เป้าหมายที่ต้องทำได้ 1,500,000 PC)</p>
                       </div>
@@ -188,9 +215,9 @@ export default {
                           class="text_large font_semi d-flex mb-1"
                           :style="{ color: getColorRank(75) }"
                         >
-                          850,000
+                          {{ formatNumber(7500000) }}
                         </p>
-                        <p>(เป้าหมายที่ต้องทำได้ 1,250,000 PC)</p>
+                        <p>(เป้าหมายที่ต้องทำได้ 12,500,000 PC)</p>
                       </div>
                     </div>
                     <div class="box_item d-flex align-items-center py-3">
@@ -228,7 +255,7 @@ export default {
                         </p>
                         <p
                           class="text_large font_semi d-flex"
-                          :style="{ color: getColorRank(53.75) }"
+                          :style="{ color: getAvpRankColor(53.75) }"
                         >
                           <img
                             src="@assets/image/icon_congrat.svg"
@@ -270,20 +297,113 @@ export default {
                             >
                               2 หน่วยลูก
                             </p>
-                            <p>(เป้าหมายที่ต้องทำได้ 6 หน่วยลูก)</p>
+                            <p>(เป้าหมายที่ต้องทำได้ 3 หน่วยลูก)</p>
                           </div>
                           <div
                             class="d-flex flex-column justify-content-center"
                           >
                             <p
-                              :style="{ color: getColorRank(1) }"
+                              :style="{ color: getColorRank(0) }"
                               class="font_semi color_pink"
                             >
                               0 หน่วยหลาน
                             </p>
-                            <p>(เป้าหมายที่ต้องทำได้ 4 หน่วยหลาน)</p>
+                            <p>(เป้าหมายที่ต้องทำได้ 1 หน่วยหลาน)</p>
                           </div>
                         </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="tab-pane fade"
+                  id="v-pills-sdm"
+                  role="tabpanel"
+                  aria-labelledby="v-pills-sdm-tab"
+                >
+                  <div class="grid_2">
+                    <div>
+                      <div class="box_item d-flex align-items-center mb-3">
+                        <CircleProgress :percent="80" class="me-3" />
+
+                        <div class="assets_plan">
+                          <p
+                            class="color_title font_medium d-inline-block me-1"
+                          >
+                            PC สะสมของหน่วย
+                          </p>
+                          <p class="color_gray">(ม.ค. 65 - มิ.ย. 65)</p>
+                          <p
+                            :style="{ color: getColorRank(80) }"
+                            class="text_large font_semi color_yellow mt-2"
+                          >
+                            {{ formatNumber(1600000) }}
+                          </p>
+                          <p>(เป้าหมายที่ต้องทำได้ 2,000,000 PC)</p>
+                        </div>
+                      </div>
+                      <div class="box_item d-flex align-items-center">
+                        <CircleProgress :percent="75" class="me-3" />
+
+                        <div class="assets_plan">
+                          <p class="font_medium color_title me-1">
+                            จำนวนตัวแทน (รวมตนเอง)
+                          </p>
+                          <p class="color_gray">
+                            ที่ PC >=
+                            {{ formatNumber(30000) }}
+                            (ม.ค. 65 - ธ.ค. 65)
+                          </p>
+                          <p
+                            class="mt-2 text_large font_semi d-inline-flex align-items-center"
+                            :style="{ color: getColorRank(75) }"
+                          >
+                            6
+                            <IconPerson
+                              class="ms-1 me-2"
+                              :color="getColorRank(75)"
+                            />
+                          </p>
+                          <!-- <span class="color_gray">(PC สะสมมากว่า 30,000)</span> -->
+                          <p>(เป้าหมายที่ต้องทำได้ 8 คน)</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="box_item d-flex flex-column align-items-center justify-content-center"
+                    >
+                      <img
+                        src="@assets/image/icon_congrat.svg"
+                        alt=""
+                        class="me-3 mb-3"
+                        height="60"
+                        v-if="88.88 >= 80"
+                      />
+                      <CircleProgress
+                        v-else
+                        :percent="88.88"
+                        :bg-color="getColorTextPercent(88.88)"
+                        class="mb-3"
+                      />
+                      <div class="assets_plan text-center">
+                        <p class="font_medium color_title">
+                          ประมาณการอัตราความยั่งยืน
+                        </p>
+                        <p class="font_medium color_title text_small mb-2">
+                          ล่วงหน้าสะสม 19 เดือน ของสายงาน
+                        </p>
+                        <p class="font_medium color_title text_small mb-2">
+                          ณ เดือน ธ.ค. 2565
+                        </p>
+                        <div
+                          :style="{
+                            color: getColorTextPercent(88.88),
+                          }"
+                          class="font_semi text_large color_green mt-3"
+                        >
+                          88.88%
+                        </div>
+                        <p>(เป้าหมายที่ต้องทำได้ 80%)</p>
                       </div>
                     </div>
                   </div>
@@ -310,9 +430,9 @@ export default {
                             :style="{ color: getColorRank(80) }"
                             class="text_large font_semi color_yellow mt-2"
                           >
-                            320,000
+                            {{ formatNumber(960000) }}
                           </p>
-                          <p>(เป้าหมายที่ต้องทำได้ 400,000 PC)</p>
+                          <p>(เป้าหมายที่ต้องทำได้ 1,200,000 PC)</p>
                         </div>
                       </div>
                       <div class="box_item d-flex align-items-center">
@@ -329,7 +449,7 @@ export default {
                             class="mt-2 text_large font_semi d-inline-flex align-items-center"
                             :style="{ color: getColorRank(75) }"
                           >
-                            5
+                            4
                             <IconPerson
                               class="ms-1 me-2"
                               :color="getColorRank(75)"
@@ -348,9 +468,14 @@ export default {
                         alt=""
                         class="me-3 mb-3"
                         height="60"
-                        v-if="88.88 > 80"
+                        v-if="88.99 >= 80"
                       />
-                      <CircleProgress v-else :percent="88.88" class="mb-3" />
+                      <CircleProgress
+                        v-else
+                        :percent="88.99"
+                        :bg-color="getColorTextPercent(88.99)"
+                        class="mb-3"
+                      />
                       <div class="assets_plan text-center">
                         <p class="font_medium color_title">
                           ประมาณการอัตราความยั่งยืน
@@ -363,11 +488,11 @@ export default {
                         </p>
                         <div
                           :style="{
-                            color: 88.88 > 80 ? '#5fcd8a' : getColorRank(88.88),
+                            color: getColorTextPercent(88.99),
                           }"
                           class="font_semi text_large color_green mt-3"
                         >
-                          88.88%
+                          88.99%
                         </div>
                         <p>(เป้าหมายที่ต้องทำได้ 80%)</p>
                       </div>
@@ -405,10 +530,18 @@ export default {
                   <p class="font_medium color_title">PC สะสมของหน่วย</p>
                   <p class="mb-2 color_gray">(ต.ค. 2564 - ก.ย. 2565)</p>
                   <p
-                    :style="{ color: getColorRank(80) }"
+                    :style="{ color: getColorRank(79) }"
                     class="text_large font_semi color_yellow d-flex"
                   >
-                    1,350,000
+                    <img
+                      src="@assets/image/icon_congrat.svg"
+                      alt=""
+                      width="27"
+                      height="31"
+                      class="me-2 mb-2"
+                      v-if="79 >= 80"
+                    />
+                    {{ formatNumber(1350000) }}
                   </p>
                   <p>(เป้าหมายที่ต้องทำได้ 1,500,000 PC)</p>
                 </div>
@@ -421,7 +554,7 @@ export default {
                   </p>
                   <p
                     :style="{ color: getColorRank(100) }"
-                    class="text_large font_semi color_green d-flex align-items-center"
+                    class="text_large font_semi d-flex align-items-center"
                   >
                     <img
                       src="@assets/image/icon_congrat.svg"
@@ -429,8 +562,9 @@ export default {
                       width="27"
                       height="31"
                       class="me-2 mb-2"
-                      v-if="9 >= 8"
+                      v-if="100 >= 80"
                     />
+                    <!-- NOTE: 100 is percent -->
                     9
                     <IconPerson class="ms-1 me-2" :color="getColorRank(100)" />
                   </p>
@@ -442,7 +576,8 @@ export default {
                   <p class="font_medium color_title">จำนวน UM ใหม่</p>
                   <p class="mb-2 color_gray">(ก.ค. 2564 - มิ.ย. 2565)</p>
                   <p
-                    class="text_large font_semi color_pink d-flex align-items-center"
+                    class="text_large font_semi d-flex align-items-center"
+                    :style="{ color: getColorRank(0) }"
                   >
                     <img
                       src="@assets/image/icon_congrat.svg"
@@ -450,10 +585,10 @@ export default {
                       width="27"
                       height="31"
                       class="me-2 mb-2"
-                      v-if="0 >= 2"
+                      v-if="0 >= 80"
                     />
                     0
-                    <IconPerson class="ms-1 me-2" :color="getColorRank(50)" />
+                    <IconPerson class="ms-1 me-2" :color="getColorRank(0)" />
                   </p>
                   <p>(เป้าหมายที่ต้องทำได้ 2 คน)</p>
                 </div>
