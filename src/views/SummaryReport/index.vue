@@ -19,53 +19,49 @@ export default {
         id: 2,
       },
       barData: {
-        type: "bar",
-        data: {
-          labels: [
-            "Mercury",
-            "Venus",
-            "Earth",
-            "Mars",
-            "Jupiter",
-            "Saturn",
-            "Uranus",
-            "Neptune",
-          ],
-          datasets: [
-            {
-              label: "Number of Moons",
-              type: "line",
-              data: [0, 0, 1, 2, 79, 82, 27, 14],
-              backgroundColor: "rgba(54,73,93,.5)",
-              borderColor: "#36495d",
-              borderWidth: 3,
-            },
-            {
-              label: "Planetary Mass (relative to the Sun x 10^-6)",
-              type: "bar",
-              data: [
-                0.166, 2.081, 3.003, 0.323, 954.792, 285.886, 43.662, 51.514,
-              ],
-              backgroundColor: "rgba(71, 183,132,.5)",
-              borderColor: "#47b784",
-              borderWidth: 3,
-            },
-          ],
-        },
-        options: {
-          responsive: true,
-          lineTension: 1,
-          scales: {
-            yAxes: [
-              {
-                ticks: {
-                  beginAtZero: true,
-                  padding: 25,
-                },
-              },
+        labels: [
+          "ม.ค. 2565",
+          "ก.พ. 2565",
+          "มี.ค. 2565",
+          "เม.ย. 2565",
+          "พ.ค. 2565",
+          "มิ.ย. 2565",
+          "ก.ค. 2565",
+          "ส.ค. 2565",
+          "ก.ย. 2565",
+        ],
+        datasets: [
+          {
+            label: "PC สะสมของตนเอง",
+            data: [
+              20000, 30000, 30000, 30000, 20000, 30000, 30000, 20000, 50000,
             ],
+            backgroundColor: "#00908D",
+            borderColor: "#00908D",
+            borderWidth: 3,
           },
-        },
+          {
+            label: "PC สะสมของหน่วย",
+            data: [
+              400000, 300000, 400000, 500000, 45000, 66000, 300000, 400000,
+              89000.22,
+            ],
+            backgroundColor: "#5FCD8A",
+            borderColor: "#5FCD8A",
+            borderWidth: 3,
+          },
+          {
+            label: "PC สะสมของสายงาน",
+
+            data: [
+              800000, 700000, 600000, 700000, 800000, 900000, 800000, 700000,
+              500000,
+            ],
+            backgroundColor: "#FAB600",
+            borderColor: "#FAB600",
+            borderWidth: 3,
+          },
+        ],
       },
       tableData: [
         {
@@ -263,7 +259,7 @@ export default {
 .summary-report {
   background: #003781;
   padding: 20px;
-  min-height: 100vh;
+  min-height: calc(100vh - 54px);
   height: 100%;
   position: relative;
 }

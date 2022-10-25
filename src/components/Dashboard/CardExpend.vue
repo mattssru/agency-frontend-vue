@@ -7,6 +7,7 @@ export default {
     },
   },
   data() {
+    console.log("this.route", this.$route.path);
     return {
       show: false,
     };
@@ -24,7 +25,7 @@ export default {
           </div>
           <img src="@assets/image/premier.svg" alt="" width="64" height="13" />
         </div>
-        <div class="">
+        <div class="custom-profile">
           <div class="name_user color_primary font_medium">
             คุณ{{ data.firstname }} {{ data.lastname }}
           </div>
@@ -52,6 +53,7 @@ export default {
             </div>
           </Transition>
           <router-link
+            v-if="this.$route.path !== '/structure-agent'"
             to="/structure-agent"
             class="font_medium color_primary text_small d-flex align-items-center mb-2 text-decoration-underline"
           >
@@ -108,6 +110,9 @@ export default {
   width: 10px;
   height: 10px;
   transition: transform 0.2s ease-in-out;
+}
+.custom-profile {
+  min-height: 120px;
 }
 .show {
   //position: relative;

@@ -2,98 +2,74 @@
 export default {
   name: "Tree",
   props: {
-    title: String,
+    data: Object,
   },
   data() {
     return {
-      agent: {
-        name: "ลักษมีแข เจริญประภาธนพล",
-        code: "123456 (AG)",
-        id: 1,
-        teams: [
-          {
-            name: "อารียา รัตนาอธิการบดี",
-            code: "123456 (AG)",
-            id: 11,
-            teams: [
-              {
-                name: "อารียา 111111",
-                code: "111111 (AG)",
-                id: 111,
-              },
-              {
-                name: "อารียา 222222",
-                code: "222222 (AG)",
-                id: 112,
-              },
-            ],
-          },
-          {
-            name: "สมเจตนา พรสุภาภรโชติ",
-            code: "234567 (AG)",
-            id: 12,
-            teams: [
-              {
-                name: "สมเจตนา 111111",
-                code: "111111 (AG)",
-                id: 121,
-              },
-              {
-                name: "สมเจตนา 222222",
-                code: "222222 (AG)",
-                id: 122,
-              },
-            ],
-          },
-          {
-            name: "ดนุพล จันทราสุวรรณะ",
-            code: "345678 (AG)",
-            id: 13,
-          },
-          {
-            name: "ธนชัย อารยะวิธิสกุล",
-            code: "456789 (AG)",
-            id: 14,
-          },
-          {
-            name: "นทีธร นพประทาน",
-            code: "567890 (AG)",
-            id: 15,
-            teams: [
-              {
-                name: "นทีธร 111111",
-                code: "111111 (AG)",
-                id: 151,
-              },
-              {
-                name: "นทีธร 222222",
-                code: "222222 (AG)",
-                id: 152,
-              },
-            ],
-          },
-        ],
-      },
+      agent: [],
     };
   },
-  // created() {
-  //   // props are exposed on `this`
-  //   console.log(this.title)
-  // }
+  methods: {
+    handleClick(id) {
+      const temp = this.agent;
+      this.agent = temp.map((item) => {
+        if (item.id === id) {
+          return { ...item, open: !item.open };
+        } else {
+          return item;
+        }
+      });
+    },
+    findLength(arr) {
+      return arr.length === 0;
+    },
+  },
+  created() {
+    const { teams } = this.data;
+
+    this.agent = teams.map((team) => ({
+      ...team,
+      open: false,
+    }));
+  },
 };
 </script>
 <template>
-  <div>
-    <p class="font_semi text_small">{{ agent.name }}</p>
-    <span class="text_xs">{{ agent.code }}</span>
+  <div class="wrap-tree">
+    <div class="agent-profile">
+      <div class="profile">
+        <img src="@assets/image/img_user.svg" alt="" class="profile_img" />
+        <router-link :to="`/structure-agent`" class="details">
+          <p class="font_semi text_small color_primary">{{ data.name }}</p>
+          <span class="text_xs font_regular color_gray">{{ data.code }}</span>
+        </router-link>
+      </div>
+    </div>
     <ul class="tree">
-      <li v-for="child in agent.teams" :key="child.id">
-        <p class="font_semi text_small">{{ child.name }}</p>
-        <p class="text_xs">{{ child.code }}</p>
-        <ul>
+      <li v-for="child in agent" :key="child.id">
+        <div class="child-1 d-flex" :class="{ active: child.open }">
+          <button
+            v-if="!findLength(child.teams)"
+            @click="handleClick(child.id)"
+            :class="{ active: agent.find((item) => item.id === child.id).open }"
+            class="btnExpend d-flex align-items-center justify-content-center"
+          ></button>
+
+          <router-link :to="`/structure-agent/${child.id}`">
+            <p class="name font_regular color_title text_small">
+              {{ child.name }}
+            </p>
+            <p class="text_xs font_regular color_gray">{{ child.code }}</p>
+          </router-link>
+        </div>
+        <ul v-show="agent.find((item) => item.id === child.id).open">
           <li v-for="c in child.teams" :key="c.id">
-            <p class="font_semi text_small">{{ c.name }}</p>
-            <p class="text_xs">{{ c.code }}</p>
+            <div class="child-2">
+              <p class="font_regular color_title text_small">
+                {{ c.name }}
+              </p>
+              <p class="text_xs font_regular color_gray">{{ c.code }}</p>
+            </div>
           </li>
         </ul>
       </li>
@@ -101,10 +77,71 @@ export default {
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+.child-1 {
+}
+.child-1.active .name {
+  color: var(--azy-bluedark-color);
+  text-decoration: underline;
+}
+.profile_img {
+  height: 48px;
+  width: 48px;
+  border: 2px solid #b59d5e;
+  border-radius: 50%;
+  z-index: 10;
+}
+.profile {
+  position: relative;
+  display: flex;
+}
+.details {
+  position: absolute;
+  left: 25px;
+  flex-direction: column;
+  background-color: #f0f0f0;
+  height: 48px;
+  width: 220px;
+  padding-left: 36px;
+  justify-content: center;
+  display: flex;
+}
+.btnExpend {
+  position: relative !important;
+  padding: 0;
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 3px;
+  background-color: #c3e7f4;
+  border: none;
+  opacity: 0.7;
+  position: relative;
+}
+.btnExpend::after {
+  content: "";
+  background-image: url(@assets/image/icon_down.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: auto;
+  width: 10px;
+  height: 10px;
+  transition: transform 0.2s ease-in-out;
+  transform: rotate(0deg);
+}
+.active.btnExpend::after {
+  transform: rotate(-180deg);
+}
+.wrap-tree {
+  overflow: hidden;
+  overflow-y: scroll;
+  padding: 14px;
+  height: calc(100vh - 190px);
+  margin-bottom: 60px;
+}
 .tree,
 .tree ul {
-  margin: 0 0 0 1em; /* indentation */
+  margin: 0 0 0 2em; /* indentation */
   padding: 0;
   list-style: none;
   color: #cbcbcb;

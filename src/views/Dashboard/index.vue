@@ -399,7 +399,7 @@ export default {
 .dashboard {
   background: #003781;
   padding: 20px;
-  min-height: 100vh;
+  min-height: calc(100vh - 54px);
   height: 100%;
   position: relative;
 }

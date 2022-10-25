@@ -4,6 +4,7 @@ import DashboardSDM from "@views/Dashboard/sdm.vue";
 import DashboardSum from "@views/Dashboard/sum.vue";
 import DashboardUM from "@views/Dashboard/um.vue";
 import StructurePage from "@views/Structure/index.vue";
+import ChildPage from "@views/Structure/Child.vue";
 import SummaryReportPage from "@views/SummaryReport/index.vue";
 import { createRouter, createWebHistory } from "vue-router";
 const routes = [
@@ -16,6 +17,7 @@ const routes = [
     path: "/structure-agent",
     component: StructurePage,
   },
+  { path: "/structure-agent/:id", component: ChildPage },
   {
     path: "/summary-report",
     component: SummaryReportPage,

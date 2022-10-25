@@ -8,7 +8,7 @@
         @change="$emit('input', '6')"
         id="6"
       />
-      <label class="form-check-label" for="6">6</label>
+      <label class="form-check-label" for="6">6 เดือน</label>
     </div>
     <div class="form-check d-inline-flex align-items-center">
       <input
@@ -19,7 +19,7 @@
         @change="$emit('input', '12')"
         checked
       />
-      <label class="form-check-label" for="12">12</label>
+      <label class="form-check-label" for="12">12 เดือน</label>
     </div>
   </div>
 </template>
@@ -30,7 +30,6 @@ export default {};
 
 <style>
 .custom-radio-input {
-  width: 55%;
   margin-right: auto;
   display: flex;
   justify-content: space-between;
@@ -53,5 +52,10 @@ label {
   font-size: 14px;
   color: #414141;
   line-height: 21px;
+}
+@media (max-width: 991px) {
+  .custom-radio-input {
+    flex-direction: column;
+  }
 }
 </style>

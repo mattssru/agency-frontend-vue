@@ -1,6 +1,17 @@
 <template>
-  <div>
+  <div :style="{ width: '900px', height: '440px' }">
     <canvas id="bar-chart"></canvas>
+    <div id="legend">
+      <div v-for="item in data.datasets" :key="item.label" class="wrap-legend">
+        <div
+          class="box-legend"
+          :style="{ 'background-color': item.backgroundColor }"
+        ></div>
+        <div>
+          {{ item.label }}
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -14,9 +25,8 @@ export default {
       require: true,
     },
   },
-  // data() {
   //   return {
-  //     data: {
+  //     planetChartData: {
   //       type: "bar",
   //       data: {
   //         labels: [
@@ -69,7 +79,70 @@ export default {
   // },
   mounted() {
     const ctx = document.getElementById("bar-chart");
-    new Chart(ctx, this.data);
+
+    const options = {
+      type: "bar",
+      data: this.data,
+      borderWidth: 0,
+      options: {
+        layout: {
+          padding: 0,
+        },
+        plugins: {
+          title: {
+            display: false,
+          },
+          legend: {
+            display: false,
+          },
+          tooltip: {
+            callbacks: {
+              label: function (context) {
+                return "label";
+              },
+            },
+          },
+        },
+        maxBarThickness: 48,
+        responsive: true,
+        borderWidth: 0,
+
+        scales: {
+          x: {
+            stacked: true,
+            font: { family: "prompt" },
+            grid: {
+              display: false,
+            },
+          },
+          y: {
+            // display: false,
+            ticks: {},
+            beginAtZero: true,
+          },
+        },
+      },
+    };
+    new Chart(ctx, options);
   },
 };
 </script>
+
+<style scoped lang="scss">
+#legend {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+.wrap-legend {
+  display: flex;
+  flex-direction: row;
+  margin-right: 40px;
+  align-items: center;
+}
+.box-legend {
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+</style>
