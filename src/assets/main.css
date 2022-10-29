@@ -54,49 +54,63 @@ h1 {
   line-height: 52px;
 }
 .color_primary {
+  /* #003781 */
   color: var(--azy-bluedark-color);
 }
 .color_title {
-  color: #122b54;
+  /* #122b54 */
+  color: var(--azy-bluedark2-color);
 }
 .color_secondary {
-  color: #414141;
+  /* #414141 */
+  color: var(--azy-gray-color);
 }
 .color_white {
   color: #ffffff;
 }
 .color_pink {
+  /* --azy-pink-color: #f62459; */
   color: var(--azy-pink-color);
 }
 .color_blue {
+  /* --azy-blue-color: #007ab3; */
   color: var(--azy-blue-color);
 }
 .color_gray {
+  /* --azy-graylight-color: #6a6a6a; */
   color: var(--azy-graylight-color);
 }
 .color_green {
+  /* --azy-green-color: #5fcd8a; */
   color: var(--azy-green-color);
 }
 .color_green_secondary {
-  color: #00908d;
+  /* --azy-bluegreen-color: #00908d; */
+  color: var(--azy-bluegreen-color);
 }
 .color_orange {
-  color: #f86200;
+  color: var(--azy-orange-color);
+  /* --azy-orange-color: #f86200; */
 }
 .color_yellow {
+  /* --azy-yellow-color: #fab600; */
   color: var(--azy-yellow-color);
 }
 .bg_green {
-  background-color: #5fcd8a;
+  /* --azy-green-color: #5fcd8a; */
+  background-color: var(--azy-green-color);
 }
 .bg_green_secondary {
-  background-color: #00908d;
+  /* --azy-bluegreen-color: #00908d; */
+  background-color: var(--azy-bluegreen-color);
 }
 .bg_pink {
-  background-color: #f62459;
+  /* --azy-pink-color: #f62459; */
+  background-color: var(--azy-pink-color);
 }
 .bg_yellow {
-  background-color: #fab600;
+  /* --azy-yellow-color: #fab600; */
+  background-color: var(--azy-yellow-color);
 }
 .position-rel {
   position: relative;

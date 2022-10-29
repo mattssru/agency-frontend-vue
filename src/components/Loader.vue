@@ -43,7 +43,7 @@ export default {
 }
 .loading {
   position: absolute;
-  background-color: #201e1ed9;
+  background-color: #201e1eb5;
   z-index: 50;
   width: 100%;
   height: 100%;
