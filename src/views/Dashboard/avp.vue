@@ -240,20 +240,25 @@ export default {
               จำนวนหน่วยที่ Active ในกลุ่มตนเอง (ต.ค. 2564 - ก.ย. 2565)
             </p>
           </div>
-          <BarChart :data="activeData"> </BarChart>
+          <BarChart :fontSize="10" :data="activeData" id="active-data" />
         </div>
       </div>
       <div class="col-lg-5">
         <div class="expend_desktop">
           <CardExpend :data="agentData" />
         </div>
-        <div class="box_item mt-3">
+        <div class="box_item mt-3 custom_chart">
           <div class="assets_plan p-3">
             <p class="font_medium color_title mb-3 text-center">
-              PC สะสมของกลุ่มตนเอง รายไตรมาส (ต.ค. 2564 - ก.ย. 2565)
+              PC สะสมของกลุ่มตนเอง <br />รายไตรมาส (ต.ค. 2564 - ก.ย. 2565)
             </p>
           </div>
-          <BarChart :data="pcData"> </BarChart>
+          <BarChart
+            :data="pcData"
+            id="pc-data"
+            :customStyle="{ width: '100%', height: '450px' }"
+            :fontSize="10"
+          />
         </div>
       </div>
     </div>
@@ -283,9 +288,7 @@ export default {
   cursor: pointer;
   text-decoration: underline;
 }
-.footer {
-  margin-top: 7px;
-}
+
 .title_modal {
   font-size: 16px;
   line-height: 22px;
@@ -381,6 +384,10 @@ export default {
 }
 .expend_mobile {
   display: none;
+}
+.custom_chart .wrap-chart canvas {
+  width: 100% !important;
+  height: 377px !important;
 }
 @media (max-width: 991px) {
   .expend_mobile {

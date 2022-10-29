@@ -101,6 +101,10 @@ h1 {
 .position-rel {
   position: relative;
 }
+.footer {
+  margin-top: 7px;
+  font-size: 10px;
+}
 .grid_2 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

@@ -12,10 +12,21 @@ export default {
       type: Object,
       require: true,
     },
+    id: {
+      type: String,
+      default: "bar-chart",
+    },
+    customStyle: {
+      type: Object,
+    },
+    fontSize: {
+      type: Number,
+      default: 15,
+    },
   },
 
   mounted() {
-    const ctx = document.getElementById("bar-chart");
+    const ctx = document.getElementById(this.id);
     const data = this.data.datasets || [];
     let max = 0;
     data.forEach((element) => {
@@ -28,6 +39,7 @@ export default {
       type: "bar",
       data: this.data,
       defaults: {
+        height: 1000,
         font: {
           size: 10,
         },
@@ -91,7 +103,7 @@ export default {
             ticks: {
               font: {
                 family: "regular", // Your font family
-                size: 15,
+                size: this.fontSize,
               },
               // display: false,
             },
@@ -100,9 +112,9 @@ export default {
             // display: false,
             suggestedMax: max * 1.1,
             beginAtZero: true,
-            // stepSize: 1000000,
             ticks: {
               display: false,
+              // stepSize: 10000,
             },
             grid: {
               // display: false,
@@ -119,8 +131,8 @@ export default {
 
 <template>
   <div class="wrap-chart">
-    <canvas id="bar-chart"></canvas>
-    <div id="legend">
+    <canvas :id="id" :style="customStyle"></canvas>
+    <div id="legend" v-if="data.length > 0">
       <div
         v-for="item in data.datasets"
         :key="item.label"
