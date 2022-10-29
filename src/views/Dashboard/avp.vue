@@ -1,12 +1,13 @@
 <script>
 import { CircleProgress, Modal } from "@components";
 import BarChart from "@components/BarChart.vue";
-import { CardExpend } from "@components/Dashboard";
+import { CardExpend, ModalShare } from "@components/Dashboard";
 import { getColorRank } from "@utils/helper";
 export default {
   name: "Dashboard-avp",
   components: {
     BarChart,
+    ModalShare,
     CircleProgress,
     CardExpend,
     Modal,
@@ -72,62 +73,7 @@ export default {
 </script>
 
 <template>
-  <modal id="exampleModal">
-    <template #header>Share ผลงานของคุณ</template>
-    <template #body>
-      <div class="title_modal">กรุณาเลือกผลงานที่คุณต้องการแชร์</div>
-      <div class="row mb-5">
-        <div class="col-md-4">
-          <div class="share_check mb-3 mb-md-0">
-            <div class="img_share_check">
-              <img
-                src="@assets/image/share1.svg"
-                alt=""
-                class="mb-3"
-                height="55.98"
-              />
-            </div>
-            <p class="title_modal mb-0">วางแผน<br />รักษาสัญญา</p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="share_check mb-3 mb-md-0">
-            <div class="img_share_check">
-              <img
-                src="@assets/image/share2.svg"
-                alt=""
-                class="mb-3"
-                height="56.11"
-              />
-            </div>
-            <p class="title_modal mb-0">วางแผน<br />เลื่อนตำแหน่ง</p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="share_check mb-3 mb-md-0">
-            <div class="img_share_check">
-              <img
-                src="@assets/image/share3.svg"
-                alt=""
-                class="mb-3"
-                height="53.46"
-              />
-            </div>
-            <p class="title_modal mb-0">Elite AG /<br />Premier AG</p>
-          </div>
-        </div>
-      </div>
-      <div class="title_modal">กรุณาเลือกประเภทของไฟล์</div>
-      <div class="d-flex">
-        <button type="button" class="btn btn_file me-3">
-          <img src="@assets/image/icon_excel.svg" alt="" class="me-2" /> Excel
-        </button>
-        <button type="button" class="btn btn_file">
-          <img src="@assets/image/icon_pdf.svg" alt="" class="me-2" />PDF
-        </button>
-      </div>
-    </template>
-  </modal>
+  <ModalShare id="exampleModal"> </ModalShare>
   <div class="dashboard">
     <div
       class="mb-3 d-flex flex-column flex-lg-row align-items-start align-lg-item-center justify-content-between"
@@ -305,52 +251,6 @@ export default {
 .assets_plan p:first-child {
   font-size: 16px;
   line-height: 24px;
-}
-.share_check {
-  position: relative;
-  border: 1px solid #cbcbcb;
-  border-radius: 8px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 142px;
-  text-align: center;
-  padding: 0 25px;
-  cursor: pointer;
-  transition: all 0.2s ease-in;
-}
-.share_check::after {
-  display: none;
-  content: "";
-  background-image: url(@assets/image/icon_check_blue.svg);
-  background-repeat: no-repeat;
-  background-size: 24px;
-  position: absolute;
-  top: -10px;
-  right: -10px;
-  width: 24px;
-  height: 24px;
-  transition: all 0.4s ease-in;
-}
-.share_check:hover::after {
-  display: block;
-  transition: all 0.2s ease-in;
-}
-.share_check:hover,
-.btn_file:hover {
-  background-color: #e7f5fb;
-  border: 2px solid #007ab3;
-}
-.btn_file {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid #cbcbcb;
-  border-radius: 8px;
-  height: 44px;
-  max-width: 142px;
-  width: 100%;
 }
 
 .border_right {
