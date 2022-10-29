@@ -5,7 +5,8 @@
         class="form-check-input me-2"
         type="radio"
         name="selectMonth"
-        @change="$emit('input', '6')"
+        @change="onChange"
+        checked
         id="6"
       />
       <label class="form-check-label" for="6">6 เดือน</label>
@@ -16,8 +17,7 @@
         type="radio"
         name="selectMonth"
         id="12"
-        @change="$emit('input', '12')"
-        checked
+        @change="handleChange"
       />
       <label class="form-check-label" for="12">12 เดือน</label>
     </div>
@@ -25,7 +25,19 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    onChange: {
+      type: Function,
+    },
+  },
+  methods: {
+    handleChange(e) {
+      this.$emit("input", e.target.value);
+      this.onChange(e.target.value);
+    },
+  },
+};
 </script>
 
 <style>

@@ -255,7 +255,7 @@ export default {
 
   <div class="container-fluid summary-report">
     <div
-      class="mb-3 d-flex flex-column flex-lg-row align-items-center align-lg-item-center justify-content-between"
+      class="mb-3 d-flex flex-row align-items-center justify-content-between"
     >
       <router-link
         to="/"
@@ -268,7 +268,7 @@ export default {
         />
         ย้อนกลับ
       </router-link>
-      <div class="mb-2 mb-lg-0 text_medium font_medium color_white">
+      <div class="text_medium font_medium color_white">
         ผลงานรายเดือนย้อนหลังของคุณ {{ agent.name }} (รหัสตัวแทน
         {{ agent.code }})
       </div>

@@ -7,7 +7,6 @@ export default {
     },
   },
   data() {
-    console.log("this.route", this.$route.path);
     return {
       show: false,
     };

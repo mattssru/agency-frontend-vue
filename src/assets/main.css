@@ -98,6 +98,9 @@ h1 {
 .bg_yellow {
   background-color: #fab600;
 }
+.position-rel {
+  position: relative;
+}
 .grid_2 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

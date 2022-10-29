@@ -1,5 +1,5 @@
 <script>
-import { Button, Card, CircleProgress, Radio } from "@components";
+import { Button, Card, CircleProgress, Radio, Loader } from "@components";
 import CardEliteExpend from "@components/CardEliteProgress/index.vue";
 import { CardExpend, ModalShare } from "@components/Dashboard";
 import IconPerson from "@components/icons/IconPerson.vue";
@@ -20,9 +20,12 @@ export default {
     CardEliteExpend,
     IconPerson,
     Radio,
+    Loader,
   },
   data() {
     return {
+      loading: false,
+      failed: false,
       selectFile: "",
       checkedNames: [],
       showModal: false,
@@ -74,9 +77,18 @@ export default {
     handleClick(e) {
       this.selectFile = e.target.value;
     },
-    onChange(e) {
-      this.$emit("input", e.target.value);
-      this.checked = e.target.value;
+    async onChange(e) {
+      this.loading = true;
+
+      await this.sleep();
+      this.failed = true;
+      this.loading = false;
+    },
+    async handleRetry(e) {
+      this.loading = true;
+      await this.sleep();
+      this.failed = false;
+      this.loading = false;
     },
   },
 };
@@ -162,7 +174,7 @@ export default {
               </div>
               <div class="condition mb-4">
                 <p class="text_small mb-2">เงื่อนไข</p>
-                <Radio />
+                <Radio :onChange="onChange" />
               </div>
               <div>
                 <label for="" class="mb-2 text_small">รอบ</label>
@@ -208,175 +220,181 @@ export default {
                 </li>
               </ul>
             </div>
-            <div class="right_plan">
-              <div class="tab-content" id="pills-tabContent">
-                <div
-                  class="tab-pane fade show active"
-                  id="pills-home"
-                  role="tabpanel"
-                  aria-labelledby="pills-home-tab"
-                >
-                  <div class="grid_2">
-                    <div class="box_item d-flex align-items-center">
-                      <CircleProgress :percent="100" class="me-3" />
-                      <div class="assets_plan">
-                        <p class="font_medium color_title d-inline-block me-1">
-                          PC สะสมของตนเอง
-                        </p>
-                        <span class="color_gray">(ม.ค. 65 - มิ.ย. 65)</span>
-                        <p
-                          class="text_large font_semi"
-                          :style="{ color: getColorRank(100) }"
-                        >
-                          130,000
-                        </p>
-                        <p>(เป้าหมายที่ต้องทำได้ 50,000 PC)</p>
+            <div class="right_plan position-rel">
+              <Loader :loading="loading" :retry="handleRetry" :failed="failed">
+                <div class="tab-content" id="pills-tabContent">
+                  <div
+                    class="tab-pane fade show active"
+                    id="pills-home"
+                    role="tabpanel"
+                    aria-labelledby="pills-home-tab"
+                  >
+                    <div class="grid_2">
+                      <div class="box_item d-flex align-items-center">
+                        <CircleProgress :percent="100" class="me-3" />
+                        <div class="assets_plan">
+                          <p
+                            class="font_medium color_title d-inline-block me-1"
+                          >
+                            PC สะสมของตนเอง
+                          </p>
+                          <span class="color_gray">(ม.ค. 65 - มิ.ย. 65)</span>
+                          <p
+                            class="text_large font_semi"
+                            :style="{ color: getColorRank(100) }"
+                          >
+                            130,000
+                          </p>
+                          <p>(เป้าหมายที่ต้องทำได้ 50,000 PC)</p>
+                        </div>
                       </div>
-                    </div>
-                    <div class="box_item d-flex align-items-center">
-                      <CircleProgress :percent="80" class="me-3" />
-                      <div class="assets_plan">
-                        <p class="font_medium color_title d-inline-block me-1">
-                          PC สะสมของทีม
-                        </p>
-                        <span class="color_gray">(ม.ค. 65 - มิ.ย. 65)</span>
-                        <p
-                          class="text_large font_semi"
-                          :style="{ color: getColorRank(80) }"
-                        >
-                          320,000
-                        </p>
-                        <p>(เป้าหมายที่ต้องทำได้ 400,000 PC)</p>
+                      <div class="box_item d-flex align-items-center">
+                        <CircleProgress :percent="80" class="me-3" />
+                        <div class="assets_plan">
+                          <p
+                            class="font_medium color_title d-inline-block me-1"
+                          >
+                            PC สะสมของทีม
+                          </p>
+                          <span class="color_gray">(ม.ค. 65 - มิ.ย. 65)</span>
+                          <p
+                            class="text_large font_semi"
+                            :style="{ color: getColorRank(80) }"
+                          >
+                            320,000
+                          </p>
+                          <p>(เป้าหมายที่ต้องทำได้ 400,000 PC)</p>
+                        </div>
                       </div>
-                    </div>
-                    <div class="box_item d-flex align-items-center">
-                      <!-- <div
+                      <div class="box_item d-flex align-items-center">
+                        <!-- <div
                         class="font_semi color_pink me-3"
                         style="font-size: 24px; line-height: 36px"
                       >
                         30.56%
                       </div> -->
-                      <div v-if="30.56 > 79.99" class="custom-success me-4">
-                        <img
-                          src="@assets/image/icon_congrat.svg"
-                          alt=""
-                          class=""
-                          height="60"
-                        />
-                        <span
-                          class="font_semi text_small"
+                        <div v-if="30.56 > 79.99" class="custom-success me-4">
+                          <img
+                            src="@assets/image/icon_congrat.svg"
+                            alt=""
+                            class=""
+                            height="60"
+                          />
+                          <span
+                            class="font_semi text_small"
+                            :style="{ color: getColorTextPercent(30.56) }"
+                          >
+                            {{ 30.56
+                            }}<span :style="{ 'font-size': '10px' }">%</span>
+                          </span>
+                        </div>
+                        <div
+                          v-else
+                          class="font_semi color_pink me-3"
+                          style="font-size: 24px; line-height: 36px"
                           :style="{ color: getColorTextPercent(30.56) }"
                         >
-                          {{ 30.56
-                          }}<span :style="{ 'font-size': '10px' }">%</span>
-                        </span>
+                          {{ 30.56 }}%
+                        </div>
+                        <div class="assets_plan">
+                          <p class="font_medium color_title">
+                            ประมาณการอัตราความยั่งยืน
+                          </p>
+                          <p class="font_medium color_title text_small">
+                            ล่วงหน้าสะสม 19 เดือน
+                          </p>
+                          <p class="font_medium text_small color_title">
+                            ณ เดือน มิ.ย. 2565
+                          </p>
+                          <p>(เป้าหมายที่ต้องทำได้ 80%)</p>
+                        </div>
                       </div>
-                      <div
-                        v-else
-                        class="font_semi color_pink me-3"
-                        style="font-size: 24px; line-height: 36px"
-                        :style="{ color: getColorTextPercent(30.56) }"
-                      >
-                        {{ 30.56 }}%
-                      </div>
-                      <div class="assets_plan">
-                        <p class="font_medium color_title">
-                          ประมาณการอัตราความยั่งยืน
-                        </p>
-                        <p class="font_medium color_title text_small">
-                          ล่วงหน้าสะสม 19 เดือน
-                        </p>
-                        <p class="font_medium text_small color_title">
-                          ณ เดือน มิ.ย. 2565
-                        </p>
-                        <p>(เป้าหมายที่ต้องทำได้ 80%)</p>
-                      </div>
-                    </div>
-                    <div class="box_item d-flex align-items-center">
-                      <CircleProgress :percent="75" class="me-3" />
-                      <div class="assets_plan">
-                        <p class="font_medium me-1 color_title">
-                          จำนวนตัวแทนที่แนะนำโดยตรง
-                        </p>
-                        <p
-                          class="text_large font_semi d-inline-flex align-items-center"
-                          :style="{ color: getColorRank(75) }"
-                        >
-                          3
-                          <IconPerson
-                            class="ms-1 me-2"
-                            :color="getColorRank(75)"
-                          />
-                        </p>
-                        <span class="color_gray">(PC สะสมมากว่า 30,000)</span>
-                        <p>(เป้าหมายที่ต้องทำได้ 4 คน)</p>
+                      <div class="box_item d-flex align-items-center">
+                        <CircleProgress :percent="75" class="me-3" />
+                        <div class="assets_plan">
+                          <p class="font_medium me-1 color_title">
+                            จำนวนตัวแทนที่แนะนำโดยตรง
+                          </p>
+                          <p
+                            class="text_large font_semi d-inline-flex align-items-center"
+                            :style="{ color: getColorRank(75) }"
+                          >
+                            3
+                            <IconPerson
+                              class="ms-1 me-2"
+                              :color="getColorRank(75)"
+                            />
+                          </p>
+                          <span class="color_gray">(PC สะสมมากว่า 30,000)</span>
+                          <p>(เป้าหมายที่ต้องทำได้ 4 คน)</p>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div
-                  class="tab-pane fade"
-                  id="pills-profile"
-                  role="tabpanel"
-                  aria-labelledby="pills-profile-tab"
-                >
-                  <div class="grid_2">
-                    <div
-                      class="box_item d-flex flex-column align-items-sm-center justify-content-center"
-                    >
-                      <CircleProgress :percent="40" class="mb-3" />
-                      <div class="assets_plan text-center">
-                        <p class="font_medium color_title">PC สะสมของตนเอง</p>
-                        <p class="font_medium text_small mb-1 color_title">
-                          ก.ค. 2565 - ธ.ค. 2565
-                        </p>
-                        <p
-                          class="font_semi text_large mb-1"
-                          :style="{ color: getColorRank(40) }"
-                        >
-                          180,000
-                        </p>
-                        <p>(เป้าหมายที่ต้องทำได้ 600,000 PC)</p>
+                  <div
+                    class="tab-pane fade"
+                    id="pills-profile"
+                    role="tabpanel"
+                    aria-labelledby="pills-profile-tab"
+                  >
+                    <div class="grid_2">
+                      <div
+                        class="box_item d-flex flex-column align-items-sm-center justify-content-center"
+                      >
+                        <CircleProgress :percent="40" class="mb-3" />
+                        <div class="assets_plan text-center">
+                          <p class="font_medium color_title">PC สะสมของตนเอง</p>
+                          <p class="font_medium text_small mb-1 color_title">
+                            ก.ค. 2565 - ธ.ค. 2565
+                          </p>
+                          <p
+                            class="font_semi text_large mb-1"
+                            :style="{ color: getColorRank(40) }"
+                          >
+                            180,000
+                          </p>
+                          <p>(เป้าหมายที่ต้องทำได้ 600,000 PC)</p>
+                        </div>
                       </div>
-                    </div>
-                    <div
-                      class="box_item d-flex flex-column align-items-center justify-content-center"
-                    >
-                      <div class="custom-success" v-if="30.77 > 79.99">
-                        <img
-                          src="@assets/image/icon_congrat.svg"
-                          alt=""
-                          class=""
-                          height="60"
-                        />
-                        <span
-                          class="font_semi text_small"
+                      <div
+                        class="box_item d-flex flex-column align-items-center justify-content-center"
+                      >
+                        <div class="custom-success" v-if="30.77 > 79.99">
+                          <img
+                            src="@assets/image/icon_congrat.svg"
+                            alt=""
+                            class=""
+                            height="60"
+                          />
+                          <span
+                            class="font_semi text_small"
+                            :style="{ color: getColorTextPercent(30.77) }"
+                          >
+                            {{ 30.77
+                            }}<span :style="{ 'font-size': '10px' }">%</span>
+                          </span>
+                        </div>
+                        <div
+                          v-else
+                          class="font_semi text_large mb-3"
                           :style="{ color: getColorTextPercent(30.77) }"
                         >
-                          {{ 30.77
-                          }}<span :style="{ 'font-size': '10px' }">%</span>
-                        </span>
-                      </div>
-                      <div
-                        v-else
-                        class="font_semi text_large mb-3"
-                        :style="{ color: getColorTextPercent(30.77) }"
-                      >
-                        {{ 30.77 }}%
-                      </div>
-                      <div class="assets_plan text-center">
-                        <p class="font_medium color_title">
-                          ประมาณการอัตราความยั่งยืน
-                        </p>
-                        <p class="font_medium color_title text_small mb-2">
-                          ล่วงหน้าสะสม 19 เดือน ณ เดือน มิ.ย. 2565
-                        </p>
-                        <p>(เป้าหมายที่ต้องทำได้ 80%)</p>
+                          {{ 30.77 }}%
+                        </div>
+                        <div class="assets_plan text-center">
+                          <p class="font_medium color_title">
+                            ประมาณการอัตราความยั่งยืน
+                          </p>
+                          <p class="font_medium color_title text_small mb-2">
+                            ล่วงหน้าสะสม 19 เดือน ณ เดือน มิ.ย. 2565
+                          </p>
+                          <p>(เป้าหมายที่ต้องทำได้ 80%)</p>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              </Loader>
             </div>
           </div>
         </div>
