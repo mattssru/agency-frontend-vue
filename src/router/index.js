@@ -1,10 +1,11 @@
+import DashboardAVP from "@views/Dashboard/avp.vue";
 import DashboardDM from "@views/Dashboard/dm.vue";
 import Dashboard from "@views/Dashboard/index.vue";
 import DashboardSDM from "@views/Dashboard/sdm.vue";
 import DashboardSum from "@views/Dashboard/sum.vue";
 import DashboardUM from "@views/Dashboard/um.vue";
-import StructurePage from "@views/Structure/index.vue";
 import ChildPage from "@views/Structure/Child.vue";
+import StructurePage from "@views/Structure/index.vue";
 import SummaryReportPage from "@views/SummaryReport/index.vue";
 import { createRouter, createWebHistory } from "vue-router";
 const routes = [
@@ -13,6 +14,7 @@ const routes = [
   { path: "/dashboard-sum", component: DashboardSum },
   { path: "/dashboard-dm", component: DashboardDM },
   { path: "/dashboard-sdm", component: DashboardSDM },
+  { path: "/dashboard-avp", component: DashboardAVP },
   {
     path: "/structure-agent",
     component: StructurePage,
