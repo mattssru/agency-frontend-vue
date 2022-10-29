@@ -1,8 +1,132 @@
+<script>
+import Chart from "chart.js/auto";
+import ChartDataLabels from "chartjs-plugin-datalabels";
+import { formatNumber } from "@utils/helper";
+Chart.register(ChartDataLabels);
+
+// https://v2_1_0--chartjs-plugin-datalabels.netlify.app/guide/formatting.html#data-transformation
+export default {
+  name: "BarChart",
+  props: {
+    data: {
+      type: Object,
+      require: true,
+    },
+  },
+
+  mounted() {
+    const ctx = document.getElementById("bar-chart");
+    const data = this.data.datasets || [];
+    let max = 0;
+    data.forEach((element) => {
+      const temp = Math.max(...element.data);
+      if (temp > max) {
+        max = temp;
+      }
+    });
+    const options = {
+      type: "bar",
+      data: this.data,
+      defaults: {
+        font: {
+          size: 10,
+        },
+        labels: {
+          font: {
+            size: 19,
+          },
+        },
+      },
+      options: {
+        labels: {
+          font: {
+            size: 19,
+          },
+        },
+        elements: {
+          bar: {
+            borderWidth: 0,
+          },
+        },
+        layout: {
+          padding: {
+            // top: 30,
+          },
+        },
+        plugins: {
+          datalabels: {
+            clip: true,
+            color: "#13A0D3",
+            textStrokeColor: "white",
+            textStrokeWidth: 3,
+            anchor: "end",
+            formatter: function (value, context) {
+              return formatNumber(value);
+            },
+            font: {
+              family: "medium",
+              size: 10,
+            },
+            align: "end",
+            offset: 0,
+          },
+          title: {
+            display: false,
+          },
+          legend: {
+            display: false,
+          },
+          tooltip: {},
+        },
+        maxBarThickness: 48,
+        responsive: true,
+        borderWidth: 0,
+        // categoryPercentage: 0.5,
+        scales: {
+          x: {
+            stacked: true,
+            grid: {
+              display: false,
+            },
+            ticks: {
+              font: {
+                family: "regular", // Your font family
+                size: 15,
+              },
+              // display: false,
+            },
+          },
+          y: {
+            // display: false,
+            suggestedMax: max * 1.1,
+            beginAtZero: true,
+            // stepSize: 1000000,
+            ticks: {
+              display: false,
+            },
+            grid: {
+              // display: false,
+              drawTicks: false,
+            },
+          },
+        },
+      },
+    };
+    new Chart(ctx, options);
+  },
+};
+</script>
+
 <template>
-  <div :style="{ width: '900px', height: '440px' }">
+  <div class="wrap-chart">
     <canvas id="bar-chart"></canvas>
     <div id="legend">
-      <div v-for="item in data.datasets" :key="item.label" class="wrap-legend">
+      <div
+        v-for="item in data.datasets"
+        :key="item.label"
+        v-show="item.label"
+        class="wrap-legend"
+      >
         <div
           class="box-legend"
           :style="{ 'background-color': item.backgroundColor }"
@@ -15,120 +139,10 @@
   </div>
 </template>
 
-<script>
-import Chart from "chart.js/auto";
-export default {
-  name: "BarChart",
-  props: {
-    data: {
-      type: Object,
-      require: true,
-    },
-  },
-  //   return {
-  //     planetChartData: {
-  //       type: "bar",
-  //       data: {
-  //         labels: [
-  //           "Mercury",
-  //           "Venus",
-  //           "Earth",
-  //           "Mars",
-  //           "Jupiter",
-  //           "Saturn",
-  //           "Uranus",
-  //           "Neptune",
-  //         ],
-  //         datasets: [
-  //           {
-  //             label: "Number of Moons",
-  //             type: "line",
-  //             data: [0, 0, 1, 2, 79, 82, 27, 14],
-  //             backgroundColor: "rgba(54,73,93,.5)",
-  //             borderColor: "#36495d",
-  //             borderWidth: 3,
-  //           },
-  //           {
-  //             label: "Planetary Mass (relative to the Sun x 10^-6)",
-  //             type: "bar",
-  //             data: [
-  //               0.166, 2.081, 3.003, 0.323, 954.792, 285.886, 43.662, 51.514,
-  //             ],
-  //             backgroundColor: "rgba(71, 183,132,.5)",
-  //             borderColor: "#47b784",
-  //             borderWidth: 3,
-  //           },
-  //         ],
-  //       },
-  //       options: {
-  //         responsive: true,
-  //         lineTension: 1,
-  //         scales: {
-  //           yAxes: [
-  //             {
-  //               ticks: {
-  //                 beginAtZero: true,
-  //                 padding: 25,
-  //               },
-  //             },
-  //           ],
-  //         },
-  //       },
-  //     },
-  //   };
-  // },
-  mounted() {
-    const ctx = document.getElementById("bar-chart");
-
-    const options = {
-      type: "bar",
-      data: this.data,
-      borderWidth: 0,
-      options: {
-        layout: {
-          padding: 0,
-        },
-        plugins: {
-          title: {
-            display: false,
-          },
-          legend: {
-            display: false,
-          },
-          tooltip: {
-            callbacks: {
-              label: function (context) {
-                return "label";
-              },
-            },
-          },
-        },
-        maxBarThickness: 48,
-        responsive: true,
-        borderWidth: 0,
-
-        scales: {
-          x: {
-            stacked: true,
-            font: { family: "prompt" },
-            grid: {
-              display: false,
-            },
-          },
-          y: {
-            // display: false,
-            ticks: {},
-            beginAtZero: true,
-          },
-        },
-      },
-    };
-    new Chart(ctx, options);
-  },
-};
-</script>
-
 <style scoped lang="scss">
+.wrap-chart {
+  padding: 0 28px;
+}
 #legend {
   display: flex;
   justify-content: center;

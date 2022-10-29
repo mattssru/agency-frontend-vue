@@ -64,12 +64,12 @@ export default {
         </div>
         <ul v-show="agent.find((item) => item.id === child.id).open">
           <li v-for="c in child.teams" :key="c.id">
-            <div class="child-2">
+            <router-link :to="`/structure-agent/${c.id}`" class="child-2">
               <p class="font_regular color_title text_small">
                 {{ c.name }}
               </p>
               <p class="text_xs font_regular color_gray">{{ c.code }}</p>
-            </div>
+            </router-link>
           </li>
         </ul>
       </li>

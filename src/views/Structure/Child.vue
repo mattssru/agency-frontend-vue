@@ -108,50 +108,6 @@ export default {
 </template>
 
 <style scoped>
-.layout-flex {
-  display: flex;
-  width: 100%;
-}
-.title-sidebar {
-  height: 55px;
-  border: 1px solid #e0e0e0;
-  margin-bottom: 16px;
-}
-.sidebar-tree {
-  min-width: 260px;
-  max-width: 260px;
-  background-color: #fff;
-  position: relative;
-}
-.tree-sidebar {
-  padding-left: 14px;
-}
-.wrapper-main {
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - 54px);
-  min-width: 0;
-  width: 100%;
-  overflow: hidden;
-  padding: 20px;
-  background-color: #003781;
-}
-.footer-sidebar {
-  height: 60px;
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-  background: #fff;
-}
-.footer {
-  position: absolute;
-  bottom: 0;
-}
-.custom-btn {
-  border: 1px solid #003781;
-  width: 200px;
-  height: 32px;
-}
 .grid_2 {
   gap: 30px;
 }

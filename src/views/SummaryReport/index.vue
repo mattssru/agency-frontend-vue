@@ -1,5 +1,5 @@
 <script>
-import { Button, Table } from "@components";
+import { Button, Table, Loader } from "@components";
 import BarChart from "@components/BarChart.vue";
 import { ModalShare } from "@components/Dashboard";
 
@@ -10,15 +10,169 @@ export default {
     BarChart,
     Button,
     ModalShare,
+    Loader,
+  },
+  methods: {
+    async onChange(e) {
+      this.loading = true;
+      await this.sleep();
+      this.select = e.target.value;
+      this.loading = false;
+    },
+    async onChangePeriod(e) {
+      this.loading = true;
+      await this.sleep();
+      this.selectPeriod = e.target.value;
+      // NOTE:: call data for change chart and table
+      this.loading = false;
+    },
+  },
+  computed: {
+    tableData() {
+      let data = [
+        {
+          key: 12,
+          name: "ส.ค. 2564",
+          pc: 20000,
+          pc_team: 400000,
+          count: 34,
+          pc_branch: 800000,
+        },
+        {
+          key: 12,
+          name: "ก.ย. 2564",
+          pc: 20000,
+          pc_team: 400000,
+          count: 34,
+          pc_branch: 800000,
+        },
+        {
+          key: 12,
+          name: "ต.ค. 2564",
+          pc: 20000,
+          pc_team: 400000,
+          count: 34,
+          pc_branch: 800000,
+        },
+        {
+          key: "2564",
+          name: "พ.ย. 2564",
+          pc: 20000,
+          pc_team: 400000,
+          count: 34,
+          pc_branch: 800000,
+        },
+        {
+          key: "2564",
+          name: "ธ.ค. 2564",
+          pc: 20000,
+          pc_team: 400000,
+          count: 34,
+          pc_branch: 800000,
+        },
+        {
+          key: "2564",
+          name: "ม.ค. 2565",
+          pc: 20000,
+          pc_team: 400000,
+          count: 34,
+          pc_branch: 800000,
+        },
+        {
+          key: "2565",
+          name: "ก.พ. 2565",
+          pc: 30000,
+          pc_team: 300000,
+          count: 33,
+          pc_branch: 700000,
+        },
+        {
+          key: "2565",
+          name: "มี.ค. 2565",
+          pc: 30000,
+          pc_team: 400000,
+          count: 66,
+          pc_branch: 600000,
+        },
+        {
+          key: "2565",
+          name: "เม.ย. 2565",
+          pc: 30000,
+          pc_team: 500000,
+          count: 21,
+          pc_branch: 700000,
+        },
+        {
+          key: "2565",
+          name: "พ.ค. 2565",
+          pc: 20000,
+          pc_team: 45000,
+          count: 47,
+          pc_branch: 800000,
+        },
+        {
+          key: "2565",
+          name: "มิ.ย. 2565",
+          pc: 30000,
+          pc_team: 66000,
+          count: 64,
+          pc_branch: 900000,
+        },
+        {
+          key: "2565",
+          name: "ก.ค. 2565",
+          pc: 30000,
+          pc_team: 300000,
+          count: 32,
+          pc_branch: 800000,
+        },
+        {
+          key: "2565",
+          name: "ส.ค. 2565",
+          pc: 20000,
+          pc_team: 400000,
+          count: 77,
+          pc_branch: 700000,
+        },
+        {
+          key: "2565",
+          name: "ก.ย. 2565",
+          pc: 50000,
+          pc_team: 89000.22,
+          count: 24,
+          pc_branch: 500000,
+        },
+        {
+          name: "รวม",
+          key: "total",
+          pc: 332000,
+          pc_team: 2434000,
+          count: 49,
+          pc_branch: 9000000,
+        },
+      ];
+      if (this.selectPeriod === "1") {
+        return data.filter(
+          (d) => d.key === "2564" || d.key === "2565" || d.key === "total"
+        );
+      } else if (this.selectPeriod === "2") {
+        return data.filter((d) => d.key === "2565" || d.key === "total");
+      } else if (this.selectPeriod === "3") {
+        return data;
+      }
+    },
   },
   data() {
     return {
+      loading: false,
+      select: "pc",
+      selectPeriod: "2",
       agent: {
         name: "สมชาย ใจดี",
         code: "135791",
         id: 2,
       },
-      barData: {
+      barPcData: {
         labels: [
           "ม.ค. 2565",
           "ก.พ. 2565",
@@ -36,9 +190,7 @@ export default {
             data: [
               20000, 30000, 30000, 30000, 20000, 30000, 30000, 20000, 50000,
             ],
-            backgroundColor: "#00908D",
-            borderColor: "#00908D",
-            borderWidth: 3,
+            backgroundColor: "#006192",
           },
           {
             label: "PC สะสมของหน่วย",
@@ -46,105 +198,53 @@ export default {
               400000, 300000, 400000, 500000, 45000, 66000, 300000, 400000,
               89000.22,
             ],
-            backgroundColor: "#5FCD8A",
-            borderColor: "#5FCD8A",
-            borderWidth: 3,
+            backgroundColor: "#13A0D3",
           },
           {
             label: "PC สะสมของสายงาน",
-
             data: [
               800000, 700000, 600000, 700000, 800000, 900000, 800000, 700000,
               500000,
             ],
-            backgroundColor: "#FAB600",
-            borderColor: "#FAB600",
-            borderWidth: 3,
+            backgroundColor: "#B5DAE6",
           },
         ],
       },
-      tableData: [
-        {
-          id: 1,
-          name: "ม.ค. 2565",
-          pc: 20000,
-          pc_team: 400000,
-          count: 34,
-          pc_branch: 800000,
-        },
-        {
-          id: 2,
-          name: "ก.พ. 2565",
-          pc: 30000,
-          pc_team: 300000,
-          count: 33,
-          pc_branch: 700000,
-        },
-        {
-          id: 3,
-          name: "มี.ค. 2565",
-          pc: 30000,
-          pc_team: 400000,
-          count: 66,
-          pc_branch: 600000,
-        },
-        {
-          id: 4,
-          name: "เม.ย. 2565",
-          pc: 30000,
-          pc_team: 500000,
-          count: 21,
-          pc_branch: 700000,
-        },
-        {
-          id: 5,
-          name: "พ.ค. 2565",
-          pc: 20000,
-          pc_team: 45000,
-          count: 47,
-          pc_branch: 800000,
-        },
-        {
-          id: 6,
-          name: "มิ.ย. 2565",
-          pc: 30000,
-          pc_team: 66000,
-          count: 64,
-          pc_branch: 900000,
-        },
-        {
-          id: 7,
-          name: "ก.ค. 2565",
-          pc: 30000,
-          pc_team: 300000,
-          count: 32,
-          pc_branch: 800000,
-        },
-        {
-          id: 8,
-          name: "ส.ค. 2565",
-          pc: 20000,
-          pc_team: 400000,
-          count: 77,
-          pc_branch: 700000,
-        },
-        {
-          id: 9,
-          name: "ก.ย. 2565",
-          pc: 50000,
-          pc_team: 89000.22,
-          count: 24,
-          pc_branch: 500000,
-        },
-        {
-          id: 10,
-          name: "รวม",
-          pc: 332000,
-          pc_team: 2434000,
-          count: 49,
-          pc_branch: 9000000,
-        },
-      ],
+      barCountData: {
+        labels: [
+          "ม.ค. 2565",
+          "ก.พ. 2565",
+          "มี.ค. 2565",
+          "เม.ย. 2565",
+          "พ.ค. 2565",
+          "มิ.ย. 2565",
+          "ก.ค. 2565",
+          "ส.ค. 2565",
+          "ก.ย. 2565",
+        ],
+        datasets: [
+          {
+            data: [34, 33, 66, 21, 47, 64, 32, 77, 24],
+            backgroundColor: "#B5DAE6",
+          },
+          // {
+          //   label: "PC สะสมของหน่วย",
+          //   data: [
+          //     400000, 300000, 400000, 500000, 45000, 66000, 300000, 400000,
+          //     89000.22,
+          //   ],
+          //   backgroundColor: "#13A0D3",
+          // },
+          // {
+          //   label: "PC สะสมของสายงาน",
+          //   data: [
+          //     800000, 700000, 600000, 700000, 800000, 900000, 800000, 700000,
+          //     500000,
+          //   ],
+          //   backgroundColor: "#B5DAE6",
+          // },
+        ],
+      },
     };
   },
 };
@@ -152,6 +252,7 @@ export default {
 
 <template>
   <ModalShare id="exampleModal"></ModalShare>
+
   <div class="container-fluid summary-report">
     <div
       class="mb-3 d-flex flex-column flex-lg-row align-items-center align-lg-item-center justify-content-between"
@@ -181,6 +282,16 @@ export default {
       </div>
     </div>
     <div class="box_item px-0 mb-3 mb-lg-0 nopaddingleft">
+      <Loader :loading="loading" />
+      <!-- <div :class="{ loading: loading }">
+        <div
+          :class="{ 'spinner-border': loading }"
+          class="text-primary"
+          role="status"
+        >
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div> -->
       <div
         class="tabs_dashboard d-flex align-items-center justify-content-between"
       >
@@ -216,9 +327,15 @@ export default {
         </ul>
         <div class="d-flex align-items-center wrap-select">
           <label class="color_blue font_medium text_middle">ระยะเวลา </label>
-          <select class="form-select" aria-label="Default select example">
-            <option selected>ภายใน ปี พ.ศ. 2565</option>
-            <option value="1">ภายใน ปี พ.ศ. 2566</option>
+          <select
+            v-model="selectPeriod"
+            @change="onChangePeriod($event)"
+            class="form-select"
+            aria-label="Default select example"
+          >
+            <option value="1">12 เดือนย้อนหลัง</option>
+            <option value="2">ภายใน ปี พ.ศ. 2565</option>
+            <option value="3">ทั้งหมด</option>
           </select>
         </div>
       </div>
@@ -230,7 +347,9 @@ export default {
             role="tabpanel"
             aria-labelledby="pills-home-tab"
           >
-            <Table :data="tableData" />
+            <div v-if="!loading" class="wrap-table">
+              <Table :data="tableData" />
+            </div>
           </div>
           <div
             class="tab-pane fade"
@@ -238,7 +357,20 @@ export default {
             role="tabpanel"
             aria-labelledby="pills-profile-tab"
           >
-            <BarChart :data="barData" />
+            <div class="wrap-select-chart">
+              ข้อมูล
+              <select
+                class="form-select custom-select"
+                aria-label="Default select example"
+                v-model="select"
+                @change="onChange($event)"
+              >
+                <option value="pc">PC สะสม</option>
+                <option value="count">จำนวนรายของหน่วย</option>
+              </select>
+            </div>
+            <BarChart v-if="select === 'pc'" :data="barPcData"> </BarChart>
+            <BarChart v-else :data="barCountData"> </BarChart>
           </div>
         </div>
       </div>
@@ -263,6 +395,7 @@ export default {
   height: 100%;
   position: relative;
 }
+
 .arrow-right {
   rotate: 90deg;
 }
@@ -277,6 +410,20 @@ export default {
 .tabs_dashboard {
   border-bottom: 1px solid #e0e0e0;
   height: 45px;
+}
+.wrap {
+  display: flex;
+  flex-direction: column;
+}
+.wrap-select-chart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+.custom-select {
+  width: 185px;
+  margin-left: 20px;
 }
 .tabs_dashboard .nav-pills .nav-link {
   padding: 0;
@@ -319,5 +466,9 @@ export default {
 }
 .footer {
   margin-top: 7px;
+}
+.wrap-table {
+  max-height: 630px;
+  overflow: scroll;
 }
 </style>
