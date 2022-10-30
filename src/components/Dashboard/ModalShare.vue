@@ -94,7 +94,7 @@ export default {
               />
             </div>
             <input type="checkbox" id="3" value="3" v-model="checkedNames" />
-            <p class="title_modal mb-0">Elite AG /<br />Premier AG</p>
+            <p class="title_modal mb-0">Elite</p>
           </label>
         </div>
       </div>
