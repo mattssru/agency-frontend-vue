@@ -23,8 +23,17 @@ export default {
       type: Number,
       default: 15,
     },
+    showLabels: {
+      type: Boolean,
+      default: false,
+    },
   },
-
+  computed: {
+    showLegends() {
+      const data = this.data.datasets || [];
+      return data.length > 1;
+    },
+  },
   mounted() {
     const ctx = document.getElementById(this.id);
     const data = this.data.datasets || [];
@@ -132,7 +141,7 @@ export default {
 <template>
   <div class="wrap-chart">
     <canvas :id="id" :style="customStyle"></canvas>
-    <div id="legend" v-if="data.length > 0">
+    <div id="legend" v-if="showLabels || showLegends">
       <div
         v-for="item in data.datasets"
         :key="item.label"

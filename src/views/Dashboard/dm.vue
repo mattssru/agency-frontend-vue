@@ -37,7 +37,7 @@ export default {
         firstname: "ลักษมีแข",
         lastname: "เจริญประภาการธนพล",
         organizationName: "ภาคอาวุโส โภคทรัพย์",
-        rank: "Agent (AG)",
+        rank: "District Manager (DM)",
         code: "135791",
         codeOrganization: "34246802468",
         codeGroup: "42086",
