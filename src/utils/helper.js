@@ -46,3 +46,18 @@ export const getColorProgressBar = (value = 0) => {
   }
   return color;
 };
+
+export const getColorRankDM = (value = 0) => {
+  let color = "#e0e0e0";
+  if (value > 0 && value <= 38.24) {
+    color = "#f62459";
+  } else if (value >= 38.25 && value <= 56.99) {
+    color = "#f86200";
+  } else if (value >= 57 && value <= 74.99) {
+    color = "#fab600";
+  } else if (value >= 75 && value <= 100) {
+    color = "#5fcd8a";
+  }
+
+  return color;
+};

@@ -132,8 +132,8 @@ export default {
               <CircleProgress :percent="45" class="me-3" />
               <div>
                 <div class="mb-2">
-                  <span class="text_medium font_semi color_title">Pc สะสม</span
-                  >&nbsp;
+                  <span class="text_medium font_semi color_title">Pc สะสม</span>
+                  &nbsp;
                   <span class="text_large font_semi color_primary">{{
                     formatNumber(agentData.pc)
                   }}</span
