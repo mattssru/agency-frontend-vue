@@ -159,7 +159,7 @@ export default {
 .detail_user {
   color: #414141;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 95px auto;
 }
 .v-enter-active,
 .v-leave-active {
