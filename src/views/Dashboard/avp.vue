@@ -94,17 +94,13 @@ export default {
           <CardExpend :data="agentData" />
         </div>
         <div class="box_item p-0 mb-3 mb-lg-0">
-          <div
-            class="head_box d-flex justify-content-between align-items-center"
-            style="padding: 10px 15px 10px 15px"
-          >
+          <div class="head_box" style="padding: 10px 15px 10px 15px">
             <div
               class="text_medium color_primary font_semi d-flex align-items-center"
             >
               <img src="@assets/image/doc.svg" alt="" class="me-2" />
-              วางแผนรักษาสัญญา
+              วางแผนเลื่อนตำแหน่ง
             </div>
-            <p class="color_gray mb-0">PC สะสม (ม.ค. - ธ.ค. 2565)</p>
           </div>
           <div class="p-3">
             <div class="grid_2">
@@ -137,8 +133,8 @@ export default {
               <div>
                 <div class="box_item p-3 mb-3">
                   <div class="assets_plan mb-3">
-                    <p class="font_medium">จำนวนหน่วย</p>
-                    <p class="font_medium text_small">
+                    <p class="font_medium color_title">จำนวนหน่วย</p>
+                    <p class="font_medium text_small color_title">
                       (กลุ่มสายงานตรง รวมหน่วยตนเอง)
                     </p>
                   </div>
