@@ -4,7 +4,7 @@ import BarChart from "@components/BarChart.vue";
 import { CardExpend, ModalShare } from "@components/Dashboard";
 import { getColorRank } from "@utils/helper";
 export default {
-  name: "Dashboard-avp",
+  name: "Dashboard-sevp",
   components: {
     BarChart,
     ModalShare,
@@ -99,79 +99,75 @@ export default {
               class="text_medium color_primary font_semi d-flex align-items-center"
             >
               <img src="@assets/image/doc.svg" alt="" class="me-2" />
-              วางแผนเลื่อนตำแหน่ง
+              สรุปผลการดำเนินงาน
             </div>
           </div>
           <div class="p-3">
-            <div class="grid_2">
+            <div
+              class="box_item d-flex align-items-center justify-content-between mb-3"
+              style="min-height: 81px"
+            >
               <div>
-                <div class="um d-flex align-items-center mb-3">
-                  <img src="@assets/image/um.svg" alt="" class="me-2" />
-                  EVP
+                <div class="assets_plan">
+                  <p
+                    class="d-flex align-items-center color_title font_medium mb-2"
+                  >
+                    <img src="@assets/image/assets.svg" alt="" class="me-2" />
+                    จำนวนหน่วย
+                  </p>
                 </div>
-                <div
-                  class="box_item d-flex flex-column align-items-center justify-content-center text-center mb-3"
-                  style="min-height: 244px"
-                >
-                  <CircleProgress
-                    :percent="80"
-                    class="mb-3"
-                    bgColor="#FAB600"
-                  />
-                  <div class="assets_plan">
-                    <p class="font_medium color_title">PC สะสมของกลุ่มรวม</p>
-                    <p
-                      class="color_yellow font_semi text_large"
-                      :style="{ color: getColorRank(80) }"
-                    >
-                      40,000,000
-                    </p>
-                    <p>(เป้าหมายที่ต้องทำได้ 50,000,000 บาท)</p>
-                  </div>
+                <p class="font_medium text_small color_title">
+                  (กลุ่มสายงานตรง รวมหน่วยตนเอง)
+                </p>
+              </div>
+              <div class="font_semi">
+                <p class="color_green text_large">
+                  20
+                  <span style="font-size: 24px">หน่วย</span>
+                </p>
+              </div>
+            </div>
+            <div
+              class="box_item d-flex align-items-center justify-content-between mb-3"
+              style="min-height: 81px"
+            >
+              <div>
+                <div class="assets_plan">
+                  <p
+                    class="d-flex align-items-center color_title font_medium mb-2"
+                  >
+                    <img src="@assets/image/assets_2.svg" alt="" class="me-2" />
+                    PC สะสมของกลุ่มรวม
+                  </p>
                 </div>
               </div>
+              <div class="font_semi">
+                <p class="color_green text_large">150,000,000</p>
+              </div>
+            </div>
+            <div
+              class="box_item d-flex align-items-center justify-content-between p-3"
+              style="min-height: 81px"
+            >
               <div>
-                <div class="box_item p-3 mb-3">
-                  <div class="assets_plan mb-3">
-                    <p class="font_medium color_title">จำนวนหน่วย</p>
-                    <p class="font_medium text_small color_title">
-                      (กลุ่มสายงานตรง รวมหน่วยตนเอง)
-                    </p>
-                  </div>
-                  <div class="d-flex align-items-end">
-                    <CircleProgress :percent="45" class="me-3" />
-                    <div>
-                      <p
-                        class="color_pink font_semi"
-                        style="font-size: 24px; line-height: 36px"
-                        :style="{ color: getColorRank(45) }"
-                      >
-                        รวม <span style="font-size: 32px">9</span>
-                      </p>
-                      <p style="font-size: 10.5px; line-height: 15px">
-                        (เป้าหมายที่ต้องทำได้ 20 หน่วย)
-                      </p>
-                    </div>
-                  </div>
+                <div class="assets_plan">
+                  <p
+                    class="d-flex align-items-center color_title font_medium mb-2"
+                    style="font-size: 18px"
+                  >
+                    <img src="@assets/image/assets_2.svg" alt="" class="me-2" />
+                    ประมาณการอัตราความยั่งยืน
+                  </p>
                 </div>
-                <div class="box_item py-2 px-3 mb-3">
-                  <div class="assets_plan">
-                    <p class="color_title font_medium mb-1">
-                      ประมาณการอัตราความยั่งยืน
-                    </p>
-                    <p class="color_title font_medium text_small">
-                      ล่วงหน้าสะสม 19 เดือน <br />ของกลุ่มตนเอง ณ เดือน ธ.ค.
-                      2565
-                    </p>
-                    <p
-                      class="text_large font_semi color_orange"
-                      :style="{ color: getColorRank(55) }"
-                    >
-                      55%
-                    </p>
-                    <p>(เป้าหมายที่ต้องทำได้ 75%)</p>
-                  </div>
-                </div>
+                <p class="font_medium color_title mb-2" style="font-size: 16px">
+                  ล่วงหน้าสะสม 19 เดือนของกลุ่มตนเอง
+                </p>
+                <p class="font_medium color_title" style="font-size: 16px">
+                  ณ เดือน ธ.ค. 2565
+                </p>
+              </div>
+              <div class="font_semi">
+                <p class="color_green text_large">55%</p>
               </div>
             </div>
           </div>
@@ -230,16 +226,15 @@ export default {
   cursor: pointer;
   text-decoration: underline;
 }
+.assets_plan p:first-child {
+  font-size: 16px;
+  line-height: 24px;
+}
 
 .title_modal {
   font-size: 16px;
   line-height: 22px;
   margin-bottom: 20px;
-}
-.um {
-  font-size: 36px;
-  line-height: 54px;
-  color: #007ab3;
 }
 .box_item .wrap-chart {
   padding: 0;
@@ -249,14 +244,6 @@ export default {
   line-height: 24px;
 }
 
-.border_right {
-  border-right: 1px solid #e0e0e0;
-}
-
-.custom_grid_1 {
-  width: 55%;
-  padding: 10px 15px;
-}
 .custom_grid_2 {
   width: 45%;
   height: 100%;
