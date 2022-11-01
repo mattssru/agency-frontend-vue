@@ -183,11 +183,21 @@ export default {
           "ก.ค. 2565",
           "ส.ค. 2565",
           "ก.ย. 2565",
+          "ม.ค. 2565",
+          "ก.พ. 2565",
+          "มี.ค. 2565",
+          "เม.ย. 2565",
+          "พ.ค. 2565",
+          "มิ.ย. 2565",
+          "ก.ค. 2565",
+          "ส.ค. 2565",
+          "ก.ย. 2565",
         ],
         datasets: [
           {
             label: "PC สะสมของตนเอง",
             data: [
+              20000, 30000, 30000, 30000, 20000, 30000, 30000, 20000, 50000,
               20000, 30000, 30000, 30000, 20000, 30000, 30000, 20000, 50000,
             ],
             backgroundColor: "#006192",
@@ -196,7 +206,8 @@ export default {
             label: "PC สะสมของหน่วย",
             data: [
               400000, 300000, 400000, 500000, 45000, 66000, 300000, 400000,
-              89000.22,
+              89000.22, 400000, 300000, 400000, 500000, 45000, 66000, 300000,
+              400000, 89000.22,
             ],
             backgroundColor: "#13A0D3",
           },
@@ -204,7 +215,8 @@ export default {
             label: "PC สะสมของสายงาน",
             data: [
               800000, 700000, 600000, 700000, 800000, 900000, 800000, 700000,
-              500000,
+              500000, 800000, 700000, 600000, 700000, 800000, 900000, 800000,
+              700000, 500000,
             ],
             backgroundColor: "#B5DAE6",
           },
@@ -227,22 +239,6 @@ export default {
             data: [34, 33, 66, 21, 47, 64, 32, 77, 24],
             backgroundColor: "#B5DAE6",
           },
-          // {
-          //   label: "PC สะสมของหน่วย",
-          //   data: [
-          //     400000, 300000, 400000, 500000, 45000, 66000, 300000, 400000,
-          //     89000.22,
-          //   ],
-          //   backgroundColor: "#13A0D3",
-          // },
-          // {
-          //   label: "PC สะสมของสายงาน",
-          //   data: [
-          //     800000, 700000, 600000, 700000, 800000, 900000, 800000, 700000,
-          //     500000,
-          //   ],
-          //   backgroundColor: "#B5DAE6",
-          // },
         ],
       },
     };
@@ -283,15 +279,6 @@ export default {
     </div>
     <div class="box_item px-0 mb-3 mb-lg-0 nopaddingleft">
       <Loader :loading="loading" />
-      <!-- <div :class="{ loading: loading }">
-        <div
-          :class="{ 'spinner-border': loading }"
-          class="text-primary"
-          role="status"
-        >
-          <span class="visually-hidden">Loading...</span>
-        </div>
-      </div> -->
       <div
         class="tabs_dashboard d-flex align-items-center justify-content-between"
       >
@@ -435,7 +422,8 @@ export default {
   height: 45px;
 }
 .body-panel {
-  min-height: 75vh;
+  min-height: 70vh;
+  /* min-height: 75vh;*/
   /* width: 50%; */
 }
 .tabs_dashboard .nav-pills .nav-link.active {

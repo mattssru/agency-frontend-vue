@@ -14,7 +14,7 @@ export default {
     },
     id: {
       type: String,
-      default: "bar-chart",
+      default: "myChart",
     },
     customStyle: {
       type: Object,
@@ -27,6 +27,18 @@ export default {
       type: Boolean,
       default: false,
     },
+    width: {
+      type: Number,
+      default: 908,
+    },
+    height: {
+      type: Number,
+      default: 500,
+    },
+    barWidth: {
+      type: Number,
+      default: 45,
+    },
   },
   computed: {
     showLegends() {
@@ -35,7 +47,6 @@ export default {
     },
   },
   mounted() {
-    const ctx = document.getElementById(this.id);
     const data = this.data.datasets || [];
     let max = 0;
     data.forEach((element) => {
@@ -44,34 +55,46 @@ export default {
         max = temp;
       }
     });
-    const options = {
+    const config = {
       type: "bar",
       data: this.data,
-      defaults: {
-        height: 1000,
-        font: {
-          size: 10,
-        },
-        labels: {
-          font: {
-            size: 19,
-          },
-        },
-      },
       options: {
-        labels: {
-          font: {
-            size: 19,
-          },
-        },
-        elements: {
-          bar: {
-            borderWidth: 0,
-          },
-        },
+        maintainAspectRatio: false,
+        maxBarThickness: this.barWidth,
         layout: {
           padding: {
-            // top: 30,
+            top: 10,
+            bottom: 10,
+          },
+        },
+        labels: {
+          font: {
+            size: 19,
+          },
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            ticks: {
+              display: false,
+            },
+            grid: {
+              drawTicks: false,
+              drawBorder: false,
+            },
+            suggestedMax: max * 1.1,
+          },
+          x: {
+            stacked: true,
+            grid: {
+              display: false,
+            },
+            ticks: {
+              font: {
+                family: "regular",
+                size: this.fontSize,
+              },
+            },
           },
         },
         plugins: {
@@ -79,7 +102,7 @@ export default {
             clip: true,
             color: "#13A0D3",
             textStrokeColor: "white",
-            textStrokeWidth: 3,
+            textStrokeWidth: 5,
             anchor: "end",
             formatter: function (value, context) {
               return formatNumber(value);
@@ -89,72 +112,54 @@ export default {
               size: 10,
             },
             align: "end",
-            offset: 0,
-          },
-          title: {
-            display: false,
+            offset: -3,
           },
           legend: {
             display: false,
           },
-          tooltip: {},
-        },
-        maxBarThickness: 48,
-        responsive: true,
-        borderWidth: 0,
-        // categoryPercentage: 0.5,
-        scales: {
-          x: {
-            stacked: true,
-            grid: {
-              display: false,
-            },
-            ticks: {
-              font: {
-                family: "regular", // Your font family
-                size: this.fontSize,
-              },
-              // display: false,
-            },
-          },
-          y: {
-            // display: false,
-            suggestedMax: max * 1.1,
-            beginAtZero: true,
-            ticks: {
-              display: false,
-              // stepSize: 10000,
-            },
-            grid: {
-              // display: false,
-              drawTicks: false,
-            },
-          },
         },
       },
     };
-    new Chart(ctx, options);
+    const myChart = new Chart(document.getElementById(this.id), config);
+
+    const box = document.querySelector(".box");
+    const barLength = myChart.data.labels.length;
+    // console.log(barLength);
+
+    if (barLength > 10) {
+      const chartWidth = this.width + (barLength - 10) * this.barWidth;
+      box.style.width = `${chartWidth}px`;
+    }
   },
 };
 </script>
 
 <template>
-  <div class="wrap-chart">
-    <canvas :id="id" :style="customStyle"></canvas>
-    <div id="legend" v-if="showLabels || showLegends">
-      <div
-        v-for="item in data.datasets"
-        :key="item.label"
-        v-show="item.label"
-        class="wrap-legend"
-      >
+  <div class="chartCard">
+    <div class="chartBox" :style="{ width: `${width}px` }">
+      <div class="colLarge" :style="{ 'max-width': `${width}px` }">
         <div
-          class="box-legend"
-          :style="{ 'background-color': item.backgroundColor }"
-        ></div>
-        <div>
-          {{ item.label }}
+          class="box"
+          :style="{ width: `${width}px`, height: `${height}px` }"
+        >
+          <canvas :id="id"></canvas>
         </div>
+      </div>
+    </div>
+  </div>
+  <div id="legend" v-if="showLegends">
+    <div
+      v-for="item in data.datasets"
+      :key="item.label"
+      v-show="item.label"
+      class="wrap-legend"
+    >
+      <div
+        class="box-legend"
+        :style="{ 'background-color': item.backgroundColor }"
+      ></div>
+      <div>
+        {{ item.label }}
       </div>
     </div>
   </div>
@@ -167,7 +172,7 @@ export default {
 #legend {
   display: flex;
   justify-content: center;
-  margin: 20px;
+  margin: 10px;
 }
 .wrap-legend {
   display: flex;
@@ -179,5 +184,34 @@ export default {
   width: 16px;
   height: 16px;
   margin-right: 8px;
+}
+.chartCard {
+  // width: 100vw;
+  // height: calc(100vh - 40px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.chartBox {
+  display: flex;
+  justify-content: center;
+}
+.colLarge {
+  // max-width: 908px;
+  overflow-x: scroll;
+}
+.colLarge::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+.colLarge::-webkit-scrollbar:vertical {
+  width: 8px;
+}
+.colLarge::-webkit-scrollbar:horizontal {
+  height: 8px;
+}
+.colLarge::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  border: 2px solid white; /* should match background, can't be transparent */
+  background-color: #cbcbcb;
 }
 </style>

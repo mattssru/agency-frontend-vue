@@ -182,7 +182,14 @@ export default {
               จำนวนหน่วยที่ Active ในกลุ่มตนเอง (ต.ค. 2564 - ก.ย. 2565)
             </p>
           </div>
-          <BarChart :fontSize="10" :data="activeData" id="active-data" />
+          <BarChart
+            :fontSize="10"
+            :data="activeData"
+            id="active-data"
+            :width="525"
+            :height="162"
+            :barWidth="20"
+          />
         </div>
       </div>
       <div class="col-lg-5">
@@ -198,8 +205,10 @@ export default {
           <BarChart
             :data="pcData"
             id="pc-data"
-            :customStyle="{ width: '100%', height: '450px' }"
             :fontSize="10"
+            :width="334"
+            :height="402"
+            :barWidth="38"
           />
         </div>
       </div>
