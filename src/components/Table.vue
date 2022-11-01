@@ -55,6 +55,7 @@ export default {
   font-family: "regular";
   font-size: 16px;
   position: relative;
+  color: #414141;
 }
 .header {
   position: absolute;
@@ -86,14 +87,14 @@ export default {
 
 .body {
   display: flex;
-  border-bottom: 1px solid #bababa;
+  border-bottom: 1px solid #e0e0e0;
 
   div {
     padding: 13px 24px;
     width: 130px;
     display: flex;
     align-items: center;
-    border-right: 1px solid #bababa;
+    border-right: 1px solid #bebebe;
     width: max-content;
     flex: 1;
     justify-content: flex-end;
@@ -124,15 +125,15 @@ export default {
   width: 100%;
   background-color: #b5dae6;
   font-family: "medium";
-  padding-right: 6px;
+  padding-right: 8px;
 }
 .wrap-body::-webkit-scrollbar {
   -webkit-appearance: none;
-  width: 6px;
+  width: 8px;
 }
 
 .wrap-body::-webkit-scrollbar-thumb {
-  border-radius: 6px;
+  border-radius: 8px;
   border: 2px solid white; /* should match background, can't be transparent */
   background-color: #cbcbcb;
 }
