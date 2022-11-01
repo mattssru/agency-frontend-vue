@@ -206,8 +206,8 @@ export default {
             :data="pcData"
             id="pc-data"
             :fontSize="10"
-            :width="334"
-            :height="402"
+            :width="375"
+            :height="503"
             :barWidth="38"
           />
         </div>
