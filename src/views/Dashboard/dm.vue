@@ -466,11 +466,7 @@ export default {
                         </div>
                       </div>
                       <div class="box_item d-flex align-items-center">
-                        <CircleProgress
-                          :percent="66"
-                          :bgColor="getColorTextPercent(66)"
-                          class="me-3"
-                        />
+                        <CircleProgress :percent="66" class="me-3" />
                         <div class="assets_plan">
                           <p class="font_medium color_title me-1">
                             จำนวนตัวแทน (ไม่รวมตนเอง)
@@ -480,12 +476,12 @@ export default {
                           </p>
                           <p
                             class="mt-2 text_large font_semi d-inline-flex align-items-center"
-                            :style="{ color: getColorTextPercent(66) }"
+                            :style="{ color: getColorRank(66) }"
                           >
                             4
                             <IconPerson
                               class="ms-1 me-2"
-                              :color="getColorTextPercent(66)"
+                              :color="getColorRank(66)"
                             />
                           </p>
                           <!-- <span class="color_gray">(PC สะสมมากว่า 30,000)</span> -->
