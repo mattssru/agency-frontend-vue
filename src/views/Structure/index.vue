@@ -89,7 +89,7 @@ export default {
 <template>
   <SideBar>
     <div class="row mb-3">
-      <div class="col-lg-7">
+      <div class="col-lg-6">
         <div class="box_item px-0 mb-3 mb-lg-0">
           <div
             class="head_box d-flex justify-content-between align-items-center"
@@ -106,7 +106,6 @@ export default {
             </p>
           </div>
           <div class="d-flex pt-3" style="padding: 0 15px">
-            <CircleProgress :percent="45" class="me-3" />
             <div>
               <div class="mb-2">
                 <span class="text_medium font_semi color_title">Pc สะสม</span
@@ -131,7 +130,7 @@ export default {
           </div>
         </div>
       </div>
-      <div class="col-lg-5">
+      <div class="col-lg-6 nopaddingleft">
         <CardExpend :data="agentData" />
       </div>
     </div>
@@ -207,12 +206,13 @@ export default {
               >
                 <div class="grid_2">
                   <div class="box_item d-flex align-items-center">
-                    <CircleProgress :percent="100" class="me-3" />
                     <div class="assets_plan">
                       <p class="font_medium color_title d-inline-block me-1">
                         PC สะสมของตนเอง
                       </p>
-                      <span class="color_gray">(ม.ค. 65 - มิ.ย. 65)</span>
+                      <span class="color_gray" :style="{ 'font-size': '10px' }"
+                        >(ม.ค. 65 - มิ.ย. 65)</span
+                      >
                       <p
                         class="text_large font_semi"
                         :style="{ color: getColorRank(100) }"
@@ -223,12 +223,13 @@ export default {
                     </div>
                   </div>
                   <div class="box_item d-flex align-items-center">
-                    <CircleProgress :percent="80" class="me-3" />
                     <div class="assets_plan">
                       <p class="font_medium color_title d-inline-block me-1">
                         PC สะสมของทีม
                       </p>
-                      <span class="color_gray">(ม.ค. 65 - มิ.ย. 65)</span>
+                      <span class="color_gray" :style="{ 'font-size': '11px' }"
+                        >(ม.ค. 65 - มิ.ย. 65)</span
+                      >
                       <p
                         class="text_large font_semi"
                         :style="{ color: getColorRank(80) }"
@@ -245,7 +246,7 @@ export default {
                       >
                         30.56%
                       </div> -->
-                    <div v-if="30.56 > 79.99" class="custom-success me-4">
+                    <!-- <div v-if="30.56 > 79.99" class="custom-success me-4">
                       <img
                         src="@assets/image/icon_congrat.svg"
                         alt=""
@@ -267,22 +268,21 @@ export default {
                       :style="{ color: getColorTextPercent(30.56) }"
                     >
                       {{ 30.56 }}%
-                    </div>
+                    </div> -->
                     <div class="assets_plan">
                       <p class="font_medium color_title">
                         ประมาณการอัตราความยั่งยืน
                       </p>
-                      <p class="font_medium color_title text_small">
-                        ล่วงหน้าสะสม 19 เดือน
-                      </p>
-                      <p class="font_medium text_small color_title">
-                        ณ เดือน มิ.ย. 2565
+                      <p
+                        class="font_medium color_title text_small"
+                        :style="{ 'font-size': '11px' }"
+                      >
+                        ล่วงหน้าสะสม 19 เดือน ณ เดือน มิ.ย. 2565
                       </p>
                       <p>(เป้าหมายที่ต้องทำได้ 80%)</p>
                     </div>
                   </div>
                   <div class="box_item d-flex align-items-center">
-                    <CircleProgress :percent="75" class="me-3" />
                     <div class="assets_plan">
                       <p class="font_medium me-1 color_title">
                         จำนวนตัวแทนที่แนะนำโดยตรง

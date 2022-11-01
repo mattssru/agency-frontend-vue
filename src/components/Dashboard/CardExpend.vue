@@ -26,7 +26,10 @@ export default {
         </div>
         <div class="custom-profile">
           <div class="name_user color_primary font_medium">
-            คุณ{{ data.firstname }} {{ data.lastname }}
+            คุณ{{ `${data.firstname} ` }}
+            <span style="display: inline-block">
+              {{ ` ${data.lastname}` }}</span
+            >
           </div>
           <div :class="show ? 'detail_user' : 'detail_user mb-2'">
             <p>ชื่อหน่วยงาน</p>
@@ -159,7 +162,7 @@ export default {
 .detail_user {
   color: #414141;
   display: grid;
-  grid-template-columns: 95px auto;
+  grid-template-columns: minmax(auto, 95px) minmax(95px, auto);
 }
 .v-enter-active,
 .v-leave-active {
