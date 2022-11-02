@@ -31,8 +31,8 @@ export default {
       checked: "6",
       agentData: {
         dateLeave: "64",
-        pc: 11520,
-        pcLeave: "12480",
+        pc: 288000,
+        pcLeave: "312000",
         percent: 48,
         firstname: "ลักษมีแข",
         lastname: "เจริญประภาการธนพล",
@@ -126,9 +126,9 @@ export default {
           </div>
           <div class="row" style="padding: 0 11px 0 15px">
             <div
-              class="col-md-7 nopaddingright nopaddingleft d-flex align-items-center"
+              class="col-md-7 nopaddingright d-flex align-items-center"
             >
-              <CircleProgress :percent="45" class="me-1 ms-1" />
+              <CircleProgress :percent="45" class="me-2" />
               <div>
                 <div class="mb-1">
                   <span class="text_medium font_semi color_title"
@@ -145,10 +145,10 @@ export default {
                   class="color_pink font_semi"
                   :style="{ color: getColorRank(45) }"
                 >
-                  <span class="" :style="{ 'font-size': '14px' }"
+                  <span class="" :style="{ 'font-size': '13px' }"
                     >ยังขาดอีก
                   </span>
-                  <span class="text_semi" :style="{ 'font-size': '16px' }"
+                  <span class="text_semi" :style="{ 'font-size': '15px' }"
                     >{{ formatNumber(320000) }} PC</span
                   >
                   <span :style="{ 'font-size': '10px' }">
@@ -350,7 +350,7 @@ export default {
                           >
                             <p
                               class="font_semi"
-                              :style="{ color: getColorRank(55) }"
+                              :style="{ color: getColorRank(60) }"
                             >
                               2 หน่วยลูก
                             </p>
@@ -389,8 +389,9 @@ export default {
             <div>
               <label for="" class="mb-2 text_small">รอบ</label>
               <select class="form-select" aria-label="Default select example">
+                <option value="1">ไตรมาสที่ 1 ปี 2565</option>
                 <option selected>ไตรมาสที่ 2 ปี 2565</option>
-                <option value="1">ไตรมาสที่ 3 ปี 2565</option>
+                <option value="2">ไตรมาสที่ 3 ปี 2565</option>
               </select>
             </div>
           </div>
@@ -423,7 +424,7 @@ export default {
                 <div class="assets_plan">
                   <p class="font_medium color_title">จำนวนตัวแทน</p>
                   <p class="mb-2 color_gray">
-                    ที่ PC >= 30,000 (เม.ย. - มิ.ย. 2565)
+                    ที่ PC >= 30,000 (เม.ย. 65 - มิ.ย. 65)
                   </p>
                   <p
                     class="text_large font_semi d-flex align-items-center"
@@ -449,7 +450,7 @@ export default {
                   class="assets_plan d-flex flex-column justify-content-between"
                 >
                   <p class="font_medium color_title">จำนวน UM ใหม่</p>
-                  <p class="mb-2 color_gray">(ก.ค. 2564 - มิ.ย. 2565)</p>
+                  <p class="mb-2 color_gray">(ก.ค. 64 - มิ.ย. 65)</p>
                   <p
                     class="text_large font_semi d-flex align-items-center"
                     :style="{ color: getColorRank(50) }"

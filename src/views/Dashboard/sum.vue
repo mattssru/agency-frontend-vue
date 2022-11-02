@@ -299,7 +299,7 @@ export default {
                           >
                             <p
                               class="font_semi color_pink"
-                              :style="{ color: getColorRank(45) }"
+                              :style="{ color: getColorRank(60) }"
                             >
                               2 หน่วยลูก
                             </p>
@@ -381,7 +381,7 @@ export default {
                               :style="{ 'font-size': '13px' }"
                             >
                               ล่วงหน้าสะสม 19 เดือน ของหน่วยตนเอง <br />ณ เดือน
-                              มิ.ย. 2565
+                              ธ.ค. 2565
                             </span>
                           </p>
                           <!-- <p class="color_gray">(ม.ค. - ธ.ค. 2565)</p> -->
@@ -392,11 +392,7 @@ export default {
                         </div>
                       </div>
                       <div class="box_item d-flex align-items-center">
-                        <CircleProgress
-                          :percent="66"
-                          :bgColor="getColorTextPercent(66)"
-                          class="me-3"
-                        />
+                        <CircleProgress :percent="66" class="me-3" />
                         <div class="assets_plan">
                           <p class="font_medium color_title me-1">
                             จำนวนตัวแทน (ไม่รวมตนเอง)
@@ -406,12 +402,12 @@ export default {
                           </p>
                           <p
                             class="mt-2 text_large font_semi d-inline-flex align-items-center"
-                            :style="{ color: getColorTextPercent(66) }"
+                            :style="{ color: getColorRank(66) }"
                           >
                             6
                             <IconPerson
                               class="ms-1 me-2"
-                              :color="getColorTextPercent(66)"
+                              :color="getColorRank(66)"
                             />
                           </p>
                           <!-- <span class="color_gray">(PC สะสมมากว่า 30,000)</span> -->
@@ -481,7 +477,7 @@ export default {
                               :style="{ 'font-size': '13px' }"
                             >
                               ล่วงหน้าสะสม 19 เดือน ของหน่วยตนเอง <br />ณ เดือน
-                              มิ.ย. 2565
+                              ธ.ค. 2565
                             </span>
                           </p>
                           <!-- <p class="color_gray">(ม.ค. - ธ.ค. 2565)</p> -->
@@ -492,11 +488,7 @@ export default {
                         </div>
                       </div>
                       <div class="box_item d-flex align-items-center">
-                        <CircleProgress
-                          :percent="66"
-                          :bgColor="getColorTextPercent(66)"
-                          class="me-3"
-                        />
+                        <CircleProgress :percent="66" class="me-3" />
                         <div class="assets_plan">
                           <p class="font_medium color_title me-1">
                             จำนวนตัวแทน (ไม่รวมตนเอง)
@@ -506,12 +498,12 @@ export default {
                           </p>
                           <p
                             class="mt-2 text_large font_semi d-inline-flex align-items-center"
-                            :style="{ color: getColorTextPercent(66) }"
+                            :style="{ color: getColorRank(66) }"
                           >
                             4
                             <IconPerson
                               class="ms-1 me-2"
-                              :color="getColorTextPercent(66)"
+                              :color="getColorRank(66)"
                             />
                           </p>
                           <!-- <span class="color_gray">(PC สะสมมากว่า 30,000)</span> -->
@@ -538,9 +530,9 @@ export default {
             <div>
               <label for="" class="mb-2 text_small">รอบ</label>
               <select class="form-select" aria-label="Default select example">
+                <option value="1">ไตรมาสที่ 1 ปี 2565</option>
                 <option selected>ไตรมาสที่ 2 ปี 2565</option>
-                <option value="1">ไตรมาสที่ 3 ปี 2565</option>
-                <option value="1">ไตรมาสที่ 4 ปี 2565</option>
+                <option value="2">ไตรมาสที่ 3 ปี 2565</option>
               </select>
             </div>
           </div>

@@ -16,8 +16,8 @@ export default {
     return {
       agentData: {
         dateLeave: "64",
-        pc: 11520,
-        pcLeave: "12480",
+        pc: 288000,
+        pcLeave: "312000",
         percent: 48,
         firstname: "ลักษมีแข",
         lastname: "เจริญประภาการธนพล",
