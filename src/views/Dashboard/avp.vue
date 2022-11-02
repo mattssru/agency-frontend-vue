@@ -176,7 +176,7 @@ export default {
             </div>
           </div>
         </div>
-        <div class="box_item mt-3">
+        <div class="box_item mt-3" :style="{ height: '235px' }">
           <div class="assets_plan p-3">
             <p class="font_medium color_title mb-3 text-center">
               จำนวนหน่วยที่ Active ในกลุ่มตนเอง (ต.ค. 2564 - ก.ย. 2565)
@@ -187,7 +187,7 @@ export default {
             :data="activeData"
             id="active-data"
             :width="525"
-            :height="162"
+            :height="159"
             :barWidth="20"
           />
         </div>
@@ -196,7 +196,7 @@ export default {
         <div class="expend_desktop">
           <CardExpend :data="agentData" />
         </div>
-        <div class="box_item mt-3 custom_chart">
+        <div class="box_item mt-3 custom_chart" :style="{ height: '500px' }">
           <div class="assets_plan p-3">
             <p class="font_medium color_title mb-3 text-center">
               PC สะสมของกลุ่มตนเอง <br />รายไตรมาส (ต.ค. 2564 - ก.ย. 2565)
@@ -207,7 +207,7 @@ export default {
             id="pc-data"
             :fontSize="10"
             :width="375"
-            :height="503"
+            :height="400"
             :barWidth="38"
           />
         </div>
