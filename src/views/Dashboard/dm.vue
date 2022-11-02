@@ -31,8 +31,8 @@ export default {
       checked: "6",
       agentData: {
         dateLeave: "64",
-        pc: 11520,
-        pcLeave: "12480",
+        pc: 288000,
+        pcLeave: "312000",
         percent: 48,
         firstname: "ลักษมีแข",
         lastname: "เจริญประภาการธนพล",
@@ -135,17 +135,17 @@ export default {
                     formatNumber(agentData.pc)
                   }}</span
                   ><br />
-                  <span class="color_gray">(ก.ค. 65 - ธ.ค. 65)</span>
+                  <span class="color_gray">(ม.ค. 65 - ธ.ค. 65)</span>
                 </div>
                 <div
                   v-if="45 < 100"
                   class="color_pink font_semi"
                   :style="{ color: getColorRank(45) }"
                 >
-                  <span class="" :style="{ 'font-size': '14px' }"
+                  <span class="" :style="{ 'font-size': '13px' }"
                     >ยังขาดอีก
                   </span>
-                  <span class="text_semi" :style="{ 'font-size': '16px' }"
+                  <span class="text_semi" :style="{ 'font-size': '15px' }"
                     >{{ formatNumber(agentData.pcLeave) }} PC</span
                   >&nbsp;
                   <span :style="{ 'font-size': '10px' }"
@@ -306,6 +306,7 @@ export default {
                         <p
                           class="text_large font_semi color_yellow d-flex mb-1"
                           :style="{ color: getColorRank(80) }"
+                          style="font-size: 26px"
                         >
                           <img
                             v-if="80 === 100"
@@ -455,7 +456,7 @@ export default {
                               :style="{ 'font-size': '13px' }"
                             >
                               ล่วงหน้าสะสม 19 เดือน ของหน่วยตนเอง <br />ณ เดือน
-                              มิ.ย. 2565
+                              ธ.ค. 2565
                             </span>
                           </p>
                           <!-- <p class="color_gray">(ม.ค. - ธ.ค. 2565)</p> -->
@@ -508,8 +509,9 @@ export default {
             <div>
               <label for="" class="mb-2 text_small">รอบ</label>
               <select class="form-select" aria-label="Default select example">
+                <option value="1">ไตรมาสที่ 1 ปี 2565</option>
                 <option selected>ไตรมาสที่ 2 ปี 2565</option>
-                <option value="1">ไตรมาสที่ 3 ปี 2565</option>
+                <option value="2">ไตรมาสที่ 3 ปี 2565</option>
               </select>
             </div>
           </div>
@@ -520,7 +522,7 @@ export default {
               <div class="box_item d-flex align-items-center">
                 <div class="assets_plan">
                   <p class="font_medium color_title">PC สะสมของหน่วย</p>
-                  <p class="mb-2 color_gray">(ต.ค. 2564 - ก.ย. 2565)</p>
+                  <p class="mb-2 color_gray">(ต.ค. 64 - ก.ย. 65)</p>
                   <p
                     :style="{ color: getColorRank(100) }"
                     class="text_large font_semi d-flex"
@@ -542,7 +544,7 @@ export default {
                 <div class="assets_plan">
                   <p class="font_medium color_title">จำนวนตัวแทน</p>
                   <p class="mb-2 color_gray">
-                    ที่ PC >= 30,000 (เม.ย. - มิ.ย. 2565)
+                    ที่ PC >= 30,000 (เม.ย. 65 - มิ.ย. 65)
                   </p>
                   <p
                     class="text_large font_semi d-flex align-items-center"
@@ -757,8 +759,7 @@ export default {
 /* left_tabs_plan */
 .left_tabs_plan .nav-pills .nav-link {
   background-color: #fff;
-  font-size: 48px;
-  font-family: "semi-bold";
+  font-size: 36px;
   color: #007ab3;
   opacity: 0.3;
   height: 82px;
