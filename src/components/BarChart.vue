@@ -83,6 +83,7 @@ export default {
               drawBorder: false,
             },
             suggestedMax: max * 1.1,
+            stacked: true,
           },
           x: {
             stacked: true,
@@ -103,7 +104,7 @@ export default {
             color: "#13A0D3",
             textStrokeColor: "white",
             textStrokeWidth: 5,
-            anchor: "center",
+            // anchor: "end",
             formatter: function (value, context) {
               return formatNumber(value);
             },
@@ -111,7 +112,8 @@ export default {
               family: "medium",
               size: 10,
             },
-            align: "start",
+            // align: "end",
+            // offset: -3,
           },
           legend: {
             display: false,
