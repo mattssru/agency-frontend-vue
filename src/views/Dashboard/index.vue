@@ -39,6 +39,7 @@ export default {
         lastname: "เจริญประภาการธนพล",
         organizationName: "ภาคอาวุโส โภคทรัพย์",
         rank: "Agent (AG)",
+        rankCode: "premier",
         code: "135791",
         codeOrganization: "34246802468",
         codeGroup: "42086",

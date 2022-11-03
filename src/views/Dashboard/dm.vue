@@ -43,6 +43,7 @@ export default {
         codeGroup: "42086",
         licenseNo: "08642086",
         no: "246802468",
+        rankCode: "elite",
       },
       eliteData: {
         current_q: "Q3",

@@ -33,6 +33,7 @@ export default {
         codeGroup: "42086",
         licenseNo: "08642086",
         no: "246802468",
+        rankCode: "elite",
       },
     };
   },
@@ -191,7 +192,7 @@ export default {
                   role="tabpanel"
                   aria-labelledby="v-pills-home-tab"
                 >
-                  <div class="grid_3" style="margin-bottom: 15px">
+                  <div class="grid_3 last" style="margin-bottom: 15px">
                     <div class="box_item d-flex align-items-center py-3">
                       <div class="assets_plan">
                         <p class="font_medium color_title mb-2">
@@ -709,6 +710,12 @@ export default {
   color: #414141;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+}
+.last {
+  grid-template-columns: auto auto 179px;
+}
+.last .box_item {
+  padding: 15px 10px 12px 11px;
 }
 .plan_dashboard,
 .premier_dashboard {

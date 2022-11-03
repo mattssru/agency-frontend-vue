@@ -25,6 +25,7 @@ export default {
         pc: 288000,
         pcLeave: "312000",
         percent: 48,
+        rankCode: "elite",
         firstname: "ลักษมีแข",
         lastname: "เจริญประภาการธนพล",
         organizationName: "ภาคอาวุโส โภคทรัพย์",

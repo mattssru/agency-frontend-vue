@@ -103,7 +103,7 @@ export default {
             color: "#13A0D3",
             textStrokeColor: "white",
             textStrokeWidth: 5,
-            anchor: "end",
+            anchor: "center",
             formatter: function (value, context) {
               return formatNumber(value);
             },
@@ -111,8 +111,7 @@ export default {
               family: "medium",
               size: 10,
             },
-            align: "end",
-            offset: -3,
+            align: "start",
           },
           legend: {
             display: false,

@@ -20,10 +20,23 @@ export default {
     <div :class="show ? 'show box_item' : 'box_item'">
       <div class="d-flex">
         <div>
-          <div class="profile_user me-3 mb-2">
+          <div class="profile_user me-3 mb-2" :class="data.rankCode">
             <img src="@assets/image/img_user.svg" alt="" />
           </div>
-          <img src="@assets/image/premier.svg" alt="" width="64" height="13" />
+          <img
+            v-if="data.rankCode === 'premier'"
+            src="@assets/image/premier.svg"
+            alt=""
+            width="64"
+            height="13"
+          />
+          <img
+            v-if="data.rankCode === 'elite'"
+            src="@assets/image/logo-elite-rank.svg"
+            alt=""
+            width="64"
+            height="19"
+          />
         </div>
         <div class="custom-profile">
           <div class="name_user color_primary font_medium">
@@ -146,6 +159,10 @@ export default {
 .profile_user {
   width: 64px;
   height: 64px;
+  border-radius: 100%;
+}
+.profile_user.premier,
+.profile_user.elite {
   padding: 4px;
   background-color: #b59d5e;
   border-radius: 100%;
