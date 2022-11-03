@@ -375,13 +375,6 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-.dashboard {
-  background: #003781;
-  padding: 20px;
-  min-height: calc(100vh - 54px);
-  height: 100%;
-  position: relative;
-}
 .custom-checkbox input {
   position: absolute;
   opacity: 0;

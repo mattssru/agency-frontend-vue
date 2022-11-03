@@ -112,6 +112,13 @@ h1 {
   /* --azy-yellow-color: #fab600; */
   background-color: var(--azy-yellow-color);
 }
+.dashboard {
+  background: #003781;
+  padding: 10px 20px;
+  min-height: calc(100vh - 54px);
+  height: 100%;
+  position: relative;
+}
 .position-rel {
   position: relative;
 }

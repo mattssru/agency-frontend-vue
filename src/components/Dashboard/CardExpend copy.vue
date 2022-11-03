@@ -16,7 +16,6 @@ export default {
 
 <template>
   <div class="card-expand">
-    <div :style="{ height: '140px', display: show ? 'block' : 'none' }"></div>
     <div :class="show ? 'show box_item' : 'box_item'">
       <div class="d-flex">
         <div>

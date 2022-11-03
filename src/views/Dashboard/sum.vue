@@ -627,12 +627,6 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-.dashboard {
-  background: #003781;
-  padding: 10px 20px;
-  min-height: 93.6vh;
-  height: 100%;
-}
 .head_box {
   border-bottom: 1px solid #e0e0e0;
 }

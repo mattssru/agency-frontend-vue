@@ -178,7 +178,7 @@ export default {
         </div>
         <div class="box_item mt-3" :style="{ height: '235px' }">
           <div class="assets_plan p-3">
-            <p class="font_medium color_title mb-3 text-center">
+            <p class="font_medium color_title text-center">
               จำนวนหน่วยที่ Active ในกลุ่มตนเอง (ต.ค. 2564 - ก.ย. 2565)
             </p>
           </div>
@@ -187,7 +187,7 @@ export default {
             :data="activeData"
             id="active-data"
             :width="525"
-            :height="159"
+            :height="156"
             :barWidth="20"
           />
         </div>
@@ -198,7 +198,7 @@ export default {
         </div>
         <div class="box_item mt-3 custom_chart" :style="{ height: '500px' }">
           <div class="assets_plan p-3">
-            <p class="font_medium color_title mb-3 text-center">
+            <p class="font_medium color_title text-center">
               PC สะสมของกลุ่มตนเอง <br />รายไตรมาส (ต.ค. 2564 - ก.ย. 2565)
             </p>
           </div>
@@ -226,12 +226,6 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-.dashboard {
-  background: #003781;
-  padding: 10px 20px;
-  min-height: 93.6vh;
-  height: 100%;
-}
 .head_box {
   border-bottom: 1px solid #e0e0e0;
 }

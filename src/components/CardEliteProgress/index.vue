@@ -32,10 +32,6 @@ export default {
   data() {
     return {
       show: false,
-      premium_pc_min: 75000,
-      premium_people_min: 9,
-      elite_people_min: 12,
-      elite_pc_min: 300000,
       value1: 100,
       value2: 20,
       value3: 90,
