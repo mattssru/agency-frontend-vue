@@ -50,7 +50,7 @@ export default {
   <div class="dashboard">
     <div class="container-fluid">
       <div
-        class="mb-3 d-flex flex-column flex-lg-row align-items-start align-lg-item-center justify-content-between"
+        class="mb-2 d-flex flex-column flex-lg-row align-items-start align-items-lg-center justify-content-between"
       >
         <h1 class="mb-2 mb-lg-0">AGENCY PERFORMANCE TRACKER</h1>
         <div
@@ -179,8 +179,8 @@ export default {
                           class="text_small"
                           :style="{ 'font-size': '13px' }"
                         >
-                          ล่วงหน้าสะสม 19 เดือน ของหน่วยตนเอง <br />ณ เดือน
-                          ธ.ค. 2565
+                          ล่วงหน้าสะสม 19 เดือน ของหน่วยตนเอง <br />ณ เดือน ธ.ค.
+                          2565
                         </span>
                       </p>
                       <!-- <p class="color_gray">(ม.ค. - ธ.ค. 2565)</p> -->
@@ -337,7 +337,7 @@ export default {
 <style lang="scss" scoped>
 .dashboard {
   background: #003781;
-  padding: 20px;
+  padding: 10px 20px;
   min-height: 93.6vh;
   height: 100%;
 }

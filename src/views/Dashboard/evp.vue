@@ -76,7 +76,7 @@ export default {
   <ModalShare id="exampleModal"> </ModalShare>
   <div class="dashboard">
     <div
-      class="mb-3 d-flex flex-column flex-lg-row align-items-start align-lg-item-center justify-content-between"
+      class="mb-2 d-flex flex-column flex-lg-row align-items-start align-items-lg-center justify-content-between"
     >
       <h1 class="mb-2 mb-lg-0">AGENCY PERFORMANCE TRACKER</h1>
       <div
@@ -94,7 +94,7 @@ export default {
           <CardExpend :data="agentData" />
         </div>
         <div class="box_item p-0 mb-3 mb-lg-0">
-          <div class="head_box" style="padding: 10px 15px 10px 15px">
+          <div class="head_box" style="padding: 8px 15px">
             <div
               class="text_medium color_primary font_semi d-flex align-items-center"
             >
@@ -102,7 +102,7 @@ export default {
               วางแผนเลื่อนตำแหน่ง
             </div>
           </div>
-          <div class="p-3">
+          <div style="padding: 15px">
             <div class="grid_2">
               <div>
                 <div class="um d-flex align-items-center mb-3">
@@ -111,7 +111,7 @@ export default {
                 </div>
                 <div
                   class="box_item d-flex flex-column align-items-center justify-content-center text-center p-3"
-                  style="min-height: 344px"
+                  style="height: calc(100% - 70px)"
                 >
                   <CircleProgress
                     :percent="80"
@@ -135,7 +135,8 @@ export default {
               </div>
               <div>
                 <div
-                  class="box_item mb-3 p-3 d-flex align-items-center justify-content-between"
+                  class="box_item p-2 d-flex align-items-center justify-content-between"
+                  style="margin-bottom: 10px"
                 >
                   <div>
                     <p class="colot_title font_medium text_small mb-1">
@@ -152,8 +153,8 @@ export default {
                     </p>
                   </div>
                 </div>
-                <div class="box_item p-3 mb-3">
-                  <div class="assets_plan mb-3">
+                <div class="box_item p-2" style="margin-bottom: 10px">
+                  <div class="assets_plan mb-2">
                     <p class="font_medium color_title">จำนวนหน่วย</p>
                     <p class="font_medium text_small color_title">
                       (กลุ่มสายงานตรง รวมหน่วยตนเอง)
@@ -175,22 +176,22 @@ export default {
                     </div>
                   </div>
                 </div>
-                <div class="box_item py-2 px-3">
+                <div class="box_item" style="padding: 7px 12px">
                   <div class="assets_plan">
-                    <p class="color_title font_medium mb-1">
+                    <p class="color_title font_medium">
                       ประมาณการอัตราความยั่งยืน
                     </p>
                     <p class="color_title font_medium">
-                      ล่วงหน้าสะสม 19 เดือน ของกลุ่มตนเอง<br />
-                      ณ เดือน ธ.ค. 2565
+                      ล่วงหน้าสะสม 19 เดือน ของกลุ่มตนเอง
                     </p>
+                    <p class="color_title font_medium">ณ เดือน ธ.ค. 2565</p>
                     <p
-                      class="text_large font_semi color_orange"
+                      class="text_28 font_semi color_orange d-inline-block"
                       :style="{ color: getColorRank(55) }"
                     >
                       55%
                     </p>
-                    <p>(เป้าหมายที่ต้องทำได้ 75%)</p>
+                    <span class="ms-2">(เป้าหมายที่ต้องทำได้ 75%)</span>
                   </div>
                 </div>
               </div>
@@ -198,8 +199,8 @@ export default {
           </div>
         </div>
         <div class="box_item mt-3">
-          <div class="assets_plan p-3">
-            <p class="font_medium color_title mb-3 text-center">
+          <div class="assets_plan">
+            <p class="font_medium color_title mb-2 text-center">
               จำนวนหน่วยที่ Active ในกลุ่มตนเอง (ต.ค. 2564 - ก.ย. 2565)
             </p>
           </div>
@@ -217,9 +218,12 @@ export default {
         <div class="expend_desktop">
           <CardExpend :data="agentData" />
         </div>
-        <div class="box_item mt-3 custom_chart">
-          <div class="assets_plan p-3">
-            <p class="font_medium color_title mb-3 text-center">
+        <div
+          class="box_item mt-3 py-3 custom_chart"
+          style="height: calc(100% - 156px)"
+        >
+          <div class="assets_plan mb-5">
+            <p class="font_medium color_title text-center">
               PC สะสมของกลุ่มตนเอง รายไตรมาส<br />
               (ต.ค. 2564 - ก.ย. 2565)
             </p>
@@ -230,7 +234,7 @@ export default {
             :customStyle="{ width: '100%', height: '450px' }"
             :fontSize="10"
             :width="334"
-            :height="492"
+            :height="340"
             :barWidth="38"
           />
         </div>
@@ -251,7 +255,7 @@ export default {
 <style lang="scss" scoped>
 .dashboard {
   background: #003781;
-  padding: 20px;
+  padding: 10px 20px;
   min-height: 93.6vh;
   height: 100%;
 }
@@ -316,6 +320,10 @@ export default {
 .custom_chart .wrap-chart canvas {
   width: 100% !important;
   height: 377px !important;
+}
+.text_28 {
+  font-size: 28px;
+  line-height: 28px;
 }
 @media (max-width: 991px) {
   .expend_mobile {

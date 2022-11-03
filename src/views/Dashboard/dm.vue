@@ -1,5 +1,5 @@
 <script>
-import { Button, Card, CircleProgress, Radio, Loader } from "@components";
+import { Button, Card, CircleProgress, Loader, Radio } from "@components";
 import CardEliteExpend from "@components/CardEliteProgress/index.vue";
 import { CardExpend, ModalShare } from "@components/Dashboard";
 import IconPerson from "@components/icons/IconPerson.vue";
@@ -94,7 +94,7 @@ export default {
   <ModalShare id="exampleModal"></ModalShare>
   <div class="dashboard">
     <div
-      class="mb-3 d-flex flex-column flex-lg-row align-items-start align-lg-item-center justify-content-between"
+      class="mb-2 d-flex flex-column flex-lg-row align-items-start align-items-lg-center justify-content-between"
     >
       <h1 class="mb-2 mb-lg-0">AGENCY PERFORMANCE TRACKER</h1>
       <div
@@ -613,7 +613,7 @@ export default {
 <style lang="scss" scoped>
 .dashboard {
   background: #003781;
-  padding: 20px;
+  padding: 10px 20px;
   min-height: 93.6vh;
   height: 100%;
 }
