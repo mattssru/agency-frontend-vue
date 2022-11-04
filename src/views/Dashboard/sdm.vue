@@ -448,7 +448,7 @@ export default {
                   class="assets_plan d-flex flex-column justify-content-between"
                 >
                   <p class="font_medium color_title">จำนวน UM ใหม่</p>
-                  <p class="mb-2 color_gray">(ก.ค. 64 - มิ.ย. 65)</p>
+                  <BR></BR>
                   <p
                     class="text_large font_semi d-flex align-items-center"
                     :style="{ color: getColorRank(50) }"
