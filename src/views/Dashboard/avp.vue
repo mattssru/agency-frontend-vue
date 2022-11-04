@@ -22,13 +22,13 @@ export default {
         firstname: "ลักษมีแข",
         lastname: "เจริญประภาการธนพล",
         organizationName: "ภาคอาวุโส โภคทรัพย์",
-        rank: "Agent (AG)",
+        rank: "Assistant Vice President (AVP)",
         code: "135791",
         codeOrganization: "34246802468",
         codeGroup: "42086",
         licenseNo: "08642086",
         no: "246802468",
-        rankCode: "elite",
+        rankCode: "franchise",
       },
       activeData: {
         labels: [

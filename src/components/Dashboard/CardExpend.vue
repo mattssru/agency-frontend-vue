@@ -37,6 +37,20 @@ export default {
             width="64"
             height="19"
           />
+          <img
+            v-if="data.rankCode === 'builder'"
+            src="@assets/image/logo-elite-builder.svg"
+            alt=""
+            width="64"
+            height="19"
+          />
+          <img
+            v-if="data.rankCode === 'franchise'"
+            src="@assets/image/logo-elite-franchise-builder.svg"
+            alt=""
+            width="64"
+            height="24"
+          />
         </div>
         <div class="custom-profile">
           <div class="name_user color_primary font_medium">

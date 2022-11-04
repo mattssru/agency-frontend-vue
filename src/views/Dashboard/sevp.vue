@@ -22,7 +22,7 @@ export default {
         firstname: "ลักษมีแข",
         lastname: "เจริญประภาการธนพล",
         organizationName: "ภาคอาวุโส โภคทรัพย์",
-        rank: "Agent (AG)",
+        rank: "Senior Executive Vice President (SEVP)",
         code: "135791",
         codeOrganization: "34246802468",
         codeGroup: "42086",
@@ -155,7 +155,7 @@ export default {
                     class="d-flex align-items-center color_title font_medium mb-2"
                     style="font-size: 18px"
                   >
-                    <img src="@assets/image/assets_2.svg" alt="" class="me-2" />
+                    <img src="@assets/image/assets_3.svg" alt="" class="me-2" />
                     ประมาณการอัตราความยั่งยืน
                   </p>
                 </div>

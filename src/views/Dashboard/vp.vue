@@ -4,7 +4,7 @@ import BarChart from "@components/BarChart.vue";
 import { CardExpend, ModalShare } from "@components/Dashboard";
 import { getColorRank } from "@utils/helper";
 export default {
-  name: "Dashboard-avp",
+  name: "Dashboard-vp",
   components: {
     BarChart,
     ModalShare,
@@ -16,18 +16,19 @@ export default {
     return {
       agentData: {
         dateLeave: "64",
-        pc: 11520,
-        pcLeave: "12480",
+        pc: 288000,
+        pcLeave: "312000",
         percent: 48,
         firstname: "ลักษมีแข",
         lastname: "เจริญประภาการธนพล",
         organizationName: "ภาคอาวุโส โภคทรัพย์",
-        rank: "Executive Vice President (EVP)",
+        rank: "Assistant Vice President (AVP)",
         code: "135791",
         codeOrganization: "34246802468",
         codeGroup: "42086",
         licenseNo: "08642086",
         no: "246802468",
+        rankCode: "franchise",
       },
       activeData: {
         labels: [
@@ -94,7 +95,7 @@ export default {
           <CardExpend :data="agentData" />
         </div>
         <div class="box_item p-0 mb-3 mb-lg-0">
-          <div class="head_box" style="padding: 8px 15px">
+          <div class="head_box" style="padding: 10px 15px 10px 15px">
             <div
               class="text_medium color_primary font_semi d-flex align-items-center"
             >
@@ -102,16 +103,16 @@ export default {
               วางแผนเลื่อนตำแหน่ง
             </div>
           </div>
-          <div style="padding: 15px">
+          <div class="p-3">
             <div class="grid_2">
               <div>
                 <div class="um d-flex align-items-center mb-3">
                   <img src="@assets/image/um.svg" alt="" class="me-2" />
-                  SEVP
+                  EVP
                 </div>
                 <div
-                  class="box_item d-flex flex-column align-items-center justify-content-center text-center p-3"
-                  style="height: calc(100% - 70px)"
+                  class="box_item d-flex flex-column align-items-center justify-content-center text-center mb-3"
+                  style="min-height: 244px"
                 >
                   <CircleProgress
                     :percent="80"
@@ -120,41 +121,19 @@ export default {
                   />
                   <div class="assets_plan">
                     <p class="font_medium color_title">PC สะสมของกลุ่มรวม</p>
-                    <p class="font_medium color_title text_small mb-2">
-                      ภายใน 2 ปีที่ผ่านมา
-                    </p>
                     <p
                       class="color_yellow font_semi text_large"
                       :style="{ color: getColorRank(80) }"
                     >
-                      130,000,000
+                      40,000,000
                     </p>
-                    <p>(เป้าหมายที่ต้องทำได้ 140,000,000 บาท)</p>
+                    <p>(เป้าหมายที่ต้องทำได้ 50,000,000 บาท)</p>
                   </div>
                 </div>
               </div>
               <div>
-                <div
-                  class="box_item p-2 d-flex align-items-center justify-content-between"
-                  style="margin-bottom: 10px"
-                >
-                  <div>
-                    <p class="colot_title font_medium text_small mb-1">
-                      อายุงาน
-                    </p>
-                    <p class="colot_title font_medium text_small">
-                      ในตำแหน่งปัจจุบัน
-                    </p>
-                  </div>
-                  <div>
-                    <p class="color_orange font_semi text_large">2 ปี</p>
-                    <p style="font-size: 10.5px; line-height: 15px">
-                      (เป้าหมาย 3 ปี)
-                    </p>
-                  </div>
-                </div>
-                <div class="box_item p-2" style="margin-bottom: 10px">
-                  <div class="assets_plan mb-2">
+                <div class="box_item p-3 mb-3">
+                  <div class="assets_plan mb-3">
                     <p class="font_medium color_title">จำนวนหน่วย</p>
                     <p class="font_medium text_small color_title">
                       (กลุ่มสายงานตรง รวมหน่วยตนเอง)
@@ -176,31 +155,31 @@ export default {
                     </div>
                   </div>
                 </div>
-                <div class="box_item" style="padding: 7px 12px">
+                <div class="box_item py-2 px-3 mb-3">
                   <div class="assets_plan">
-                    <p class="color_title font_medium">
+                    <p class="color_title font_medium mb-1">
                       ประมาณการอัตราความยั่งยืน
                     </p>
-                    <p class="color_title font_medium">
-                      ล่วงหน้าสะสม 19 เดือน ของกลุ่มตนเอง
+                    <p class="color_title font_medium text_small">
+                      ล่วงหน้าสะสม 19 เดือน <br />ของกลุ่มตนเอง ณ เดือน ธ.ค.
+                      2565
                     </p>
-                    <p class="color_title font_medium">ณ เดือน ธ.ค. 2565</p>
                     <p
-                      class="text_28 font_semi color_orange d-inline-block"
+                      class="text_large font_semi color_orange"
                       :style="{ color: getColorRank(55) }"
                     >
                       55%
                     </p>
-                    <span class="ms-2">(เป้าหมายที่ต้องทำได้ 75%)</span>
+                    <p>(เป้าหมายที่ต้องทำได้ 75%)</p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="box_item mt-3">
-          <div class="assets_plan">
-            <p class="font_medium color_title mb-2 text-center">
+        <div class="box_item mt-3" :style="{ height: '235px' }">
+          <div class="assets_plan p-3">
+            <p class="font_medium color_title text-center">
               จำนวนหน่วยที่ Active ในกลุ่มตนเอง (ต.ค. 2564 - ก.ย. 2565)
             </p>
           </div>
@@ -209,7 +188,7 @@ export default {
             :data="activeData"
             id="active-data"
             :width="525"
-            :height="162"
+            :height="156"
             :barWidth="20"
           />
         </div>
@@ -218,23 +197,18 @@ export default {
         <div class="expend_desktop">
           <CardExpend :data="agentData" />
         </div>
-        <div
-          class="box_item mt-3 py-3 custom_chart"
-          style="height: calc(100% - 156px)"
-        >
-          <div class="assets_plan mb-5">
+        <div class="box_item mt-3 custom_chart" :style="{ height: '500px' }">
+          <div class="assets_plan p-3">
             <p class="font_medium color_title text-center">
-              PC สะสมของกลุ่มตนเอง รายไตรมาส<br />
-              (ต.ค. 2564 - ก.ย. 2565)
+              PC สะสมของกลุ่มตนเอง <br />รายไตรมาส (ต.ค. 2564 - ก.ย. 2565)
             </p>
           </div>
           <BarChart
             :data="pcData"
             id="pc-data"
-            :customStyle="{ width: '100%', height: '450px' }"
             :fontSize="10"
-            :width="334"
-            :height="340"
+            :width="375"
+            :height="400"
             :barWidth="38"
           />
         </div>
@@ -314,10 +288,6 @@ export default {
 .custom_chart .wrap-chart canvas {
   width: 100% !important;
   height: 377px !important;
-}
-.text_28 {
-  font-size: 28px;
-  line-height: 28px;
 }
 @media (max-width: 991px) {
   .expend_mobile {
