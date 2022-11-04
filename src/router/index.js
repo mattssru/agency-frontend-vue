@@ -1,4 +1,5 @@
 import DashboardAVP from "@views/Dashboard/avp.vue";
+import DashboardVP from "@views/Dashboard/vp.vue";
 import DashboardDM from "@views/Dashboard/dm.vue";
 import DashboardEVP from "@views/Dashboard/evp.vue";
 import Dashboard from "@views/Dashboard/index.vue";
@@ -19,6 +20,7 @@ const routes = [
   { path: "/dashboard-avp", component: DashboardAVP },
   { path: "/dashboard-sevp", component: DashboardSEVP },
   { path: "/dashboard-evp", component: DashboardEVP },
+  { path: "/dashboard-vp", component: DashboardVP },
   {
     path: "/structure-agent",
     component: StructurePage,

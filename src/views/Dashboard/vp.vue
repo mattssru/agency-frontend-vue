@@ -22,7 +22,7 @@ export default {
         firstname: "ลักษมีแข",
         lastname: "เจริญประภาการธนพล",
         organizationName: "ภาคอาวุโส โภคทรัพย์",
-        rank: "Assistant Vice President (AVP)",
+        rank: "Vice President (VP)",
         code: "135791",
         codeOrganization: "34246802468",
         codeGroup: "42086",
