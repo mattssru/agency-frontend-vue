@@ -254,7 +254,7 @@ export default {
                   role="tabpanel"
                   aria-labelledby="v-pills-home-tab"
                 >
-                  <div class="grid_3" style="margin-bottom: 15px">
+                  <div class="grid_3 last" style="margin-bottom: 15px">
                     <div class="box_item d-flex align-items-center py-3">
                       <div class="assets_plan">
                         <p class="font_medium mb-2 color_title">
@@ -675,6 +675,12 @@ export default {
 .btn_file:hover {
   background-color: #e7f5fb;
   border: 2px solid #007ab3;
+}
+.last {
+  grid-template-columns: auto auto 179px;
+}
+.last .box_item {
+  padding: 15px 10px 12px 11px;
 }
 .btn_file {
   display: inline-flex;
