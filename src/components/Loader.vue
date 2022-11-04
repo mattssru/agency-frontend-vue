@@ -9,10 +9,13 @@
       <span class="visually-hidden">Loading...</span>
     </div>
     <div v-if="!loading && failed">
-      <button class="btn btn-primary custom-btn" @click="handleRetry">
-        <IconRefresh class="me-2" />
-        Retry
-      </button>
+      <div style="color: white">ไม่สามารถเชื่อมระบบได้ กรุณาลองใหม่อีกครั้ง</div>
+      <div>
+        <button class="btn btn-primary custom-btn" @click="handleRetry">
+          <IconRefresh class="me-2" />
+          Retry
+        </button>
+      </div>
     </div>
   </div>
   <slot></slot>
