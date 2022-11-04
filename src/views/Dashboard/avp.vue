@@ -108,7 +108,7 @@ export default {
               <div>
                 <div class="um d-flex align-items-center mb-3">
                   <img src="@assets/image/um.svg" alt="" class="me-2" />
-                  EVP
+                  VP
                 </div>
                 <div
                   class="box_item d-flex flex-column align-items-center justify-content-center text-center mb-3"
