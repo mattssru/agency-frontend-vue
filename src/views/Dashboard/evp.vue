@@ -1,6 +1,6 @@
 <script>
 import { CircleProgress, Modal } from "@components";
-import BarChart from "@components/BarChart.vue";
+import BarChart from "@components/StackedBar.vue";
 import { CardExpend, ModalShare } from "@components/Dashboard";
 import { getColorRank } from "@utils/helper";
 export default {

@@ -203,7 +203,7 @@ export default {
             id="pc-data"
             :fontSize="10"
             :width="334"
-            :height="378"
+            :height="368"
             :barWidth="38"
           />
         </div>

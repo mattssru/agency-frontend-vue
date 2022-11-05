@@ -111,7 +111,7 @@ export default {
                   VP
                 </div>
                 <div
-                  class="box_item d-flex flex-column align-items-center justify-content-center text-center mb-3"
+                  class="box_item d-flex flex-column align-items-center justify-content-center text-center"
                   style="min-height: 244px"
                 >
                   <CircleProgress
@@ -155,7 +155,7 @@ export default {
                     </div>
                   </div>
                 </div>
-                <div class="box_item py-2 px-3 mb-3">
+                <div class="box_item py-2 px-3">
                   <div class="assets_plan">
                     <p class="color_title font_medium mb-1">
                       ประมาณการอัตราความยั่งยืน
@@ -197,7 +197,7 @@ export default {
         <div class="expend_desktop">
           <CardExpend :data="agentData" />
         </div>
-        <div class="box_item mt-3 custom_chart" :style="{ height: '500px' }">
+        <div class="box_item mt-3 custom_chart" :style="{ height: '482px' }">
           <div class="assets_plan p-3">
             <p class="font_medium color_title text-center">
               PC สะสมของกลุ่มตนเอง <br />รายไตรมาส (ต.ค. 2564 - ก.ย. 2565)
@@ -208,7 +208,7 @@ export default {
             id="pc-data"
             :fontSize="10"
             :width="375"
-            :height="400"
+            :height="382"
             :barWidth="38"
           />
         </div>

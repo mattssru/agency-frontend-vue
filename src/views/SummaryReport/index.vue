@@ -1,6 +1,6 @@
 <script>
 import { Button, Table, Loader } from "@components";
-import BarChart from "@components/BarChart.vue";
+import BarChart from "@components/StackedBar.vue";
 import { ModalShare } from "@components/Dashboard";
 
 export default {

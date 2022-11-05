@@ -6,7 +6,7 @@ Chart.register(ChartDataLabels);
 
 // https://v2_1_0--chartjs-plugin-datalabels.netlify.app/guide/formatting.html#data-transformation
 export default {
-  name: "BarChart",
+  name: "StackedBar",
   props: {
     data: {
       type: Object,
@@ -104,7 +104,7 @@ export default {
             color: "#13A0D3",
             textStrokeColor: "white",
             textStrokeWidth: 5,
-            anchor: "end",
+            // anchor: "end",
             formatter: function (value, context) {
               return formatNumber(value);
             },
@@ -112,8 +112,8 @@ export default {
               family: "medium",
               size: 10,
             },
-            align: "end",
-            offset: -3,
+            // align: "end",
+            // offset: -3,
           },
           legend: {
             display: false,
@@ -121,24 +121,47 @@ export default {
         },
       },
     };
-    new Chart(document.getElementById(this.id), config);
+    const myChart = new Chart(document.getElementById(this.id), config);
 
-    // const box = document.querySelector(".box");
-    // const barLength = myChart.data.labels.length;
-    // // console.log(barLength);
+    const box = document.querySelector(".box");
+    const barLength = myChart.data.labels.length;
+    // console.log(barLength);
 
-    // if (barLength > 10) {
-    //   const chartWidth = this.width + (barLength - 10) * this.barWidth;
-    //   box.style.width = `${chartWidth}px`;
-    // }
+    if (barLength > 10) {
+      const chartWidth = this.width + (barLength - 10) * this.barWidth;
+      box.style.width = `${chartWidth}px`;
+    }
   },
 };
 </script>
 
 <template>
-  <div class="chartCard" :style="{ height: `${height}px` }">
-    <div class="box" :style="{ height: `${height}px` }">
-      <canvas :id="id"></canvas>
+  <div class="chartCard">
+    <div class="chartBox" :style="{ width: `${width}px` }">
+      <div class="colLarge" :style="{ 'max-width': `${width}px` }">
+        <div
+          class="box"
+          :style="{ width: `${width}px`, height: `${height}px` }"
+        >
+          <canvas :id="id"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="legend" v-if="showLegends">
+    <div
+      v-for="item in data.datasets"
+      :key="item.label"
+      v-show="item.label"
+      class="wrap-legend"
+    >
+      <div
+        class="box-legend"
+        :style="{ 'background-color': item.backgroundColor }"
+      ></div>
+      <div>
+        {{ item.label }}
+      </div>
     </div>
   </div>
 </template>
@@ -166,9 +189,9 @@ export default {
 .chartCard {
   // width: 100vw;
   // height: calc(100vh - 40px);
-  //display: flex;
-  //align-items: center;
-  // justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .chartBox {
   display: flex;
