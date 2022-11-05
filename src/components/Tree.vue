@@ -133,8 +133,7 @@ export default {
   transform: rotate(-180deg);
 }
 .wrap-tree {
-  overflow: hidden;
-  overflow-y: scroll;
+  overflow: scroll;
   padding: 14px;
   height: calc(100vh - 190px);
   margin-bottom: 60px;
