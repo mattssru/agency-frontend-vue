@@ -63,7 +63,9 @@ export default {
             <p>ชื่อหน่วยงาน</p>
             <p>: {{ data.organizationName }}</p>
             <p>ตำแหน่งปัจจุบัน</p>
-            <p>: {{ data.rank }}</p>
+            <p class="wrap-position" :class="{ 'full-text': show }">
+              : {{ data.rank }}
+            </p>
           </div>
           <Transition>
             <div
@@ -130,6 +132,15 @@ export default {
   border: none;
   opacity: 0.7;
   position: relative;
+}
+.wrap-position {
+  max-width: 160px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.full-text {
+  white-space: unset;
 }
 .btnExpend::after {
   content: "";
