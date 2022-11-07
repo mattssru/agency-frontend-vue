@@ -1,12 +1,11 @@
 <script>
-import SideBar from "@components/LayoutStructure/Sidebar.vue";
-import { CircleProgress, Tree } from "@components";
-import { Button, Card, Radio } from "@components";
-import CardEliteExpend from "@components/CardEliteProgress/index.vue";
+import { Button, Card, CircleProgress, Radio, Tree } from "@components";
+import CardEliteTree from "@components/CardEliteTree/index.vue";
 import { CardExpend, ModalShare } from "@components/Dashboard";
 import IconPerson from "@components/icons/IconPerson.vue";
 import IconTabsFirst from "@components/icons/IconTabsFirst.vue";
 import IconTabsSecon from "@components/icons/IconTabsSecon.vue";
+import SideBar from "@components/LayoutStructure/Sidebar.vue";
 import { formatNumber, getColorRank, getColorTextPercent } from "@utils/helper";
 
 export default {
@@ -21,7 +20,7 @@ export default {
     IconTabsSecon,
     CardExpend,
     ModalShare,
-    CardEliteExpend,
+    CardEliteTree,
     IconPerson,
     Radio,
   },
@@ -135,118 +134,117 @@ export default {
       </div>
     </div>
     <div class="plan_dashboard mb-3">
-      <div class="row">
-        <div class="col-lg-3 col-sm-12 nopaddingright">
-          <div
-            class="head_plan text_medium color_primary font_semi d-flex align-items-center"
-          >
-            <img src="@assets/image/plan.svg" alt="" class="me-2" />
-            วางแผนเลื่อนตำแหน่ง
+      <div class="flex-left">
+        <div
+          class="head_plan text_small color_primary font_semi d-flex align-items-center"
+        >
+          <img src="@assets/image/plan.svg" alt="" class="me-2" />
+          วางแผนเลื่อนตำแหน่ง
+        </div>
+        <div class="left_plan">
+          <div class="um d-flex align-items-center mb-3">
+            <img src="@assets/image/um.svg" alt="" class="me-2" />
+            UM
           </div>
-          <div class="left_plan">
-            <div class="um d-flex align-items-center mb-3">
-              <img src="@assets/image/um.svg" alt="" class="me-2" />
-              UM
-            </div>
-            <div class="condition mb-4">
-              <p class="text_small mb-2">เงื่อนไข</p>
-              <Radio />
-            </div>
-            <div>
-              <label for="" class="mb-2 text_small">รอบ</label>
-              <select class="form-select" aria-label="Default select example">
-                <option selected>รอบ 1 ก.ค. 2565</option>
-                <option value="1">One</option>
-              </select>
-            </div>
+          <div class="condition mb-3">
+            <p class="text_small mb-2">เงื่อนไข</p>
+            <Radio />
+          </div>
+          <div>
+            <label for="" class="mb-2 text_small">รอบ</label>
+            <select class="form-select" aria-label="Default select example">
+              <option selected>รอบ 1 ก.ค. 2565</option>
+              <option value="1">One</option>
+            </select>
           </div>
         </div>
-        <div class="col-lg-9 col-sm-12 nopaddingleft">
-          <div class="tabs_dashboard">
-            <ul class="nav nav-pills" id="pills-tab" role="tablist">
-              <li class="nav-item" role="presentation">
-                <button
-                  class="nav-link color_blue d-flex align-items-center justify-content-center active"
-                  id="pills-home-tab"
-                  data-bs-toggle="pill"
-                  data-bs-target="#pills-home"
-                  type="button"
-                  role="tab"
-                  aria-controls="pills-home"
-                  aria-selected="true"
-                >
-                  <IconTabsFirst class="me-2" />
-                  Go For Team
-                </button>
-              </li>
-              <li class="nav-item" role="presentation">
-                <button
-                  class="nav-link color_blue d-flex align-items-center justify-content-center"
-                  id="pills-profile-tab"
-                  data-bs-toggle="pill"
-                  data-bs-target="#pills-profile"
-                  type="button"
-                  role="tab"
-                  aria-controls="pills-profile"
-                  aria-selected="false"
-                >
-                  <IconTabsSecon class="me-2" />
-                  One Man Show
-                </button>
-              </li>
-            </ul>
-          </div>
-          <div class="right_plan">
-            <div class="tab-content" id="pills-tabContent">
-              <div
-                class="tab-pane fade show active"
-                id="pills-home"
-                role="tabpanel"
-                aria-labelledby="pills-home-tab"
+      </div>
+      <div class="flex-right">
+        <div class="tabs_dashboard">
+          <ul class="nav nav-pills" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link color_blue d-flex align-items-center justify-content-center active"
+                id="pills-home-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#pills-home"
+                type="button"
+                role="tab"
+                aria-controls="pills-home"
+                aria-selected="true"
               >
-                <div class="grid_2">
-                  <div class="box_item d-flex align-items-center">
-                    <div class="assets_plan">
-                      <p class="font_medium color_title d-inline-block me-1">
-                        PC สะสมของตนเอง
-                      </p>
-                      <span class="color_gray" :style="{ 'font-size': '10px' }"
-                        >(ม.ค. 65 - มิ.ย. 65)</span
-                      >
-                      <p
-                        class="text_large font_semi"
-                        :style="{ color: getColorRank(100) }"
-                      >
-                        130,000
-                      </p>
-                      <p>(เป้าหมายที่ต้องทำได้ 50,000 PC)</p>
-                    </div>
+                <IconTabsFirst class="me-2" />
+                Go For Team
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link color_blue d-flex align-items-center justify-content-center"
+                id="pills-profile-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#pills-profile"
+                type="button"
+                role="tab"
+                aria-controls="pills-profile"
+                aria-selected="false"
+              >
+                <IconTabsSecon class="me-2" />
+                One Man Show
+              </button>
+            </li>
+          </ul>
+        </div>
+        <div class="right_plan">
+          <div class="tab-content h-100" id="pills-tabContent">
+            <div
+              class="tab-pane fade show active"
+              id="pills-home"
+              role="tabpanel"
+              aria-labelledby="pills-home-tab"
+            >
+              <div class="grid_2">
+                <div class="box_item d-flex align-items-center">
+                  <div class="assets_plan">
+                    <p class="font_medium color_title d-inline-block me-1">
+                      PC สะสมของตนเอง
+                    </p>
+                    <span class="color_gray" :style="{ 'font-size': '8px' }"
+                      >(ม.ค. 65 - มิ.ย. 65)</span
+                    >
+                    <p
+                      class="text_large font_semi"
+                      :style="{ color: getColorRank(100) }"
+                    >
+                      130,000
+                    </p>
+                    <p>(เป้าหมายที่ต้องทำได้ 50,000 PC)</p>
                   </div>
-                  <div class="box_item d-flex align-items-center">
-                    <div class="assets_plan">
-                      <p class="font_medium color_title d-inline-block me-1">
-                        PC สะสมของทีม
-                      </p>
-                      <span class="color_gray" :style="{ 'font-size': '11px' }"
-                        >(ม.ค. 65 - มิ.ย. 65)</span
-                      >
-                      <p
-                        class="text_large font_semi"
-                        :style="{ color: getColorRank(80) }"
-                      >
-                        320,000
-                      </p>
-                      <p>(เป้าหมายที่ต้องทำได้ 400,000 PC)</p>
-                    </div>
+                </div>
+                <div class="box_item d-flex align-items-center">
+                  <div class="assets_plan">
+                    <p class="font_medium color_title d-inline-block me-1">
+                      PC สะสมของทีม
+                    </p>
+                    <span class="color_gray" :style="{ 'font-size': '11px' }"
+                      >(ม.ค. 65 - มิ.ย. 65)</span
+                    >
+                    <p
+                      class="text_large font_semi"
+                      :style="{ color: getColorRank(80) }"
+                    >
+                      320,000
+                    </p>
+                    <p>(เป้าหมายที่ต้องทำได้ 400,000 PC)</p>
                   </div>
-                  <div class="box_item d-flex align-items-center">
-                    <!-- <div
+                </div>
+                <div class="box_item d-flex align-items-center">
+                  <!-- <div
                         class="font_semi color_pink me-3"
                         style="font-size: 24px; line-height: 36px"
                       >
                         30.56%
                       </div> -->
-                    <!-- <div v-if="30.56 > 79.99" class="custom-success me-4">
+                  <!-- <div v-if="30.56 > 79.99" class="custom-success me-4">
                       <img
                         src="@assets/image/icon_congrat.svg"
                         alt=""
@@ -269,68 +267,83 @@ export default {
                     >
                       {{ 30.56 }}%
                     </div> -->
-                    <div class="assets_plan">
-                      <p class="font_medium color_title">
-                        ประมาณการอัตราความยั่งยืน
-                      </p>
-                      <p
-                        class="font_medium color_title text_small"
-                        :style="{ 'font-size': '11px' }"
-                      >
-                        ล่วงหน้าสะสม 19 เดือน ณ เดือน มิ.ย. 2565
-                      </p>
-                      <p>(เป้าหมายที่ต้องทำได้ 80%)</p>
-                    </div>
+                  <div class="assets_plan">
+                    <p class="font_medium color_title">
+                      ประมาณการอัตราความยั่งยืน
+                    </p>
+                    <p
+                      class="font_medium color_title text_small"
+                      :style="{ 'font-size': '11px' }"
+                    >
+                      ล่วงหน้าสะสม 19 เดือน ณ เดือน มิ.ย. 2565
+                    </p>
+                    <p
+                      class="font_semi"
+                      style="font-size: 24px; line-height: 36px"
+                      :style="{ color: getColorTextPercent(30.56) }"
+                    >
+                      30.56%
+                    </p>
+                    <p>(เป้าหมายที่ต้องทำได้ 80%)</p>
                   </div>
-                  <div class="box_item d-flex align-items-center">
-                    <div class="assets_plan">
-                      <p class="font_medium me-1 color_title">
-                        จำนวนตัวแทนที่แนะนำโดยตรง
-                      </p>
-                      <p
-                        class="text_large font_semi d-inline-flex align-items-center"
-                        :style="{ color: getColorRank(75) }"
-                      >
-                        3
-                        <IconPerson
-                          class="ms-1 me-2"
-                          :color="getColorRank(75)"
-                        />
-                      </p>
-                      <span class="color_gray">(PC สะสมมากว่า 30,000)</span>
-                      <p>(เป้าหมายที่ต้องทำได้ 4 คน)</p>
-                    </div>
+                </div>
+                <div class="box_item d-flex align-items-center">
+                  <div class="assets_plan">
+                    <p class="font_medium me-1 color_title">
+                      จำนวนตัวแทนที่แนะนำโดยตรง
+                    </p>
+                    <p
+                      class="text_large font_semi d-inline-flex align-items-center"
+                      :style="{ color: getColorRank(75) }"
+                    >
+                      3
+                      <IconPerson class="ms-1 me-2" :color="getColorRank(75)" />
+                    </p>
+                    <span class="color_gray">(PC สะสมมากว่า 30,000)</span>
+                    <p>(เป้าหมายที่ต้องทำได้ 4 คน)</p>
                   </div>
                 </div>
               </div>
-              <div
-                class="tab-pane fade"
-                id="pills-profile"
-                role="tabpanel"
-                aria-labelledby="pills-profile-tab"
-              >
-                <div class="grid_2">
-                  <div
-                    class="box_item d-flex flex-column align-items-sm-center justify-content-center"
-                  >
-                    <CircleProgress :percent="40" class="mb-3" />
-                    <div class="assets_plan text-center">
-                      <p class="font_medium color_title">PC สะสมของตนเอง</p>
-                      <p class="font_medium text_small mb-1 color_title">
-                        ก.ค. 2565 - ธ.ค. 2565
-                      </p>
-                      <p
-                        class="font_semi text_large mb-1"
-                        :style="{ color: getColorRank(40) }"
-                      >
-                        180,000
-                      </p>
-                      <p>(เป้าหมายที่ต้องทำได้ 600,000 PC)</p>
-                    </div>
+            </div>
+            <div
+              class="tab-pane fade h-100"
+              id="pills-profile"
+              role="tabpanel"
+              aria-labelledby="pills-profile-tab"
+            >
+              <div class="grid_2 h-100">
+                <div
+                  class="box_item d-flex flex-column align-items-sm-center justify-content-center h-100"
+                >
+                  <div class="text-center">
+                    <p class="text_medium font_medium color_title">
+                      PC สะสมของตนเอง
+                    </p>
+                    <p class="font_16 font_medium mb-1 color_title mb-4">
+                      ก.ค. 2565 - ธ.ค. 2565
+                    </p>
+                    <p
+                      class="font_semi text_large mb-2"
+                      :style="{ color: getColorRank(40) }"
+                    >
+                      180,000
+                    </p>
+                    <p>(เป้าหมายที่ต้องทำได้ 600,000 PC)</p>
                   </div>
-                  <div
-                    class="box_item d-flex flex-column align-items-center justify-content-center"
-                  >
+                </div>
+                <div
+                  class="box_item d-flex flex-column align-items-center justify-content-center h-100"
+                >
+                  <div class="text-center">
+                    <p
+                      class="font_medium color_title mb-1"
+                      style="font-size: 17px line-height: 26px;"
+                    >
+                      ประมาณการอัตราความยั่งยืน
+                    </p>
+                    <p class="font_16 font_medium color_title mb-4">
+                      ล่วงหน้าสะสม 19 เดือน ณ เดือน มิ.ย. 2565
+                    </p>
                     <div class="custom-success" v-if="30.77 > 79.99">
                       <img
                         src="@assets/image/icon_congrat.svg"
@@ -348,20 +361,12 @@ export default {
                     </div>
                     <div
                       v-else
-                      class="font_semi text_large mb-3"
+                      class="font_semi text_large mb-2"
                       :style="{ color: getColorTextPercent(30.77) }"
                     >
                       {{ 30.77 }}%
                     </div>
-                    <div class="assets_plan text-center">
-                      <p class="font_medium color_title">
-                        ประมาณการอัตราความยั่งยืน
-                      </p>
-                      <p class="font_medium color_title text_small mb-2">
-                        ล่วงหน้าสะสม 19 เดือน ณ เดือน มิ.ย. 2565
-                      </p>
-                      <p>(เป้าหมายที่ต้องทำได้ 80%)</p>
-                    </div>
+                    <p>(เป้าหมายที่ต้องทำได้ 80%)</p>
                   </div>
                 </div>
               </div>
@@ -370,7 +375,7 @@ export default {
         </div>
       </div>
     </div>
-    <CardEliteExpend :data="eliteData" />
+    <CardEliteTree :data="eliteData" />
   </SideBar>
 </template>
 
@@ -460,6 +465,10 @@ export default {
   line-height: 22px;
   margin-bottom: 20px;
 }
+.font_16 {
+  font-size: 16px;
+  line-height: 18px;
+}
 
 .profile_user {
   width: 64px;
@@ -483,6 +492,16 @@ export default {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 }
+.plan_dashboard {
+  display: flex;
+}
+.flex-left {
+  min-width: 204px;
+  max-width: 204px;
+}
+.flex-right {
+  width: 100%;
+}
 .plan_dashboard,
 .premier_dashboard {
   border-radius: 8px;
@@ -495,7 +514,7 @@ export default {
   height: 45px;
 }
 .left_plan {
-  padding: 25px 24px 24px 16px;
+  padding: 20px 24px 20px 16px;
 }
 .um {
   font-size: 36px;
@@ -506,6 +525,13 @@ export default {
   width: 16px;
   height: 16px;
   border-radius: 100%;
+}
+.condition .custom-radio-input {
+  flex-direction: column;
+  height: 50px;
+}
+.condition .custom-radio-input .form-check {
+  margin-bottom: 10px !important;
 }
 div#show-modal {
   color: white;
@@ -546,6 +572,7 @@ div#show-modal {
 .right_plan {
   padding: 15px;
   border-left: 1px solid #e0e0e0;
+  height: calc(100% - 45px);
 }
 .right_plan .tab-pane:first-child .box_item {
   height: 105px;

@@ -12,46 +12,54 @@ export default {
       agentList: {
         name: "ลักษมีแข เจริญประภาธนพล",
         code: "123456 (AG)",
+        role: "ag",
         id: 1,
         teams: [
           {
             name: "อารียา รัตนาอธิการบดี",
-            code: "123456 (AG)",
+            code: "123456 (SUM)",
+            role: "sum",
             id: 11,
             teams: [
               {
                 name: "อารียา เทพหัสดิน ณ อยุธยา",
-                code: "111111 (AG)",
+                code: "111111 (AL)",
                 id: 111,
+                role: "al",
               },
               {
                 name: "อารียา 222222",
                 code: "222222 (AG)",
+                role: "ag",
                 id: 112,
               },
             ],
           },
           {
             name: "สมเจตนา พรสุภาภรโชติ",
-            code: "234567 (AG)",
+            code: "234567 (AL)",
+            role: "al",
             id: 12,
             teams: [
               {
                 name: "สมเจตนา เทพหัสดิน ณ อยุธยา",
                 code: "111111 (AG)",
+                role: "ag",
                 id: 121,
               },
               {
                 name: "สมเจตนา 222222",
                 code: "222222 (AG)",
+                role: "ag",
                 id: 122,
               },
             ],
           },
           {
             name: "ดนุพล จันทราสุวรรณะ",
-            code: "345678 (AG)",
+            code: "345678 (SUM)",
             id: 13,
+            role: "sum",
             teams: [],
           },
           {
@@ -59,20 +67,24 @@ export default {
             code: "456789 (AG)",
             id: 14,
             teams: [],
+            role: "ag",
           },
           {
             name: "นทีธร นพประทาน",
             code: "567890 (AG)",
             id: 15,
+            role: "ag",
             teams: [
               {
                 name: "นทีธร เทพหัสดิน ณ อยุธยา",
                 code: "111111 (AG)",
+                role: "ag",
                 id: 151,
               },
               {
                 name: "นทีธร 222222",
                 code: "222222 (AG)",
+                role: "ag",
                 id: 152,
               },
             ],
@@ -144,7 +156,7 @@ export default {
   min-width: 0;
   width: 100%;
   overflow: hidden;
-  padding: 20px;
+  padding: 20px 16px;
   background-color: #003781;
 }
 .footer-sidebar {
@@ -157,6 +169,9 @@ export default {
 .footer {
   position: absolute;
   bottom: 0;
+}
+.footer p {
+  font-size: 10px;
 }
 .custom-btn {
   border: 1px solid #003781;

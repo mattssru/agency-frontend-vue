@@ -1,5 +1,4 @@
 import DashboardAVP from "@views/Dashboard/avp.vue";
-import DashboardVP from "@views/Dashboard/vp.vue";
 import DashboardDM from "@views/Dashboard/dm.vue";
 import DashboardEVP from "@views/Dashboard/evp.vue";
 import Dashboard from "@views/Dashboard/index.vue";
@@ -7,8 +6,13 @@ import DashboardSDM from "@views/Dashboard/sdm.vue";
 import DashboardSEVP from "@views/Dashboard/sevp.vue";
 import DashboardSum from "@views/Dashboard/sum.vue";
 import DashboardUM from "@views/Dashboard/um.vue";
-import ChildPage from "@views/Structure/Child.vue";
+import DashboardVP from "@views/Dashboard/vp.vue";
+import AGPage from "@views/Structure/ag.vue";
 import StructurePage from "@views/Structure/index.vue";
+import {
+  default as ALPage,
+  default as SUMPage,
+} from "@views/Structure/sum.vue";
 import SummaryReportPage from "@views/SummaryReport/index.vue";
 import { createRouter, createWebHistory } from "vue-router";
 const routes = [
@@ -25,7 +29,10 @@ const routes = [
     path: "/structure-agent",
     component: StructurePage,
   },
-  { path: "/structure-agent/:id", component: ChildPage },
+  { path: "/ag/structure-agent/:id", component: AGPage },
+  { path: "/sum/structure-agent/:id", component: SUMPage },
+  { path: "/al/structure-agent/:id", component: ALPage },
+  { path: "/al/structure-agent/:id", component: ALPage },
   {
     path: "/summary-report",
     component: SummaryReportPage,

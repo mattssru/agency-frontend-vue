@@ -1,6 +1,6 @@
 <script>
-import SideBar from "@components/LayoutStructure/Sidebar.vue";
 import { CircleProgress, Tree } from "@components";
+import SideBar from "@components/LayoutStructure/Sidebar.vue";
 
 export default {
   name: "StructureAgent-Child",
@@ -86,20 +86,24 @@ export default {
           </div>
           <p class="text_small color_pink mb-0">เหลือเวลาอีก 64 วัน</p>
         </div>
-        <div class="body_box d-flex flex-column align-items-center p-4">
-          <CircleProgress :percent="40" class="mb-3" />
-          <div class="assets_plan text-center">
-            <p class="size_18 font_semi color_title mb-1">
-              PC สะสม
-              <span class="text_large font_semi color_primary">288,000</span>
-            </p>
-            <p class="mb-3 color_gray">(ก.ค. 65 - ธ.ค. 65)</p>
-            <p class="color_pink font_semi size_20">
-              ยังขาดอีก 312,000 PC
-              <span class="color_pink font_semi size_12">
-                เพื่อรักษาสัญญาต่อ</span
-              >
-            </p>
+        <div class="body_box d-flex align-items-center p-3">
+          <div
+            class="box_item_in d-flex align-items-center justify-content-center"
+          >
+            <CircleProgress :percent="48" class="me-5" />
+            <div class="assets_plan">
+              <p class="font_22 font_semi color_title">
+                PC สะสม
+                <span class="font_38 font_semi color_primary">288,000</span>
+              </p>
+              <p class="mb-2 color_gray">(ก.ค. 65 - ธ.ค. 65)</p>
+              <p class="color_pink font_semi font_22">
+                ยังขาดอีก 312,000 PC
+                <span class="color_pink font_semi size_18">
+                  เพื่อรักษาสัญญาต่อ</span
+                >
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -110,6 +114,25 @@ export default {
 <style scoped>
 .grid_2 {
   gap: 30px;
+}
+.font_18 {
+  font-size: 18px;
+  line-height: 28px;
+}
+.font_22 {
+  font-size: 22px;
+  line-height: 32px;
+}
+.font_38 {
+  font-size: 38px;
+  line-height: 46px;
+}
+.box_item_in {
+  background-color: #fff;
+  box-shadow: 0 0 16px rgb(0 0 0 / 12%);
+  border-radius: 8px;
+  width: 100%;
+  min-height: 269px;
 }
 .tag_title {
   font-size: 16px;
@@ -140,18 +163,7 @@ export default {
   border-bottom: 1px solid #e0e0e0;
   height: 40px;
 }
-.size_12 {
-  font-size: 12px;
-  line-height: 18px;
-}
-.size_18 {
-  font-size: 18px;
-  line-height: 28px;
-}
-.size_20 {
-  font-size: 20px;
-  line-height: 30px;
-}
+
 @media (max-width: 991px) {
   .grid_2 {
     grid-template-columns: repeat(1, 1fr) !important;
