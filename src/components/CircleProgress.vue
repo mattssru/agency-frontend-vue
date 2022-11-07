@@ -17,11 +17,13 @@ export default {
     bgColor: {
       type: String,
     },
+    size: {
+      type: Number,
+      default: 72,
+    },
   },
   data() {
-    return {
-      size: "72px",
-    };
+    return {};
   },
   methods: {
     getColorRank,
@@ -31,6 +33,21 @@ export default {
     },
   },
   computed: {
+    halfSize() {
+      return `${this.size / 2}px`;
+    },
+    outSize() {
+      return `${this.size}px`;
+    },
+    inSize() {
+      return `${this.size - this.size * 0.35}px`;
+    },
+    fontInSize() {
+      return `${this.size * 0.278}px`;
+    },
+    precentInSize() {
+      return `${this.size * 0.1667}px`;
+    },
     color() {
       const color = this.bgColor || this.getColorRank(this.percent);
       return color;
@@ -97,8 +114,8 @@ export default {
 
 <style lang="scss" scoped>
 .circle-wrap {
-  width: 72px;
-  height: 72px;
+  width: v-bind(outSize);
+  height: v-bind(outSize);
   background: #dddddd;
   border-radius: 50%;
   border: 1px solid #dddddd;
@@ -106,19 +123,19 @@ export default {
 
 .circle-wrap .circle .mask,
 .circle-wrap .circle .fill {
-  width: 72px;
-  height: 72px;
+  width: v-bind(outSize);
+  height: v-bind(outSize);
   position: absolute;
   border-radius: 50%;
 }
 
 .circle-wrap .circle .mask {
-  clip: rect(0px, 72px, 72px, 36px);
+  clip: rect(0px, v-bind(outSize), v-bind(outSize), v-bind(halfSize));
 }
 
 .circle-wrap .inside-circle {
-  width: 47px;
-  height: 47px;
+  width: v-bind(inSize);
+  height: v-bind(inSize);
   border-radius: 50%;
   background: #ffffff;
   /* line-height: 120px; */
@@ -126,7 +143,7 @@ export default {
   /* margin: auto; */
   color: #1e51dc;
   z-index: 45;
-  font-size: 20px;
+  font-size: v-bind(fontInSize);
   font-family: "semi-bold";
   display: flex;
   align-items: center;
@@ -134,7 +151,7 @@ export default {
   padding-left: 6px;
 }
 .circle-wrap .inside-circle span {
-  font-size: 12px;
+  font-size: v-bind(precentInSize);
   margin-top: 6px;
 }
 
@@ -148,7 +165,7 @@ export default {
 }
 /* 3rd progress bar */
 .mask .fill {
-  clip: rect(0px, 36px, 72px, 0px);
+  clip: rect(0px, v-bind(halfSize), v-bind(outSize), 0px);
   background-color: #227ded;
 }
 

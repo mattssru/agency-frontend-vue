@@ -90,7 +90,7 @@ export default {
           <div
             class="box_item_in d-flex align-items-center justify-content-center"
           >
-            <CircleProgress :percent="48" class="me-5" />
+            <CircleProgress :percent="48" class="me-5" :size="150" />
             <div class="assets_plan">
               <p class="font_22 font_semi color_title">
                 PC สะสม
