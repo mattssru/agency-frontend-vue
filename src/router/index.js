@@ -8,11 +8,9 @@ import DashboardSum from "@views/Dashboard/sum.vue";
 import DashboardUM from "@views/Dashboard/um.vue";
 import DashboardVP from "@views/Dashboard/vp.vue";
 import AGPage from "@views/Structure/ag.vue";
+import ALPage from "@views/Structure/al.vue";
 import StructurePage from "@views/Structure/index.vue";
-import {
-  default as ALPage,
-  default as SUMPage,
-} from "@views/Structure/sum.vue";
+import SUMPage from "@views/Structure/sum.vue";
 import SummaryReportPage from "@views/SummaryReport/index.vue";
 import { createRouter, createWebHistory } from "vue-router";
 const routes = [
@@ -31,7 +29,6 @@ const routes = [
   },
   { path: "/ag/structure-agent/:id", component: AGPage },
   { path: "/sum/structure-agent/:id", component: SUMPage },
-  { path: "/al/structure-agent/:id", component: ALPage },
   { path: "/al/structure-agent/:id", component: ALPage },
   {
     path: "/summary-report",

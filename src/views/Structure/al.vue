@@ -75,12 +75,90 @@ export default {
         </div>
       </div>
     </div>
+    <div class="box_item p-3">
+      <div class="grid_2 mb-3">
+        <div class="box_item">
+          <p class="font_16 font_medium color_title d-inline-flex">
+            PC สะสมของสายงาน
+          </p>
+          <p class="color_gray d-inline-flex ms-2">(ม.ค. 65 - ธ.ค. 65)</p>
+          <p class="font_medium color_title mb-2">
+            (ใช้ในการดูการเลื่อนตำแหน่งในระดับ AVP)
+          </p>
+          <p class="text_large font_semi color_blue">874,330</p>
+        </div>
+        <div class="box_item">
+          <p class="font_16 font_medium color_title d-inline-flex">
+            PC สะสมของหน่วยตนเอง
+          </p>
+          <p class="color_gray d-inline-flex ms-2">(ม.ค. 65 - ธ.ค. 65)</p>
+          <p class="font_medium color_title mb-2">
+            (ใช้ในการดูการเลื่อนตำแหน่งในระดับ AVP)
+          </p>
+          <p class="text_large font_semi color_blue">343,440</p>
+        </div>
+        <div class="box_item">
+          <p class="font_16 font_medium color_title">
+            ประมาณการอัตราความยั่งยืน
+          </p>
+          <p class="color_title font_medium">
+            ล่วงหน้าสะสม 19 เดือน ของสายงาน ณ เดือน ธ.ค. 2565
+          </p>
+          <p class="font_medium color_title mb-2">
+            (ใช้ในการดูการเลื่อนตำแหน่งในระดับ AVP)
+          </p>
+          <p class="text_large font_semi color_blue">72.34%</p>
+        </div>
+        <div class="box_item">
+          <p class="font_16 font_medium color_title">
+            ประมาณการอัตราความยั่งยืน
+          </p>
+          <p class="color_title font_medium">
+            ล่วงหน้าสะสม 19 เดือน ของหน่วยตนเอง ณ เดือน ธ.ค. 2565
+          </p>
+          <p class="font_medium color_title mb-2">
+            (ใช้ในการดูการเลื่อนตำแหน่งในระดับ AVP)
+          </p>
+          <p class="text_large font_semi color_blue">81.76%</p>
+        </div>
+      </div>
+      <div class="box_item p-0">
+        <div class="grid_3 custom">
+          <div class="p-3 border_right">
+            <p class="font_16 font_medium color_title d-inline-flex">
+              จำนวน AL ใต้สังกัด
+            </p>
+            <p class="color_title d-inline-flex">(รวมหน่วยตนเอง)</p>
+            <p class="text_large font_semi color_blue">0</p>
+          </div>
+          <div class="p-3 border_right">
+            <p class="font_16 font_medium color_title">จำนวนหน่วยลูก</p>
+            <p class="text_large font_semi color_blue">3</p>
+          </div>
+          <div class="p-3">
+            <p class="font_16 font_medium color_title">จำนวนหน่วยหลาน</p>
+            <p class="text_large font_semi color_blue">0</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </SideBar>
 </template>
 
 <style scoped>
-.grid_2 {
-  gap: 30px;
+.font_16 {
+  font-size: 16px;
+  line-height: 24px;
+}
+.color_blue {
+  color: #13a0d3;
+}
+.border_right {
+  border-right: 1px solid #cbcbcb;
+}
+.grid_3.custom {
+  grid-template-columns: 270px auto auto;
+  gap: 0;
 }
 .tag_title {
   font-size: 16px;
@@ -111,18 +189,7 @@ export default {
   border-bottom: 1px solid #e0e0e0;
   height: 40px;
 }
-.size_12 {
-  font-size: 12px;
-  line-height: 18px;
-}
-.size_18 {
-  font-size: 18px;
-  line-height: 28px;
-}
-.size_20 {
-  font-size: 20px;
-  line-height: 30px;
-}
+
 @media (max-width: 991px) {
   .grid_2 {
     grid-template-columns: repeat(1, 1fr) !important;
