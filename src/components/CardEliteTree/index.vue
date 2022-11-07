@@ -54,8 +54,8 @@ export default {
           <table class="table_custom">
             <thead>
               <tr>
-                <th width="24.4%">
-                  <div class="text_medium font_semi color_primary text-start">
+                <th width="27.8%">
+                  <div class="font_semi color_primary text-start">
                     ภาพรวมผลงานปี {{ data.current_year }}
                   </div>
                 </th>
@@ -187,7 +187,14 @@ button {
 }
 
 .table_premier .table_custom {
-  min-width: 900px;
+  //min-width: 900px;
+  th {
+    font-size: 16px;
+  }
+  td {
+    font-size: 14px;
+    padding: 0 10px;
+  }
 }
 .slide-up-enter-active,
 .slide-up-leave-active {

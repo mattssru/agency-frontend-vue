@@ -152,7 +152,7 @@ button {
 }
 .head_premier {
   height: 60px;
-  padding: 15px;
+  padding: 15px 10px;
   border-bottom: 1px solid #e0e0e0;
 }
 .head_premier .grid_2 {
