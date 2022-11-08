@@ -38,7 +38,18 @@ export default {
   <div class="wrap-tree">
     <div class="agent-profile">
       <div class="profile">
-        <img src="@assets/image/img_user.svg" alt="" class="profile_img" />
+        <img
+          v-if="data.gender === 'female'"
+          src="@assets/image/profile-female.png"
+          alt=""
+          class="profile_img"
+        />
+        <img
+          v-else
+          src="@assets/image/profile-male.png"
+          alt=""
+          class="profile_img"
+        />
         <router-link :to="`/structure-agent`" class="details">
           <p class="font_semi text_small color_primary">{{ data.name }}</p>
           <span class="text_xs font_regular color_gray">{{ data.code }}</span>

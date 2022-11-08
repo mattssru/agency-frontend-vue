@@ -56,6 +56,7 @@ export default {
         codeGroup: "42086",
         licenseNo: "08642086",
         no: "246802468",
+        gender: "female",
       },
       eliteData: {
         current_q: "Q3",
@@ -86,7 +87,7 @@ export default {
 </script>
 
 <template>
-  <SideBar>
+  <SideBar :data="agenData">
     <div class="row mb-3">
       <div class="col-lg-6">
         <div class="box_item px-0 mb-3 mb-lg-0">

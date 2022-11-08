@@ -13,6 +13,7 @@ export default {
         name: "ลักษมีแข เจริญประภาธนพล",
         code: "123456 (AG)",
         role: "ag",
+        gender: "female",
         id: 1,
         teams: [
           {

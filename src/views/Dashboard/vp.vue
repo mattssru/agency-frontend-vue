@@ -29,6 +29,7 @@ export default {
         licenseNo: "08642086",
         no: "246802468",
         rankCode: "franchise",
+        gender: "female",
       },
       activeData: {
         labels: [

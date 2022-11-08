@@ -20,7 +20,11 @@ export default {
     );
   },
   data() {
-    return {};
+    return {
+      data: {
+        gender: "male",
+      },
+    };
   },
 };
 </script>
@@ -31,7 +35,18 @@ export default {
       <div class="box_item p-3 mb-3">
         <div class="d-flex">
           <div class="image_user me-4">
-            <img src="@assets/image/user.png" alt="" />
+            <img
+              v-if="data.gender === 'female'"
+              src="@assets/image/profile-female.png"
+              alt=""
+              class="profile_img"
+            />
+            <img
+              v-else
+              src="@assets/image/profile-male.png"
+              alt=""
+              class="profile_img"
+            />
           </div>
           <div class="grid_2 w-100">
             <div>

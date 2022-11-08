@@ -21,7 +21,16 @@ export default {
       <div class="d-flex">
         <div>
           <div class="profile_user me-3 mb-2" :class="data.rankCode">
-            <img src="@assets/image/img_user.svg" alt="" />
+            <img
+              v-if="data.gender === 'female'"
+              src="@assets/image/profile-female.png"
+              alt=""
+            />
+            <img
+              v-else="data.gender === 'male'"
+              src="@assets/image/profile-male.png"
+              alt=""
+            />
           </div>
           <img
             v-if="data.rankCode === 'premier'"

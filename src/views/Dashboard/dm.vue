@@ -44,6 +44,7 @@ export default {
         licenseNo: "08642086",
         no: "246802468",
         rankCode: "elite",
+        gender: "female",
       },
       eliteData: {
         current_q: "Q3",
