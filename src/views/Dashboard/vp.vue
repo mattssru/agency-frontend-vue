@@ -30,6 +30,7 @@ export default {
         no: "246802468",
         rankCode: "franchise",
         gender: "female",
+        image: null,
       },
       activeData: {
         labels: [

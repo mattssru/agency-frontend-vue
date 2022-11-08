@@ -1,5 +1,5 @@
 <script>
-import { CircleProgress, Tree } from "@components";
+import { CircleProgress, Tree, Avatar } from "@components";
 import SideBar from "@components/LayoutStructure/Sidebar.vue";
 
 export default {
@@ -8,6 +8,7 @@ export default {
     Tree,
     CircleProgress,
     SideBar,
+    Avatar,
   },
   created() {
     this.$watch(
@@ -35,19 +36,7 @@ export default {
       <div class="box_item p-3 mb-3">
         <div class="d-flex">
           <div class="image_user me-4">
-            <img v-if="data.image" :src="data.image" alt="" />
-            <img
-              v-else-if="data.gender === 'female'"
-              src="@assets/image/profile-female.png"
-              alt=""
-              class="profile_img"
-            />
-            <img
-              v-else
-              src="@assets/image/profile-male.png"
-              alt=""
-              class="profile_img"
-            />
+            <Avatar :gender="data.gender" :image="data.image" />
           </div>
           <div class="grid_2 w-100">
             <div>

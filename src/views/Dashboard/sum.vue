@@ -35,6 +35,7 @@ export default {
         no: "246802468",
         rankCode: "elite",
         gender: "female",
+        image: null,
       },
     };
   },

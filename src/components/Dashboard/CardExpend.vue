@@ -1,4 +1,6 @@
 <script>
+import { Avatar } from "@components";
+
 export default {
   name: "CardExpend",
   props: {
@@ -7,15 +9,11 @@ export default {
     },
   },
   data() {
-    const gender = {
-      female: "assets/image/profile-female.png",
-      male: "assets/image/profile-male.png",
-    };
     return {
       show: false,
-      image: this.data.image || gender[this.data.gender],
     };
   },
+  components: { Avatar },
 };
 </script>
 
@@ -26,17 +24,7 @@ export default {
       <div class="d-flex">
         <div>
           <div class="profile_user me-3 mb-2" :class="data.rankCode">
-            <img v-if="data.image" :src="data.image" alt="" />
-            <img
-              v-else-if="data.gender === 'female'"
-              src="@assets/image/profile-female.png"
-              alt=""
-            />
-            <img
-              v-else="data.gender === 'male'"
-              src="@assets/image/profile-male.png"
-              alt=""
-            />
+            <Avatar :gender="data.gender" :image="data.image" />
           </div>
           <img
             v-if="data.rankCode === 'premier'"

@@ -36,6 +36,7 @@ export default {
         licenseNo: "08642086",
         no: "246802468",
         gender: "female",
+        image: null,
       },
     };
   },
