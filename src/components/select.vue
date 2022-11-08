@@ -19,7 +19,6 @@ export default {
 </script>
 
 <template>
-  {{ checked }}
   <div class="custom-select d-flex">
     <input
       type="checkbox"
@@ -42,8 +41,8 @@ export default {
       v-model="checked"
     />
     <label for="pdf" class="btn_file" :class="{ checked: checked === 'pdf' }">
-      12</label
-    >
+      12
+    </label>
   </div>
 </template>
 

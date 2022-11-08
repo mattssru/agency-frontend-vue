@@ -12,6 +12,8 @@ import ALPage from "@views/Structure/al.vue";
 import StructurePage from "@views/Structure/index.vue";
 import SUMPage from "@views/Structure/sum.vue";
 import SummaryReportPage from "@views/SummaryReport/index.vue";
+import MyProfilePage from "@views/Structure/self.vue";
+
 import { createRouter, createWebHistory } from "vue-router";
 const routes = [
   { path: "/", component: Dashboard },
@@ -26,10 +28,33 @@ const routes = [
   {
     path: "/structure-agent",
     component: StructurePage,
+    children: [
+      {
+        path: "",
+        component: MyProfilePage,
+      },
+      {
+        path: "ag",
+        component: MyProfilePage,
+      },
+      {
+        path: "sum",
+        component: SUMPage,
+      },
+      {
+        // UserProfile will be rendered inside User's <router-view>
+        // when /user/:id/profile is matched
+        path: ":id/al",
+        component: ALPage,
+      },
+      {
+        // UserPosts will be rendered inside User's <router-view>
+        // when /user/:id/posts is matched
+        path: ":id/ag",
+        component: AGPage,
+      },
+    ],
   },
-  { path: "/ag/structure-agent/:id", component: AGPage },
-  { path: "/sum/structure-agent/:id", component: SUMPage },
-  { path: "/al/structure-agent/:id", component: ALPage },
   {
     path: "/summary-report",
     component: SummaryReportPage,

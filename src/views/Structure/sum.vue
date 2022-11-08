@@ -94,7 +94,7 @@ export default {
 </script>
 
 <template>
-  <SideBar>
+  <div>
     <div class="row mb-3">
       <div class="col-lg-6">
         <div class="box_item px-0 mb-3 mb-lg-0">
@@ -557,7 +557,7 @@ export default {
         </div>
       </div>
     </div>
-  </SideBar>
+  </div>
 </template>
 
 <style scoped>

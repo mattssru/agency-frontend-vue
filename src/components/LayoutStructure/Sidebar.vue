@@ -11,45 +11,59 @@ export default {
     return {
       agentList: {
         name: "ลักษมีแข เจริญประภาธนพล",
-        code: "123456 (AG)",
-        role: "ag",
+        code: "123456 (SUM)",
+        role: "sum",
         gender: "female",
         id: 1,
         teams: [
           {
-            name: "อารียา รัตนาอธิการบดี",
-            code: "123456 (SUM)",
-            role: "sum",
+            name: "1อารียา รัตนาอธิการบดี",
+            code: "123456 (AG)",
+            role: "ag",
             id: 11,
             teams: [
               {
-                name: "อารียา เทพหัสดิน ณ อยุธยา",
+                name: "2อารียา เทพหัสดิน ณ อยุธยา",
                 code: "111111 (AL)",
                 id: 111,
                 role: "al",
               },
               {
-                name: "อารียา 222222",
+                name: "2อารียา 222222",
                 code: "222222 (AG)",
                 role: "ag",
                 id: 112,
+                teams: [
+                  {
+                    name: "3อารียา เทพหัสดิน ณ อยุธยา",
+                    code: "111111 (AL)",
+                    id: 1111,
+                    role: "al",
+                  },
+                  {
+                    name: "3อารียา 222222kjdlskjksjlkfdsajdk",
+                    code: "222222 (AG)",
+                    role: "ag",
+                    id: 1112,
+                  },
+                ],
               },
             ],
           },
           {
-            name: "สมเจตนา พรสุภาภรโชติ",
+            name: "1สมเจตนา พรสุภาภรโชติ",
             code: "234567 (AL)",
             role: "al",
             id: 12,
             teams: [
               {
-                name: "สมเจตนา เทพหัสดิน ณ อยุธยา",
+                name: "2สมเจตนา เทพหัสดิน ณ อยุธยา",
                 code: "111111 (AG)",
                 role: "ag",
                 id: 121,
               },
               {
-                name: "สมเจตนา 222222",
+                name: "2สมเจตนา 222222",
                 code: "222222 (AG)",
                 role: "ag",
                 id: 122,
@@ -57,33 +71,33 @@ export default {
             ],
           },
           {
-            name: "ดนุพล จันทราสุวรรณะ",
-            code: "345678 (SUM)",
+            name: "1ดนุพล จันทราสุวรรณะ",
+            code: "345678 (AL)",
             id: 13,
-            role: "sum",
+            role: "al",
             teams: [],
           },
           {
-            name: "ธนชัย อารยะวิธิสกุล",
+            name: "1ธนชัย อารยะวิธิสกุล",
             code: "456789 (AG)",
             id: 14,
             teams: [],
             role: "ag",
           },
           {
-            name: "นทีธร นพประทาน",
+            name: "1นทีธร นพประทาน",
             code: "567890 (AG)",
             id: 15,
             role: "ag",
             teams: [
               {
-                name: "นทีธร เทพหัสดิน ณ อยุธยา",
+                name: "2นทีธร เทพหัสดิน ณ อยุธยา",
                 code: "111111 (AG)",
                 role: "ag",
                 id: 151,
               },
               {
-                name: "นทีธร 222222",
+                name: "2นทีธร 222222",
                 code: "222222 (AG)",
                 role: "ag",
                 id: 152,
