@@ -7,8 +7,13 @@ export default {
     },
   },
   data() {
+    const gender = {
+      female: "assets/image/profile-female.png",
+      male: "assets/image/profile-male.png",
+    };
     return {
       show: false,
+      image: this.data.image || gender[this.data.gender],
     };
   },
 };
@@ -21,8 +26,9 @@ export default {
       <div class="d-flex">
         <div>
           <div class="profile_user me-3 mb-2" :class="data.rankCode">
+            <img v-if="data.image" :src="data.image" alt="" />
             <img
-              v-if="data.gender === 'female'"
+              v-else-if="data.gender === 'female'"
               src="@assets/image/profile-female.png"
               alt=""
             />

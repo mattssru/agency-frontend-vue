@@ -35,8 +35,9 @@ export default {
       <div class="box_item p-3 mb-3">
         <div class="d-flex">
           <div class="image_user me-4">
+            <img v-if="data.image" :src="data.image" alt="" />
             <img
-              v-if="data.gender === 'female'"
+              v-else-if="data.gender === 'female'"
               src="@assets/image/profile-female.png"
               alt=""
               class="profile_img"

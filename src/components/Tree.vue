@@ -38,8 +38,9 @@ export default {
   <div class="wrap-tree">
     <div class="agent-profile">
       <div class="profile">
+        <img v-if="data.image" :src="data.image" alt="" />
         <img
-          v-if="data.gender === 'female'"
+          v-else-if="data.gender === 'female'"
           src="@assets/image/profile-female.png"
           alt=""
           class="profile_img"
