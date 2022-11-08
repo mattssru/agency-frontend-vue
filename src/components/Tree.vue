@@ -111,11 +111,10 @@ export default {
         >
           <li v-for="c in child.teams" :key="c.id">
             <div class="d-flex" :class="[{ active: c.open }, c.role]">
-              <!-- <button
+              <button
                 @click="handleClickL2"
                 class="btnExpend d-flex align-items-center justify-content-center"
-                :class="[{ active: c.find((item) => item.id === c.id).open }]"
-              ></button> -->
+              ></button>
               <div
                 class="lables"
                 :class="{

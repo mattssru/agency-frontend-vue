@@ -36,6 +36,7 @@ export default {
         rankCode: "elite",
         gender: "female",
         image: null,
+        role: "sum",
       },
     };
   },

@@ -89,7 +89,7 @@ export default {
           </Transition>
           <router-link
             v-if="this.$route.path !== '/structure-agent'"
-            to="/structure-agent"
+            :to="`/structure-agent/${data.role}`"
             class="font_medium color_primary text_small d-flex align-items-center mb-2 text-decoration-underline"
           >
             <img src="@assets/image/icon_profile_1.svg" alt="" class="me-2" />

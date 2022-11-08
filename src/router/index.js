@@ -13,6 +13,8 @@ import StructurePage from "@views/Structure/index.vue";
 import SUMPage from "@views/Structure/sum.vue";
 import SummaryReportPage from "@views/SummaryReport/index.vue";
 import MyProfilePage from "@views/Structure/self.vue";
+import SummaryReportPageAG from "@views/SummaryReport/SummaryReportAG.vue";
+import SummaryReportPageGM from "@views/SummaryReport/SummaryReportGM.vue";
 
 import { createRouter, createWebHistory } from "vue-router";
 const routes = [
@@ -42,14 +44,10 @@ const routes = [
         component: SUMPage,
       },
       {
-        // UserProfile will be rendered inside User's <router-view>
-        // when /user/:id/profile is matched
         path: ":id/al",
         component: ALPage,
       },
       {
-        // UserPosts will be rendered inside User's <router-view>
-        // when /user/:id/posts is matched
         path: ":id/ag",
         component: AGPage,
       },
@@ -59,6 +57,8 @@ const routes = [
     path: "/summary-report",
     component: SummaryReportPage,
   },
+  { path: "/summary-report-ag", component: SummaryReportPageAG },
+  { path: "/summary-report-gm", component: SummaryReportPageGM },
 ];
 
 const router = createRouter({

@@ -1,12 +1,12 @@
 <script>
-import { Button, Table, Loader } from "@components";
+import { Button, TableAG, Loader } from "@components";
 import BarChart from "@components/StackedBar.vue";
 import { ModalShare } from "@components/Dashboard";
 
 export default {
-  name: "SummaryReport",
+  name: "SummaryReportAG",
   components: {
-    Table,
+    TableAG,
     BarChart,
     Button,
     ModalShare,
@@ -34,65 +34,57 @@ export default {
           key: 12,
           name: "ส.ค. 2564",
           pc: 20000,
-          pc_team: 400000,
           count: 34,
-          pc_branch: 800000,
+          pc_team: 400000,
         },
         {
           key: 12,
           name: "ก.ย. 2564",
           pc: 20000,
-          pc_team: 400000,
           count: 34,
-          pc_branch: 800000,
+          pc_team: 400000,
         },
         {
           key: 12,
           name: "ต.ค. 2564",
           pc: 20000,
-          pc_team: 400000,
           count: 34,
-          pc_branch: 800000,
+          pc_team: 400000,
         },
         {
           key: "2564",
           name: "พ.ย. 2564",
           pc: 20000,
-          pc_team: 400000,
           count: 34,
-          pc_branch: 800000,
+          pc_team: 400000,
         },
         {
           key: "2564",
           name: "ธ.ค. 2564",
           pc: 20000,
-          pc_team: 400000,
           count: 34,
-          pc_branch: 800000,
+          pc_team: 400000,
         },
         {
           key: "2565",
           name: "ม.ค. 2565",
           pc: 20000,
-          pc_team: 400000,
           count: 34,
-          pc_branch: 800000,
+          pc_team: 400000,
         },
         {
           key: "2565",
           name: "ก.พ. 2565",
           pc: 30000,
-          pc_team: 300000,
           count: 33,
-          pc_branch: 700000,
+          pc_team: 300000,
         },
         {
           key: "2565",
           name: "มี.ค. 2565",
           pc: 30000,
-          pc_team: 400000,
           count: 66,
-          pc_branch: 600000,
+          pc_team: 400000,
         },
         {
           key: "2565",
@@ -106,17 +98,15 @@ export default {
           key: "2565",
           name: "พ.ค. 2565",
           pc: 20000,
-          pc_team: 45000,
           count: 47,
-          pc_branch: 800000,
+          pc_team: 45000,
         },
         {
           key: "2565",
           name: "มิ.ย. 2565",
           pc: 30000,
-          pc_team: 66000,
           count: 64,
-          pc_branch: 900000,
+          pc_team: 66000,
         },
         {
           key: "2565",
@@ -130,25 +120,22 @@ export default {
           key: "2565",
           name: "ส.ค. 2565",
           pc: 20000,
-          pc_team: 400000,
           count: 77,
-          pc_branch: 700000,
+          pc_team: 400000,
         },
         {
           key: "2565",
           name: "ก.ย. 2565",
           pc: 50000,
-          pc_team: 89000.22,
           count: 24,
-          pc_branch: 500000,
+          pc_team: 89000.22,
         },
         {
           name: "รวม",
           key: "total",
           pc: 332000,
-          pc_team: 2434000,
           count: 49,
-          pc_branch: 9000000,
+          pc_team: 2434000,
         },
       ];
       if (this.selectPeriod === "1") {
@@ -189,26 +176,18 @@ export default {
         ],
         datasets: [
           {
-            label: "PC สะสมของตนเอง",
+            label: "PC สะสมของทีม (รวมตนเอง)",
             data: [
-              20000, 30000, 30000, 30000, 20000, 30000, 30000, 20000, 50000,
-              30000, 20000, 50000,
-            ],
-            backgroundColor: "#006192",
-          },
-          {
-            label: "PC สะสมของหน่วย",
-            data: [
-              400000, 300000, 400000, 500000, 45000, 66000, 300000, 400000,
-              89000.22, 300000, 400000, 89000.22,
+              320000, 176000, 234000, 100000, 100000, 100000, 50000, 0,
+              30000, 500000, 500000, 500000,
             ],
             backgroundColor: "#13A0D3",
           },
           {
-            label: "PC สะสมของสายงาน",
+            label: "PC สะสมของตนเอง",
             data: [
-              800000, 700000, 600000, 700000, 800000, 900000, 800000, 700000,
-              500000, 800000, 700000, 500000,
+              0, 0, 879345, 333456, 874343, 333335, 87454, 45322,
+              66433, 1244223, 1444222, 1565333,
             ],
             backgroundColor: "#B5DAE6",
           },
@@ -327,7 +306,7 @@ export default {
             aria-labelledby="pills-home-tab"
           >
             <div v-if="!loading" class="wrap-table">
-              <Table :data="tableData" />
+              <TableAG :data="tableData" />
             </div>
           </div>
           <div
@@ -345,7 +324,7 @@ export default {
                 @change="onChange($event)"
               >
                 <option value="pc">PC สะสม</option>
-                <option value="count">จำนวนรายของหน่วย</option>
+                <option value="count">จำนวนรายของตนเอง</option>
               </select>
             </div>
             <BarChart v-if="select === 'pc'" :data="barPcData"> </BarChart>

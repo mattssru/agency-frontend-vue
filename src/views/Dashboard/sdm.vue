@@ -45,6 +45,7 @@ export default {
         no: "246802468",
         gender: "female",
         image: null,
+        role: "sdm",
       },
       eliteData: {
         current_q: "Q3",

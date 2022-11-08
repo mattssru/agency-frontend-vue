@@ -24,10 +24,9 @@ export default {
   <div class="box-table">
     <div class="header table-color">
       <div>เดือน</div>
-      <div style="text-align: center">PC สะสมของตนเอง <br />(ในฐานะตัวแทน)</div>
-      <div>PC สะสมของหน่วย</div>
-      <div>จำนวนรายของหน่วย</div>
-      <div>PC สะสมของสายงาน</div>
+      <div>PC สะสมของกลุ่มตนเอง</div>
+      <div>จำนวนรายของกลุ่มตนเอง</div>
+      <div>PC สะสมของกลุ่มรวม</div>
     </div>
     <div class="wrap-body">
       <div
@@ -40,7 +39,6 @@ export default {
         }"
       >
         <div>{{ item.name }}</div>
-        <div>{{ formatNumber(item.pc, 2) }}</div>
         <div>{{ formatNumber(item.pc_team, 2) }}</div>
         <div>{{ item.count }}</div>
         <div>{{ formatNumber(item.pc_branch, 2) }}</div>
