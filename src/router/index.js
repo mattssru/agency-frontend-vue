@@ -57,8 +57,12 @@ const routes = [
     path: "/summary-report",
     component: SummaryReportPage,
   },
-  { path: "/summary-report-ag", component: SummaryReportPageAG },
-  { path: "/summary-report-gm", component: SummaryReportPageGM },
+  {
+    path: "/summary-report/al",
+    redirect: "/summary-report",
+  },
+  { path: "/summary-report/ag", component: SummaryReportPageAG },
+  { path: "/summary-report/gm", component: SummaryReportPageGM },
 ];
 
 const router = createRouter({

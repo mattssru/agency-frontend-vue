@@ -46,6 +46,7 @@ export default {
         gender: "female",
         image: null,
         role: "sdm",
+        rankPath: "al",
       },
       eliteData: {
         current_q: "Q3",

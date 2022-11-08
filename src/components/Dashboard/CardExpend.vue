@@ -96,7 +96,7 @@ export default {
             ดูโครงสร้างและหน่วยงานภายใต้ตัวแทน
           </router-link>
           <router-link
-            to="/summary-report"
+            :to="`/summary-report/${data.rankPath}`"
             class="font_medium color_primary text_small d-flex align-items-center text-decoration-underline"
           >
             <img src="@assets/image/icon_profile_2.svg" alt="" class="me-2" />

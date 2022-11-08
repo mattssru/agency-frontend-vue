@@ -32,6 +32,7 @@ export default {
         gender: "female",
         image: null,
         role: "vp",
+        rankPath: "gm",
       },
       activeData: {
         labels: [

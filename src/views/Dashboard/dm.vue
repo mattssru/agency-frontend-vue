@@ -46,6 +46,7 @@ export default {
         rankCode: "elite",
         gender: "female",
         image: null,
+        rankPath: "al",
         role: "dm",
       },
       eliteData: {

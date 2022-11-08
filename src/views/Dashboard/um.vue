@@ -38,6 +38,7 @@ export default {
         gender: "female",
         image: null,
         role: "um",
+        rankPath: "al",
       },
     };
   },

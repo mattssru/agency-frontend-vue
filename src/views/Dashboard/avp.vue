@@ -31,6 +31,7 @@ export default {
         rankCode: "franchise",
         gender: "female",
         image: null,
+        rankPath: "gm",
         role: "avp",
       },
       activeData: {
