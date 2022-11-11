@@ -16,6 +16,14 @@ import MyProfilePage from "@views/Structure/self.vue";
 import SummaryReportPageAG from "@views/SummaryReport/SummaryReportAG.vue";
 import SummaryReportPageGM from "@views/SummaryReport/SummaryReportGM.vue";
 
+
+import DMPage from "@views/Structure/dm.vue";
+import SDMPage from "@views/Structure/sdm.vue";
+import AVPPage from "@views/Structure/avp.vue";
+import VPPage from "@views/Structure/vp.vue";
+import EVPPage from "@views/Structure/evp.vue";
+import SEVPPage from "@views/Structure/sevp.vue";
+
 import { createRouter, createWebHistory } from "vue-router";
 const routes = [
   { path: "/", component: Dashboard },
@@ -42,6 +50,35 @@ const routes = [
       {
         path: "sum",
         component: SUMPage,
+      },
+      {
+        path: "dm",//nd
+        component: DMPage,
+      },
+      {
+        path: "sdm",//nd
+        component: SDMPage,
+      },
+      {
+        path: "avp",//nd
+        component: AVPPage,
+      },
+      {
+        path: "vp",//nd
+        component: VPPage,
+      },
+      {
+        path: "evp",//nd
+        component: EVPPage,
+      },
+      {
+        path: "sevp",//nd
+        component: SEVPPage,
+      },
+      
+      {
+        path: "dm",
+        component: DMPage,
       },
       {
         path: ":id/al",
