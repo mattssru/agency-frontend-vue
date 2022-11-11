@@ -1,10 +1,9 @@
 <script>
 import { CircleProgress, Tree } from "@components";
-import { CardExpend } from "@components/Dashboard";
 import IconPerson from "@components/icons/IconPerson.vue";
 import SideBar from "@components/LayoutStructure/Sidebar.vue";
 import { formatNumber, getColorRank, getColorTextPercent } from "@utils/helper";
-
+import CardExpend from "./components/CardExpend.vue";
 export default {
   name: "StructureAgent-Child",
   components: {
@@ -94,23 +93,7 @@ export default {
 </script>
 
 <template>
-  <ModalShare id="exampleModal"></ModalShare>
-  <div class="dashboard">
-    <div
-      class="mb-2 d-flex flex-column flex-lg-row align-items-start align-items-lg-center justify-content-between"
-    >
-      <h1 class="mb-2 mb-lg-0">AGENCY PERFORMANCE TRACKER</h1>
-      <div
-        data-bs-toggle="modal"
-        data-bs-target="#exampleModal"
-        class="share_modal d-flex align-items-center font_semi text_small text-white"
-      >
-        <img src="@assets/image/icon_share.svg" alt="" class="me-2" />
-        Share ผลงานของคุณ
-      </div>
-    </div>
-
-    <!--  Profile-->
+  <div>
     <div class="row mb-3">
       <div class="col-lg-7">
         <div class="box_item p-0 mb-3 mb-lg-0">
