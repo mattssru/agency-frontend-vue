@@ -92,7 +92,7 @@ export default {
 </script>
 
 <template>
-  <div class="container-fluid p-0">
+  <div>
     <div class="row">
       <div class="col-lg-12">
         <div class="expend_mobile mb-3">
