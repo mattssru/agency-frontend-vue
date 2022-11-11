@@ -16,9 +16,6 @@ export default {
     findLength(arr) {
       return arr.length === 0;
     },
-    setSelect(value) {
-      return true;
-    },
   },
   created() {
     const { teams } = this.data;

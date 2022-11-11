@@ -1,7 +1,7 @@
 import { createStore } from "vuex";
-import { loader } from "./modules/loader";
-export default new createStore({
+import userModules from "./modules/user.modules";
+export default createStore({
   modules: {
-    loader,
+    user: userModules,
   },
 });

@@ -8,8 +8,13 @@
     >
       <span class="visually-hidden">Loading...</span>
     </div>
-    <div v-if="!loading && failed">
-      <div style="color: white">ไม่สามารถเชื่อมระบบได้ กรุณาลองใหม่อีกครั้ง</div>
+    <div
+      class="d-flex flex-column align-items-center"
+      v-if="!loading && failed"
+    >
+      <div style="color: white; margin-bottom: 8px">
+        ไม่สามารถเชื่อมระบบได้ กรุณาลองใหม่อีกครั้ง
+      </div>
       <div>
         <button class="btn btn-primary custom-btn" @click="handleRetry">
           <IconRefresh class="me-2" />

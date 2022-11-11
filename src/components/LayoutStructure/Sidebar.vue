@@ -134,6 +134,7 @@ export default {
         <div class="text_medium color_primary font_semi">
           โครงสร้างตัวแทนใต้สังกัด
         </div>
+        <!-- <p>{{ $store.getters["user/fullName"] }}</p> -->
       </div>
       <Tree :data="agentList" />
       <div

@@ -13,10 +13,11 @@ import {
   getColorRankDM,
 } from "@utils/helper";
 const app = createApp(App);
+import store from "@store";
 
 app.use(router);
 app.mount("#app");
-
+app.use(store);
 app.mixin({
   methods: {
     sleep(milliseconds = 1000) {
