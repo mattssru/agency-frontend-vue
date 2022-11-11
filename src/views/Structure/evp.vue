@@ -111,7 +111,7 @@ export default {
       </div>
     </div>
     <div class="row">
-      <div class="col-lg-12 ">
+      <div class="col-lg-12">
         <div class="expend_mobile mb-3">
           <CardAll :data="agentData" />
         </div>
@@ -221,15 +221,6 @@ export default {
           </div>
         </div>
       </div>
-    </div>
-    <div class="footer d-flex justify-content-between">
-      <p class="color_white">ข้อมูล ณ วันที่ 13 กันยายน 2565</p>
-      <p class="color_white">
-        *ข้อมูลนี้
-        เป็นเพียงข้อมูลผลงานประมาณการเพื่อใช้สำหรับการวางแผนการทำงานเบื้องต้น
-        ยังไม่สามารถใช้สรุปผลการเลื่อนตำแหน่ง การจ่ายผลประโยชน์
-        หรือการแข่งขันภายในบริษัทได้
-      </p>
     </div>
   </div>
 </template>

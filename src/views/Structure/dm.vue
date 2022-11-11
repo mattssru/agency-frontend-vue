@@ -94,7 +94,7 @@ export default {
 </script>
 
 <template>
-   <ModalShare id="exampleModal"></ModalShare>
+  <ModalShare id="exampleModal"></ModalShare>
   <div class="dashboard">
     <div
       class="mb-2 d-flex flex-column flex-lg-row align-items-start align-items-lg-center justify-content-between"
@@ -130,7 +130,6 @@ export default {
           </div>
           <div class="row" style="padding: 0 11px 0 15px">
             <div class="col-md-7 nopaddingright d-flex align-items-center">
-              
               <div>
                 <div class="mb-1">
                   <span class="text_medium font_semi color_title">Pc สะสม</span>
@@ -187,9 +186,7 @@ export default {
                     8
                     <IconPerson class="ms-1 me-2" :color="getColorRank(100)" />
                   </div>
-                  <p class="d-inline-flex color_gray ms-2">
-                    (เป้าหมาย 6 คน)
-                  </p>
+                  <p class="d-inline-flex color_gray ms-2">(เป้าหมาย 6 คน)</p>
                 </div>
               </div>
             </div>
@@ -203,14 +200,13 @@ export default {
 
     <div class="plan_dashboard mb-3">
       <div class="row">
-        <div class="col-lg-12 col-sm-12 ">
+        <div class="col-lg-12 col-sm-12">
           <div
             class="head_plan text_medium color_primary font_semi d-flex align-items-center"
           >
             <img src="@assets/image/plan.svg" alt="" class="me-2" />
             วางแผนเลื่อนตำแหน่ง
           </div>
-          
         </div>
         <div class="row">
           <div class="col-lg-3 col-sm-12 left_plan">
@@ -417,7 +413,9 @@ export default {
                         <CircleProgress :percent="80" class="mb-4" />
 
                         <div class="assets_plan text-center">
-                          <p class="font_medium color_title text_md color_title">
+                          <p
+                            class="font_medium color_title text_md color_title"
+                          >
                             PC สะสมของหน่วยตนเอง
                           </p>
 
@@ -464,8 +462,8 @@ export default {
                                 class="text_small"
                                 :style="{ 'font-size': '13px' }"
                               >
-                                ล่วงหน้าสะสม 19 เดือน ของหน่วยตนเอง <br />ณ เดือน
-                                ธ.ค. 2565
+                                ล่วงหน้าสะสม 19 เดือน ของหน่วยตนเอง <br />ณ
+                                เดือน ธ.ค. 2565
                               </span>
                             </p>
                             <!-- <p class="color_gray">(ม.ค. - ธ.ค. 2565)</p> -->
@@ -504,7 +502,7 @@ export default {
                 </div>
               </div>
             </div>
-          </div>  
+          </div>
         </div>
       </div>
     </div>
@@ -606,16 +604,6 @@ export default {
           </div>
         </div>
       </div>
-    </div>
-
-    <div class="footer d-flex justify-content-between">
-      <p class="color_white">ข้อมูล ณ วันที่ 13 กันยายน 2565</p>
-      <p class="color_white">
-        *ข้อมูลนี้
-        เป็นเพียงข้อมูลผลงานประมาณการเพื่อใช้สำหรับการวางแผนการทำงานเบื้องต้น
-        ยังไม่สามารถใช้สรุปผลการเลื่อนตำแหน่ง การจ่ายผลประโยชน์
-        หรือการแข่งขันภายในบริษัทได้
-      </p>
     </div>
   </div>
 </template>

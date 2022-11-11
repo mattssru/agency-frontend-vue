@@ -94,8 +94,7 @@ export default {
 </script>
 
 <template>
-
-<ModalShare id="exampleModal"></ModalShare>
+  <ModalShare id="exampleModal"></ModalShare>
   <div class="dashboard">
     <div
       class="mb-2 d-flex flex-column flex-lg-row align-items-start align-items-lg-center justify-content-between"
@@ -201,7 +200,7 @@ export default {
     </div>
     <div class="plan_dashboard mb-3">
       <div class="row">
-        <div class="col-lg-12 col-sm-12 ">
+        <div class="col-lg-12 col-sm-12">
           <div
             class="head_plan text_medium color_primary font_semi d-flex align-items-center"
           >
@@ -213,7 +212,7 @@ export default {
           <div class="row">
             <div class="col-lg-3">
               <div class="left_plan">
-                <div class="left_tabs_plan" >
+                <div class="left_tabs_plan">
                   <div class="um d-flex align-items-center mb-3">
                     <img src="@assets/image/um.svg" alt="" class="me-2" />
                     UM
@@ -221,7 +220,7 @@ export default {
                 </div>
               </div>
             </div>
-            <div class="col-lg-9 ">
+            <div class="col-lg-9">
               <div class="right_plan">
                 <div class="right_tabs_plan">
                   <div class="tab-content" id="v-pills-tabContent">
@@ -328,7 +327,9 @@ export default {
                               <p class="font_medium color_title">
                                 จำนวนหน่วยทั้งสายงาน
                               </p>
-                              <p class="text_small color_title font_medium mb-2">
+                              <p
+                                class="text_small color_title font_medium mb-2"
+                              >
                                 (รวมหน่วยตนเอง)
                               </p>
                               <p
@@ -479,16 +480,6 @@ export default {
           </div>
         </div>
       </div>
-    </div>
-
-    <div class="footer d-flex justify-content-between">
-      <p class="color_white">ข้อมูล ณ วันที่ 13 กันยายน 2565</p>
-      <p class="color_white">
-        *ข้อมูลนี้
-        เป็นเพียงข้อมูลผลงานประมาณการเพื่อใช้สำหรับการวางแผนการทำงานเบื้องต้น
-        ยังไม่สามารถใช้สรุปผลการเลื่อนตำแหน่ง การจ่ายผลประโยชน์
-        หรือการแข่งขันภายในบริษัทได้
-      </p>
     </div>
   </div>
 </template>

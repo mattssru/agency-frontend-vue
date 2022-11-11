@@ -111,7 +111,7 @@ export default {
       </div>
     </div>
     <div class="row">
-      <div class="col-lg-12 ">
+      <div class="col-lg-12">
         <div class="expend_mobile mb-3">
           <CardAll :data="agentData" />
         </div>
@@ -154,7 +154,7 @@ export default {
                 </div>
               </div>
               <div>
-                <div class="box_item p-3 mb-3 d-flex pt-3 ">
+                <div class="box_item p-3 mb-3 d-flex pt-3">
                   <CircleProgress :percent="45" class="me-3" />
                   <div class="assets_plan mb-3">
                     <p class="font_medium color_title">จำนวนหน่วย</p>
@@ -162,10 +162,10 @@ export default {
                       (กลุ่มสายงานตรง รวมหน่วยตนเอง)
                     </p>
                     <p
-                        class="color_pink font_semi"
-                        style="font-size: 24px; line-height: 36px"
-                        :style="{ color: getColorRank(45) }"
-                      >
+                      class="color_pink font_semi"
+                      style="font-size: 24px; line-height: 36px"
+                      :style="{ color: getColorRank(45) }"
+                    >
                       รวม <span style="font-size: 32px">9</span>
                     </p>
                     <p style="font-size: 10.5px; line-height: 15px">
@@ -173,10 +173,7 @@ export default {
                     </p>
                   </div>
                   <div class="d-flex align-items-end">
-                    
-                    <div>
-                      
-                    </div>
+                    <div></div>
                   </div>
                 </div>
                 <div class="box_item d-flex align-items-center">
@@ -203,18 +200,7 @@ export default {
             </div>
           </div>
         </div>
-       
       </div>
-      
-    </div>
-    <div class="footer d-flex justify-content-between">
-      <p class="color_white">ข้อมูล ณ วันที่ 13 กันยายน 2565</p>
-      <p class="color_white">
-        *ข้อมูลนี้
-        เป็นเพียงข้อมูลผลงานประมาณการเพื่อใช้สำหรับการวางแผนการทำงานเบื้องต้น
-        ยังไม่สามารถใช้สรุปผลการเลื่อนตำแหน่ง การจ่ายผลประโยชน์
-        หรือการแข่งขันภายในบริษัทได้
-      </p>
     </div>
   </div>
 </template>
