@@ -187,6 +187,7 @@ export default {
   overflow: hidden;
   padding: 20px 16px;
   background-color: #003781;
+  position: relative;
 }
 .footer-sidebar {
   height: 60px;
