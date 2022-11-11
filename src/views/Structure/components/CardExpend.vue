@@ -87,13 +87,7 @@ export default {
               <p>: {{ data.licenseNo }}</p>
             </div>
           </Transition>
-          <router-link
-            :to="`/structure-agent/${data.role}`"
-            class="font_medium color_primary text_small d-flex align-items-center mb-2 text-decoration-underline"
-          >
-            <img src="@assets/image/icon_profile_1.svg" alt="" class="me-2" />
-            ดูโครงสร้างและหน่วยงานภายใต้ตัวแทน
-          </router-link>
+
           <router-link
             :to="`/summary-report/${data.rankPath}`"
             class="font_medium color_primary text_small d-flex align-items-center text-decoration-underline"

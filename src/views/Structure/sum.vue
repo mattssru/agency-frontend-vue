@@ -1,9 +1,9 @@
 <script>
 import { CircleProgress, Tree } from "@components";
-import { CardExpend } from "@components/Dashboard";
 import IconPerson from "@components/icons/IconPerson.vue";
 import SideBar from "@components/LayoutStructure/Sidebar.vue";
 import { formatNumber, getColorRank, getColorTextPercent } from "@utils/helper";
+import CardExpend from "./components/CardExpend.vue";
 
 export default {
   name: "StructureAgent-Child",

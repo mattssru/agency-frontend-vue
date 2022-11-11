@@ -1,13 +1,13 @@
 <script>
 import { Button, Card, CircleProgress, Radio, Tree } from "@components";
 import CardEliteTree from "@components/CardEliteTree/index.vue";
-import { CardExpend, ModalShare } from "@components/Dashboard";
+import { ModalShare } from "@components/Dashboard";
 import IconPerson from "@components/icons/IconPerson.vue";
 import IconTabsFirst from "@components/icons/IconTabsFirst.vue";
 import IconTabsSecon from "@components/icons/IconTabsSecon.vue";
 import SideBar from "@components/LayoutStructure/Sidebar.vue";
 import { formatNumber, getColorRank, getColorTextPercent } from "@utils/helper";
-
+import CardExpend from "./components/CardExpend.vue";
 export default {
   name: "MyProfile",
   components: {
@@ -18,11 +18,11 @@ export default {
     Card,
     IconTabsFirst,
     IconTabsSecon,
-    CardExpend,
     ModalShare,
     CardEliteTree,
     IconPerson,
     Radio,
+    CardExpend,
   },
   methods: {
     formatNumber,
