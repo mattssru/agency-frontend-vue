@@ -96,7 +96,7 @@ export default {
           style="padding: 0 15px 10px 15px"
         >
           <div
-            class="text_medium color_primary font_semi d-flex align-items-center"
+            class="text_medium color_primary font_semi d-flex align-items-center font_16"
           >
             <img src="@assets/image/doc.svg" alt="" class="me-2" />
             วางแผนรักษาสัญญา
