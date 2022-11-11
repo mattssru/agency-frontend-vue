@@ -55,41 +55,40 @@ export default {
             height="24"
           />
         </div>
-        <div class="custom-profile">
-          <div class="name_user color_primary font_medium">
-            คุณ{{ `${data.firstname} ` }}
-          </div>
-          <div class="name_user color_primary font_medium">
-            <span style="display: inline-block">
-              {{ ` ${data.lastname}` }}</span
-            >
-          </div>
-          <div :class="show ? 'detail_user' : 'detail_user mb-2'">
-            <p>ชื่อหน่วยงาน</p>
-            <p>: {{ data.organizationName }}</p>
-            <p>ตำแหน่งปัจจุบัน</p>
-            <p class="wrap-position" :class="{ 'full-text': show }">
-              : {{ data.rank }}
-            </p>
-          </div>
-          <Transition>
-            <div
-              :class="show ? 'detail_user mb-2' : 'detail_user'"
-              v-show="show"
-            >
-              <p>รหัสตัวแทน</p>
-              <p>: {{ data.code }}</p>
-              <p>รหัสหน่วย</p>
-              <p>: {{ data.codeOrganization }}</p>
-              <p>รหัสกลุ่ม</p>
-              <p>: {{ data.codeGroup }}</p>
-              <p>เลขที่ใบอนุญาติ</p>
-              <p>: {{ data.no }}</p>
-              <p>เลขที่ IC License</p>
-              <p>: {{ data.licenseNo }}</p>
+        <div class="custom-profile d-flex flex-column justify-content-between">
+          <div>
+            <div class="name_user color_primary font_medium">
+              คุณ{{ `${data.firstname} ` }}
+              <span style="display: inline-block">
+                {{ ` ${data.lastname}` }}</span
+              >
             </div>
-          </Transition>
-          
+            <div :class="show ? 'detail_user' : 'detail_user mb-2'">
+              <p>ชื่อหน่วยงาน</p>
+              <p>: {{ data.organizationName }}</p>
+              <p>ตำแหน่งปัจจุบัน</p>
+              <p class="wrap-position" :class="{ 'full-text': show }">
+                : {{ data.rank }}
+              </p>
+            </div>
+            <Transition>
+              <div
+                :class="show ? 'detail_user mb-2' : 'detail_user'"
+                v-show="show"
+              >
+                <p>รหัสตัวแทน</p>
+                <p>: {{ data.code }}</p>
+                <p>รหัสหน่วย</p>
+                <p>: {{ data.codeOrganization }}</p>
+                <p>รหัสกลุ่ม</p>
+                <p>: {{ data.codeGroup }}</p>
+                <p>เลขที่ใบอนุญาติ</p>
+                <p>: {{ data.no }}</p>
+                <p>เลขที่ IC License</p>
+                <p>: {{ data.licenseNo }}</p>
+              </div>
+            </Transition>
+          </div>
           <router-link
             :to="`/summary-report/${data.rankPath}`"
             class="font_medium color_primary text_small d-flex align-items-center text-decoration-underline"
@@ -98,6 +97,7 @@ export default {
             ดูผลงานรายเดือนย้อนหลัง
           </router-link>
         </div>
+        <div class="space-btn"></div>
       </div>
       <div class="btnAbsolute">
         <button
@@ -199,6 +199,10 @@ export default {
 .name_user {
   font-size: 16px;
   line-height: 24px;
+}
+.space-btn {
+  width: 20px;
+  height: 20px;
 }
 .detail_user {
   color: #414141;
