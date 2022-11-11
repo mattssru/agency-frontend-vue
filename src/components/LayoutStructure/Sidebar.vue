@@ -101,6 +101,20 @@ export default {
                 code: "222222 (AG)",
                 role: "ag",
                 id: 152,
+                teams: [
+                  {
+                    name: "3อารียา เทพหัสดิน ณ อยุธยา",
+                    code: "111111 (AL)",
+                    id: 1111,
+                    role: "al",
+                  },
+                  {
+                    name: "3อารียา 222222kjdlskjksjlkfdsajdk",
+                    code: "222222 (AG)",
+                    role: "ag",
+                    id: 1112,
+                  },
+                ],
               },
             ],
           },

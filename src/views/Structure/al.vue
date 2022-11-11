@@ -87,16 +87,7 @@ export default {
         </p>
         <p class="text_large font_semi color_blue">874,330</p>
       </div>
-      <div class="box_item">
-        <p class="font_16 font_medium color_title d-inline-flex">
-          PC สะสมของหน่วยตนเอง
-        </p>
-        <p class="color_gray d-inline-flex ms-2">(ม.ค. 65 - ธ.ค. 65)</p>
-        <p class="font_medium color_title mb-2">
-          (ใช้ในการดูการเลื่อนตำแหน่งในระดับ AVP)
-        </p>
-        <p class="text_large font_semi color_blue">343,440</p>
-      </div>
+
       <div class="box_item">
         <p class="font_16 font_medium color_title">ประมาณการอัตราความยั่งยืน</p>
         <p class="color_title font_medium">
@@ -106,6 +97,16 @@ export default {
           (ใช้ในการดูการเลื่อนตำแหน่งในระดับ AVP)
         </p>
         <p class="text_large font_semi color_blue">72.34%</p>
+      </div>
+      <div class="box_item">
+        <p class="font_16 font_medium color_title d-inline-flex">
+          PC สะสมของหน่วยตนเอง
+        </p>
+        <p class="color_gray d-inline-flex ms-2">(ม.ค. 65 - ธ.ค. 65)</p>
+        <p class="font_medium color_title mb-2">
+          (ใช้ในการดูการเลื่อนตำแหน่งในระดับ AVP)
+        </p>
+        <p class="text_large font_semi color_blue">343,440</p>
       </div>
       <div class="box_item">
         <p class="font_16 font_medium color_title">ประมาณการอัตราความยั่งยืน</p>

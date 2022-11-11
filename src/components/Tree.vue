@@ -1,5 +1,6 @@
 <script>
 import Avatar from "./Avatar.vue";
+
 export default {
   name: "Tree",
   components: { Avatar },
@@ -9,23 +10,9 @@ export default {
   data() {
     return {
       agent: [],
-      selected: "",
     };
   },
   methods: {
-    handleClick(id) {
-      const temp = this.agent;
-      this.agent = temp.map((item) => {
-        if (item.id === id) {
-          return { ...item, open: !item.open };
-        } else {
-          return item;
-        }
-      });
-    },
-    handleClickL2(item) {
-      return item.open;
-    },
     findLength(arr) {
       return arr.length === 0;
     },
@@ -48,19 +35,10 @@ export default {
         open: false,
       };
     });
-    console.log("this.agent", this.agent);
   },
   computed: {
     route() {
       return this.$route.path;
-    },
-  },
-  watch: {
-    // whenever question changes, this function will run
-    selected(newRount, oldRount) {
-      // if (newRount.includes('')) {
-      //   this.getAnswer()
-      // }
     },
   },
 };
@@ -84,10 +62,8 @@ export default {
         >
           <button
             v-if="!findLength(child.teams)"
-            @click="handleClick(child.id)"
-            :class="[
-              { active: agent.find((item) => item.id === child.id).open },
-            ]"
+            @click="child.open = !child.open"
+            :class="[{ active: child.open }]"
             class="btnExpend d-flex align-items-center justify-content-center"
           ></button>
 
@@ -105,14 +81,13 @@ export default {
             </router-link>
           </div>
         </div>
-        <ul
-          class="second"
-          v-show="agent.find((item) => item.id === child.id).open"
-        >
+        <ul class="second" v-show="child.open">
           <li v-for="c in child.teams" :key="c.id">
             <div class="d-flex" :class="[{ active: c.open }, c.role]">
               <button
-                @click="handleClickL2"
+                v-if="c.teams && !findLength(c.teams)"
+                @click="c.open = !c.open"
+                :class="[{ active: c.open }]"
                 class="btnExpend d-flex align-items-center justify-content-center"
               ></button>
               <div
@@ -129,7 +104,7 @@ export default {
                 </router-link>
               </div>
             </div>
-            <ul>
+            <ul v-show="c.open">
               <li v-for="a in c.teams" :key="a.id">
                 <div class="d-flex" :class="[{ active: c.open }, a.role]">
                   <div
@@ -202,14 +177,14 @@ export default {
 }
 .btnExpend::after {
   content: "";
-  background-image: url(@assets/image/icon-arrow-lightblue.svg);
+  background-image: url(@assets/image/ag-icon.svg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: auto;
   width: 10px;
   height: 10px;
-  transition: transform 0.2s ease-in-out;
-  transform: rotate(0deg);
+  //transition: transform 0.2s ease-in-out;
+  //transform: rotate(0deg);
   background-size: 12px;
 }
 .active.btnExpend::after {
@@ -228,7 +203,7 @@ export default {
   background-color: #c3e7f4;
 }
 .al .btnExpend::after {
-  background-image: url(@assets/image/icon-arrow-lightblue.svg);
+  background-image: url(@assets/image/al-icon.svg);
 }
 .al .active.btnExpend {
   background-color: #13a0d3;
@@ -236,14 +211,14 @@ export default {
 
 .al .active.btnExpend::after,
 .ag .active.btnExpend::after {
-  background-image: url(@assets/image/icon-arrow-up-white.svg);
+  background-image: url(@assets/image/icon-expanded.svg);
   background-size: 10px;
 }
 .ag .btnExpend {
   background-color: #a0c0ea;
 }
 .ag .btnExpend::after {
-  background-image: url(@assets/image/icon-arrow-darkblue.svg);
+  background-image: url(@assets/image/ag-icon.svg);
 }
 .ag .btnExpend.active {
   background-color: #003781;
@@ -344,5 +319,21 @@ ul.second:before,
     color: #003781;
     font-family: "medium";
   }
+}
+
+.wrap-tree::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+.wrap-tree::-webkit-scrollbar:vertical {
+  width: 8px;
+}
+.wrap-tree::-webkit-scrollbar:horizontal {
+  height: 8px;
+}
+
+.wrap-tree::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  border: 2px solid white; /* should match background, can't be transparent */
+  background-color: #cbcbcb;
 }
 </style>
