@@ -91,11 +91,19 @@ export default {
 </script>
 
 <template>
-  <div>
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="expend_mobile mb-3">
-          <CardAll :data="agentData" />
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="expend_mobile mb-3">
+        <CardAll :data="agentData" />
+      </div>
+      <div class="box_item p-0 mb-3 mb-lg-0">
+        <div class="head_box" style="padding: 10px 15px 10px 15px">
+          <div
+            class="text_medium color_primary font_semi d-flex align-items-center"
+          >
+            <img src="@assets/image/doc.svg" alt="" class="me-2" />
+            สรุปผลการดำเนินงาน
+          </div>
         </div>
         <div class="p-3">
           <div
