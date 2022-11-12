@@ -50,21 +50,18 @@ export default {
       showModal: false,
       checked: "6",
       agentData: {
-        dateLeave: "64",
-        pc: 11520,
-        pcLeave: "12480",
-        percent: 48,
         firstname: "ลักษมีแข",
         lastname: "เจริญประภาการธนพล",
-        organizationName: "ภาคอาวุโส โภคทรัพย์",
-        rank: "Agent (AG)",
-        code: "135791",
-        codeOrganization: "34246802468",
-        codeGroup: "42086",
-        licenseNo: "08642086",
-        no: "246802468",
         gender: "female",
         image: null,
+        rankPath: "gm",
+        unitName: "GHI",
+        rank: "Vice President (VP)",
+        agentId: 123456,
+        unitId: 111222,
+        groupId: 111222,
+        licenseId: 1234567890,
+        icId: 8987654321,
       },
       eliteData: {
         current_q: "Q3",
@@ -95,26 +92,13 @@ export default {
 </script>
 
 <template>
-  <ModalShare id="exampleModal"> </ModalShare>
-  <div class="dashboard">
-    <div
-      class="mb-2 d-flex flex-column flex-lg-row align-items-start align-items-lg-center justify-content-between"
-    >
-      <h1 class="mb-2 mb-lg-0">AGENCY PERFORMANCE TRACKER</h1>
-      <div
-        data-bs-toggle="modal"
-        data-bs-target="#exampleModal"
-        class="share_modal d-flex align-items-center font_semi text_small text-white"
-      >
-        <img src="@assets/image/icon_share.svg" alt="" class="me-2" />
-        Share ผลงานของคุณ
-      </div>
-    </div>
+  <div class="container-fluid p-0">
     <div class="row">
       <div class="col-lg-12">
         <div class="expend_mobile mb-3">
           <CardAll :data="agentData" />
         </div>
+
         <div class="box_item p-0 mb-3 mb-lg-0">
           <div class="head_box" style="padding: 10px 15px 10px 15px">
             <div
@@ -129,11 +113,11 @@ export default {
               <div>
                 <div class="um d-flex align-items-center mb-3">
                   <img src="@assets/image/um.svg" alt="" class="me-2" />
-                  VP
+                  EVP
                 </div>
                 <div
                   class="box_item d-flex flex-column align-items-center justify-content-center text-center"
-                  style="min-height: 300px"
+                  style="min-height: 225px"
                 >
                   <CircleProgress
                     :percent="80"
@@ -153,7 +137,10 @@ export default {
                 </div>
               </div>
               <div>
-                <div class="box_item p-3 mb-3 d-flex pt-3">
+                <div
+                  class="box_item p-3 mb-3 d-flex pt-3 align-items-center"
+                  style="height: 140px"
+                >
                   <CircleProgress :percent="45" class="me-3" />
                   <div class="assets_plan mb-3">
                     <p class="font_medium color_title">จำนวนหน่วย</p>
@@ -175,7 +162,10 @@ export default {
                     <div></div>
                   </div>
                 </div>
-                <div class="box_item d-flex align-items-center">
+                <div
+                  class="box_item d-flex align-items-center"
+                  style="height: 140px"
+                >
                   <div class="font_semi color_pink me-3">
                     <p
                       class="text_large font_semi color_orange"
@@ -184,7 +174,7 @@ export default {
                       55%
                     </p>
                   </div>
-                  <div class="assets_plan" style="min-height: 200px">
+                  <div class="assets_plan">
                     <p class="color_title font_medium mb-1">
                       ประมาณการอัตราความยั่งยืน
                     </p>
@@ -192,7 +182,7 @@ export default {
                       ล่วงหน้าสะสม 19 เดือน <br />ของกลุ่มตนเอง ณ เดือน ธ.ค.
                       2565
                     </p>
-                    <p>(เป้าหมายที่ต้องทำได้ 75%)</p>
+                    <p style="margin-top: 12px">(เป้าหมายที่ต้องทำได้ 75%)</p>
                   </div>
                 </div>
               </div>

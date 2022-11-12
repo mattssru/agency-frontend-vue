@@ -16,7 +16,7 @@ import MyProfilePage from "@views/Structure/self.vue";
 import SummaryReportPageAG from "@views/SummaryReport/SummaryReportAG.vue";
 import SummaryReportPageGM from "@views/SummaryReport/SummaryReportGM.vue";
 
-
+import UMPage from "@views/Structure/um.vue";
 import DMPage from "@views/Structure/dm.vue";
 import SDMPage from "@views/Structure/sdm.vue";
 import AVPPage from "@views/Structure/avp.vue";
@@ -46,6 +46,10 @@ const routes = [
       {
         path: "ag",
         component: MyProfilePage,
+      },
+      {
+        path: "um",
+        component: UMPage,
       },
       {
         path: "sum",

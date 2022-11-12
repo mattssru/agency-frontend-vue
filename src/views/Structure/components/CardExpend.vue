@@ -58,6 +58,8 @@ export default {
         <div class="custom-profile">
           <div class="name_user color_primary font_medium">
             คุณ{{ `${data.firstname} ` }}
+          </div>
+          <div class="name_user color_primary font_medium">
             <span style="display: inline-block">
               {{ ` ${data.lastname}` }}</span
             >
@@ -87,7 +89,7 @@ export default {
               <p>: {{ data.licenseNo }}</p>
             </div>
           </Transition>
-
+          
           <router-link
             :to="`/summary-report/${data.rankPath}`"
             class="font_medium color_primary text_small d-flex align-items-center text-decoration-underline"

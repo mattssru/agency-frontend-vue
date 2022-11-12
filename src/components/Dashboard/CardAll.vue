@@ -19,61 +19,67 @@ export default {
 
 <template>
   <div class="box_item p-3 mb-3">
-      <div class="d-flex">
-        <div class="image_user me-4">
-          <Avatar :gender="data.gender" :image="data.image" />
-        </div>
-        <div class=" w-100">
+    <div class="d-flex">
+      <div class="image_user me-4">
+        <Avatar :gender="data.gender" :image="data.image" />
+      </div>
+      <div class="w-100">
+        <div class="row">
+          <div class="col-lg-12">
+            <p class="tag_title mb-2 color_primary font-medium">
+              คุณ{{ `${data.firstname} ` }}
+              <span style="display: inline-block">
+                {{ ` ${data.lastname}` }}</span
+              >
+            </p>
+          </div>
           <div class="row">
-            <div class="col-lg-12">
-              <p class="tag_title mb-2 color_primary font_medium">
-                สมใจนึก มิตรสุพรรณพรสกุล
-              </p>
+            <div class="col-lg-6">
+              <div class="detail_user">
+                <p class="text_small">ชื่อหน่วยงาน</p>
+                <p>: {{ data.unitName }}</p>
+                <p class="text_small">ตำแหน่งปัจจุบัน</p>
+                <p>: {{ data.rank }}</p>
+                <p class="text_small">รหัสตัวแทน</p>
+                <p>: {{ data.agentId }}</p>
+                <p class="text_small">รหัสหน่วย</p>
+                <p>: {{ data.unitId }}</p>
+              </div>
             </div>
-            <div class="row">
-              <div class="col-lg-5 ">
-                
-                <div class="detail_user">
-                  <p class="text_small">ชื่อหน่วยงาน</p>
-                  <p class="text_small">: GHI</p>
-                  <p class="text_small">ตำแหน่งปัจจุบัน</p>
-                  <p class="text_small">: Agent (AG)</p>
-                  <p class="text_small">รหัสตัวแทน</p>
-                  <p class="text_small">: 423456</p>
-                  <p class="text_small">รหัสหน่วย</p>
-                  <p class="text_small">: 111222</p>
-                </div>
+            <div class="col-lg-6">
+              <p class="tag_title none_991 mb-2 color_primary font_medium"></p>
+              <div class="detail_user border-0">
+                <p class="text_small">รหัสกลุ่ม</p>
+                <p>: {{ data.groupId }}</p>
+                <p class="text_small">เลขที่ใบอนุญาต</p>
+                <p>: {{ data.licenseId }}</p>
+                <p class="text_small">เลขที่ IC License</p>
+                <p>: {{ data.icId }}</p>
               </div>
-              <div class="col-lg-6 ">
-                <p class="tag_title none_991 mb-2 color_primary font_medium"></p>
-                <div class="detail_user border-0">
-                  <p class="text_small">รหัสกลุ่ม</p>
-                  <p class="text_small">: 000111</p>
-                  <p class="text_small">เลขที่ใบอนุญาต</p>
-                  <p class="text_small">: 1234567890</p>
-                  <p class="text_small">เลขที่ IC License</p>
-                  <p class="text_small">: 0987654321</p>
-                </div>
-                <router-link
-                  to="/summary-report"
-                  class="font_medium color_primary text_small d-flex align-items-center text-decoration-underline line_heght_24"
-                >
-                  <img src="@assets/image/icon_profile_2.svg" alt="" class="me-2" />
-                  ดูผลงานรายเดือนย้อนหลัง
-                </router-link>
-              </div>
+              <router-link
+                :to="`/summary-report/${data.rankPath}`"
+                class="font_medium color_primary text_small d-flex align-items-center text-decoration-underline"
+              >
+                <img
+                  src="@assets/image/icon_profile_2.svg"
+                  alt=""
+                  class="me-2"
+                />
+                ดูผลงานรายเดือนย้อนหลัง
+              </router-link>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-  <div class="card-expand" style="display:none;">
+  <div class="card-expand" style="display: none">
     <div class="row box_item">
       <div class="col-lg-1">
         <div class="profile_user me-3 mb-2" :class="data.rankCode">
-            <Avatar :gender="data.gender" :image="data.image" />
-          </div>
+          <Avatar :gender="data.gender" :image="data.image" />
+        </div>
       </div>
       <div class="col-lg-11">
         <div class="col-lg-12">
@@ -81,24 +87,24 @@ export default {
             คุณ{{ `${data.firstname} ` }}
             <span style="display: inline-block">
               {{ ` ${data.lastname}` }}</span
-            >   
+            >
           </div>
         </div>
         <div class="row">
           <div class="col-lg-5">
-            
             <div class="custom-profile">
-                <div :class="show ? 'detail_user' : 'detail_user mb-2'">
-                  <p>ชื่อกลุ่ม</p>
-                  <p>: {{ data.code }}</p>
-                  <p>ตำแหน่งปัจจุบัน</p>
-                  <p class="wrap-position" :class="{ 'full-text': show }">
-                    : {{ data.rank }}</p>
-                  <p>รหัสตัวแทน</p>
-                  <p>: {{ data.code }}</p>
-                  <p>รหัสหน่วย</p>
-                  <p>: {{ data.codeOrganization }}</p>
-                </div>
+              <div :class="show ? 'detail_user' : 'detail_user mb-2'">
+                <p>ชื่อกลุ่ม</p>
+                <p>: {{ data.code }}</p>
+                <p>ตำแหน่งปัจจุบัน</p>
+                <p class="wrap-position" :class="{ 'full-text': show }">
+                  : {{ data.rank }}
+                </p>
+                <p>รหัสตัวแทน</p>
+                <p>: {{ data.code }}</p>
+                <p>รหัสหน่วย</p>
+                <p>: {{ data.codeOrganization }}</p>
+              </div>
             </div>
           </div>
           <div class="col-lg-4">
@@ -108,7 +114,8 @@ export default {
                 <p>: {{ data.code }}</p>
                 <p>ตำแหน่งปัจจุบัน</p>
                 <p class="wrap-position" :class="{ 'full-text': show }">
-                  : {{ data.rank }}</p>
+                  : {{ data.rank }}
+                </p>
                 <p>รหัสตัวแทน</p>
                 <p>: {{ data.code }}</p>
                 <p>รหัสหน่วย</p>
@@ -118,11 +125,8 @@ export default {
           </div>
         </div>
       </div>
-      
-      
     </div>
   </div>
-
 
   <div :class="show ? 'show bg-overlay' : ''"></div>
 </template>
@@ -237,7 +241,7 @@ export default {
 .detail_user {
   color: #414141;
   display: grid;
-  grid-template-columns: minmax(auto, 95px) minmax(95px, auto);
+  grid-template-columns: minmax(1fr, 95px) minmax(95px, auto);
 }
 .v-enter-active,
 .v-leave-active {
@@ -250,5 +254,9 @@ export default {
 .v-enter-from,
 .v-leave-to {
   height: 0;
+}
+.font-medium {
+  font-size: 16px;
+  font-family: prompt-medium;
 }
 </style>

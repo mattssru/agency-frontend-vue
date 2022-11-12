@@ -1,5 +1,6 @@
 <script>
 import { CircleProgress, Tree, Avatar } from "@components";
+import { CardAll } from "@components/Dashboard";
 import SideBar from "@components/LayoutStructure/Sidebar.vue";
 
 export default {
@@ -9,6 +10,7 @@ export default {
     CircleProgress,
     SideBar,
     Avatar,
+    CardAll,
   },
   created() {
     this.$watch(
@@ -25,6 +27,20 @@ export default {
       data: {
         gender: "female",
       },
+      agentData: {
+        firstname: "ลักษมีแข",
+        lastname: "เจริญประภาการธนพล",
+        gender: "female",
+        image: null,
+        rankPath: "al",
+        unitName: "GHI",
+        rank: "Unit Manager (UM)",
+        agentId: 123456,
+        unitId: 111222,
+        groupId: 111222,
+        licenseId: 1234567890,
+        icId: 8987654321,
+      },
     };
   },
 };
@@ -32,109 +48,76 @@ export default {
 
 <template>
   <div class="container-fluid p-0">
-    <div class="box_item p-3 mb-3">
-      <div class="d-flex">
-        <div class="image_user me-4">
-          <Avatar :gender="data.gender" :image="data.image" />
-        </div>
-        <div class="grid_2 w-100">
-          <div>
-            <p class="tag_title mb-2 color_primary font_medium">
-              สมใจนึก มิตรสุพรรณพรสกุล
-            </p>
-            <div class="detail_user">
-              <p class="text_small">ชื่อหน่วยงาน</p>
-              <p class="text_small">: GHI</p>
-              <p class="text_small">ตำแหน่งปัจจุบัน</p>
-              <p class="text_small">: Agent (AG)</p>
-              <p class="text_small">รหัสตัวแทน</p>
-              <p class="text_small">: 423456</p>
-              <p class="text_small">รหัสหน่วย</p>
-              <p class="text_small">: 111222</p>
-            </div>
-          </div>
-          <div>
-            <p class="tag_title none_991 mb-2 color_primary font_medium"></p>
-            <div class="detail_user border-0">
-              <p class="text_small">รหัสกลุ่ม</p>
-              <p class="text_small">: 000111</p>
-              <p class="text_small">เลขที่ใบอนุญาต</p>
-              <p class="text_small">: 1234567890</p>
-              <p class="text_small">เลขที่ IC License</p>
-              <p class="text_small">: 0987654321</p>
-            </div>
-            <router-link
-              to="/summary-report"
-              class="font_medium color_primary text_small d-flex align-items-center text-decoration-underline line_heght_24"
-            >
-              <img src="@assets/image/icon_profile_2.svg" alt="" class="me-2" />
-              ดูผลงานรายเดือนย้อนหลัง
-            </router-link>
-          </div>
-        </div>
+    <div class="col-lg-12">
+      <div class="expend_mobile mb-3">
+        <CardAll :data="agentData" />
       </div>
     </div>
-  </div>
-  <div class="box_item p-3">
-    <div class="grid_2 mb-3">
-      <div class="box_item">
-        <p class="font_16 font_medium color_title d-inline-flex">
-          PC สะสมของสายงาน
-        </p>
-        <p class="color_gray d-inline-flex ms-2">(ม.ค. 65 - ธ.ค. 65)</p>
-        <p class="font_medium color_title mb-2">
-          (ใช้ในการดูการเลื่อนตำแหน่งในระดับ AVP)
-        </p>
-        <p class="text_large font_semi color_blue">874,330</p>
-      </div>
-
-      <div class="box_item">
-        <p class="font_16 font_medium color_title">ประมาณการอัตราความยั่งยืน</p>
-        <p class="color_title font_medium">
-          ล่วงหน้าสะสม 19 เดือน ของสายงาน ณ เดือน ธ.ค. 2565
-        </p>
-        <p class="font_medium color_title mb-2">
-          (ใช้ในการดูการเลื่อนตำแหน่งในระดับ AVP)
-        </p>
-        <p class="text_large font_semi color_blue">72.34%</p>
-      </div>
-      <div class="box_item">
-        <p class="font_16 font_medium color_title d-inline-flex">
-          PC สะสมของหน่วยตนเอง
-        </p>
-        <p class="color_gray d-inline-flex ms-2">(ม.ค. 65 - ธ.ค. 65)</p>
-        <p class="font_medium color_title mb-2">
-          (ใช้ในการดูการเลื่อนตำแหน่งในระดับ AVP)
-        </p>
-        <p class="text_large font_semi color_blue">343,440</p>
-      </div>
-      <div class="box_item">
-        <p class="font_16 font_medium color_title">ประมาณการอัตราความยั่งยืน</p>
-        <p class="color_title font_medium">
-          ล่วงหน้าสะสม 19 เดือน ของหน่วยตนเอง ณ เดือน ธ.ค. 2565
-        </p>
-        <p class="font_medium color_title mb-2">
-          (ใช้ในการดูการเลื่อนตำแหน่งในระดับ AVP)
-        </p>
-        <p class="text_large font_semi color_blue">81.76%</p>
-      </div>
-    </div>
-    <div class="box_item p-0">
-      <div class="grid_3 custom">
-        <div class="p-3 border_right">
+    <div class="box_item p-3">
+      <div class="grid_2 mb-3">
+        <div class="box_item">
           <p class="font_16 font_medium color_title d-inline-flex">
-            จำนวน AL ใต้สังกัด
+            PC สะสมของหน่วยตนเอง
           </p>
-          <p class="color_title d-inline-flex">(รวมหน่วยตนเอง)</p>
-          <p class="text_large font_semi color_blue">0</p>
+          <p class="color_gray d-inline-flex ms-2">(ม.ค. 65 - ธ.ค. 65)</p>
+          <p class="font_medium color_title mb-2">
+            (ใช้ในการดูการเลื่อนตำแหน่งในระดับ AL)
+          </p>
+          <p class="text_large font_semi color_blue">874,330</p>
         </div>
-        <div class="p-3 border_right">
-          <p class="font_16 font_medium color_title">จำนวนหน่วยลูก</p>
-          <p class="text_large font_semi color_blue">3</p>
+
+        <div class="box_item">
+          <p class="font_16 font_medium color_title">
+            ประมาณการอัตราความยั่งยืน
+          </p>
+          <p class="color_title font_medium">
+            ล่วงหน้าสะสม 19 เดือน ของหน่วยตนเอง ณ เดือน ธ.ค. 2565
+          </p>
+          <p class="font_medium color_title mb-2">
+            (ใช้ในการดูการเลื่อนตำแหน่งในระดับ AL)
+          </p>
+          <p class="text_large font_semi color_blue">72.34%</p>
         </div>
-        <div class="p-3">
-          <p class="font_16 font_medium color_title">จำนวนหน่วยหลาน</p>
-          <p class="text_large font_semi color_blue">0</p>
+        <div class="box_item">
+          <p class="font_16 font_medium color_title d-inline-flex">
+            PC สะสมของสายงาน
+          </p>
+          <p class="color_gray d-inline-flex ms-2">(ม.ค. 65 - ธ.ค. 65)</p>
+          <p class="font_medium color_title mb-2">
+            (ใช้ในการดูการเลื่อนตำแหน่งในระดับ AVP)
+          </p>
+          <p class="text_large font_semi color_blue">343,440</p>
+        </div>
+        <div class="box_item">
+          <p class="font_16 font_medium color_title">
+            ประมาณการอัตราความยั่งยืน
+          </p>
+          <p class="color_title font_medium">
+            ล่วงหน้าสะสม 19 เดือน ของสายงาน ณ เดือน ธ.ค. 2565
+          </p>
+          <p class="font_medium color_title mb-2">
+            (ใช้ในการดูการเลื่อนตำแหน่งในระดับ AVP)
+          </p>
+          <p class="text_large font_semi color_blue">81.76%</p>
+        </div>
+      </div>
+      <div class="box_item p-0">
+        <div class="grid_3 custom">
+          <div class="p-3 border_right">
+            <p class="font_16 font_medium color_title d-inline-flex">
+              จำนวน AL ใต้สังกัด
+            </p>
+            <p class="color_title d-inline-flex">(รวมหน่วยตนเอง)</p>
+            <p class="text_large font_semi color_blue">0</p>
+          </div>
+          <div class="p-3 border_right">
+            <p class="font_16 font_medium color_title">จำนวนหน่วยลูก</p>
+            <p class="text_large font_semi color_blue">3</p>
+          </div>
+          <div class="p-3">
+            <p class="font_16 font_medium color_title">จำนวนหน่วยหลาน</p>
+            <p class="text_large font_semi color_blue">0</p>
+          </div>
         </div>
       </div>
     </div>

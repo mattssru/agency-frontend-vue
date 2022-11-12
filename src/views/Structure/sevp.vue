@@ -1,6 +1,6 @@
 <script>
 import { CircleProgress, Tree } from "@components";
-import { CardExpend, CardAll } from "@components/Dashboard";
+import { CardAll } from "@components/Dashboard";
 import IconPerson from "@components/icons/IconPerson.vue";
 import SideBar from "@components/LayoutStructure/Sidebar.vue";
 import { formatNumber, getColorRank, getColorTextPercent } from "@utils/helper";
@@ -11,7 +11,6 @@ export default {
     Tree,
     CircleProgress,
     SideBar,
-    CardExpend,
     CardAll,
     IconPerson,
   },
@@ -50,21 +49,18 @@ export default {
       showModal: false,
       checked: "6",
       agentData: {
-        dateLeave: "64",
-        pc: 11520,
-        pcLeave: "12480",
-        percent: 48,
         firstname: "ลักษมีแข",
         lastname: "เจริญประภาการธนพล",
-        organizationName: "ภาคอาวุโส โภคทรัพย์",
-        rank: "Agent (AG)",
-        code: "135791",
-        codeOrganization: "34246802468",
-        codeGroup: "42086",
-        licenseNo: "08642086",
-        no: "246802468",
         gender: "female",
         image: null,
+        rankPath: "gm",
+        unitName: "GHI",
+        rank: "Senior Executive Vice President (SEVP)",
+        agentId: 123456,
+        unitId: 111222,
+        groupId: 111222,
+        licenseId: 1234567890,
+        icId: 8987654321,
       },
       eliteData: {
         current_q: "Q3",
@@ -95,102 +91,86 @@ export default {
 </script>
 
 <template>
-  <ModalShare id="exampleModal"> </ModalShare>
-  <div class="dashboard">
-    <div
-      class="mb-2 d-flex flex-column flex-lg-row align-items-start align-items-lg-center justify-content-between"
-    >
-      <h1 class="mb-2 mb-lg-0">AGENCY PERFORMANCE TRACKER</h1>
-      <div
-        data-bs-toggle="modal"
-        data-bs-target="#exampleModal"
-        class="share_modal d-flex align-items-center font_semi text_small text-white"
-      >
-        <img src="@assets/image/icon_share.svg" alt="" class="me-2" />
-        Share ผลงานของคุณ
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="expend_mobile mb-3">
+        <CardAll :data="agentData" />
       </div>
-    </div>
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="expend_mobile mb-3">
-          <CardAll :data="agentData" />
+      <div class="box_item p-0 mb-3 mb-lg-0">
+        <div class="head_box" style="padding: 10px 15px 10px 15px">
+          <div
+            class="text_medium color_primary font_semi d-flex align-items-center"
+          >
+            <img src="@assets/image/doc.svg" alt="" class="me-2" />
+            สรุปผลการดำเนินงาน
+          </div>
         </div>
-        <div class="box_item p-0 mb-3 mb-lg-0">
-          <div class="head_box" style="padding: 10px 15px 10px 15px">
-            <div
-              class="text_medium color_primary font_semi d-flex align-items-center"
-            >
-              <img src="@assets/image/doc.svg" alt="" class="me-2" />
-              สรุปผลการดำเนินงาน
+        <div class="p-3">
+          <div
+            class="box_item d-flex align-items-center justify-content-between mb-3"
+            style="min-height: 81px"
+          >
+            <div>
+              <div class="assets_plan">
+                <p
+                  class="d-flex align-items-center color_title font_medium mb-2"
+                >
+                  <img src="@assets/image/assets.svg" alt="" class="me-2" />
+                  จำนวนหน่วย
+                </p>
+              </div>
+              <p class="font_medium text_small color_title">
+                (กลุ่มสายงานตรง รวมหน่วยตนเอง)
+              </p>
+            </div>
+            <div class="font_semi">
+              <p class="color_green text_large">
+                20
+                <span style="font-size: 24px">หน่วย</span>
+              </p>
             </div>
           </div>
-          <div class="p-3">
-            <div
-              class="box_item d-flex align-items-center justify-content-between mb-3"
-              style="min-height: 81px"
-            >
-              <div>
-                <div class="assets_plan">
-                  <p
-                    class="d-flex align-items-center color_title font_medium mb-2"
-                  >
-                    <img src="@assets/image/assets.svg" alt="" class="me-2" />
-                    จำนวนหน่วย
-                  </p>
-                </div>
-                <p class="font_medium text_small color_title">
-                  (กลุ่มสายงานตรง รวมหน่วยตนเอง)
-                </p>
-              </div>
-              <div class="font_semi">
-                <p class="color_green text_large">
-                  20
-                  <span style="font-size: 24px">หน่วย</span>
+          <div
+            class="box_item d-flex align-items-center justify-content-between mb-3"
+            style="min-height: 81px"
+          >
+            <div>
+              <div class="assets_plan">
+                <p
+                  class="d-flex align-items-center color_title font_medium mb-2"
+                >
+                  <img src="@assets/image/assets_2.svg" alt="" class="me-2" />
+                  PC สะสมของกลุ่มรวม
                 </p>
               </div>
             </div>
-            <div
-              class="box_item d-flex align-items-center justify-content-between mb-3"
-              style="min-height: 81px"
-            >
-              <div>
-                <div class="assets_plan">
-                  <p
-                    class="d-flex align-items-center color_title font_medium mb-2"
-                  >
-                    <img src="@assets/image/assets_2.svg" alt="" class="me-2" />
-                    PC สะสมของกลุ่มรวม
-                  </p>
-                </div>
-              </div>
-              <div class="font_semi">
-                <p class="color_green text_large">150,000,000</p>
-              </div>
+            <div class="font_semi">
+              <p class="color_green text_large">150,000,000</p>
             </div>
-            <div
-              class="box_item d-flex align-items-center justify-content-between p-3"
-              style="min-height: 81px"
-            >
-              <div>
-                <div class="assets_plan">
-                  <p
-                    class="d-flex align-items-center color_title font_medium mb-2"
-                    style="font-size: 18px"
-                  >
-                    <img src="@assets/image/assets_3.svg" alt="" class="me-2" />
-                    ประมาณการอัตราความยั่งยืน
-                  </p>
-                </div>
-                <p class="font_medium color_title mb-2" style="font-size: 16px">
-                  ล่วงหน้าสะสม 19 เดือนของกลุ่มตนเอง
-                </p>
-                <p class="font_medium color_title" style="font-size: 16px">
-                  ณ เดือน ธ.ค. 2565
+          </div>
+          <div
+            class="box_item d-flex align-items-center justify-content-between p-3"
+            style="min-height: 81px"
+          >
+            <div>
+              <div class="assets_plan">
+                <p
+                  class="d-flex align-items-center color_title font_medium mb-2"
+                  style="font-size: 18px"
+                >
+                  <img src="@assets/image/assets_3.svg" alt="" class="me-2" />
+                  ประมาณการอัตราความยั่งยืน
                 </p>
               </div>
-              <div class="font_semi">
-                <p class="color_green text_large">55%</p>
-              </div>
+              <p class="font_medium color_title mb-2" style="font-size: 16px">
+                ล่วงหน้าสะสม 19 เดือนของกลุ่มตนเอง
+              </p>
+              <p class="font_medium color_title" style="font-size: 16px">
+                ณ เดือน ธ.ค. 2565
+              </p>
+            </div>
+            <div class="font_semi">
+              <p class="color_green text_large">55%</p>
             </div>
           </div>
         </div>

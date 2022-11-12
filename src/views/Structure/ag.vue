@@ -1,4 +1,5 @@
 <script>
+import { CardAll } from "@components/Dashboard";
 import { Avatar, CircleProgress, Tree } from "@components";
 import SideBar from "@components/LayoutStructure/Sidebar.vue";
 
@@ -9,6 +10,7 @@ export default {
     CircleProgress,
     SideBar,
     Avatar,
+    CardAll,
   },
   created() {
     this.$watch(
@@ -26,6 +28,20 @@ export default {
         gender: "male",
         image: null,
       },
+      agentData: {
+        firstname: "อารียา",
+        lastname: "รัตนาอธิการบดี",
+        gender: "female",
+        image: null,
+        rankPath: "ag",
+        unitName: "GHI",
+        rank: "Agent (AG)",
+        agentId: 123456,
+        unitId: 111222,
+        groupId: 111222,
+        licenseId: 1234567890,
+        icId: 8987654321,
+      },
     };
   },
 };
@@ -33,77 +49,40 @@ export default {
 
 <template>
   <div class="container-fluid p-0">
-    <div class="box_item p-3 mb-3">
-      <div class="d-flex">
-        <div class="image_user me-4">
-          <Avatar :gender="data.gender" :image="data.image" />
-        </div>
-        <div class="grid_2 w-100">
-          <div>
-            <p class="tag_title mb-2 color_primary font_medium">
-              สมใจนึก มิตรสุพรรณพรสกุล
-            </p>
-            <div class="detail_user">
-              <p class="text_small">ชื่อหน่วยงาน</p>
-              <p class="text_small">: GHI</p>
-              <p class="text_small">ตำแหน่งปัจจุบัน</p>
-              <p class="text_small">: Agent (AG)</p>
-              <p class="text_small">รหัสตัวแทน</p>
-              <p class="text_small">: 423456</p>
-              <p class="text_small">รหัสหน่วย</p>
-              <p class="text_small">: 111222</p>
-            </div>
-          </div>
-          <div>
-            <p class="tag_title none_991 mb-2 color_primary font_medium"></p>
-            <div class="detail_user border-0">
-              <p class="text_small">รหัสกลุ่ม</p>
-              <p class="text_small">: 000111</p>
-              <p class="text_small">เลขที่ใบอนุญาต</p>
-              <p class="text_small">: 1234567890</p>
-              <p class="text_small">เลขที่ IC License</p>
-              <p class="text_small">: 0987654321</p>
-            </div>
-            <router-link
-              to="/summary-report"
-              class="font_medium color_primary text_small d-flex align-items-center text-decoration-underline line_heght_24"
-            >
-              <img src="@assets/image/icon_profile_2.svg" alt="" class="me-2" />
-              ดูผลงานรายเดือนย้อนหลัง
-            </router-link>
-          </div>
-        </div>
+    <div class="col-lg-12">
+      <div class="expend_mobile mb-3">
+        <CardAll :data="agentData" />
       </div>
-    </div>
-    <div class="box_item p-0 mb-3">
-      <div
-        class="head_box d-flex justify-content-between align-items-center px-3"
-      >
+      <div class="box_item p-0 mb-3">
         <div
-          class="text_medium color_primary font_semi d-flex align-items-center"
+          class="head_box d-flex justify-content-between align-items-center px-3"
         >
-          <img src="@assets/image/doc.svg" alt="" class="me-2" />
-          วางแผนรักษาสัญญา
+          <div
+            class="text_medium color_primary font_semi d-flex align-items-center"
+          >
+            <img src="@assets/image/doc.svg" alt="" class="me-2" />
+            วางแผนรักษาสัญญา
+          </div>
+          <p class="text_small color_pink mb-0">เหลือเวลาอีก 64 วัน</p>
         </div>
-        <p class="text_small color_pink mb-0">เหลือเวลาอีก 64 วัน</p>
-      </div>
-      <div class="body_box d-flex align-items-center p-3">
-        <div
-          class="box_item_in d-flex align-items-center justify-content-center"
-        >
-          <CircleProgress :percent="48" class="me-5" :size="150" />
-          <div class="assets_plan">
-            <p class="font_22 font_semi color_title">
-              PC สะสม
-              <span class="font_38 font_semi color_primary">288,000</span>
-            </p>
-            <p class="mb-2 color_gray">(ก.ค. 65 - ธ.ค. 65)</p>
-            <p class="color_pink font_semi font_22">
-              ยังขาดอีก 312,000 PC
-              <span class="color_pink font_semi size_18">
-                เพื่อรักษาสัญญาต่อ</span
-              >
-            </p>
+        <div class="body_box d-flex align-items-center p-3">
+          <div
+            class="box_item_in d-flex align-items-center justify-content-center"
+          >
+            <CircleProgress :percent="48" class="me-5" :size="150" />
+            <div class="assets_plan">
+              <p class="font_22 font_semi color_title">
+                PC สะสม
+                <span class="font_38 font_semi color_primary">288,000</span>
+              </p>
+              <p class="mb-2 color_gray">(ก.ค. 65 - ธ.ค. 65)</p>
+              <p class="color_pink font_semi font_22">
+                ยังขาดอีก 312,000 PC
+                <span class="color_pink font_semi size_18">
+                  เพื่อรักษาสัญญาต่อ</span
+                >
+              </p>
+            </div>
           </div>
         </div>
       </div>
