@@ -121,8 +121,8 @@ export default {
     display: none;
   }
 }
+
 .font-medium {
   font-size: 16px;
-  font-family: prompt-medium;
 }
 </style>
