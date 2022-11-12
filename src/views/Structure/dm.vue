@@ -94,9 +94,9 @@ export default {
 
 <template>
   <div>
-    <div class="row mb-3">
-      <div class="col-lg-6">
-        <div class="box_item px-0 mb-3 mb-lg-0">
+    <div class="grid_auto mb-3">
+      <div class="">
+        <div class="box_item px-0 mb-3 mb-lg-0 pb-0">
           <div
             class="head_box d-flex justify-content-between align-items-center"
             style="padding: 0 15px 10px 15px"
@@ -111,10 +111,10 @@ export default {
               เหลือเวลาอีก {{ agentData.dateLeave }} วัน
             </p>
           </div>
-          <div class="row" style="padding: 0 11px 0 15px">
-            <div class="col-md-8 nopaddingright d-flex align-items-center">
+          <div class="grid_auto_in">
+            <div class="d-flex align-items-center p-2">
               <div>
-                <div class="mb-1">
+                <div class="">
                   <span class="text_medium font_semi color_title" style="font-size: 18px">Pc สะสม</span>
                   &nbsp;
                   <span class="text_large font_semi color_primary" style="font-size: 28px">{{
@@ -128,15 +128,13 @@ export default {
                   class="color_pink font_semi"
                   :style="{ color: getColorRank(45) }"
                 >
-                  <span class="" :style="{ 'font-size': '13px' }"
+                  <span class="font_14"
                     >ยังขาดอีก
                   </span>
-                  <span class="text_semi" :style="{ 'font-size': '15px' }"
+                  <span class="font_16"
                     >{{ formatNumber(agentData.pcLeave) }} PC</span
                   >&nbsp;
-                  <span :style="{ 'font-size': '10px' }"
-                    ><br />เพื่อรักษาสัญญาต่อ</span
-                  >
+                  <span class="font_10">เพื่อรักษาสัญญาต่อ</span>
                 </div>
                 <div class="font_semi text_small color_primary" v-else>
                   คุณบรรลุเป้าหมายในการรักษาสัญญาแล้ว
@@ -147,21 +145,21 @@ export default {
                 </div> -->
               </div>
             </div>
-            <div class="col-md-4 nopaddingleft">
-              <div class="right_topic h-100 p-3 p-sm-2 p-xl-3 assets_plan">
-                <p class="text_small font_medium color_primary" style="font-size: 14px">
-                  จำนวนตัวแทนที่ยังมีสัญญา
+            <div class="">
+              <div class="right_topic p-2 h-100" style="border-left: 1px solid #E0E0E0">
+                <p class="font_14 font_medium color_primary">
+                  จำนวนตัวแทน<br/>ที่ยังมีสัญญา
                 </p>
-                <p class="font_medium color_title" style="font-size: 10px">(ไม่รวมตนเอง)</p>
-                <div class="d-flex">
+                <p class="font_10 font_medium color_title">(ไม่รวมตนเอง)</p>
+                <div class="">
                   <div
-                    class="d-flex align-items-center text_large font_semi color_orange"
+                    class="d-inline-flex align-items-center text_large font_semi color_orange"
                     :style="{ color: getColorRank(100) }"
                   >
                     8
-                    <IconPerson class="ms-1 me-2" :color="getColorRank(100)" />
+                    <IconPerson class="ms-1" :color="getColorRank(100)" />
                   </div>
-                  <p class="d-inline-flex color_gray ms-2" style="">(เป้าหมาย 6 คน)</p>
+                  <p class="font_9 d-inline-flex color_gray ms-1" style="">(เป้าหมาย 6 คน)</p>
                 </div>
 
               </div>
@@ -169,8 +167,8 @@ export default {
           </div>
         </div>
       </div>
-      <div class="col-lg-6 nopaddingleft">
-        <CardExpend :data="agentData" />
+      <div class="pb-8">
+        <CardExpend :data="agentData" :style="{ paddingBottom: '8px !important'}"/>
       </div>
     </div>
     <div class="plan_dashboard mb-3">
@@ -575,6 +573,15 @@ export default {
 .head_box {
   border-bottom: 1px solid #e0e0e0;
 }
+.grid_auto{
+  display: grid;
+  grid-template-columns: 395px auto;
+  gap: 15px;
+}
+.grid_auto_in{
+  display: grid;
+  grid-template-columns: auto 130px;
+}
 .font_9 {
   font-size: 9px;
   line-height: 14px;
@@ -589,7 +596,11 @@ export default {
 }
 .font_14 {
   font-size: 14px;
-  line-height: 21px;
+  line-height: 18px;
+}
+.font_16{
+  font-size: 16px;
+  line-height: 24px;
 }
 .font_22 {
   font-size: 22px;
