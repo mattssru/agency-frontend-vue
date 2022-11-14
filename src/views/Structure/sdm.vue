@@ -95,12 +95,12 @@ export default {
 
 <template>
   <div>
-    <div class="row mb-3">
-      <div class="col-lg-7">
-        <div class="box_item p-0 mb-3 mb-lg-0">
+    <div class="grid_auto mb-3">
+      <div class="">
+        <div class="box_item px-0 mb-3 mb-lg-0 pb-0">
           <div
             class="head_box d-flex justify-content-between align-items-center"
-            style="padding: 10px 15px 10px 15px"
+            style="padding: 0 15px 10px 15px"
           >
             <div
               class="text_medium color_primary font_semi d-flex align-items-center"
@@ -111,17 +111,15 @@ export default {
             <p class="text_small color_pink mb-0">
               เหลือเวลาอีก {{ agentData.dateLeave }} วัน
             </p>
-            <!-- <p class="text_small color_gray mb-0">PC สะสม (ม.ค. - ธ.ค. 2565)</p> -->
           </div>
-          <div class="row" style="padding: 0 11px 0 15px">
-            <div class="col-md-7 nopaddingright d-flex align-items-center">
+          <div class="grid_auto_in">
+            <div class="d-flex align-items-center p-2">
               <div>
-                <div class="mb-1">
-                  <span class="text_medium font_semi color_title"
-                    >Pc สะสม
-                  </span>
-                  <span class="text_large font_semi color_primary">{{
-                    formatNumber(288000)
+                <div class="">
+                  <span class="text_medium font_semi color_title" style="font-size: 18px">Pc สะสม</span>
+                  &nbsp;
+                  <span class="text_large font_semi color_primary" style="font-size: 28px">{{
+                    formatNumber(agentData.pc)
                   }}</span
                   ><br />
                   <span class="color_gray">(ม.ค. 65 - ธ.ค. 65)</span>
@@ -131,57 +129,47 @@ export default {
                   class="color_pink font_semi"
                   :style="{ color: getColorRank(45) }"
                 >
-                  <span class="" :style="{ 'font-size': '13px' }"
+                  <span class="font_14"
                     >ยังขาดอีก
                   </span>
-                  <span class="text_semi" :style="{ 'font-size': '15px' }"
-                    >{{ formatNumber(320000) }} PC</span
-                  >
-                  <span :style="{ 'font-size': '10px' }">
-                    เพื่อรักษาสัญญาต่อ</span
-                  >
+                  <span class="font_16"
+                    >{{ formatNumber(agentData.pcLeave) }} PC</span
+                  >&nbsp;
+                  <span class="font_10">เพื่อรักษาสัญญาต่อ</span>
                 </div>
                 <div class="font_semi text_small color_primary" v-else>
                   คุณบรรลุเป้าหมายในการรักษาสัญญาแล้ว
                 </div>
+                <!-- <div class="font_semi text_small color_green">
+                  ยกเว้นการตรวจสอบผลงาน<br />
+                  เพื่อรักษาสัญญาในรอบ 30 มิ.ย. 65
+                </div> -->
               </div>
             </div>
-            <div class="col-md-5 nopaddingleft">
-              <div class="right_topic h-100 p-3 p-sm-2 p-xl-3 assets_plan">
-                <p class="text_small font_medium color_primary">
-                  จำนวนตัวแทนที่ยังมีสัญญา
+            <div class="">
+              <div class="right_topic p-2 h-100" style="border-left: 1px solid #E0E0E0">
+                <p class="font_14 font_medium color_primary">
+                  จำนวนตัวแทน<br/>ที่ยังมีสัญญา
                 </p>
-                <p class="font_medium color_title">(ไม่รวมตนเอง)</p>
-                <div class="d-flex align-items-center">
-                  <img
-                    v-if="100 === 100"
-                    src="@assets/image/icon_congrat.svg"
-                    alt=""
-                    class=""
-                    height="32"
-                    :style="{ 'margin-bottom': '11px', 'margin-right': '11px' }"
-                  />
+                <p class="font_10 font_medium color_title">(ไม่รวมตนเอง)</p>
+                <div class="">
                   <div
-                    class="d-flex align-items-center text_large font_semi color_orange"
+                    class="d-inline-flex align-items-center text_large font_semi color_orange"
                     :style="{ color: getColorRank(100) }"
                   >
-                    160
-                    <IconPerson class="ms-1 me-2" :color="getColorRank(100)" />
+                    8
+                    <IconPerson class="ms-1" :color="getColorRank(100)" />
                   </div>
-                  <p
-                    class="d-inline-flex color_gray ms-2"
-                    :style="{ 'font-size': '10px' }"
-                  >
-                    (เป้าหมาย 8 คน)
-                  </p>
+                  <p class="font_9 d-inline-flex color_gray ms-1" style="">(เป้าหมาย 6 คน)</p>
                 </div>
+
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-lg-5">
-        <CardExpend :data="agentData" />
+      <div class="pb-8">
+        <CardExpend :data="agentData" :style="{ paddingBottom: '8px !important'}"/>
       </div>
     </div>
     <div class="plan_dashboard mb-3">
@@ -217,145 +205,116 @@ export default {
                       aria-labelledby="v-pills-home-tab"
                     >
                       <div class="grid_3 last" style="margin-bottom: 15px">
-                        <div class="box_item d-flex align-items-center py-3">
-                          <div class="assets_plan">
-                            <p class="font_medium mb-2 color_title">
-                              PC สะสมของหน่วย
-                            </p>
-                            <p
-                              class="text_large font_semi color_green d-flex align-items-center mb-1"
-                              :style="{ color: getColorRank(100) }"
-                            >
-                              <img
-                                v-if="100 === 100"
-                                src="@assets/image/icon_congrat.svg"
-                                alt=""
-                                class="me-2"
-                                height="32"
-                                :style="{ 'margin-bottom': '10px' }"
-                              />
-
-                              1,500,000
-                            </p>
-                            <p>(เป้าหมายที่ต้องทำได้ 1,500,000 PC)</p>
-                          </div>
+                        <div class="box_item p-2">
+                          <p class="font_14 font_medium color_title mb-2">
+                            PC สะสมของหน่วยตนเอง
+                          </p>
+                          <p
+                            :style="{ color: getColorRank(88) }"
+                            class="font_26 font_semi color_yellow d-flex mb-1"
+                          >
+                            {{ formatNumber(1400000) }}
+                          </p>
+                          <p class="font_9">
+                            (เป้าหมายที่ต้องทำได้ 1,500,000 PC)
+                          </p>
                         </div>
-                        <div class="box_item d-flex align-items-center py-3">
-                          <div class="assets_plan">
-                            <p class="font_medium mb-2 color_title">
-                              PC สะสมของสายงาน
-                            </p>
-                            <p
-                              class="text_large font_semi color_orange d-flex mb-1"
-                              :style="{ color: getColorRank(70) }"
-                            >
-                              <img
-                                v-if="70 === 100"
-                                src="@assets/image/icon_congrat.svg"
-                                alt=""
-                                class="me-2"
-                                height="32"
-                              />
-                              {{ formatNumber(1700000) }}
-                            </p>
-                            <p>(เป้าหมายที่ต้องทำได้ 12,500,000 PC)</p>
-                          </div>
+                        <div class="box_item p-2">
+                          <p class="font_14 font_medium mb-2 color_title">
+                            PC สะสมของสายงาน
+                          </p>
+                          <p
+                            class="font_26 font_semi d-flex mb-1"
+                            :style="{ color: getColorRank(75) }"
+                          >
+                            {{ formatNumber(7500000) }}
+                          </p>
+                          <p class="font_9">
+                            (เป้าหมายที่ต้องทำได้ 12,500,000 PC)
+                          </p>
                         </div>
-                        <div class="box_item d-flex align-items-center py-3">
-                          <div class="assets_plan">
-                            <p class="font_medium color_title mb-2">
-                              อายุงานในระดับ AL
-                            </p>
-                            <p
-                              class="text_large font_semi color_yellow d-flex mb-1"
-                              :style="{ color: getColorRank(80) }"
-                            >
-                              <img
-                                v-if="80 === 100"
-                                src="@assets/image/icon_congrat.svg"
-                                alt=""
-                                class="me-2"
-                                height="32"
-                              />
-                              21 เดือน
-                            </p>
-                            <p>(เป้าหมาย 24 เดือน)</p>
-                          </div>
+                        <div class="box_item p-2">
+                          <p class="font_12 font_medium mb-2 color_title">
+                            อายุงานในระดับ AL
+                          </p>
+                          <p
+                            :style="{ color: getColorRank(100) }"
+                            class="font_22 font_semi color_green d-flex align-items-end mb-1"
+                            style="font-size: 26px"
+                          >
+                            24 <span class="text_small ms-2">เดือน</span>
+                          </p>
+                          <p class="font_9">(เป้าหมายที่ต้องทำได้ 24 เดือน)</p>
                         </div>
                       </div>
                       <div class="grid_2">
-                        <div class="box_item d-flex align-items-center py-3">
-                          <div class="assets_plan">
-                            <p class="font_medium color_title">
-                              ประมาณการอัตราความยั่งยืน
-                            </p>
-                            <p
-                              class="text_small color_title font_medium mb-2"
-                              :style="{ 'font-size': '13px' }"
-                            >
-                              ล่วงหน้าสะสม 19 เดือน ของสายงาน ณ เดือน ธ.ค. 2565
-                            </p>
-                            <p
-                              class="text_large font_semi d-flex"
-                              style="color: #f86200"
-                              :style="{ color: getColorRankDM(55) }"
-                            >
-                              55%
-                            </p>
-                            <p>(เป้าหมายที่ต้องทำได้ 75%)</p>
-                          </div>
+                        <div class="box_item p-2">
+                          <p class="font_14 font_medium color_title mb-1">
+                            ประมาณการอัตราความยั่งยืน
+                          </p>
+                          <p class="font_10 color_title font_medium mb-1">
+                            ล่วงหน้าสะสม 19 เดือน ของสายงาน<br />ณ เดือน ธ.ค.
+                            2565
+                          </p>
+                          <p
+                            class="font_24 font_semi d-inline-flex"
+                            :style="{ color: getAvpRankColor(53.75) }"
+                          >
+                            <img
+                              src="@assets/image/icon_congrat.svg"
+                              alt=""
+                              width="27"
+                              height="31"
+                              class="me-2"
+                              v-if="53.75 > 80"
+                            />
+                            53.75%
+                          </p>
+                          <span class="font_9 ms-2"
+                            >(เป้าหมายที่ต้องทำได้ 75%)</span
+                          >
                         </div>
                         <div class="box_item p-0">
                           <div class="custom_grid_asset h-100 d-flex">
                             <div
-                              class="assets_plan custom_grid_1 d-flex flex-column justify-content-center"
+                              class="custom_grid_1 d-flex flex-column justify-content-center"
                             >
-                              <p class="font_medium color_title">
-                                จำนวนหน่วยทั้งสายงาน
+                              <p class="font_12 font_medium color_title">
+                                จำนวนหน่วย<br />ทั้งสายงาน
                               </p>
-                              <p
-                                class="text_small color_title font_medium mb-2"
-                              >
+                              <p class="font_10 color_title font_medium">
                                 (รวมหน่วยตนเอง)
                               </p>
                               <p
-                                :style="{ color: getColorRank(100) }"
-                                class="text_large font_semi"
+                                class="font_28 font_semi color_pink"
+                                :style="{ color: getColorRank(20) }"
                               >
-                                <img
-                                  v-if="100 === 100"
-                                  src="@assets/image/icon_congrat.svg"
-                                  alt=""
-                                  class=""
-                                  height="32"
-                                  :style="{ 'margin-bottom': '11px' }"
-                                />
-                                รวม 10
+                                รวม 2
                               </p>
-                              <p>(เป้าหมาย 10 หน่วย)</p>
+                              <p class="font_9">(เป้าหมาย 10 หน่วย)</p>
                             </div>
                             <div class="custom_grid_2">
                               <div
                                 class="d-flex flex-column justify-content-center"
                               >
                                 <p
-                                  class="font_semi"
+                                  class="font_22 font_semi color_pink"
                                   :style="{ color: getColorRank(60) }"
                                 >
-                                  2 หน่วยลูก
+                                  2 <span class="text_small">หน่วยลูก</span>
                                 </p>
-                                <p>(เป้าหมายที่ต้องทำได้ 3 หน่วยลูก)</p>
+                                <p class="font_9">(เป้าหมาย 3 หน่วยลูก)</p>
                               </div>
                               <div
                                 class="d-flex flex-column justify-content-center"
                               >
                                 <p
-                                  class="font_semi"
                                   :style="{ color: getColorRank(0) }"
+                                  class="font_22 font_semi color_pink"
                                 >
-                                  0 หน่วยหลาน
+                                  0 <span class="text_small">หน่วยหลาน</span>
                                 </p>
-                                <p>(เป้าหมาย 1 หน่วยหลาน)</p>
+                                <p class="font_9">(เป้าหมาย 1 หน่วยหลาน)</p>
                               </div>
                             </div>
                           </div>
@@ -473,6 +432,15 @@ export default {
 <style lang="scss" scoped>
 .head_box {
   border-bottom: 1px solid #e0e0e0;
+}
+.grid_auto {
+  display: grid;
+  grid-template-columns: 395px auto;
+  gap: 15px;
+}
+.grid_auto_in {
+  display: grid;
+  grid-template-columns: auto 130px;
 }
 .share_modal {
   cursor: pointer;
