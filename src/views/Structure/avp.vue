@@ -1,6 +1,6 @@
 <script>
 import { CircleProgress, Tree } from "@components";
-import { CardExpend, CardAll } from "@components/Dashboard";
+import { CardExpend, CardAllGM } from "@components/Dashboard";
 import IconPerson from "@components/icons/IconPerson.vue";
 import SideBar from "@components/LayoutStructure/Sidebar.vue";
 import { formatNumber, getColorRank, getColorTextPercent } from "@utils/helper";
@@ -12,7 +12,7 @@ export default {
     CircleProgress,
     SideBar,
     CardExpend,
-    CardAll,
+    CardAllGM,
     IconPerson,
   },
   methods: {
@@ -96,7 +96,7 @@ export default {
     <div class="row">
       <div class="col-lg-12">
         <div class="expend_mobile mb-3">
-          <CardAll :data="agentData" />
+          <CardAllGM :data="agentData" />
         </div>
 
         <div class="box_item p-0 mb-3 mb-lg-0">

@@ -1,7 +1,7 @@
 <script>
 import { CircleProgress, Modal } from "@components";
 import BarChart from "@components/BarChart.vue";
-import { CardExpend, ModalShare } from "@components/Dashboard";
+import { CardExpendGM, ModalShare } from "@components/Dashboard";
 import { getColorRank } from "@utils/helper";
 export default {
   name: "Dashboard-sevp",
@@ -9,7 +9,7 @@ export default {
     BarChart,
     ModalShare,
     CircleProgress,
-    CardExpend,
+    CardExpendGM,
     Modal,
   },
   data() {
@@ -95,7 +95,7 @@ export default {
     <div class="row">
       <div class="col-lg-7">
         <div class="expend_mobile">
-          <CardExpend :data="agentData" />
+          <CardExpendGM :data="agentData" />
         </div>
         <div class="box_item p-0 mb-3 mb-lg-0">
           <div class="head_box" style="padding: 10px 15px 10px 15px">
@@ -194,7 +194,7 @@ export default {
       </div>
       <div class="col-lg-5">
         <div class="expend_desktop">
-          <CardExpend :data="agentData" />
+          <CardExpendGM :data="agentData" />
         </div>
         <div class="box_item mt-3 custom_chart">
           <div class="assets_plan p-3">

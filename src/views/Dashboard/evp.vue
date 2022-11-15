@@ -1,7 +1,7 @@
 <script>
 import { CircleProgress, Modal } from "@components";
 import BarChart from "@components/StackedBar.vue";
-import { CardExpend, ModalShare } from "@components/Dashboard";
+import { CardExpendGM, ModalShare } from "@components/Dashboard";
 import { getColorRank } from "@utils/helper";
 export default {
   name: "Dashboard-avp",
@@ -9,7 +9,7 @@ export default {
     BarChart,
     ModalShare,
     CircleProgress,
-    CardExpend,
+    CardExpendGM,
     Modal,
   },
   data() {
@@ -95,7 +95,7 @@ export default {
     <div class="row">
       <div class="col-lg-7">
         <div class="expend_mobile">
-          <CardExpend :data="agentData" />
+          <CardExpendGM :data="agentData" />
         </div>
         <div class="box_item p-0 mb-3 mb-lg-0">
           <div class="head_box" style="padding: 8px 15px">
@@ -133,7 +133,7 @@ export default {
                     >
                       130,000,000
                     </p>
-                    <p>(เป้าหมายที่ต้องทำได้ 140,000,000 บาท)</p>
+                    <p>(เป้าหมายที่ต้องทำได้ 140,000,000 PC)</p>
                   </div>
                 </div>
               </div>
@@ -220,7 +220,7 @@ export default {
       </div>
       <div class="col-lg-5">
         <div class="expend_desktop">
-          <CardExpend :data="agentData" />
+          <CardExpendGM :data="agentData" />
         </div>
         <div
           class="box_item mt-3 py-3 custom_chart"

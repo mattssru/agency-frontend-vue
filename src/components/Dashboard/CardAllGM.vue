@@ -30,7 +30,7 @@ export default {
               สมใจนึก มิตรสุพรรณพรสกุล
             </p>
             <div class="detail_user">
-              <p class="text_small">ชื่อหน่วยงาน</p>
+              <p class="text_small">ชื่อกลุ่ม</p>
               <p>: {{ data.unitName }}</p>
               <p class="text_small">ตำแหน่งปัจจุบัน</p>
               <p>: {{ data.rank }}</p>
@@ -38,6 +38,7 @@ export default {
               <p>: {{ data.agentId }}</p>
               <p class="text_small">รหัสหน่วย</p>
               <p>: {{ data.unitId }}</p>
+
             </div>
           </div>
           <div>
