@@ -55,7 +55,7 @@ export default {
         firstname: "ลักษมีแข",
         lastname: "เจริญประภาการธนพล",
         organizationName: "ภาคอาวุโส โภคทรัพย์",
-        rank: "Senior Unit Manager (SUM)",
+        rank: "District Manager (DM)",
         code: "135791",
         codeOrganization: "34246802468",
         codeGroup: "42086",
@@ -63,6 +63,7 @@ export default {
         no: "246802468",
         gender: "female",
         image: null,
+        rankPath: "al",
       },
       eliteData: {
         current_q: "Q3",

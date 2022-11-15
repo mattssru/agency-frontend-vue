@@ -55,20 +55,16 @@ export default {
             height="24"
           />
         </div>
-        <div class="custom-profile d-flex flex-column justify-content-between">
+        <div class="custom-profile">
           <div class="name_user color_primary font_medium">
             คุณ{{ `${data.firstname} ` }}
-          </div>
-          <div class="name_user color_primary font_medium">
             <span style="display: inline-block">
               {{ ` ${data.lastname}` }}</span
             >
           </div>
           <div :class="show ? 'detail_user' : 'detail_user mb-2'">
-            <p>ชื่อหน่วยงาน</p>
-            <p class="wrap-position" :class="{ 'full-text': show }">
-              : {{ data.organizationName }}
-            </p>
+            <p>ชื่อกลุ่ม</p>
+            <p>: {{ data.organizationName }}</p>
             <p>ตำแหน่งปัจจุบัน</p>
             <p class="wrap-position" :class="{ 'full-text': show }">
               : {{ data.rank }}
@@ -91,7 +87,13 @@ export default {
               <p>: {{ data.licenseNo }}</p>
             </div>
           </Transition>
-
+          <router-link
+            :to="`/structure-agent/${data.role}`"
+            class="font_medium color_primary text_small d-flex align-items-center mb-2 text-decoration-underline"
+          >
+            <img src="@assets/image/icon_profile_1.svg" alt="" class="me-2" />
+            ดูโครงสร้างและหน่วยงานภายใต้ตัวแทน
+          </router-link>
           <router-link
             :to="`/summary-report/${data.rankPath}`"
             class="font_medium color_primary text_small d-flex align-items-center text-decoration-underline"
@@ -100,7 +102,6 @@ export default {
             ดูผลงานรายเดือนย้อนหลัง
           </router-link>
         </div>
-        <div class="space-btn"></div>
       </div>
       <div class="btnAbsolute">
         <button
@@ -203,14 +204,10 @@ export default {
   font-size: 16px;
   line-height: 24px;
 }
-.space-btn {
-  width: 20px;
-  height: 20px;
-}
 .detail_user {
   color: #414141;
   display: grid;
-  grid-template-columns: minmax(90px, 95px) minmax(95px, auto);
+  grid-template-columns: minmax(auto, 95px) minmax(95px, auto);
 }
 .v-enter-active,
 .v-leave-active {
