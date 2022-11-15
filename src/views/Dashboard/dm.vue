@@ -136,9 +136,10 @@ export default {
                 <div class="mb-1">
                   <span class="text_medium font_semi color_title">Pc สะสม</span>
                   &nbsp;
-                  <span class="text_large font_semi color_primary">{{
-                    formatNumber(agentData.pc)
-                  }}</span
+                  <span
+                    class="text_large font_semi color_primary"
+                    :class="45 < 100 ? 'color_primary' : 'color_green'"
+                    >{{ formatNumber(agentData.pc) }}</span
                   ><br />
                   <span class="color_gray">(ม.ค. 65 - ธ.ค. 65)</span>
                 </div>

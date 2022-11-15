@@ -118,13 +118,15 @@ export default {
               <div class="mb-2">
                 <span class="text_medium font_semi color_title">Pc สะสม</span
                 >&nbsp;
-                <span class="text_large font_semi color_primary">{{
-                  formatNumber(agentData.pc)
-                }}</span
+                <span
+                  class="text_large font_semi color_primary"
+                  :class="45 < 100 ? 'color_primary' : 'color_green'"
+                  >{{ formatNumber(agentData.pc) }}</span
                 >&nbsp;
                 <span class="color_gray">(ม.ค. 65 - ธ.ค. 65)</span>
               </div>
               <div
+                v-if="45 < 100"
                 class="color_pink font_semi"
                 :style="{ color: getColorRank(45) }"
               >
@@ -134,6 +136,12 @@ export default {
                 >&nbsp;
                 <span>เพื่อรักษาสัญญาต่อ</span>
               </div>
+              <div class="font_semi text_medium color_primary mb-1" v-else>
+                คุณบรรลุเป้าหมายในการรักษาสัญญาแล้ว
+              </div>
+              <!-- <div class="font_semi text_small color_green">
+                ยกเว้นการตรวจสอบผลงาน <br />เพื่อรักษาสัญญาในรอบ 30 มิ.ย. 65
+              </div> -->
             </div>
           </div>
         </div>
@@ -152,79 +160,71 @@ export default {
       <div class="d-flex">
         <div class="flex-left">
           <div class="left_plan">
-          <div class="um d-flex align-items-center mb-3">
-          <img src="@assets/image/um.svg" alt="" class="me-2" />
-          UM
-          </div>
+            <div class="um d-flex align-items-center mb-3">
+              <img src="@assets/image/um.svg" alt="" class="me-2" />
+              UM
+            </div>
           </div>
         </div>
         <div class="flex-right">
           <div class="right_plan">
-                  <div class="grid_2">
-                    <div
-                      class="box_item d-flex flex-column align-items-center justify-content-center"
-                    >
-                      <CircleProgress :percent="80" class="mb-2" />
-                      <div class="assets_plan text-center">
-                        <p class="font_16 font_medium color_title color_title">
-                          PC สะสมของหน่วยตนเอง
-                        </p>
-                        <div
-                          class="font_semi text_large mt-2"
-                          :style="{ color: getColorRank(80) }"
-                        >
-                          {{ formatNumber(960000) }}
-                        </div>
-                        <span class="color_gray mb-3 d-block"
-                          >(ม.ค. 65 - ธ.ค. 65)</span
-                        >
-                        <p class="font_10">
-                          (เป้าหมายที่ต้องทำได้ 1,200,000 PC)
-                        </p>
-                      </div>
-                    </div>
-                    <div>
-                      <div class="box_item mb-3 py-2">
-                        <p class="font_14 color_title font_medium">
-                          ประมาณการอัตราความยั่งยืน
-                        </p>
-                        <p class="font_12 color_title font_medium">
-                          ล่วงหน้าสะสม 19 เดือน ของหน่วยตนเอง<br />ณ เดือน ธ.ค.
-                          2565
-                        </p>
-                        <div
-                          class="font_24 font_semi color_pink d-inline-flex"
-                          :style="{ color: getColorTextPercent(30.56) }"
-                        >
-                          {{ 30.56 }}<span>%</span>
-                        </div>
-                        <p class="font_10 d-inline-flex ms-2">
-                          (เป้าหมายที่ต้องทำได้ 80%)
-                        </p>
-                      </div>
-                      <div class="box_item py-2">
-                        <p class="font_16 font_medium color_title me-1">
-                          จำนวนตัวแทน (ไม่รวมตนเอง)
-                        </p>
-                        <p class="color_gray">
-                          ที่ PC >= 30,000 (ม.ค. 65 - ธ.ค. 65)
-                        </p>
-                        <p
-                          class="text_large font_semi d-flex align-items-center"
-                          :style="{ color: getColorRank(66) }"
-                        >
-                          4
-                          <IconPerson
-                            class="ms-1 me-2"
-                            :color="getColorRank(66)"
-                          />
-                        </p>
-                        <!-- <span class="color_gray">(PC สะสมมากว่า 30,000)</span> -->
-                        <p class="font_10">(เป้าหมายที่ต้องทำได้ 6 คน)</p>
-                      </div>
-                    </div>
+            <div class="grid_2">
+              <div
+                class="box_item d-flex flex-column align-items-center justify-content-center"
+              >
+                <CircleProgress :percent="80" class="mb-2" />
+                <div class="assets_plan text-center">
+                  <p class="font_16 font_medium color_title color_title">
+                    PC สะสมของหน่วยตนเอง
+                  </p>
+                  <div
+                    class="font_semi text_large mt-2"
+                    :style="{ color: getColorRank(80) }"
+                  >
+                    {{ formatNumber(960000) }}
                   </div>
+                  <span class="color_gray mb-3 d-block"
+                    >(ม.ค. 65 - ธ.ค. 65)</span
+                  >
+                  <p class="font_10">(เป้าหมายที่ต้องทำได้ 1,200,000 PC)</p>
                 </div>
+              </div>
+              <div>
+                <div class="box_item mb-3 py-2">
+                  <p class="font_14 color_title font_medium">
+                    ประมาณการอัตราความยั่งยืน
+                  </p>
+                  <p class="font_12 color_title font_medium">
+                    ล่วงหน้าสะสม 19 เดือน ของหน่วยตนเอง<br />ณ เดือน ธ.ค. 2565
+                  </p>
+                  <div
+                    class="font_24 font_semi color_pink d-inline-flex"
+                    :style="{ color: getColorTextPercent(30.56) }"
+                  >
+                    {{ 30.56 }}<span>%</span>
+                  </div>
+                  <p class="font_10 d-inline-flex ms-2">
+                    (เป้าหมายที่ต้องทำได้ 80%)
+                  </p>
+                </div>
+                <div class="box_item py-2">
+                  <p class="font_16 font_medium color_title me-1">
+                    จำนวนตัวแทน (ไม่รวมตนเอง)
+                  </p>
+                  <p class="color_gray">ที่ PC >= 30,000 (ม.ค. 65 - ธ.ค. 65)</p>
+                  <p
+                    class="text_large font_semi d-flex align-items-center"
+                    :style="{ color: getColorRank(66) }"
+                  >
+                    4
+                    <IconPerson class="ms-1 me-2" :color="getColorRank(66)" />
+                  </p>
+                  <!-- <span class="color_gray">(PC สะสมมากว่า 30,000)</span> -->
+                  <p class="font_10">(เป้าหมายที่ต้องทำได้ 6 คน)</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -265,11 +265,9 @@ export default {
               <div class="box_item px-2">
                 <p class="font_16 font_medium color_title">จำนวนตัวแทน</p>
                 <p class="font_12 font_medium color_title">(รวมตนเอง)</p>
-                <p class="font_10 color_gray">
-                  (เม.ย. - มิ.ย. 2565)
-                </p>
+                <p class="font_10 color_gray">(เม.ย. - มิ.ย. 2565)</p>
                 <BR></BR>
-                <p
+                <div
                   :style="{ color: getColorRank(100) }"
                   class="text_large font_semi d-flex align-items-center"
                 >
@@ -277,7 +275,7 @@ export default {
                   9
                   <IconPerson class="ms-1 me-1" :color="getColorRank(100)" />
                   <p class="font_9 ms-1 color_gray">(PC >= 30,000)</p>
-                </p>
+                </div>
                 <p class="font_10">(เป้าหมายที่ต้องทำได้ 8 คน)</p>
               </div>
               <div class="box_item">

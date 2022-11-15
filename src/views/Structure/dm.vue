@@ -115,11 +115,17 @@ export default {
             <div class="d-flex align-items-center p-2">
               <div>
                 <div class="">
-                  <span class="text_medium font_semi color_title" style="font-size: 18px">Pc สะสม</span>
+                  <span
+                    class="text_medium font_semi color_title"
+                    style="font-size: 18px"
+                    >Pc สะสม</span
+                  >
                   &nbsp;
-                  <span class="text_large font_semi color_primary" style="font-size: 28px">{{
-                    formatNumber(agentData.pc)
-                  }}</span
+                  <span
+                    class="text_large font_semi color_primary"
+                    style="font-size: 28px"
+                    :class="45 < 100 ? 'color_primary' : 'color_green'"
+                    >{{ formatNumber(agentData.pc) }}</span
                   ><br />
                   <span class="color_gray">(ม.ค. 65 - ธ.ค. 65)</span>
                 </div>
@@ -128,9 +134,7 @@ export default {
                   class="color_pink font_semi"
                   :style="{ color: getColorRank(45) }"
                 >
-                  <span class="font_14"
-                    >ยังขาดอีก
-                  </span>
+                  <span class="font_14">ยังขาดอีก </span>
                   <span class="font_16"
                     >{{ formatNumber(agentData.pcLeave) }} PC</span
                   >&nbsp;
@@ -146,9 +150,12 @@ export default {
               </div>
             </div>
             <div class="">
-              <div class="right_topic p-2 h-100" style="border-left: 1px solid #E0E0E0">
+              <div
+                class="right_topic p-2 h-100"
+                style="border-left: 1px solid #e0e0e0"
+              >
                 <p class="font_14 font_medium color_primary">
-                  จำนวนตัวแทน<br/>ที่ยังมีสัญญา
+                  จำนวนตัวแทน<br />ที่ยังมีสัญญา
                 </p>
                 <p class="font_10 font_medium color_title">(ไม่รวมตนเอง)</p>
                 <div class="">
@@ -159,16 +166,20 @@ export default {
                     8
                     <IconPerson class="ms-1" :color="getColorRank(100)" />
                   </div>
-                  <p class="font_9 d-inline-flex color_gray ms-1" style="">(เป้าหมาย 6 คน)</p>
+                  <p class="font_9 d-inline-flex color_gray ms-1" style="">
+                    (เป้าหมาย 6 คน)
+                  </p>
                 </div>
-
               </div>
             </div>
           </div>
         </div>
       </div>
       <div class="pb-8">
-        <CardExpend :data="agentData" :style="{ paddingBottom: '8px !important'}"/>
+        <CardExpend
+          :data="agentData"
+          :style="{ paddingBottom: '8px !important' }"
+        />
       </div>
     </div>
     <div class="plan_dashboard mb-3">
@@ -213,7 +224,7 @@ export default {
                 >
                   <img src="@assets/image/um.svg" alt="" class="me-2" />
                   SDM
-              </button>
+                </button>
               </div>
             </div>
           </div>
@@ -525,11 +536,9 @@ export default {
               <div class="box_item px-2">
                 <p class="font_16 font_medium color_title">จำนวนตัวแทน</p>
                 <p class="font_12 font_medium color_title">(รวมตนเอง)</p>
-                <p class="font_10 color_gray">
-                  (เม.ย. - มิ.ย. 2565)
-                </p>
+                <p class="font_10 color_gray">(เม.ย. - มิ.ย. 2565)</p>
                 <BR></BR>
-                <p
+                <div
                   :style="{ color: getColorRank(100) }"
                   class="text_large font_semi d-flex align-items-center"
                 >
@@ -537,7 +546,7 @@ export default {
                   9
                   <IconPerson class="ms-1 me-1" :color="getColorRank(100)" />
                   <p class="font_9 ms-1 color_gray">(PC >= 30,000)</p>
-                </p>
+                </div>
                 <p class="font_10">(เป้าหมายที่ต้องทำได้ 8 คน)</p>
               </div>
               <div class="box_item">
@@ -573,12 +582,12 @@ export default {
 .head_box {
   border-bottom: 1px solid #e0e0e0;
 }
-.grid_auto{
+.grid_auto {
   display: grid;
   grid-template-columns: 395px auto;
   gap: 15px;
 }
-.grid_auto_in{
+.grid_auto_in {
   display: grid;
   grid-template-columns: auto 130px;
 }
@@ -598,7 +607,7 @@ export default {
   font-size: 14px;
   line-height: 18px;
 }
-.font_16{
+.font_16 {
   font-size: 16px;
   line-height: 24px;
 }

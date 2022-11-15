@@ -117,13 +117,15 @@ export default {
               <div class="mb-2">
                 <span class="text_medium font_semi color_title">Pc สะสม</span
                 >&nbsp;
-                <span class="text_large font_semi color_primary">{{
-                  formatNumber(agentData.pc)
-                }}</span
+                <span
+                  class="text_large font_semi color_primary"
+                  :class="45 < 100 ? 'color_primary' : 'color_green'"
+                  >{{ formatNumber(agentData.pc) }}</span
                 >&nbsp;
                 <span class="color_gray">(ก.ค. 65 - ธ.ค. 65)</span>
               </div>
               <div
+                v-if="45 < 100"
                 class="color_pink font_semi"
                 :style="{ color: getColorRank(45) }"
               >
@@ -133,6 +135,13 @@ export default {
                 >&nbsp;
                 <span>เพื่อรักษาสัญญาต่อ</span>
               </div>
+              <div class="font_semi text_medium color_primary mb-1" v-else>
+                คุณบรรลุเป้าหมายในการรักษาสัญญาแล้ว
+              </div>
+              <!-- <div class="font_semi text_small color_green">
+                ยกเว้นการตรวจสอบผลงาน<br />
+                เพื่อรักษาสัญญาในรอบ 30 มิ.ย. 65
+              </div> -->
             </div>
           </div>
         </div>
@@ -494,8 +503,8 @@ export default {
               <div class="box_item px-2">
                 <p class="font_medium color_title">PC สะสมของหน่วย</p>
                 <p class="color_gray">(ก.ค. 64 - มิ.ย. 65)</p>
-                <BR></BR>
-                <BR></BR>
+                <br />
+                <br />
 
                 <p
                   :style="{ color: getColorRank(100) }"
@@ -508,11 +517,9 @@ export default {
               <div class="box_item px-2">
                 <p class="font_16 font_medium color_title">จำนวนตัวแทน</p>
                 <p class="font_12 font_medium color_title">(รวมตนเอง)</p>
-                <p class="font_10 color_gray">
-                  (เม.ย. - มิ.ย. 2565)
-                </p>
+                <p class="font_10 color_gray">(เม.ย. - มิ.ย. 2565)</p>
                 <BR></BR>
-                <p
+                <div
                   :style="{ color: getColorRank(100) }"
                   class="text_large font_semi d-flex align-items-center"
                 >
@@ -520,7 +527,7 @@ export default {
                   9
                   <IconPerson class="ms-1 me-1" :color="getColorRank(100)" />
                   <p class="font_9 ms-1 color_gray">(PC >= 30,000)</p>
-                </p>
+                </div>
                 <p class="font_10">(เป้าหมายที่ต้องทำได้ 8 คน)</p>
               </div>
               <div class="box_item">

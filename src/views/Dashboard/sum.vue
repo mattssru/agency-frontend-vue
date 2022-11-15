@@ -102,13 +102,15 @@ export default {
               <div class="mb-2">
                 <span class="text_medium font_semi color_title">PC สะสม</span
                 >&nbsp;
-                <span class="text_large font_semi color_primary">{{
-                  formatNumber(agentData.pc)
-                }}</span
+                <span
+                  class="text_large font_semi color_primary"
+                  :class="45 < 100 ? 'color_primary' : 'color_green'"
+                  >{{ formatNumber(agentData.pc) }}</span
                 >&nbsp;
                 <span class="color_gray">(ม.ค. 65 - ธ.ค. 65)</span>
               </div>
               <div
+                v-if="45 < 100"
                 class="color_pink font_semi"
                 :style="{ color: getColorRank(agentData.percent) }"
               >
@@ -118,6 +120,13 @@ export default {
                 >&nbsp;
                 <span>เพื่อรักษาสัญญาต่อ</span>
               </div>
+              <div class="font_semi text_medium color_primary" v-else>
+                คุณบรรลุเป้าหมายในการรักษาสัญญาแล้ว
+              </div>
+              <!-- <div class="font_semi text_small color_green">
+                ยกเว้นการตรวจสอบผลงาน<br />
+                เพื่อรักษาสัญญาในรอบ 30 มิ.ย. 65
+              </div> -->
             </div>
           </div>
         </div>

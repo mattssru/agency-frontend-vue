@@ -116,11 +116,17 @@ export default {
             <div class="d-flex align-items-center p-2">
               <div>
                 <div class="">
-                  <span class="text_medium font_semi color_title" style="font-size: 18px">Pc สะสม</span>
+                  <span
+                    class="text_medium font_semi color_title"
+                    style="font-size: 18px"
+                    >Pc สะสม</span
+                  >
                   &nbsp;
-                  <span class="text_large font_semi color_primary" style="font-size: 28px">{{
-                    formatNumber(agentData.pc)
-                  }}</span
+                  <span
+                    class="text_large font_semi color_primary"
+                    style="font-size: 28px"
+                    :class="45 < 100 ? 'color_primary' : 'color_green'"
+                    >{{ formatNumber(agentData.pc) }}</span
                   ><br />
                   <span class="color_gray">(ม.ค. 65 - ธ.ค. 65)</span>
                 </div>
@@ -129,9 +135,7 @@ export default {
                   class="color_pink font_semi"
                   :style="{ color: getColorRank(45) }"
                 >
-                  <span class="font_14"
-                    >ยังขาดอีก
-                  </span>
+                  <span class="font_14">ยังขาดอีก </span>
                   <span class="font_16"
                     >{{ formatNumber(agentData.pcLeave) }} PC</span
                   >&nbsp;
@@ -147,9 +151,12 @@ export default {
               </div>
             </div>
             <div class="">
-              <div class="right_topic p-2 h-100" style="border-left: 1px solid #E0E0E0">
+              <div
+                class="right_topic p-2 h-100"
+                style="border-left: 1px solid #e0e0e0"
+              >
                 <p class="font_14 font_medium color_primary">
-                  จำนวนตัวแทน<br/>ที่ยังมีสัญญา
+                  จำนวนตัวแทน<br />ที่ยังมีสัญญา
                 </p>
                 <p class="font_10 font_medium color_title">(ไม่รวมตนเอง)</p>
                 <div class="">
@@ -160,16 +167,20 @@ export default {
                     8
                     <IconPerson class="ms-1" :color="getColorRank(100)" />
                   </div>
-                  <p class="font_9 d-inline-flex color_gray ms-1" style="">(เป้าหมาย 6 คน)</p>
+                  <p class="font_9 d-inline-flex color_gray ms-1" style="">
+                    (เป้าหมาย 6 คน)
+                  </p>
                 </div>
-
               </div>
             </div>
           </div>
         </div>
       </div>
       <div class="pb-8">
-        <CardExpend :data="agentData" :style="{ paddingBottom: '8px !important'}"/>
+        <CardExpend
+          :data="agentData"
+          :style="{ paddingBottom: '8px !important' }"
+        />
       </div>
     </div>
     <div class="plan_dashboard mb-3">

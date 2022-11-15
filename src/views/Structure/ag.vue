@@ -69,19 +69,35 @@ export default {
           <div
             class="box_item_in d-flex align-items-center justify-content-center"
           >
-            <CircleProgress :percent="48" class="me-5" :size="150" />
+            <CircleProgress :percent="100" class="me-5" :size="150" />
             <div class="assets_plan">
               <p class="font_22 font_semi color_title">
                 PC สะสม
-                <span class="font_38 font_semi color_primary">288,000</span>
-              </p>
-              <p class="mb-2 color_gray">(ก.ค. 65 - ธ.ค. 65)</p>
-              <p class="color_pink font_semi font_22">
-                ยังขาดอีก 312,000 PC
-                <span class="color_pink font_semi size_18">
-                  เพื่อรักษาสัญญาต่อ</span
+                <span
+                  class="font_38 font_semi color_primary"
+                  :class="100 < 100 ? 'color_primary' : 'color_green'"
+                  >288,000</span
                 >
               </p>
+              <p class="mb-2 color_gray">(ก.ค. 65 - ธ.ค. 65)</p>
+              <div
+                v-if="100 < 100"
+                class="color_pink font_semi"
+                :style="{ color: getColorRank(100) }"
+              >
+                <span class="font_22">ยังขาดอีก </span>
+                <span class="font_22">{{ formatNumber(312000) }} PC</span>&nbsp;
+                <span class="color_pink font_semi size_18">
+                  เพื่อรักษาสัญญาต่อ
+                </span>
+              </div>
+              <div class="font_semi color_primary size_18" v-else>
+                คุณบรรลุเป้าหมายในการรักษาสัญญาแล้ว
+              </div>
+              <!-- <div class="font_semi color_green size_18">
+                ยกเว้นการตรวจสอบผลงาน<br />
+                เพื่อรักษาสัญญาในรอบ 30 มิ.ย. 65
+              </div> -->
             </div>
           </div>
         </div>
@@ -105,6 +121,9 @@ export default {
 .font_38 {
   font-size: 38px;
   line-height: 46px;
+}
+.size_18 {
+  font-size: 18px;
 }
 .box_item_in {
   background-color: #fff;

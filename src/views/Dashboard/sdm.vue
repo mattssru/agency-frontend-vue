@@ -136,9 +136,10 @@ export default {
                   <span class="text_medium font_semi color_title"
                     >Pc สะสม
                   </span>
-                  <span class="text_large font_semi color_primary">{{
-                    formatNumber(288000)
-                  }}</span
+                  <span
+                    class="text_large font_semi color_primary"
+                    :class="45 < 100 ? 'color_primary' : 'color_green'"
+                    >{{ formatNumber(288000) }}</span
                   ><br />
                   <span class="color_gray">(ม.ค. 65 - ธ.ค. 65)</span>
                 </div>
@@ -157,7 +158,7 @@ export default {
                     เพื่อรักษาสัญญาต่อ</span
                   >
                 </div>
-                <div class="font_semi text_small color_primary" v-else>
+                <div class="font_semi text_medium color_primary" v-else>
                   คุณบรรลุเป้าหมายในการรักษาสัญญาแล้ว
                 </div>
                 <!-- <div class="font_semi text_small color_green">

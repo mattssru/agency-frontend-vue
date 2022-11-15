@@ -84,7 +84,7 @@ export default {
     src="@assets/image/icon_congrat.svg"
     alt=""
     class="me-3"
-    height="60"
+    :height="size - size * 0.15 || '60'"
   />
 
   <!-- <div class="custom-circle">
