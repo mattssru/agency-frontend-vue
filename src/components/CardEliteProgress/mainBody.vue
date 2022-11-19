@@ -8,6 +8,9 @@ export default {
     data: {
       type: Object,
     },
+    click: {
+      type: Function,
+    },
   },
   methods: {
     formatNumber,
@@ -96,7 +99,7 @@ export default {
         </div>
         <div class="btnAbsolute">
           <button
-            @click="show = !show"
+            @click="click"
             class="btnExpend d-flex align-items-center justify-content-center"
           ></button>
         </div>
@@ -198,8 +201,9 @@ button {
   border-bottom: 1px solid #e0e0e0;
 }
 .bottom_right_premier {
-  padding: 15px 50px 0px 15px;
-  min-height: 120px;
+  padding: 9px 50px 10px 15px;
+  min-height: 118px;
+  display: grid;
 }
 
 .items_flexend {

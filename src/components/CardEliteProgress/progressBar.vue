@@ -64,7 +64,7 @@ export default {
       </div>
     </div>
   </div>
-  <div class="row">
+  <div class="row custom-progress">
     <div class="flex-1">
       <div class="progress" style="height: 10px">
         <div
@@ -101,10 +101,11 @@ export default {
   position: relative;
 }
 .custom-progress {
-  min-height: 55px;
+  min-height: 49px;
   display: flex;
   align-items: center;
 }
+
 .text-step-second {
   position: absolute;
   width: max-content;

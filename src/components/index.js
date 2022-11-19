@@ -9,3 +9,4 @@ export { default as Loader } from "./Loader.vue";
 export { default as Avatar } from "./Avatar.vue";
 export { default as TableAG } from "./TableAG.vue";
 export { default as TableGM } from "./TableGM.vue";
+export { default as SuccessIcon } from "./SuccessIcon.vue";

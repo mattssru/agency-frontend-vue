@@ -245,7 +245,7 @@ export default {
                   >
                     <div class="grid_2">
                       <div class="box_item d-flex align-items-center">
-                        <CircleProgress :percent="100" class="me-3" />
+                        <CircleProgress :percent="100" class="me-2" />
                         <div class="assets_plan">
                           <p
                             class="font_medium color_title d-inline-block me-1"
@@ -287,7 +287,7 @@ export default {
                       >
                         30.56%
                       </div> -->
-                        <div v-if="30.56 > 79.99" class="custom-success me-4">
+                        <div v-if="80 > 79.99" class="custom-success me-4">
                           <img
                             src="@assets/image/icon_congrat.svg"
                             alt=""
@@ -296,19 +296,19 @@ export default {
                           />
                           <span
                             class="font_semi text_small"
-                            :style="{ color: getColorTextPercent(30.56) }"
+                            :style="{ color: getColorTextPercent(80) }"
                           >
-                            {{ 30.56
-                            }}<span :style="{ 'font-size': '10px' }">%</span>
+                            {{ 80 }}
+                            <span :style="{ 'font-size': '10px' }">%</span>
                           </span>
                         </div>
                         <div
                           v-else
                           class="font_semi color_pink me-3"
                           style="font-size: 24px; line-height: 36px"
-                          :style="{ color: getColorTextPercent(30.56) }"
+                          :style="{ color: getColorTextPercent(80) }"
                         >
-                          {{ 30.56 }}%
+                          80<span :style="{ 'font-size': '14px' }">%</span>
                         </div>
                         <div class="assets_plan">
                           <p class="font_medium color_title">

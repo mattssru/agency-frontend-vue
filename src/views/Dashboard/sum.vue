@@ -1,5 +1,5 @@
 <script>
-import { Button, Card, CircleProgress } from "@components";
+import { Button, Card, CircleProgress, SuccessIcon } from "@components";
 import { CardExpend, ModalShare } from "@components/Dashboard";
 import IconPerson from "@components/icons/IconPerson.vue";
 import IconTabsFirst from "@components/icons/IconTabsFirst.vue";
@@ -16,6 +16,7 @@ export default {
     CardExpend,
     ModalShare,
     IconPerson,
+    SuccessIcon,
   },
   data() {
     return {
@@ -215,6 +216,13 @@ export default {
                           :style="{ color: getColorRank(88) }"
                           class="text_large font_semi color_yellow d-flex mb-1"
                         >
+                          <img
+                            v-if="88 === 100"
+                            src="@assets/image/icon_congrat.svg"
+                            alt=""
+                            class="me-2"
+                            height="32"
+                          />
                           {{ formatNumber(1400000) }}
                         </p>
                         <p>(เป้าหมายที่ต้องทำได้ 1,500,000 PC)</p>
@@ -229,6 +237,13 @@ export default {
                           class="text_large font_semi d-flex mb-1"
                           :style="{ color: getColorRank(75) }"
                         >
+                          <img
+                            v-if="75 === 100"
+                            src="@assets/image/icon_congrat.svg"
+                            alt=""
+                            class="me-2"
+                            height="32"
+                          />
                           {{ formatNumber(7500000) }}
                         </p>
                         <p>(เป้าหมายที่ต้องทำได้ 12,500,000 PC)</p>
@@ -250,9 +265,8 @@ export default {
                             width="27"
                             height="31"
                             class="me-2"
-                            v-if="88.88 > 80"
+                            v-if="80 === 100"
                           />
-
                           24 เดือน
                         </p>
                         <p>(เป้าหมายที่ต้องทำได้ 24 เดือน)</p>
@@ -281,7 +295,7 @@ export default {
                             width="27"
                             height="31"
                             class="me-2"
-                            v-if="53.75 > 80"
+                            v-if="53.75 > 75"
                           />
                           53.75%
                         </p>
@@ -303,6 +317,14 @@ export default {
                             class="text_large font_semi color_pink"
                             :style="{ color: getColorRank(20) }"
                           >
+                            <img
+                              src="@assets/image/icon_congrat.svg"
+                              alt=""
+                              width="27"
+                              height="31"
+                              class="mb-2"
+                              v-if="88 === 100"
+                            />
                             รวม 2
                           </p>
                           <p>(เป้าหมายที่ต้องทำได้ 10 หน่วย)</p>
@@ -363,31 +385,11 @@ export default {
                     </div>
                     <div>
                       <div class="box_item d-flex align-items-center mb-3">
-                        <div v-if="88.56 > 79.99" class="custom-success me-3">
-                          <img
-                            src="@assets/image/icon_congrat.svg"
-                            alt=""
-                            class=""
-                            height="60"
-                          />
-                          <span
-                            class="font_semi text_small"
-                            :style="{ color: getColorTextPercent(88.56) }"
-                          >
-                            {{ 88.56
-                            }}<span :style="{ 'font-size': '10px' }">%</span>
-                          </span>
-                        </div>
-                        <div
-                          v-else
-                          class="font_semi color_pink me-1"
-                          style="font-size: 24px; line-height: 36px"
-                          :style="{ color: getColorTextPercent(88.56) }"
-                        >
-                          {{ 88.56
-                          }}<span :style="{ 'font-size': '10px' }">%</span>
-                        </div>
-                        <div class="assets_plan">
+                        <SuccessIcon
+                          percent="88.56"
+                          :style="{ 'margin-right': '12px' }"
+                        />
+                        <div class="assets_plan ms-1">
                           <p class="color_title font_medium d-inline-block">
                             ประมาณการอัตราความยั่งยืน<br />
                             <span
@@ -459,31 +461,11 @@ export default {
                     </div>
                     <div>
                       <div class="box_item d-flex align-items-center mb-3">
-                        <div v-if="88.56 > 79.99" class="custom-success me-3">
-                          <img
-                            src="@assets/image/icon_congrat.svg"
-                            alt=""
-                            class=""
-                            height="60"
-                          />
-                          <span
-                            class="font_semi text_small"
-                            :style="{ color: getColorTextPercent(88.56) }"
-                          >
-                            {{ 88.56
-                            }}<span :style="{ 'font-size': '10px' }">%</span>
-                          </span>
-                        </div>
-                        <div
-                          v-else
-                          class="font_semi color_pink me-1"
-                          style="font-size: 24px; line-height: 36px"
-                          :style="{ color: getColorTextPercent(88.56) }"
-                        >
-                          {{ 88.56
-                          }}<span :style="{ 'font-size': '10px' }">%</span>
-                        </div>
-                        <div class="assets_plan">
+                        <SuccessIcon
+                          percent="88.88"
+                          :style="{ 'margin-right': '12px' }"
+                        />
+                        <div class="assets_plan ms-1">
                           <p class="color_title font_medium d-inline-block">
                             ประมาณการอัตราความยั่งยืน<br />
                             <span

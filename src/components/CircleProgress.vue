@@ -83,7 +83,7 @@ export default {
     v-else
     src="@assets/image/icon_congrat.svg"
     alt=""
-    class="me-3"
+    class="wrap-img"
     :height="size - size * 0.15 || '60'"
   />
 
@@ -119,6 +119,9 @@ export default {
   background: #dddddd;
   border-radius: 50%;
   border: 1px solid #dddddd;
+}
+.wrap-img {
+  min-width: v-bind(outSize);
 }
 
 .circle-wrap .circle .mask,

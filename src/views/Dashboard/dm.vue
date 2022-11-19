@@ -278,9 +278,9 @@ export default {
                             :style="{ 'margin-bottom': '10px' }"
                           />
 
-                          1,500,000
+                          {{ formatNumber(1500000) }}
                         </p>
-                        <p>(เป้าหมายที่ต้องทำได้ 1,500,000 บาท)</p>
+                        <p>(เป้าหมายที่ต้องทำได้ 1,500,000 PC)</p>
                       </div>
                     </div>
                     <div class="box_item d-flex align-items-center py-3">
@@ -299,9 +299,9 @@ export default {
                             class="me-2"
                             height="32"
                           />
-                          850,000
+                          {{ formatNumber(850000) }}
                         </p>
-                        <p>(เป้าหมายที่ต้องทำได้ 1,250,000 บาท)</p>
+                        <p>(เป้าหมายที่ต้องทำได้ 1,250,000 PC)</p>
                       </div>
                     </div>
                     <div class="box_item d-flex align-items-center py-3">
@@ -341,6 +341,13 @@ export default {
                           style="color: #f86200"
                           :style="{ color: getColorRankDM(55) }"
                         >
+                          <img
+                            v-if="55 >= 75"
+                            src="@assets/image/icon_congrat.svg"
+                            alt=""
+                            class="me-2"
+                            height="32"
+                          />
                           55%
                         </p>
                         <p>(เป้าหมายที่ต้องทำได้ 75%)</p>

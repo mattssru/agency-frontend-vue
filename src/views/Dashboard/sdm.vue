@@ -235,7 +235,7 @@ export default {
                     <div class="box_item d-flex align-items-center py-3">
                       <div class="assets_plan">
                         <p class="font_medium mb-2 color_title">
-                          PC สะสมของหน่วย
+                          PC สะสมของหน่วยตนเอง
                         </p>
                         <p
                           class="text_large font_semi color_green d-flex align-items-center mb-1"
@@ -250,9 +250,9 @@ export default {
                             :style="{ 'margin-bottom': '10px' }"
                           />
 
-                          1,500,000
+                          {{ formatNumber(1500000) }}
                         </p>
-                        <p>(เป้าหมายที่ต้องทำได้ 1,500,000 บาท)</p>
+                        <p>(เป้าหมายที่ต้องทำได้ 1,500,000 PC)</p>
                       </div>
                     </div>
                     <div class="box_item d-flex align-items-center py-3">
@@ -277,24 +277,32 @@ export default {
                       </div>
                     </div>
                     <div class="box_item d-flex align-items-center py-3">
-                      <div class="assets_plan">
+                      <div class="assets_plan wrap-age">
                         <p class="font_medium color_title mb-2">
                           อายุงานในระดับ AL
                         </p>
-                        <p
-                          class="text_large font_semi color_yellow d-flex mb-1"
-                          :style="{ color: getColorRank(80) }"
-                        >
-                          <img
-                            v-if="80 === 100"
-                            src="@assets/image/icon_congrat.svg"
-                            alt=""
-                            class="me-2"
-                            height="32"
-                          />
-                          21 เดือน
-                        </p>
-                        <p>(เป้าหมายที่ต้องทำได้ 24 เดือน)</p>
+                        <div>
+                          <p
+                            class="font_semi color_yellow d-flex mb-2"
+                            :style="{
+                              color: getColorRank(80),
+                              fontSize: '26px',
+                            }"
+                          >
+                            <img
+                              v-if="80 === 100"
+                              src="@assets/image/icon_congrat.svg"
+                              alt=""
+                              class="me-2"
+                              height="32"
+                            />
+                            21
+                            <span :style="{ 'font-size': '24px' }">
+                              &nbsp;เดือน
+                            </span>
+                          </p>
+                          <p>(เป้าหมายที่ต้องทำได้ 24 เดือน)</p>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -315,7 +323,13 @@ export default {
                           style="color: #f86200"
                           :style="{ color: getColorRankDM(55) }"
                         >
-                          55%
+                          <img
+                            v-if="55 >= 75"
+                            src="@assets/image/icon_congrat.svg"
+                            alt=""
+                            class="me-2"
+                            height="32"
+                          />55%
                         </p>
                         <p>(เป้าหมายที่ต้องทำได้ 75%)</p>
                       </div>
@@ -501,6 +515,12 @@ export default {
 }
 .footer {
   margin-top: 7px;
+}
+.wrap-age {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .title_modal {
   font-size: 16px;

@@ -1,5 +1,5 @@
 <script>
-import { Button, Card, CircleProgress } from "@components";
+import { Button, Card, CircleProgress, SuccessIcon } from "@components";
 import { CardExpend, ModalShare } from "@components/Dashboard";
 import IconTabsFirst from "@components/icons/IconTabsFirst.vue";
 import IconTabsSecon from "@components/icons/IconTabsSecon.vue";
@@ -17,6 +17,7 @@ export default {
     CardExpend,
     ModalShare,
     IconPerson,
+    SuccessIcon,
   },
   data() {
     return {
@@ -163,29 +164,10 @@ export default {
                 </div>
                 <div>
                   <div class="box_item d-flex align-items-center mb-3">
-                    <div v-if="88.56 > 79.99" class="custom-success me-3">
-                      <img
-                        src="@assets/image/icon_congrat.svg"
-                        alt=""
-                        class=""
-                        height="60"
-                      />
-                      <span
-                        class="font_semi text_small"
-                        :style="{ color: getColorTextPercent(88.56) }"
-                      >
-                        {{ 88.56
-                        }}<span :style="{ 'font-size': '10px' }">%</span>
-                      </span>
-                    </div>
-                    <div
-                      v-else
-                      class="font_semi color_pink me-1"
-                      style="font-size: 24px; line-height: 36px"
-                      :style="{ color: getColorTextPercent(88.56) }"
-                    >
-                      {{ 88.56 }}<span :style="{ 'font-size': '10px' }">%</span>
-                    </div>
+                    <SuccessIcon
+                      percent="88.88"
+                      :style="{ 'margin-right': '12px' }"
+                    />
                     <div class="assets_plan">
                       <p class="color_title font_medium d-inline-block">
                         ประมาณการอัตราความยั่งยืน<br />
@@ -274,7 +256,7 @@ export default {
                         height="31"
                         class="me-2 mb-2"
                       />
-                      1,600,000
+                      {{ formatNumber(1600000) }}
                     </p>
                     <p>(เป้าหมายที่ต้องทำได้ 1,500,000 PC)</p>
                   </div>
@@ -299,7 +281,7 @@ export default {
                         class="me-2 mb-2"
                         v-if="100 >= 80"
                       />
-                      9
+                      {{ formatNumber(9) }}
                       <IconPerson
                         class="ms-1 me-2"
                         :color="getColorRank(100)"
@@ -324,7 +306,7 @@ export default {
                         class="me-2 mb-2"
                         v-if="50 >= 80"
                       />
-                      1
+                      {{ formatNumber(1) }}
                       <IconPerson class="ms-1 me-2" :color="getColorRank(50)" />
                     </p>
                     <p>(เป้าหมายที่ต้องทำได้ 2 คน)</p>
@@ -525,9 +507,5 @@ div#show-modal {
 }
 .border_right {
   border-right: 1px solid #e0e0e0;
-}
-.custom-success {
-  width: 72px;
-  text-align: center;
 }
 </style>

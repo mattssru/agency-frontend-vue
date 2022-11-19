@@ -28,6 +28,9 @@ export default {
       }
       return image;
     },
+    handleClick() {
+      this.show = !this.show;
+    },
   },
   data() {
     return {
@@ -45,7 +48,7 @@ export default {
       :style="{ visibility: show ? 'hidden' : 'visible' }"
       class="premier_dashboard"
     >
-      <MainBody @click="show = !show" :data="data" />
+      <MainBody :click="handleClick" :data="data" />
     </div>
     <Transition name="slide-up">
       <div v-if="show" class="second premier_dashboard">
