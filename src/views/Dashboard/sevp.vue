@@ -2,7 +2,7 @@
 import { CircleProgress, Modal } from "@components";
 import BarChart from "@components/BarChart.vue";
 import { CardExpendGM, ModalShare } from "@components/Dashboard";
-import { getColorRank } from "@utils/helper";
+import { formatNumber, getColorRank } from "@utils/helper";
 export default {
   name: "Dashboard-sevp",
   components: {
@@ -146,7 +146,9 @@ export default {
                 </div>
               </div>
               <div class="font_semi">
-                <p class="color_green text_large">150,000,000</p>
+                <p class="color_green text_large">
+                  {{ formatNumber(150000000) }}
+                </p>
               </div>
             </div>
             <div

@@ -2,7 +2,7 @@
 import { CircleProgress, Modal } from "@components";
 import BarChart from "@components/BarChart.vue";
 import { CardExpendGM, ModalShare } from "@components/Dashboard";
-import { getColorRank } from "@utils/helper";
+import { formatNumber, getColorRank } from "@utils/helper";
 export default {
   name: "Dashboard-avp",
   components: {
@@ -118,20 +118,16 @@ export default {
                   class="box_item d-flex flex-column align-items-center justify-content-center text-center"
                   style="min-height: 244px"
                 >
-                  <CircleProgress
-                    :percent="80"
-                    class="mb-3"
-                    bgColor="#FAB600"
-                  />
+                  <CircleProgress :percent="80" class="mb-3" />
                   <div class="assets_plan">
                     <p class="font_medium color_title">PC สะสมของกลุ่มรวม</p>
                     <p
                       class="color_yellow font_semi text_large"
                       :style="{ color: getColorRank(80) }"
                     >
-                      40,000,000
+                      {{ formatNumber(40000000) }}
                     </p>
-                    <p>(เป้าหมายที่ต้องทำได้ 50,000,000 PC)</p>
+                    <p>(เป้าหมายที่ต้องทำได้ 50,000,000 บาท)</p>
                   </div>
                 </div>
               </div>
@@ -169,10 +165,16 @@ export default {
                       2565
                     </p>
                     <p
-                      class="text_large font_semi color_orange"
-                      :style="{ color: getColorRank(55) }"
+                      class="text_large font_semi color_orange d-flex mt-1"
+                      :style="{ color: getColorRankDM(55) }"
                     >
-                      55%
+                      <img
+                        v-if="66 >= 75"
+                        src="@assets/image/icon_congrat.svg"
+                        alt=""
+                        class="me-2"
+                        height="32"
+                      />55%
                     </p>
                     <p>(เป้าหมายที่ต้องทำได้ 75%)</p>
                   </div>

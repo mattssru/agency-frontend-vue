@@ -1,8 +1,8 @@
 <script>
 import { CircleProgress, Modal } from "@components";
-import BarChart from "@components/StackedBar.vue";
+import BarChart from "@components/BarChart.vue";
 import { CardExpendGM, ModalShare } from "@components/Dashboard";
-import { getColorRank } from "@utils/helper";
+import { formatNumber, getColorRank } from "@utils/helper";
 export default {
   name: "Dashboard-avp",
   components: {
@@ -117,11 +117,7 @@ export default {
                   class="box_item d-flex flex-column align-items-center justify-content-center text-center p-3"
                   style="height: calc(100% - 70px)"
                 >
-                  <CircleProgress
-                    :percent="80"
-                    class="mb-3"
-                    bgColor="#FAB600"
-                  />
+                  <CircleProgress :percent="80" class="mb-3" />
                   <div class="assets_plan">
                     <p class="font_medium color_title">PC สะสมของกลุ่มรวม</p>
                     <p class="font_medium color_title text_small mb-2">
@@ -131,7 +127,7 @@ export default {
                       class="color_yellow font_semi text_large"
                       :style="{ color: getColorRank(80) }"
                     >
-                      130,000,000
+                      {{ formatNumber(130000000) }}
                     </p>
                     <p>(เป้าหมายที่ต้องทำได้ 140,000,000 PC)</p>
                   </div>
@@ -151,8 +147,32 @@ export default {
                     </p>
                   </div>
                   <div>
-                    <p class="color_orange font_semi text_large">2 ปี</p>
-                    <p style="font-size: 10.5px; line-height: 15px">
+                    <p
+                      class="color_orange font_semi text_large"
+                      :style="{
+                        'text-align': 'right',
+                        'line-height': '27px',
+                        'font-size': '28px',
+                      }"
+                    >
+                      <span v-if="true">
+                        <!-- TODO: set condition for data api -->
+                        2
+                        <span :style="{ 'font-size': '24px' }">ปี </span>
+                      </span>
+                      <span v-if="true">
+                        <!-- TODO: set condition for data api -->
+                        3
+                        <span :style="{ 'font-size': '24px' }">เดือน </span>
+                      </span>
+                    </p>
+                    <p
+                      style="
+                        font-size: 10.5px;
+                        line-height: 15px;
+                        text-align: right;
+                      "
+                    >
                       (เป้าหมาย 3 ปี)
                     </p>
                   </div>
@@ -189,13 +209,25 @@ export default {
                       ล่วงหน้าสะสม 19 เดือน ของกลุ่มตนเอง
                     </p>
                     <p class="color_title font_medium">ณ เดือน ธ.ค. 2565</p>
-                    <p
-                      class="text_28 font_semi color_orange d-inline-block"
-                      :style="{ color: getColorRank(55) }"
-                    >
-                      55%
-                    </p>
-                    <span class="ms-2">(เป้าหมายที่ต้องทำได้ 75%)</span>
+                    <div class="d-flex align-items-end">
+                      <p
+                        class="text_28 font_semi color_orange d-flex align-items-end"
+                        :style="{
+                          color: getColorRank(55),
+                          'font-size': '28px',
+                        }"
+                      >
+                        <img
+                          v-if="66 >= 75"
+                          src="@assets/image/icon_congrat.svg"
+                          alt=""
+                          height="25"
+                          class="me-1"
+                        />
+                        55%
+                      </p>
+                      <span class="ms-1">(เป้าหมายที่ต้องทำได้ 75%)</span>
+                    </div>
                   </div>
                 </div>
               </div>

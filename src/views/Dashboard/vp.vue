@@ -2,9 +2,9 @@
 import { CircleProgress, Modal } from "@components";
 import BarChart from "@components/BarChart.vue";
 import { CardExpendGM, ModalShare } from "@components/Dashboard";
-import { getColorRank } from "@utils/helper";
+import { formatNumber, getColorRank } from "@utils/helper";
 export default {
-  name: "Dashboard-vp",
+  name: "Dashboard-avp",
   components: {
     BarChart,
     ModalShare,
@@ -22,7 +22,7 @@ export default {
         firstname: "ลักษมีแข",
         lastname: "เจริญประภาการธนพล",
         organizationName: "ภาคอาวุโส โภคทรัพย์",
-        rank: "Vice President (VP)",
+        rank: "Assistant Vice President (AVP)",
         code: "135791",
         codeOrganization: "34246802468",
         codeGroup: "42086",
@@ -31,8 +31,8 @@ export default {
         rankCode: "franchise",
         gender: "female",
         image: null,
-        role: "vp",
         rankPath: "gm",
+        role: "avp",
       },
       activeData: {
         labels: [
@@ -115,23 +115,19 @@ export default {
                   EVP
                 </div>
                 <div
-                  class="box_item d-flex flex-column align-items-center justify-content-center text-center mb-3"
+                  class="box_item d-flex flex-column align-items-center justify-content-center text-center"
                   style="min-height: 244px"
                 >
-                  <CircleProgress
-                    :percent="80"
-                    class="mb-3"
-                    bgColor="#FAB600"
-                  />
+                  <CircleProgress :percent="80" class="mb-3" />
                   <div class="assets_plan">
                     <p class="font_medium color_title">PC สะสมของกลุ่มรวม</p>
                     <p
                       class="color_yellow font_semi text_large"
                       :style="{ color: getColorRank(80) }"
                     >
-                      24,000,000
+                      {{ formatNumber(24000000) }}
                     </p>
-                    <p>(เป้าหมายที่ต้องทำได้ 30,000,000 PC)</p>
+                    <p>(เป้าหมายที่ต้องทำได้ 30,000,000 บาท)</p>
                   </div>
                 </div>
               </div>
@@ -159,7 +155,7 @@ export default {
                     </div>
                   </div>
                 </div>
-                <div class="box_item py-2 px-3 mb-3">
+                <div class="box_item py-2 px-3">
                   <div class="assets_plan">
                     <p class="color_title font_medium mb-1">
                       ประมาณการอัตราความยั่งยืน
@@ -169,10 +165,16 @@ export default {
                       2565
                     </p>
                     <p
-                      class="text_large font_semi color_orange"
-                      :style="{ color: getColorRank(55) }"
+                      class="text_large font_semi color_orange d-flex mt-1"
+                      :style="{ color: getColorRankDM(55) }"
                     >
-                      55%
+                      <img
+                        v-if="66 >= 75"
+                        src="@assets/image/icon_congrat.svg"
+                        alt=""
+                        class="me-2"
+                        height="32"
+                      />55%
                     </p>
                     <p>(เป้าหมายที่ต้องทำได้ 75%)</p>
                   </div>
@@ -201,7 +203,7 @@ export default {
         <div class="expend_desktop">
           <CardExpendGM :data="agentData" />
         </div>
-        <div class="box_item mt-3 custom_chart" :style="{ height: '500px' }">
+        <div class="box_item mt-3 custom_chart" :style="{ height: '482px' }">
           <div class="assets_plan p-3">
             <p class="font_medium color_title text-center">
               PC สะสมของกลุ่มตนเอง <br />รายไตรมาส (ต.ค. 2564 - ก.ย. 2565)
@@ -212,7 +214,7 @@ export default {
             id="pc-data"
             :fontSize="10"
             :width="375"
-            :height="400"
+            :height="382"
             :barWidth="38"
           />
         </div>
