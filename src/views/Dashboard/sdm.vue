@@ -128,18 +128,20 @@ export default {
             </p>
             <!-- <p class="text_small color_gray mb-0">PC สะสม (ม.ค. - ธ.ค. 2565)</p> -->
           </div>
-          <div class="row" style="padding: 0 11px 0 15px">
-            <div class="col-md-7 nopaddingright d-flex align-items-center">
+          <div
+            class="d-flex justify-content-between"
+            style="padding: 0 0px 0 15px"
+          >
+            <div class="nopaddingright d-flex align-items-center">
               <CircleProgress :percent="45" class="me-2" />
               <div>
                 <div class="mb-1">
-                  <span class="text_medium font_semi color_title"
-                    >Pc สะสม
-                  </span>
+                  <span class="text_medium font_semi color_title">Pc สะสม</span>
+                  &nbsp;
                   <span
                     class="text_large font_semi color_primary"
                     :class="45 < 100 ? 'color_primary' : 'color_green'"
-                    >{{ formatNumber(288000) }}</span
+                    >{{ formatNumber(agentData.pc) }}</span
                   ><br />
                   <span class="color_gray">(ม.ค. 65 - ธ.ค. 65)</span>
                 </div>
@@ -152,49 +154,52 @@ export default {
                     >ยังขาดอีก
                   </span>
                   <span class="text_semi" :style="{ 'font-size': '15px' }"
-                    >{{ formatNumber(320000) }} PC</span
-                  >
-                  <span :style="{ 'font-size': '10px' }">
-                    เพื่อรักษาสัญญาต่อ</span
+                    >{{ formatNumber(agentData.pcLeave) }} PC</span
+                  >&nbsp;
+                  <span :style="{ 'font-size': '10px' }"
+                    >เพื่อรักษาสัญญาต่อ</span
                   >
                 </div>
-                <div class="font_semi text_medium color_primary" v-else>
+                <!-- <div class="font_semi text_small color_primary" v-else>
                   คุณบรรลุเป้าหมายในการรักษาสัญญาแล้ว
-                </div>
-                <!-- <div class="font_semi text_small color_green">
-                  ยกเว้นการตรวจสอบผลงาน<br />
-                  เพื่อรักษาสัญญาในรอบ 30 มิ.ย. 65
                 </div> -->
+                <div
+                  class="font_semi text_small color_green"
+                  :style="{ 'font-size': '13px' }"
+                  v-else
+                >
+                  ยกเว้นการตรวจสอบผลงานเพื่อรักษาสัญญา
+                </div>
               </div>
             </div>
-            <div class="col-md-5 nopaddingleft">
+            <div
+              class="nopaddingleft nopaddingright"
+              :style="{ width: '215px' }"
+            >
               <div class="right_topic h-100 p-3 p-sm-2 p-xl-3 assets_plan">
                 <p class="text_small font_medium color_primary">
                   จำนวนตัวแทนที่ยังมีสัญญา
                 </p>
                 <p class="font_medium color_title">(ไม่รวมตนเอง)</p>
-                <div class="d-flex align-items-center">
+                <div class="d-flex">
                   <img
                     v-if="100 === 100"
                     src="@assets/image/icon_congrat.svg"
                     alt=""
                     class=""
                     height="32"
-                    :style="{ 'margin-bottom': '11px', 'margin-right': '11px' }"
+                    :style="{ 'margin-right': '11px' }"
                   />
                   <div
                     class="d-flex align-items-center text_large font_semi color_orange"
                     :style="{ color: getColorRank(100) }"
                   >
-                    160
+                    8
                     <IconPerson class="ms-1 me-2" :color="getColorRank(100)" />
                   </div>
-                  <p
-                    class="d-inline-flex color_gray ms-2"
-                    :style="{ 'font-size': '10px' }"
-                  >
-                    (เป้าหมายที่ต้อง ทำได้ 8 คน)
-                  </p>
+                  <!-- <p class="d-inline-flex color_gray ms-2">
+                    (เป้าหมายที่ต้อง ทำได้ 6 คน)
+                  </p> -->
                 </div>
               </div>
             </div>

@@ -129,9 +129,12 @@ export default {
             </p>
             <!-- <p class="text_small color_gray mb-0">PC สะสม (ม.ค. - ธ.ค. 2565)</p> -->
           </div>
-          <div class="row" style="padding: 0 11px 0 15px">
-            <div class="col-md-7 nopaddingright d-flex align-items-center">
-              <CircleProgress :percent="45" class="me-2" />
+          <div
+            class="d-flex justify-content-between"
+            style="padding: 0 0px 0 15px"
+          >
+            <div class="nopaddingright d-flex align-items-center">
+              <CircleProgress :percent="100" class="me-2" />
               <div>
                 <div class="mb-1">
                   <span class="text_medium font_semi color_title">Pc สะสม</span>
@@ -144,7 +147,7 @@ export default {
                   <span class="color_gray">(ม.ค. 65 - ธ.ค. 65)</span>
                 </div>
                 <div
-                  v-if="45 < 100"
+                  v-if="100 < 100"
                   class="color_pink font_semi"
                   :style="{ color: getColorRank(45) }"
                 >
@@ -158,16 +161,22 @@ export default {
                     >เพื่อรักษาสัญญาต่อ</span
                   >
                 </div>
-                <div class="font_semi text_small color_primary" v-else>
+                <!-- <div class="font_semi text_small color_primary" v-else>
                   คุณบรรลุเป้าหมายในการรักษาสัญญาแล้ว
-                </div>
-                <!-- <div class="font_semi text_small color_green">
-                  ยกเว้นการตรวจสอบผลงาน<br />
-                  เพื่อรักษาสัญญาในรอบ 30 มิ.ย. 65
                 </div> -->
+                <div
+                  class="font_semi text_small color_green"
+                  :style="{ 'font-size': '13px' }"
+                  v-else
+                >
+                  ยกเว้นการตรวจสอบผลงานเพื่อรักษาสัญญา
+                </div>
               </div>
             </div>
-            <div class="col-md-5 nopaddingleft">
+            <div
+              class="nopaddingleft nopaddingright"
+              :style="{ width: '215px' }"
+            >
               <div class="right_topic h-100 p-3 p-sm-2 p-xl-3 assets_plan">
                 <p class="text_small font_medium color_primary">
                   จำนวนตัวแทนที่ยังมีสัญญา
@@ -189,9 +198,9 @@ export default {
                     8
                     <IconPerson class="ms-1 me-2" :color="getColorRank(100)" />
                   </div>
-                  <p class="d-inline-flex color_gray ms-2">
+                  <!-- <p class="d-inline-flex color_gray ms-2">
                     (เป้าหมายที่ต้อง ทำได้ 6 คน)
-                  </p>
+                  </p> -->
                 </div>
               </div>
             </div>
